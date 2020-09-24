@@ -1,0 +1,153 @@
+# ListTags
+
+调用ListTags，查询所有可见的用户标签。
+
+## 调试
+
+[您可以在OpenAPI Explorer中直接运行该接口，免去您计算签名的困扰。运行成功后，OpenAPI Explorer可以自动生成SDK代码示例。](https://api.aliyun.com/#product=elasticsearch&api=ListTags&type=ROA&version=2017-06-13)
+
+## 请求头
+
+该接口使用公共请求头，无特殊请求头。请参见公共请求参数文档。
+
+## 请求语法
+
+```
+GET /openapi/tags/all-tags HTTPS|HTTP
+```
+
+## 请求参数
+
+|名称|类型|是否必选|示例值|描述|
+|--|--|----|---|--|
+|pageSize|Integer|是|20|返回结果的分页数。 |
+|resourceType|String|否|INSTANCE|资源类型，固定为INSTANCE。 |
+
+## 返回数据
+
+|名称|类型|示例值|描述|
+|--|--|---|--|
+|RequestId|String|5FFD9ED4-C2EC-4E89-B22B-1ACB6FE1D\*\*\*|请求ID。 |
+|Result|Array of Result| |返回结果。 |
+|TagKey|String|env|标签键。 |
+|TagValue|String|dev|标签值。 |
+
+## 示例
+
+请求示例
+
+```
+GET /openapi/tags/all-tags?pageSize=20 HTTP/1.1
+公共请求头
+```
+
+正常返回示例
+
+`XML` 格式
+
+```
+<Result>
+    <TagKey>aa</TagKey>
+    <TagValue>ddd</TagValue>
+</Result>
+<Result>
+    <TagKey>manager</TagKey>
+    <TagValue>all_persion</TagValue>
+</Result>
+<Result>
+    <TagKey>dev</TagKey>
+    <TagValue>leizhang</TagValue>
+</Result>
+<Result>
+    <TagKey>a</TagKey>
+    <TagValue>b</TagValue>
+</Result>
+<Result>
+    <TagKey>zl</TagKey>
+    <TagValue>keept</TagValue>
+</Result>
+<Result>
+    <TagKey>zl</TagKey>
+    <TagValue/>
+</Result>
+<Result>
+    <TagKey>c</TagKey>
+    <TagValue>d</TagValue>
+</Result>
+<Result>
+    <TagKey>tt</TagKey>
+    <TagValue>tt</TagValue>
+</Result>
+<Result>
+    <TagKey>acs:rm:rgId</TagKey>
+    <TagValue>rg-acfm2h5vbzd****</TagValue>
+</Result>
+<Result>
+    <TagKey>acs:rm:rgId</TagKey>
+    <TagValue>rg-aek22gedcbf****</TagValue>
+</Result>
+<Result>
+    <TagKey>estag</TagKey>
+    <TagValue>instance</TagValue>
+</Result>
+<RequestId>5ADCBB89-6596-4AF3-94A5-64E5393A****</RequestId>
+```
+
+`JSON` 格式
+
+```
+{
+	"Result": [
+		{
+			"TagKey": "aa",
+			"TagValue": "ddd"
+		},
+		{
+			"TagKey": "manager",
+			"TagValue": "all_persion"
+		},
+		{
+			"TagKey": "dev",
+			"TagValue": "leizhang"
+		},
+		{
+			"TagKey": "a",
+			"TagValue": "b"
+		},
+		{
+			"TagKey": "zl",
+			"TagValue": "keept"
+		},
+		{
+			"TagKey": "zl",
+			"TagValue": ""
+		},
+		{
+			"TagKey": "c",
+			"TagValue": "d"
+		},
+		{
+			"TagKey": "tt",
+			"TagValue": "tt"
+		},
+		{
+			"TagKey": "acs:rm:rgId",
+			"TagValue": "rg-acfm2h5vbzd****"
+		},
+		{
+			"TagKey": "acs:rm:rgId",
+			"TagValue": "rg-aek22gedcbf****"
+		},
+		{
+			"TagKey": "estag",
+			"TagValue": "instance"
+		}
+	],
+	"RequestId": "5ADCBB89-6596-4AF3-94A5-64E5393A****"
+}
+```
+
+## 错误码
+
+访问[错误中心](https://error-center.alibabacloud.com/status/product/elasticsearch)查看更多错误码。
+
