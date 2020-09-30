@@ -63,7 +63,10 @@ RequestBody中还需填入以下参数，用来指定智能运维场景的配置
 |名称|类型|示例值|描述|
 |--|--|---|--|
 |RequestId|String|5FFD9ED4-C2EC-4E89-B22B-1ACB6FE1\*\*\*\*|请求ID。 |
-|Result|Boolean|true|返回结果。 |
+|Result|Boolean|true|返回结果：
+
+ -   true：更新成功
+-   false：更新失败 |
 
 ## 示例
 
