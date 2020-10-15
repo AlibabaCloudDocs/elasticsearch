@@ -1,0 +1,475 @@
+# createInstance
+
+调用createInstance，创建Elasticsearch实例。
+
+在调用接口前，请注意：
+
+-   请确保在使用该接口前，已充分了解Elasticsearch产品的收费方式和价格。
+
+    详情请参见[阿里云Elasticsearch定价](https://www.aliyun.com/price/product?spm=a2c4g.11186623.2.7.657d2cbeRoSPCd#/elasticsearch/detail)。
+
+-   创建实例需要通过实名认证。
+
+
+## 调试
+
+[您可以在OpenAPI Explorer中直接运行该接口，免去您计算签名的困扰。运行成功后，OpenAPI Explorer可以自动生成SDK代码示例。](https://api.aliyun.com/#product=elasticsearch&api=createInstance&type=ROA&version=2017-06-13)
+
+## 请求头
+
+该接口使用公共请求头，无特殊请求头。请参见公共请求参数文档。
+
+## 请求语法
+
+```
+POST /openapi/instances HTTPS|HTTP
+```
+
+## 请求参数
+
+|名称|类型|是否必选|示例值|描述|
+|--|--|----|---|--|
+|clientToken|String|否|5A2CFF0E-5718-45B5-9D4D-70B3FF\*\*\*\*|用于保证请求的幂等性。由客户端生成该参数值，要保证在不同请求间唯一，最大不超过64个ASCII字符。 |
+
+## RequestBody
+
+RequestBody中还需要填入以下参数，用来指定待创建的实例信息。
+
+|参数
+
+|类型
+
+|是否必选
+
+|示例值
+
+|描述 |
+|----|----|------|-----|----|
+|paymentType
+
+|String
+
+|是
+
+|postpaid
+
+|付费类型。可选值：postpaid（按量计费）、prepaid（包年包月）。 |
+|period
+
+|int
+
+|否
+
+|1
+
+|如果paymentType为prepaid（包年包月），则需要指定预付费的周期，支持的值包括：1,2,3,4,5,6,7,8,9,12,24,36，单位：月。 |
+|nodeAmount
+
+|int
+
+|是
+
+|3
+
+|数据节点个数。 |
+|instanceCategory
+
+|String
+
+|否
+
+|advanced
+
+|版本类型。支持advanced（增强版）、x-pack（商业版）。设置为advanced时，必须购买Master节点和CPFS共享存储。 |
+|esAdminPassword
+
+|String
+
+|是
+
+|es\_password
+
+|ES实例的访问密码。要求包含以下字符中的三种：大写字母、小写字母、数字、特殊字符：!@\#$%^&\*\(\)\_+-=，长度为8~32位。 |
+|esVersion
+
+|String
+
+|是
+
+|5.5.3\_with\_X-Pack
+
+|ES实例版本。可选值：5.5.3\_with\_X-Pack、6.3\_with\_X-Pack、6.7\_with\_X-Pack。 |
+|nodeSpec
+
+|Map
+
+|是
+
+| |数据节点配置。 |
+|└spec
+
+|String
+
+|是
+
+|elasticsearch.sn2ne.xlarge
+
+|规格名称。 |
+|└disk
+
+|String
+
+|是
+
+|20
+
+|单数据节点硬盘大小，单位：GB。 |
+|└diskType
+
+|String
+
+|是
+
+|cloud\_ssd
+
+|硬盘类型。可选值：cloud\_ssd（SSD云盘）、cloud\_efficiency（高效云盘）。 |
+|advancedDedicateMaster
+
+|boolean
+
+|否
+
+|false
+
+|是否创建专有主节点，如果是多可用区部署则必选。 |
+|masterConfiguration
+
+|Map
+
+|否
+
+| |专有主节点配置。advancedDedicateMaster为true时必填。 |
+|└spec
+
+|String
+
+|是
+
+|elasticsearch.sn2ne.xlarge
+
+|规格名称。 |
+|└amount
+
+|int
+
+|是
+
+|3
+
+|数量，目前固定为3。 |
+|└disk
+
+|int
+
+|是
+
+|20
+
+|专有主节点的硬盘大小。单位：GB。当前只支持20GB。 |
+|└diskType
+
+|string
+
+|是
+
+|cloud\_ssd
+
+|专有主节点的硬盘类型，当前只支持cloud\_ssd（SSD云盘）。 |
+|warmNode
+
+|boolean
+
+|否
+
+|false
+
+|是否购买冷数据节点。 |
+|warmNodeConfiguration
+
+|Map
+
+|否
+
+| |冷数据节点配置。warmNode为true时必填。 |
+|└spec
+
+|string
+
+|是
+
+|elasticsearch.ic5.large
+
+|规格名称。 |
+|└amount
+
+|Integer
+
+|是
+
+|2
+
+|数量。 |
+|└diskType
+
+|string
+
+|是
+
+|cloud\_efficiency
+
+|磁盘类型。 |
+|└disk
+
+|Integer
+
+|是
+
+|500
+
+|磁盘大小。 |
+|└diskEncryption
+
+|boolean
+
+|否
+
+|true
+
+|磁盘是否加密。 |
+|haveClientNode
+
+|boolean
+
+|否
+
+|false
+
+|是否购买协调节点。 |
+|clientNodeConfiguration
+
+|Map
+
+|否
+
+| |协调节点配置。haveClientNode为true时必填。 |
+|└spec
+
+|string
+
+|是
+
+|elasticsearch.ic5.large
+
+|规格名称。 |
+|└amount
+
+|Integer
+
+|是
+
+|2
+
+|数量。 |
+|└diskType
+
+|string
+
+|是
+
+|cloud\_efficiency
+
+|磁盘类型。 |
+|└disk
+
+|Integer
+
+|是
+
+|20
+
+|磁盘大小。 |
+|haveKibana
+
+|boolean
+
+|否
+
+|true
+
+|是否购买kibana节点。 |
+|kibanaConfiguration
+
+|Map
+
+|否
+
+| |kibana节点配置。haveKibana为true时必填。 |
+|└spec
+
+|String
+
+|是
+
+|elasticsearch.n4.small
+
+|规格名称。 |
+|└amount
+
+|Integer
+
+|是
+
+|1
+
+|数量，目前固定为1。 |
+|└disk
+
+|Integer
+
+|是
+
+|0
+
+|存储大小，目前固定为0。 |
+|networkConfig
+
+|Map
+
+|是
+
+| |网络配置。 |
+|└type
+
+|string
+
+|是
+
+|VPC
+
+|网络类型。目前仅支持专有网络VPC（Virtual Private Cloud）。 |
+|└vpcId
+
+|string
+
+|是
+
+|vpc-bp16k1dvzxtmagcva\*\*\*\*
+
+|专有网络ID。 |
+|└vsArea
+
+|string
+
+|是
+
+|cn-hangzhou-i
+
+|交换机所在的可用区。 |
+|└vswitchId
+
+|string
+
+|是
+
+|vsw-bp1k4ec6s7sjdbudw\*\*\*\*
+
+|交换机ID。 |
+
+**说明：** └表示子参数。
+
+示例如下。
+
+```
+
+{
+    "paymentType": "postpaid",
+    "nodeAmount": "3",
+    "instanceCategory": "x-pack",
+    "esAdminPassword": "es_password",
+    "esVersion": "6.7_with_X-Pack",
+    "nodeSpec": {
+        "spec": "elasticsearch.sn2ne.xlarge",
+        "disk": "20",
+        "diskType": "cloud_ssd"     
+    },
+    "networkConfig": {
+        "type": "vpc",
+        "vpcId": "vpc-bp16k1dvzxtmagcva****",
+        "vsArea": "cn-hangzhou-i",
+        "vswitchId": "vsw-bp1k4ec6s7sjdbudw****"
+    }
+}
+
+```
+
+## 返回数据
+
+|名称|类型|示例值|描述|
+|--|--|---|--|
+|RequestId|String|838D9D11-8EEF-46D8-BF0D-BC8FC2B0C2F3|请求ID。 |
+|Result|Struct| |返回结果。 |
+|instanceId|String|es-cn-t57p81n7ai89v\*\*\*\*|实例ID。 |
+
+## 示例
+
+请求示例
+
+```
+POST /openapi/instances HTTP/1.1
+公共请求头
+{
+    "paymentType": "postpaid",
+    "nodeAmount": "3",
+    "instanceCategory": "x-pack",
+    "esAdminPassword": "es_password",
+    "esVersion": "6.7_with_X-Pack",
+    "nodeSpec": {
+        "spec": "elasticsearch.sn2ne.xlarge",
+        "disk": "20",
+        "diskType": "cloud_ssd"     
+    },
+    "networkConfig": {
+        "type": "vpc",
+        "vpcId": "vpc-bp16k1dvzxtmagcva****",
+        "vsArea": "cn-hangzhou-i",
+        "vswitchId": "vsw-bp1k4ec6s7sjdbudw****"
+    }
+}
+```
+
+正常返回示例
+
+`XML` 格式
+
+```
+<Result>
+    <instanceId>es-cn-t57p81n7ai89v****</instanceId>
+</Result>
+<RequestId>838D9D11-8EEF-46D8-BF0D-BC8FC2B0****</RequestId>
+```
+
+`JSON` 格式
+
+```
+{
+	"Result": {
+		"instanceId": "es-cn-t57p81n7ai89v****"
+	},
+	"RequestId": "838D9D11-8EEF-46D8-BF0D-BC8FC2B0****"
+}
+```
+
+## 错误码
+
+访问[错误中心](https://error-center.alibabacloud.com/status/product/elasticsearch)查看更多错误码。
+
