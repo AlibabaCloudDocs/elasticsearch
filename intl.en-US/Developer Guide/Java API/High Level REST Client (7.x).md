@@ -54,7 +54,7 @@ This topic describes how to call Elasticsearch Java API operations. Java High Le
 
 ## Example
 
-You can click [here](http://docs-aliyun.cn-hangzhou.oss.aliyun-inc.com/assets/attach/33813/cn_zh/1593655159726/es7.4-demo.zip) to download complete sample code.
+You can download the [complete sample code](http://docs-aliyun.cn-hangzhou.oss.aliyun-inc.com/assets/attach/33813/cn_zh/1593655159726/es7.4-demo.zip).
 
 The following code calls the index operation to create an index and calls the delete operation to delete the index. The code is executed in a client environment that has limited JVM memory. You can use the ResponseConsumer-related configuration item to limit the size of the cache for asynchronous responses.
 
