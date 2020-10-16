@@ -21,9 +21,9 @@ GET /openapi/instances/[InstanceId]/plugins HTTPS|HTTP
 |名称|类型|是否必选|示例值|描述|
 |--|--|----|---|--|
 |InstanceId|String|是|es-cn-nif1q9o8r0008\*\*\*\*|实例ID。 |
-|name|String|是|analysis-ik|插件名称。 |
-|page|String|是|1|分页数。 |
-|size|Integer|是|10|每页记录数。 |
+|name|String|否|analysis-ik|插件名称。 |
+|page|String|否|1|分页数。 |
+|size|Integer|否|10|每页记录数。 |
 |source|String|否|SYSTEM|插件来源类型。 |
 
 ## 返回数据
@@ -45,14 +45,8 @@ GET /openapi/instances/[InstanceId]/plugins HTTPS|HTTP
 请求示例
 
 ```
-GET /openapi/instances/[InstanceId]/plugins HTTP/1.1
+GET /openapi/instances/es-cn-nif1q9o8r0008****/plugins HTTP/1.1
 公共请求头
-{
-"InstanceId": "es-cn-nif1q9o8r0008****",
-"name": "analysis-ik",
-"page": "1",
-"size": "10"
-}
 ```
 
 正常返回示例
@@ -65,21 +59,21 @@ GET /openapi/instances/[InstanceId]/plugins HTTP/1.1
     <state>INSTALLED</state>
     <source>SYSTEM</source>
     <description>Rate limiting and throttling plug-in for Elasticsearch. It limits QPS and bulk request sizes and supports rate limiting and throttling for node-level read and write operations.</description>
-    <specificationUrl>https://help.aliyun.com/document_detail/156622.html</specificationUrl>
+    <specificationUrl>https://xxxx.html</specificationUrl>
 </Result>
 <Result>
     <name>aliyun-sql</name>
     <state>INSTALLED</state>
     <source>SYSTEM</source>
     <description>SQL plug-in developed by Alibaba Cloud for Elasticsearch. It provides high SQL query capabilities.</description>
-    <specificationUrl>https://help.aliyun.com/document_detail/170432.html</specificationUrl>
+    <specificationUrl>https://xxxx.html</specificationUrl>
 </Result>
 <Result>
     <name>analysis-aliws</name>
     <state>UNINSTALLED</state>
     <source>SYSTEM</source>
     <description>Aliws analysis plug-in for Elasticsearch. It is integrated with an analyzer and a tokenizer.</description>
-    <specificationUrl>https://help.aliyun.com/document_detail/129979.html</specificationUrl>
+    <specificationUrl>https://xxxx.html</specificationUrl>
 </Result>
 <Result>
     <name>analysis-icu</name>
@@ -122,14 +116,14 @@ GET /openapi/instances/[InstanceId]/plugins HTTP/1.1
     <state>INSTALLED</state>
     <source>SYSTEM</source>
     <description>Provides the general physical replication and vector retrieval features. These features improve the write performance of a cluster and enable image search.</description>
-    <specificationUrl>https://help.aliyun.com/document_detail/170494.html</specificationUrl>
+    <specificationUrl>https://xxxx.html</specificationUrl>
 </Result>
 <Result>
     <name>codec-compression</name>
     <state>INSTALLED</state>
     <source>SYSTEM</source>
     <description>The codec-compression plug-in supports lossless compression algorithms such as Brotli and zstd. This plug-in also provides a high index compression ratio and reduces index storage costs.</description>
-    <specificationUrl>https://help.aliyun.com/document_detail/161329.html</specificationUrl>
+    <specificationUrl>https://xxxx.html</specificationUrl>
 </Result>
 <Result>
     <name>elasticsearch-repository-oss</name>
@@ -183,21 +177,21 @@ GET /openapi/instances/[InstanceId]/plugins HTTP/1.1
 			"state": "INSTALLED",
 			"source": "SYSTEM",
 			"description": "Rate limiting and throttling plug-in for Elasticsearch. It limits QPS and bulk request sizes and supports rate limiting and throttling for node-level read and write operations.",
-			"specificationUrl": "https://help.aliyun.com/document_detail/156622.html"
+			"specificationUrl": "https://xxxx.html"
 		},
 		{
 			"name": "aliyun-sql",
 			"state": "INSTALLED",
 			"source": "SYSTEM",
 			"description": "SQL plug-in developed by Alibaba Cloud for Elasticsearch. It provides high SQL query capabilities.",
-			"specificationUrl": "https://help.aliyun.com/document_detail/170432.html"
+			"specificationUrl": "https://xxxx.html"
 		},
 		{
 			"name": "analysis-aliws",
 			"state": "UNINSTALLED",
 			"source": "SYSTEM",
 			"description": "Aliws analysis plug-in for Elasticsearch. It is integrated with an analyzer and a tokenizer.",
-			"specificationUrl": "https://help.aliyun.com/document_detail/129979.html"
+			"specificationUrl": "https://xxxx.html"
 		},
 		{
 			"name": "analysis-icu",
@@ -240,14 +234,14 @@ GET /openapi/instances/[InstanceId]/plugins HTTP/1.1
 			"state": "INSTALLED",
 			"source": "SYSTEM",
 			"description": "Provides the general physical replication and vector retrieval features. These features improve the write performance of a cluster and enable image search.",
-			"specificationUrl": "https://help.aliyun.com/document_detail/170494.html"
+			"specificationUrl": "https://xxxx.html"
 		},
 		{
 			"name": "codec-compression",
 			"state": "INSTALLED",
 			"source": "SYSTEM",
 			"description": "The codec-compression plug-in supports lossless compression algorithms such as Brotli and zstd. This plug-in also provides a high index compression ratio and reduces index storage costs.",
-			"specificationUrl": "https://help.aliyun.com/document_detail/161329.html"
+			"specificationUrl": "https://xxxx.html"
 		},
 		{
 			"name": "elasticsearch-repository-oss",
