@@ -1,6 +1,6 @@
 # ListPlugins
 
-You can call this operation to query plug-ins on a specified Elasticsearch instance.
+Call ListPlugins to query plug-ins on a specified Elasticsearch instance.
 
 ## Debugging
 
@@ -8,7 +8,7 @@ You can call this operation to query plug-ins on a specified Elasticsearch insta
 
 ## Request header
 
-This operation uses only common request headers. For more information, see the Common request parameters topic.
+This operation uses common request parameters only. For more information, see Common parameters.
 
 ## Request syntax
 
@@ -21,9 +21,9 @@ GET /openapi/instances/[InstanceId]/plugins HTTPS|HTTP
 |Parameter|Type|Required|Example|Description|
 |---------|----|--------|-------|-----------|
 |InstanceId|String|Yes|es-cn-nif1q9o8r0008\*\*\*\*|The ID of the instance. |
-|name|String|Yes|analysis-ik|The name of the plug-in. |
-|page|String|Yes|1|The page number of the returned page. |
-|size|Integer|Yes|10|The number of the entries to return on each page. |
+|name|String|No|analysis-ik|The name of the plug-in. |
+|page|String|No|1|The page number of the returned page. |
+|size|Integer|No|10|The number of the entries to return on each page. |
 |source|String|No|SYSTEM|The source type of the plug-in. |
 
 ## Response parameters
@@ -33,7 +33,7 @@ GET /openapi/instances/[InstanceId]/plugins HTTPS|HTTP
 |Headers|Struct| |The header of the response. |
 |X-Total-Count|Integer|2|The total number of entries returned. |
 |RequestId|String|5A5D8E74-565C-43DC-B031-29289FA9\*\*\*\*|The ID of the request. |
-|Result|Array of Result| |The return results of the OCR task. |
+|Result|Array of Result| |The return results. |
 |description|String|IK analysis plug-in for Elasticsearch.|The description of the plug-in. |
 |name|String|analysis-ik|The name of the plug-in. |
 |source|String|SYSTEM|The source type of the plug-in. |
@@ -45,14 +45,8 @@ GET /openapi/instances/[InstanceId]/plugins HTTPS|HTTP
 Sample requests
 
 ```
-GET /openapi/instances/[InstanceId]/plugins HTTP/1.1
-Common request parameters
-{
-"InstanceId": "es-cn-nif1q9o8r0008****",
-"name": "analysis-ik",
-"page": "1",
-"size": "10"
-}
+GET /openapi/instances/es-cn-nif1q9o8r0008****/plugins HTTP/1.1
+Common request header
 ```
 
 Sample success responses
@@ -65,21 +59,21 @@ Sample success responses
     <state>INSTALLED</state>
     <source>SYSTEM</source>
     <description>Rate limiting and throttling plug-in for Elasticsearch. It limits QPS and bulk request sizes and supports rate limiting and throttling for node-level read and write operations.</description>
-    <specificationUrl>https://help.aliyun.com/document_detail/156622.html</specificationUrl>
+    <specificationUrl>https://xxxx.html</specificationUrl>
 </Result>
 <Result>
     <name>aliyun-sql</name>
     <state>INSTALLED</state>
     <source>SYSTEM</source>
     <description>SQL plug-in developed by Alibaba Cloud for Elasticsearch. It provides high SQL query capabilities.</description>
-    <specificationUrl>https://help.aliyun.com/document_detail/170432.html</specificationUrl>
+    <specificationUrl>https://xxxx.html</specificationUrl>
 </Result>
 <Result>
     <name>analysis-aliws</name>
     <state>UNINSTALLED</state>
     <source>SYSTEM</source>
     <description>Aliws analysis plug-in for Elasticsearch. It is integrated with an analyzer and a tokenizer.</description>
-    <specificationUrl>https://help.aliyun.com/document_detail/129979.html</specificationUrl>
+    <specificationUrl>https://xxxx.html</specificationUrl>
 </Result>
 <Result>
     <name>analysis-icu</name>
@@ -122,14 +116,14 @@ Sample success responses
     <state>INSTALLED</state>
     <source>SYSTEM</source>
     <description>Provides the general physical replication and vector retrieval features. These features improve the write performance of a cluster and enable image search.</description>
-    <specificationUrl>https://help.aliyun.com/document_detail/170494.html</specificationUrl>
+    <specificationUrl>https://xxxx.html</specificationUrl>
 </Result>
 <Result>
     <name>codec-compression</name>
     <state>INSTALLED</state>
     <source>SYSTEM</source>
     <description>The codec-compression plug-in supports lossless compression algorithms such as Brotli and zstd. This plug-in also provides a high index compression ratio and reduces index storage costs.</description>
-    <specificationUrl>https://help.aliyun.com/document_detail/161329.html</specificationUrl>
+    <specificationUrl>https://xxxx.html</specificationUrl>
 </Result>
 <Result>
     <name>elasticsearch-repository-oss</name>
@@ -177,127 +171,127 @@ Sample success responses
 
 ```
 {
-	"Result": [
-		{
-			"name": "aliyun-qos",
-			"state": "INSTALLED",
-			"source": "SYSTEM",
-			"description": "Rate limiting and throttling plug-in for Elasticsearch. It limits QPS and bulk request sizes and supports rate limiting and throttling for node-level read and write operations.",
-			"specificationUrl": "https://help.aliyun.com/document_detail/156622.html"
-		},
-		{
-			"name": "aliyun-sql",
-			"state": "INSTALLED",
-			"source": "SYSTEM",
-			"description": "SQL plug-in developed by Alibaba Cloud for Elasticsearch. It provides high SQL query capabilities.",
-			"specificationUrl": "https://help.aliyun.com/document_detail/170432.html"
-		},
-		{
-			"name": "analysis-aliws",
-			"state": "UNINSTALLED",
-			"source": "SYSTEM",
-			"description": "Aliws analysis plug-in for Elasticsearch. It is integrated with an analyzer and a tokenizer.",
-			"specificationUrl": "https://help.aliyun.com/document_detail/129979.html"
-		},
-		{
-			"name": "analysis-icu",
-			"state": "INSTALLED",
-			"source": "SYSTEM",
-			"description": "ICU analysis plug-in for Elasticsearch. It integrates the Lucene ICU module into Elasticsearch and adds ICU analysis components."
-		},
-		{
-			"name": "analysis-ik",
-			"state": "INSTALLED",
-			"source": "SYSTEM",
-			"description": "IK analysis plug-in for Elasticsearch."
-		},
-		{
-			"name": "analysis-kuromoji",
-			"state": "INSTALLED",
-			"source": "SYSTEM",
-			"description": "Japanese (Kuromoji) analysis plug-in for Elasticsearch. It integrates the Lucene Kuromoji analysis module into Elasticsearch."
-		},
-		{
-			"name": "analysis-phonetic",
-			"state": "INSTALLED",
-			"source": "SYSTEM",
-			"description": "Phonetic analysis plug-in for Elasticsearch. It integrates the phonetic token filter into Elasticsearch."
-		},
-		{
-			"name": "analysis-pinyin",
-			"state": "INSTALLED",
-			"source": "SYSTEM",
-			"description": "Pinyin analysis plug-in for Elasticsearch."
-		},
-		{
-			"name": "analysis-smartcn",
-			"state": "INSTALLED",
-			"source": "SYSTEM",
-			"description": "Smart Chinese analysis plug-in for Elasticsearch. It integrates the Lucene Smart Chinese analysis module into Elasticsearch."
-		},
-		{
-			"name": "apack",
-			"state": "INSTALLED",
-			"source": "SYSTEM",
-			"description": "Provides the general physical replication and vector retrieval features. These features improve the write performance of a cluster and enable image search.",
-			"specificationUrl": "https://help.aliyun.com/document_detail/170494.html"
-		},
-		{
-			"name": "codec-compression",
-			"state": "INSTALLED",
-			"source": "SYSTEM",
-			"description": "The codec-compression plug-in supports lossless compression algorithms such as Brotli and zstd. This plug-in also provides a high index compression ratio and reduces index storage costs.",
-			"specificationUrl": "https://help.aliyun.com/document_detail/161329.html"
-		},
-		{
-			"name": "elasticsearch-repository-oss",
-			"state": "INSTALLED",
-			"source": "SYSTEM",
-			"description": "Alibaba Cloud OSS is supported for storing Elasticsearch snapshots."
-		},
-		{
-			"name": "ingest-attachment",
-			"state": "INSTALLED",
-			"source": "SYSTEM",
-			"description": "Ingest processor for Elasticsearch. It uses Apache Tika to extract content."
-		},
-		{
-			"name": "kmonitor",
-			"state": "INSTALLED",
-			"source": "SYSTEM",
-			"description": "aliyun elasticsearch kmonitor plugin"
-		},
-		{
-			"name": "mapper-murmur3",
-			"state": "INSTALLED",
-			"source": "SYSTEM",
-			"description": "Computes the hashes of field values when an index is created and stores the hashes in the index."
-		},
-		{
-			"name": "mapper-size",
-			"state": "INSTALLED",
-			"source": "SYSTEM",
-			"description": "The Mapper Size plug-in allows documents to record their uncompressed size at index time."
-		},
-		{
-			"name": "repository-hdfs",
-			"state": "INSTALLED",
-			"source": "SYSTEM",
-			"description": "The HDFS repository plug-in adds support for Hadoop Distributed File System (HDFS) repositories."
-		}
-	],
-	"RequestId": "06280628-C7CB-4818-83EE-8079ACB8****",
-	"Headers": {
-		"X-Total-Count": 17
-	}
+    "Result": [
+        {
+            "name": "aliyun-qos",
+            "state": "INSTALLED",
+            "source": "SYSTEM",
+            "description": "Rate limiting and throttling plug-in for Elasticsearch. It limits QPS and bulk request sizes and supports rate limiting and throttling for node-level read and write operations.",
+            "specificationUrl": "https://xxxx.html"
+        },
+        {
+            "name": "aliyun-sql",
+            "state": "INSTALLED",
+            "source": "SYSTEM",
+            "description": "SQL plug-in developed by Alibaba Cloud for Elasticsearch. It provides high SQL query capabilities.",
+            "specificationUrl": "https://xxxx.html"
+        },
+        {
+            "name": "analysis-aliws",
+            "state": "UNINSTALLED",
+            "source": "SYSTEM",
+            "description": "Aliws analysis plug-in for Elasticsearch. It is integrated with an analyzer and a tokenizer.",
+            "specificationUrl": "https://xxxx.html"
+        },
+        {
+            "name": "analysis-icu",
+            "state": "INSTALLED",
+            "source": "SYSTEM",
+            "description": "ICU analysis plug-in for Elasticsearch. It integrates the Lucene ICU module into Elasticsearch and adds ICU analysis components."
+        },
+        {
+            "name": "analysis-ik",
+            "state": "INSTALLED",
+            "source": "SYSTEM",
+            "description": "IK analysis plug-in for Elasticsearch."
+        },
+        {
+            "name": "analysis-kuromoji",
+            "state": "INSTALLED",
+            "source": "SYSTEM",
+            "description": "Japanese (Kuromoji) analysis plug-in for Elasticsearch. It integrates the Lucene Kuromoji analysis module into Elasticsearch."
+        },
+        {
+            "name": "analysis-phonetic",
+            "state": "INSTALLED",
+            "source": "SYSTEM",
+            "description": "Phonetic analysis plug-in for Elasticsearch. It integrates the phonetic token filter into Elasticsearch."
+        },
+        {
+            "name": "analysis-pinyin",
+            "state": "INSTALLED",
+            "source": "SYSTEM",
+            "description": "Pinyin analysis plug-in for Elasticsearch."
+        },
+        {
+            "name": "analysis-smartcn",
+            "state": "INSTALLED",
+            "source": "SYSTEM",
+            "description": "Smart Chinese analysis plug-in for Elasticsearch. It integrates the Lucene Smart Chinese analysis module into Elasticsearch."
+        },
+        {
+            "name": "apack",
+            "state": "INSTALLED",
+            "source": "SYSTEM",
+            "description": "Provides the general physical replication and vector retrieval features. These features improve the write performance of a cluster and enable image search.",
+            "specificationUrl": "https://xxxx.html"
+        },
+        {
+            "name": "codec-compression",
+            "state": "INSTALLED",
+            "source": "SYSTEM",
+            "description": "The codec-compression plug-in supports lossless compression algorithms such as Brotli and zstd. This plug-in also provides a high index compression ratio and reduces index storage costs.",
+            "specificationUrl": "https://xxxx.html"
+        },
+        {
+            "name": "elasticsearch-repository-oss",
+            "state": "INSTALLED",
+            "source": "SYSTEM",
+            "description": "Alibaba Cloud OSS is supported for storing Elasticsearch snapshots."
+        },
+        {
+            "name": "ingest-attachment",
+            "state": "INSTALLED",
+            "source": "SYSTEM",
+            "description": "Ingest processor for Elasticsearch. It uses Apache Tika to extract content."
+        },
+        {
+            "name": "kmonitor",
+            "state": "INSTALLED",
+            "source": "SYSTEM",
+            "description": "aliyun elasticsearch kmonitor plugin"
+        },
+        {
+            "name": "mapper-murmur3",
+            "state": "INSTALLED",
+            "source": "SYSTEM",
+            "description": "Computes the hashes of field values when an index is created and stores the hashes in the index."
+        },
+        {
+            "name": "mapper-size",
+            "state": "INSTALLED",
+            "source": "SYSTEM",
+            "description": "The Mapper Size plug-in allows documents to record their uncompressed size at index time."
+        },
+        {
+            "name": "repository-hdfs",
+            "state": "INSTALLED",
+            "source": "SYSTEM",
+            "description": "The HDFS repository plug-in adds support for Hadoop Distributed File System (HDFS) repositories."
+        }
+    ],
+    "RequestId": "06280628-C7CB-4818-83EE-8079ACB8****",
+    "Headers": {
+        "X-Total-Count": 17
+    }
 }
 ```
 
-## Error code
+## Error codes
 
 |HttpCode|Error code|Error message|Description|
 |--------|----------|-------------|-----------|
-|400|InstanceNotFound|The instanceId provided does not exist.|The specified instance cannot be found. Please check the instance status.|
+|400|InstanceNotFound|The instanceId provided does not exist.|The error message returned because the specified instance cannot be found. Check the instance status.|
 
 For a list of error codes, visit the [API Error Center](https://error-center.alibabacloud.com/status/product/elasticsearch).
 
