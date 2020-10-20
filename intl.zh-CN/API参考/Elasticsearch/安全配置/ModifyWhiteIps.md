@@ -85,17 +85,25 @@ RequestBody中还需填入以下参数，用来指定白名单信息。
 |名称|类型|示例值|描述|
 |--|--|---|--|
 |RequestId|String|5FFD9ED4-C2EC-4E89-B22B-1ACB6FE1D\*\*\*\*|请求ID。 |
-|Result|Boolean|true|返回结果。 |
+|Result|Boolean|true|返回结果：
+
+ -   true：白名单更新成功
+-   false：白名单更新失败 |
 
 ## 示例
 
 请求示例
 
 ```
-PATCH /openapi/instances/[InstanceId]/actions/modify-white-ips HTTP/1.1
+PATCH /openapi/instances/es-cn-0pp1jxvcl000z****/actions/modify-white-ips HTTP/1.1
 公共请求头
 {
-"InstanceId": "es-cn-0pp1jxvcl000z****"
+   "whiteIpList": [
+    "0.0.0.0/0",
+    "0.0.0.0/1"
+],
+"nodeType":"WORKER",
+"networkType":"PUBLIC"
 }
 ```
 
