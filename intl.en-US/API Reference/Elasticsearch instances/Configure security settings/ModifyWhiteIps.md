@@ -1,6 +1,6 @@
 # ModifyWhiteIps
 
-Updates the whitelist for a specified instance.
+Call ModifyWhiteIps to update the access whitelist of the specified instance.
 
 ## Debugging
 
@@ -8,7 +8,7 @@ Updates the whitelist for a specified instance.
 
 ## Request header
 
-This operation uses only common request headers. For more information, see the Common request parameters topic.
+This operation uses common request parameters only. For more information, see Common parameters.
 
 ## Request syntax
 
@@ -25,7 +25,7 @@ PATCH|POST /openapi/instances/[InstanceId]/actions/modify-white-ips HTTPS|HTTP
 
 ## RequestBody
 
-The following parameters must be entered in RequestBody to specify the whitelist information.
+The following parameters must be specified in the RequestBody to specify the whitelist information.
 
 |Parameter
 
@@ -54,7 +54,7 @@ The following parameters must be entered in RequestBody to specify the whitelist
 
 |KIBANA
 
-|The type of the clusters. Valid values: WORKER \(for Elasticsearch clusters\) and KIBANA \(for Kibana clusters\). |
+|The type of the cluster. Valid values: WORKER\(Elasticsearch cluster\) and KIBANA\(Kibana cluster\). |
 |networkType
 
 |String
@@ -63,7 +63,7 @@ The following parameters must be entered in RequestBody to specify the whitelist
 
 |PRIVATE
 
-|The network type of the cluster. Valid values: PRIVATE and PUBLIC. |
+|The network type of the instance. Valid values: PRIVATE and PUBLIC. |
 
 Example:
 
@@ -85,17 +85,25 @@ Example:
 |Parameter|Type|Example|Description|
 |---------|----|-------|-----------|
 |RequestId|String|5FFD9ED4-C2EC-4E89-B22B-1ACB6FE1D\*\*\*\*|The ID of the request. |
-|Result|Boolean|true|Indicates whether SQL audit was disabled for the DRDS database. |
+|Result|Boolean|true|Return results:
+
+-   true: whitelist updated successfully
+-   false: whitelist updated failed |
 
 ## Examples
 
 Sample requests
 
 ```
-PATCH /openapi/instances/[InstanceId]/actions/modify-white-ips HTTP/1.1
+PATCH /openapi/instances/es-cn-0pp1jxvcl000z****/actions/modify-white-ips HTTP/1.1
 Common request parameters
 {
-"InstanceId": "es-cn-0pp1jxvcl000z****"
+   "whiteIpList": [
+    "0.0.0.0/0",
+    "0.0.0.0/1"
+],
+"nodeType":"WORKER",
+"networkType":"PUBLIC"
 }
 ```
 
@@ -117,7 +125,7 @@ Sample success responses
 }
 ```
 
-## Error code
+## Error codes
 
 For a list of error codes, visit the [API Error Center](https://error-center.alibabacloud.com/status/product/elasticsearch).
 
