@@ -28,7 +28,10 @@ POST /openapi/instances/[InstanceId]/snapshots HTTPS|HTTP
 |名称|类型|示例值|描述|
 |--|--|---|--|
 |RequestId|String|5FFD9ED4-C2EC-4E89-B22B-1ACB6FE1D\*\*\*|请求ID。 |
-|Result|Boolean|true|返回结果。 |
+|Result|Boolean|true|返回结果：
+
+ -   true：手动快照备份成功
+-   false：手动快照备份失败 |
 
 ## 示例
 
