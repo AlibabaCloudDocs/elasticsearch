@@ -29,7 +29,10 @@ DELETE /openapi/instances/[InstanceId]/snapshot-repos HTTPS|HTTP
 |名称|类型|示例值|描述|
 |--|--|---|--|
 |RequestId|String|5FFD9ED4-C2EC-4E89-B22B-1ACB6FE1\*\*\*\*|请求ID。 |
-|Result|Boolean|true|返回结果。 |
+|Result|Boolean|true|返回结果：
+
+ -   true：引用仓库删除成功
+-   false：引用仓库删除失败 |
 
 ## 示例
 
