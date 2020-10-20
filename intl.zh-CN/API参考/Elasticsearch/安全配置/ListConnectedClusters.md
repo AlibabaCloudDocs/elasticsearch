@@ -37,11 +37,8 @@ GET /openapi/instances/[InstanceId]/connected-clusters HTTPS|HTTP
 请求示例
 
 ```
-GET /openapi/instances/[InstanceId]/connected-clusters HTTP/1.1
+GET /openapi/instances/es-cn-0pp1jxvcl000z****/connected-clusters HTTP/1.1
 公共请求头
-{
-"InstanceId": "es-cn-0pp1jxvcl000z****"
-}
 ```
 
 正常返回示例
