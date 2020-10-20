@@ -8,7 +8,7 @@ Call ListConnectedClusters to query the instances that are interconnected with t
 
 ## Request header
 
-This operation uses only common request headers. For more information, see the Common request parameters topic.
+This operation uses common request parameters only. For more information, see Common parameters.
 
 ## Request syntax
 
@@ -27,9 +27,9 @@ GET /openapi/instances/[InstanceId]/connected-clusters HTTPS|HTTP
 |Parameter|Type|Example|Description|
 |---------|----|-------|-----------|
 |RequestId|String|5FFD9ED4-C2EC-4E89-B22B-1ACB6FE1D\*\*\*|The ID of the request. |
-|Result|Array of Result| |The return results of the OCR task. |
+|Result|Array of Result| |The return results. |
 |Result| | | |
-|instances|String|es-cn-09k1rocex0006\*\*\*\*|The ID of the remote instance that is already communicating with the current instance. |
+|instances|String|es-cn-09k1rocex0006\*\*\*\*|The ID of the remote instance that is connected to the network of the current instance. |
 |networkType|String|vpc|The network type of the instance. |
 
 ## Examples
@@ -37,11 +37,8 @@ GET /openapi/instances/[InstanceId]/connected-clusters HTTPS|HTTP
 Sample requests
 
 ```
-GET /openapi/instances/[InstanceId]/connected-clusters HTTP/1.1
-Common request parameters
-{
-"InstanceId": "es-cn-0pp1jxvcl000z****"
-}
+GET /openapi/instances/es-cn-0pp1jxvcl000z****/connected-clusters HTTP/1.1
+Common request header
 ```
 
 Sample success responses
@@ -60,17 +57,17 @@ Sample success responses
 
 ```
 {
-	"Result": [
-		{
-			"instanceId": "es-cn-09k1rocex0006****",
-			"networkType": "vpc"
-		}
-	],
-	"RequestId": "8D6EE77E-D56E-4E88-A8EE-407B77FB****"
+    "Result": [
+        {
+            "instanceId": "es-cn-09k1rocex0006****",
+            "networkType": "vpc"
+        }
+    ],
+    "RequestId": "8D6EE77E-D56E-4E88-A8EE-407B77FB****"
 }
 ```
 
-## Error code
+## Error codes
 
 For a list of error codes, visit the [API Error Center](https://error-center.alibabacloud.com/status/product/elasticsearch).
 
