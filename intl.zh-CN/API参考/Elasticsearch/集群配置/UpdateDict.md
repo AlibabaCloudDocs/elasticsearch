@@ -134,11 +134,29 @@ RequestBody中还需填入以下参数。
 请求示例
 
 ```
-PUT /openapi/instances/[InstanceId]/dict HTTP/1.1
+PUT /openapi/instances/es-cn-nif1q9o8r0008****/dict HTTP/1.1
 公共请求头
-{
-"InstanceId": "es-cn-nif1q9o8r0008****"
-}
+[
+    {
+        "name":"deploy_0.dic",
+        "ossObject":{
+            "bucketName":"search-cloud-test-cn-****",
+            "key":"user_dict/dict_0.dic"
+        },
+        "sourceType":"OSS",
+        "type":"MAIN"
+    },
+    {
+        "name":"SYSTEM_MAIN.dic",
+        "type":"MAIN",
+        "sourceType":"ORIGIN"
+    },
+    {
+        "name":"SYSTEM_STOPWORD.dic",
+        "type":"STOP",
+        "sourceType":"ORIGIN"
+    }
+]
 ```
 
 正常返回示例
