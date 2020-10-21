@@ -25,7 +25,7 @@ POST /openapi/instances/[InstanceId]/kibana-plugins/system/actions/install HTTPS
 
 ## RequestBody
 
-You must also enter the name of the plug-in in the RequestBody field. The name is in the format of `["pluginname1","pluginname2",…, "plugin_namen"]`. Example: `["bsearch_label","bsearch_querybuilder"]`.
+You must also enter the name of the plug-in in the RequestBody field. The format is `["pluginname1","pluginname2",…, "plugin_namen"]`. Example: `["bsearch_label","bsearch_querybuilder"]`.
 
 ## Response parameters
 
