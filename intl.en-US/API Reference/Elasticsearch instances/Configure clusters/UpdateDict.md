@@ -1,6 +1,6 @@
 # UpdateDict
 
-Call updatedict to updates the user dictionary for an Elasticsearch instance.
+Call updatedict to update the user dictionary for an Elasticsearch instance.
 
 ## Debugging
 
@@ -8,7 +8,7 @@ Call updatedict to updates the user dictionary for an Elasticsearch instance.
 
 ## Request header
 
-This operation uses only common request headers. For more information, see the Common request parameters topic.
+This operation uses common request parameters only. For more information, see Common parameters.
 
 ## Request syntax
 
@@ -25,18 +25,18 @@ PUT /openapi/instances/[InstanceId]/dict HTTPS|HTTP
 
 ## RequestBody
 
-The following parameters must also be filled in in RequestBody:
+The following parameters must be set in RequestBody:
 
 |Field
 
-|Message
+|Type
 
-|Required？
+|Required
 
 |Example
 
 |Description |
-|-------|---------|-----------|---------|-------------|
+|-------|------|----------|---------|-------------|
 |name
 
 |String
@@ -50,7 +50,7 @@ The following parameters must also be filled in in RequestBody:
 
 | |No
 
-| |The description of the OSS object in the open storage environment. This parameter is required when the sourceType parameter is set to OSS. |
+| |The description of the object that is stored in OSS. If the sourceType parameter is set to OSS, this parameter is required. |
 |└bucketName
 
 |String
@@ -68,7 +68,7 @@ The following parameters must also be filled in in RequestBody:
 
 |oss/dic\_0.dic
 
-|The path for storing the dictionary file in OSS. |
+|The OSS path where the dictionary file is stored. |
 |sourceType
 
 |String
@@ -77,7 +77,7 @@ The following parameters must also be filled in in RequestBody:
 
 |OSS
 
-|The type of the synonym Source. Valid values: OSS, ORIGIN, and UPLOAD. If the object storage service \(OSS\) bucket is set to public-read, make sure that it is set to public-read. |
+|Synonym source type that supports: OSS \(OSS open storage\), ORIGIN \(open source Elasticsearch\), UPLOAD \(files that you UPLOAD\). If the storage space is OSS, make sure that the OSS bucket is public-read. |
 |type
 
 |String
@@ -86,7 +86,7 @@ The following parameters must also be filled in in RequestBody:
 
 |MAIN
 
-|The type of the dictionary. Valid values: STOP, MAIN, SYNONYMS, and ALI\_WS. |
+|The dictionary type. Valid values: STOP, MAIN, SYNONYMS, and ALI\_WS. |
 
 **Note:** └ indicates a child parameter.
 
@@ -126,19 +126,41 @@ Example:
 |Result|Array of DictList| |The return results of the OCR task. |
 |fileSize|Long|2782602|The size of the file. |
 |name|String|SYSTEM\_MAIN.dic|The name of the uploaded object. |
-|sourceType|String|ORIGIN|The type of the synonym Source. Valid values: OSS, ORIGIN, and UPLOAD. |
-|type|String|MAIN|The type of the dictionary. Valid values: STOP, MAIN, SYNONYMS, and ALI\_WS. |
+|sourceType|String|ORIGIN|Synonym source type that supports:
+
+-   UPLOAD: uploaded files
+-   OSS: OSS open storage
+-   ORIGIN: open source Elasticsearch |
+|type|String|MAIN|The dictionary type. Valid values: STOP, MAIN, SYNONYMS, and ALI\_WS. |
 
 ## Examples
 
 Sample requests
 
 ```
-PUT /openapi/instances/[InstanceId]/dict HTTP/1.1
+PUT /openapi/instances/es-cn-nif1q9o8r0008****/dict HTTP/1.1
 Common request parameters
-{
-"InstanceId": "es-cn-nif1q9o8r0008****"
-}
+[
+    {
+        "name":"deploy_0.dic",
+        "ossObject":{
+            "bucketName":"search-cloud-test-cn-****",
+            "key":"user_dict/dict_0.dic"
+        },
+        "sourceType":"OSS",
+        "type":"MAIN"
+    },
+    {
+        "name":"SYSTEM_MAIN.dic",
+        "type":"MAIN",
+        "sourceType":"ORIGIN"
+    },
+    {
+        "name":"SYSTEM_STOPWORD.dic",
+        "type":"STOP",
+        "sourceType":"ORIGIN"
+    }
+]
 ```
 
 Sample success responses
@@ -195,7 +217,7 @@ Sample success responses
 }
 ```
 
-## Error code
+## Error codes
 
 For a list of error codes, visit the [API Error Center](https://error-center.alibabacloud.com/status/product/elasticsearch).
 
