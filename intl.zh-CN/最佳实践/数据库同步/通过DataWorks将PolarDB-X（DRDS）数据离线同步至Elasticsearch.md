@@ -37,7 +37,7 @@ PolarDB-X是由阿里巴巴自主研发的云原生分布式数据库，融合�
 
 1.  创建阿里云PolarDB-X 1.0实例、构建数据库和表，并插入数据。
 
-    具体操作步骤请参见[PolarDB-X快速入门]()。本文使用的测试数据如下。
+    具体操作步骤请参见[SQL基本操作]()。本文使用的测试数据如下。
 
     ![测试数据](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/zh-CN/5473343061/p134885.png)
 
@@ -102,7 +102,7 @@ PolarDB-X是由阿里巴巴自主研发的云原生分布式数据库，融合�
     |**数据源类型**|本文使用**连接串模式**。您也可以选择**阿里云数据库（DRDS）**类型，详情请参见[配置DRDS数据源]()。|
     |**数据源名称**|必须以字母、数字、下划线组合，且不能以数字和下划线开头。|
     |**数据源描述**|对数据源进行简单描述，不得超过80个字符。|
-    |**JDBC URL**|JDBC连接信息，格式为jdbc:mysql://ServerIP:Port/Database。此处需要将ServerIP:Port替换为PolarDB-X实例的VPC地址:VPC端口；Database替换为您已创建的PolarDB-X数据库名称。**说明：** VPC地址和端口的获取方式请参见[步骤三：连接PolarDB-X 1.0数据库并进行SQL操作]()。 |
+    |**JDBC URL**|JDBC连接信息，格式为jdbc:mysql://ServerIP:Port/Database。此处需要将ServerIP:Port替换为PolarDB-X实例的VPC地址:VPC端口；Database替换为您已创建的PolarDB-X数据库名称。|
     |**用户名**|数据库对应的用户名。|
     |**密码**|数据库对应的密码。|
 
