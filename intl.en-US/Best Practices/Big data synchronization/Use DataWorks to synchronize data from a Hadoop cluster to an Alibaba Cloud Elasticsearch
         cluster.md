@@ -2,8 +2,6 @@
 
 When you use a Hadoop cluster to perform interactive big data analytics and queries, the process may be time-consuming. To address this issue, you can synchronize data from the Hadoop cluster to an Alibaba Cloud Elasticsearch cluster for analytics and queries. Elasticsearch can respond to multiple types of queries within seconds, especially ad hoc queries. This topic describes how to synchronize data from a Hadoop cluster to an Elasticsearch cluster by using the data synchronization feature of DataWorks.
 
-You can also use Java code to synchronize data. For more information, see [Use ES-Hadoop on E-MapReduce]().
-
 ## Procedure
 
 1.  [Preparations](#section_yzz_in4_vmt)
@@ -44,7 +42,7 @@ You can also use Java code to synchronize data. For more information, see [Use E
     -   **Assign Public IP Address**: turned on
 2.  Create an Elasticsearch cluster and enable the Auto Indexing feature for the cluster.
 
-    For more information, see [Create an Elasticsearch cluster](/intl.en-US/Quick Start/Step 1: Create a cluster/Create an Elasticsearch cluster.md) and [Enable auto indexing](/intl.en-US/Quick Start/Step 2 (optional): Configure a cluster.md). Make sure that the Elasticsearch cluster resides in the same virtual private cloud \(VPC\), region, and zone as the EMR Hadoop cluster. In this step, an Elasticsearch V6.7.0 cluster of the Standard Edition is created.
+    For more information, see [Create an Alibaba Cloud Elasticsearch cluster](/intl.en-US/Quick Start/Step 1: Create a cluster/Create an Alibaba Cloud Elasticsearch cluster.md) and [Enable the Auto Indexing feature](/intl.en-US/Quick Start/Step 2: (Optional) Configure a cluster.md). Make sure that the Elasticsearch cluster resides in the same virtual private cloud \(VPC\), region, and zone as the EMR Hadoop cluster. In this step, an Elasticsearch V6.7.0 cluster of the Standard Edition is created.
 
 3.  Create a DataWorks workspace.
 
@@ -194,7 +192,7 @@ You can also use Java code to synchronize data. For more information, see [Use E
 
 1.  On the Data Development tab of the DataWorks console, create a business process.
 
-    For more information, see [t1693630.md\#]().
+    For more information, see [Manage workflows]().
 
 2.  In the navigation tree, right-click **Data Integration** and choose **New** \> **Offline synchronization**.
 
