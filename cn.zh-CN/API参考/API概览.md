@@ -34,10 +34,9 @@
 |数据迁移|[GetTransferableNodes](/cn.zh-CN/API参考/Elasticsearch/数据迁移/GetTransferableNodes.md)|调用GetTransferableNodes，指定节点类型和个数，获取可进行数据迁移的节点。|
 |[ValidateTransferableNodes](/cn.zh-CN/API参考/Elasticsearch/数据迁移/ValidateTransferableNodes.md)|调用ValidateTransferableNodes，校验是否可以迁移指定实例中某些节点上的数据。|
 |[TransferNode](/cn.zh-CN/API参考/Elasticsearch/数据迁移/TransferNode.md)|调用TransferNode，执行数据迁移任务。|
-|[ListDataTasks]()|调用ListDataTasks，获取数据迁移任务信息。|
-|[t1950899.md\#]()|调用CreateDataTasks，创建索引迁移任务，将所选集群中的数据迁移到当前集群。|
-|[GetClusterDataInformation]()|调用GetClusterDataInformation，获取集群的数据信息。|
-|[DeleteDataTask]()|调用DeleteDataTask，删除索引迁移任务。|
+|[ListDataTasks](/cn.zh-CN/API参考/Elasticsearch/数据迁移/ListDataTasks.md)|调用ListDataTasks，获取数据迁移任务信息。|
+|[GetClusterDataInformation](/cn.zh-CN/API参考/Elasticsearch/数据迁移/GetClusterDataInformation.md)|调用GetClusterDataInformation，获取集群的数据信息。|
+|[DeleteDataTask](/cn.zh-CN/API参考/Elasticsearch/数据迁移/DeleteDataTask.md)|调用DeleteDataTask，删除索引迁移任务。|
 |[CancelTask](/cn.zh-CN/API参考/Elasticsearch/数据迁移/CancelTask.md)|调用CancelTask，取消数据迁移任务。|
 |实例升降配|[GetSuggestShrinkableNodes](/cn.zh-CN/API参考/Elasticsearch/实例升降配/GetSuggestShrinkableNodes.md)|调用GetSuggestShrinkableNodes，指定节点类型和数量，获取可缩容的节点。|
 |[ValidateShrinkNodes](/cn.zh-CN/API参考/Elasticsearch/实例升降配/ValidateShrinkNodes.md)|调用ValidateShrinkNodes，校验指定实例中的某些节点是否可以缩容。|
@@ -49,7 +48,7 @@
 |[UpdateSynonymsDicts](/cn.zh-CN/API参考/Elasticsearch/集群配置/UpdateSynonymsDicts.md)|调用UpdateSynonymsDicts，更新阿里云Elasticsearch实例的同义词词典。|
 |[UpdateDict](/cn.zh-CN/API参考/Elasticsearch/集群配置/UpdateDict.md)|调用UpdateDict，更新Elasticsearch实例的用户词典。|
 |[UpdateAdvancedSetting](/cn.zh-CN/API参考/Elasticsearch/集群配置/UpdateAdvancedSetting.md)|调用UpdateAdvancedSetting，更改指定实例的垃圾回收器配置。|
-|[DescribeTemplates]()|调用DescribeTemplates，获取实例的场景模板配置。|
+|[DescribeTemplates](/cn.zh-CN/API参考/Elasticsearch/集群配置/DescribeTemplates.md)|调用DescribeTemplates，获取实例的场景模板配置。|
 |[UpdateExtendConfig](/cn.zh-CN/API参考/Elasticsearch/集群配置/UpdateExtendConfig.md)|调用UpdateExtendConfig，修改集群的场景化配置模板。|
 |[UpdateTemplate](/cn.zh-CN/API参考/Elasticsearch/集群配置/UpdateTemplate.md)|调用UpdateTemplate，修改集群的场景化模板配置内容。|
 |插件管理|[ListPlugins](/cn.zh-CN/API参考/Elasticsearch/插件管理/ListPlugins.md)|调用ListPlugins，获取指定阿里云Elasticsearch实例的插件列表。|
@@ -132,7 +131,6 @@
 
 |API|描述|
 |---|--|
-|[t1950927.md\#]()|调用DescribeKibanaSettings，获取Kibana配置。|
 |[ReinstallCollector](/cn.zh-CN/API参考/Beats/ReinstallCollector.md)|调用ReinstallCollector，重试安装在创建时没有安装成功的采集器。|
 |[ListCollectors](/cn.zh-CN/API参考/Beats/ListCollectors.md)|调用ListCollectors，获取采集器列表信息。|
 |[UpdateCollectorName](/cn.zh-CN/API参考/Beats/UpdateCollectorName.md)|调用UpdateCollectorName，修改采集器名称。|
