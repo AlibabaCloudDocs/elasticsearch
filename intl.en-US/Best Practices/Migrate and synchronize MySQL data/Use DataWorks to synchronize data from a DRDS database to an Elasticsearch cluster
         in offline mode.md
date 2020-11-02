@@ -37,7 +37,7 @@ Alibaba Cloud Elasticsearch is compatible with open source Elasticsearch feature
 
 1.  Create a DRDS V1.0 instance, a DRDS database, and a table. Then, insert data into the table.
 
-    For more information, see [DRDS quick start](). The following figure shows the test data that is used in this topic.
+    For more information, see [Basic SQL operations](). The following figure shows the test data that is used in this topic.
 
     ![Test data](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/en-US/9573343061/p134885.png)
 
@@ -49,7 +49,7 @@ Alibaba Cloud Elasticsearch is compatible with open source Elasticsearch feature
 
 3.  Create an Elasticsearch cluster and enable the Auto Indexing feature for the cluster.
 
-    For more information, see [Create an Elasticsearch cluster](/intl.en-US/Quick Start/Step 1: Create a cluster/Create an Elasticsearch cluster.md) and [Enable auto indexing](/intl.en-US/Quick Start/Step 2 (optional): Configure a cluster.md). The cluster must belong to the same VPC and VSwitch as the DRDS instance.
+    For more information, see [Create an Alibaba Cloud Elasticsearch cluster](/intl.en-US/Quick Start/Step 1: Create a cluster/Create an Alibaba Cloud Elasticsearch cluster.md) and [Enable the Auto Indexing feature](/intl.en-US/Quick Start/Step 2: (Optional) Configure a cluster.md). The cluster must belong to the same VPC and VSwitch as the DRDS instance.
 
 
 ## Step 1: Purchase and create an exclusive resource group
@@ -99,10 +99,10 @@ Alibaba Cloud Elasticsearch is compatible with open source Elasticsearch feature
 
     |Parameter|Description|
     |---------|-----------|
-    |**Data source type**|This topic uses **Connection string mode** as an example. You can also select **Alibaba Cloud Database \(DRDS\)**. For more information, see [t1695540.md\#]().|
+    |**Data source type**|This topic uses **Connection string mode** as an example. You can also select **Alibaba Cloud Database \(DRDS\)**. For more information, see [Configure a DRDS connection]().|
     |**Data Source Name**|The name of the data source. The name must contain letters, digits, and underscores \(\_\). It must start with a letter.|
     |**Description**|The description of the data source. The description cannot exceed 80 characters in length.|
-    |**JDBC URL**|The JDBC URL of the database, in the format of jdbc:mysql://ServerIP:Port/Database. Replace ServerIP:Port with Endpoint of the VPC where the DRDS instance resides:Port number of the VPC. Replace Database with the name of the DRDS database you created.**Note:** For more information about how to obtain the endpoint and port number of a VPC, see [t1824809.md\#section\_azc\_3dg\_bt9](). |
+    |**JDBC URL**|The JDBC URL of the database, in the format of jdbc:mysql://ServerIP:Port/Database. Replace ServerIP:Port with Endpoint of the VPC where the DRDS instance resides:Port number of the VPC. Replace Database with the name of the DRDS database you created.|
     |**User name**|The username that is used to connect to the database.|
     |**Password**|The password that is used to connect to the database.|
 
@@ -123,7 +123,7 @@ Alibaba Cloud Elasticsearch is compatible with open source Elasticsearch feature
 
 1.  On the Data Development tab of the DataWorks console, create a business process.
 
-    For more information, see [t1693630.md\#]().
+    For more information, see [Manage workflows]().
 
 2.  In the navigation tree, right-click **Data Integration** and choose **New** \> **Offline synchronization**.
 
