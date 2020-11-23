@@ -18,21 +18,26 @@ GET /openapi/logstashes HTTPS|HTTP
 
 ## 请求参数
 
-|名称|类型|是否必选|示例值|描述|
-|--|--|----|---|--|
-|page|Integer|否|1|实例列表的页码。起始值：1，默认值：1。 |
-|size|Integer|否|10|分页查询时设置的每页条数。最大值：100，默认值：10。 |
-|description|String|否|ls-cn-abc|实例名称，支持模糊查询。例如查询名称为abc的实例，则可能返回名称为abc、abcde、xyabc、xabcy的所有实例。 |
-|instanceId|String|否|ls-cn-n6w1o5jq\*\*\*\*|实例ID。 |
-|version|String|否|5.5.3\_with\_X-Pack|实例版本。 |
-|resourceGroupId|String|否|rg-acfm2h5vbzd\*\*\*\*|资源组ID。 |
+|名称|类型|位置|是否必选|示例值|描述|
+|--|--|--|----|---|--|
+|page|Integer|Query|否|1|实例列表的页码。起始值：1，默认值：1。 |
+|size|Integer|Query|否|10|分页查询时设置的每页条数。最大值：100，默认值：10。 |
+|description|String|Query|否|ls-cn-abc|实例名称，支持模糊查询。例如查询名称为abc的实例，则可能返回名称为abc、abcde、xyabc、xabcy的所有实例。 |
+|instanceId|String|Query|否|ls-cn-n6w1o5jq\*\*\*\*|实例ID。 |
+|version|String|Query|否|5.5.3\_with\_X-Pack|实例版本。 |
+|resourceGroupId|String|Query|否|rg-acfm2h5vbzd\*\*\*\*|资源组ID。 |
 
 ## 返回数据
 
 |名称|类型|示例值|描述|
 |--|--|---|--|
+|Headers|Struct| |请求头信息。 |
+|X-Total-Count|Integer|10|实例总记录数。 |
 |RequestId|String|AC442F2F-5068-4434-AA21-E78947A9\*\*\*\*|请求ID。 |
 |Result|Array of Instance| |当前请求返回的实例列表。 |
+|Tags|Array of tags| |实例标签。 |
+|TagKey|String|env|标签键。 |
+|TagValue|String|dev|标签值。 |
 |createdAt|String|2018-07-13T03:58:07.253Z|实例创建时间。 |
 |description|String|ls-cn-abc|实例名称。 |
 |instanceId|String|ls-cn-n6w1o5jq\*\*\*\*|实例ID。 |
@@ -44,6 +49,10 @@ GET /openapi/logstashes HTTPS|HTTP
 |nodeAmount|Integer|2|实例的节点个数。 |
 |nodeSpec|Struct| |数据节点的配置信息。 |
 |disk|Integer|50|节点磁盘大小。 |
+|diskEncryption|Boolean|false|是否使用磁盘加密：
+
+ -   true：使用
+-   false：不使用 |
 |diskType|String|cloud\_ssd|磁盘类型。 |
 |spec|String|logstash.n4.small|实例规格。 |
 |paymentType|String|postpaid|实例的付费模式。支持：prepaid（包年包月）、postpaid（按量付费）。 |
@@ -75,13 +84,6 @@ GET /openapi/logstashes HTTPS|HTTP
 |elasticsearch\_logstash\_post
 
 |产品代码。 |
-|extendConfigs
-
-|Array
-
-|\[\]
-
-|实例的扩展配置。 |
 |endTime
 
 |Long
@@ -150,13 +152,6 @@ GET /openapi/logstashes HTTPS|HTTP
 |true
 
 |实例是否已完成初始化。 |
-|tags
-
-|Array
-
-|\[\]
-
-|实例所绑定的标签。 |
 |config
 
 |Array
@@ -190,18 +185,6 @@ GET /openapi/logstashes HTTPS|HTTP
 |cn-hangzhou-i
 
 |节点所在的可用区ID。 |
-|Headers
-
-|Struct
-
-| |返回头信息。 |
-|└X-Total-Count
-
-|Integer
-
-|1
-
-|返回的实例数量。 |
 
 **说明：** └表示子参数。
 
