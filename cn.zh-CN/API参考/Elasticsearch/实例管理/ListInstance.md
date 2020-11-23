@@ -18,23 +18,23 @@ GET /openapi/instances HTTPS|HTTP
 
 ## 请求参数
 
-|名称|类型|是否必选|示例值|描述|
-|--|--|----|---|--|
-|page|Integer|否|1|实例列表的页码。
+|名称|类型|位置|是否必选|示例值|描述|
+|--|--|--|----|---|--|
+|page|Integer|Query|否|1|实例列表的页码。
 
  起始值：**1**，默认值：**1**。 |
-|size|Integer|否|10|分页查询时设置的每页条数。
+|size|Integer|Query|否|10|分页查询时设置的每页条数。
 
  最大值：**100**，默认值：**10**。 |
-|description|String|否|es-cn-abc|实例名称，支持模糊查询。例如搜索**abc**的所有实例，则可能返回**abc**、**abcde**、**xyabc**、**xabcy**的所有实例。 |
-|instanceId|String|否|es-cn-n6w1o1x0w001c\*\*\*\*|实例ID。 |
-|esVersion|String|否|5.3\_with\_X-Pack|实例版本。 |
-|resourceGroupId|String|否|rg-aekzvowej3i\*\*\*\*|实例所在的资源组ID。 |
-|tags|String|否|dev-env|实例标签。 |
-|vpcId|String|否|vpc-bp16k1dvzxtmagcva\*\*\*\*|实例所在的专有网络ID。 |
-|zoneId|String|否|cn-hangzhou-i|实例所在的可用区ID。 |
-|paymentType|String|否|postpaid|实例的付费类型。可选值：postpaid（按量付费）、prepaid（包年包月）。 |
-|instanceCategory|String|否|advanced|实例版本。可选值：x-pack（商业版）、advanced（增强版）。 |
+|description|String|Query|否|es-cn-abc|实例名称，支持模糊查询。例如搜索**abc**的所有实例，则可能返回**abc**、**abcde**、**xyabc**、**xabcy**的所有实例。 |
+|instanceId|String|Query|否|es-cn-n6w1o1x0w001c\*\*\*\*|实例ID。 |
+|esVersion|String|Query|否|5.3\_with\_X-Pack|实例版本。 |
+|resourceGroupId|String|Query|否|rg-aekzvowej3i\*\*\*\*|实例所在的资源组ID。 |
+|tags|String|Query|否|dev-env|实例标签。 |
+|vpcId|String|Query|否|vpc-bp16k1dvzxtmagcva\*\*\*\*|实例所在的专有网络ID。 |
+|zoneId|String|Query|否|cn-hangzhou-i|实例所在的可用区ID。 |
+|paymentType|String|Query|否|postpaid|实例的付费类型。可选值：postpaid（按量付费）、prepaid（包年包月）。 |
+|instanceCategory|String|Query|否|advanced|实例版本。可选值：x-pack（商业版）、advanced（增强版）。 |
 
 ## 返回数据
 
@@ -60,6 +60,7 @@ GET /openapi/instances HTTPS|HTTP
 |diskType|String|cloud\_ssd|节点存储类型。支持：cloud\_ssd（SSD云盘）、cloud\_essd（ESSD云盘）、cloud\_efficiency（高效云盘）。 |
 |spec|String|elasticsearch.sn2ne.large|节点规格。 |
 |esVersion|String|5.5.3\_with\_X-Pack|实例版本。 |
+|extendConfigs|List|\[\{ "configType": "aliVersion", "aliVersion": "ali1.3.0" \}\]|集群扩展参数配置。 |
 |instanceId|String|es-cn-abc|实例ID。 |
 |kibanaConfiguration|Struct| |Kibana节点配置。 |
 |amount|Integer|1|节点数量。 |
@@ -79,6 +80,10 @@ GET /openapi/instances HTTPS|HTTP
 |nodeAmount|Integer|2|实例的数据节点数量。 |
 |nodeSpec|Struct| |数据节点配置信息。 |
 |disk|Integer|50|节点的存储空间大小，单位为GB。 |
+|diskEncryption|Boolean|false|是否使用磁盘加密：
+
+ -   true：使用
+-   false：不使用 |
 |diskType|String|cloud\_ssd|节点的存储类型。支持：cloud\_ssd（SSD云盘）、cloud\_efficiency（高效云盘）。 |
 |spec|String|elasticsearch.n4.small|节点规格。 |
 |paymentType|String|postpaid|实例的付费方式。
