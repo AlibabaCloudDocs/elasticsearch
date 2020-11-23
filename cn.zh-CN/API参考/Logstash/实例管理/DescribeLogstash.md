@@ -18,9 +18,9 @@ GET /openapi/logstashes/[InstanceId] HTTPS|HTTP
 
 ## 请求参数
 
-|名称|类型|是否必选|示例值|描述|
-|--|--|----|---|--|
-|InstanceId|String|是|ls-cn-s9dsk3k4k\*\*\*\*|实例ID。 |
+|名称|类型|位置|是否必选|示例值|描述|
+|--|--|--|----|---|--|
+|InstanceId|String|Path|是|ls-cn-s9dsk3k4k\*\*\*\*|实例ID。 |
 
 ## 返回数据
 
@@ -28,12 +28,24 @@ GET /openapi/logstashes/[InstanceId] HTTPS|HTTP
 |--|--|---|--|
 |RequestId|String|C9334241-4837-46C2-B24B-9BDC517318DE|请求ID。 |
 |Result|Struct| |当前实例的详细信息。 |
+|ExtendConfigs|List|\[\{ "configType": "aliVersion","aliVersion": "ali1.3.0" \}\]|集群扩展参数配置。 |
+|ResourceGroupId|String|rg-aekzvowej3i\*\*\*\*|实例所属的资源组ID。 |
+|Tags|Array of tags| |实例标签。 |
+|tagKey|String|env|标签键。 |
+|tagValue|String|dev|标签值。 |
+|ZoneInfos|Array of zoneInfos| |可用区信息。 |
+|status|String|NORMAL|可用区状态。支持：
+
+ -   ISOLATION：下线
+-   NORMAL：正常 |
+|zoneId|String|cn-hangzhou-b|可用区ID。 |
 |config|Map|\{"slowlog.threshold.warn": "2s","slowlog.threshold.info": "1s","slowlog.threshold.debug": "500ms","slowlog.threshold.trace": "100ms" \}|实例配置信息。 |
 |createdAt|String|2020-02-06T14:12:03.672Z|实例创建时间。 |
 |description|String|ls-cn-abc|实例描述。 |
 |endpointList|Array of endpoint| |节点的访问信息。 |
 |host|String|172.16.\*\*.\*\*|节点的IP地址。 |
 |port|String|9600|端口号。 |
+|zoneId|String|cn-hangzhou-b|节点所在的可用区ID。 |
 |instanceId|String|ls-cn-abc|实例ID。 |
 |networkConfig|Struct| |网络配置。 |
 |type|String|vpc|网络类型。目前只支持专有网络VPC（Virtual Private Cloud）。 |
@@ -43,6 +55,10 @@ GET /openapi/logstashes/[InstanceId] HTTPS|HTTP
 |nodeAmount|Integer|2|实例的节点个数。 |
 |nodeSpec|Struct| |节点的配置信息。 |
 |disk|Integer|20|节点的磁盘大小。 |
+|diskEncryption|Boolean|true|是否使用云盘加密：
+
+ -   true：使用
+-   false：不使用 |
 |diskType|String|cloud\_ssd|节点的磁盘类型。 |
 |spec|String|elasticsearch.sn1ne.large|节点的规格。 |
 |paymentType|String|prepaid|实例的付费模式。支持：prepaid（包年包月）、postpaid（按量付费）。 |
