@@ -75,17 +75,17 @@ keyword: [odps数据同步到阿里云es, MaxCompute数据同步到阿里云es]
 
     本文使用的配置如下，其中**资源组类型**选择**独享数据集成资源组**。
 
-    ![创建独享资源组](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/zh-CN/3034659951/p134902.png)
+    ![创建独享资源组](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/3034659951/p134902.png)
 
 5.  单击已创建的独享资源组右侧的**专有网络绑定**，参见[绑定专有网络]()，为该独享资源组绑定专有网络。
 
     独享资源部署在DataWorks托管的专有网络中。DataWorks需要与Elasticsearch实例的专有网络连通才能同步数据，因此在绑定专有网络时，需要选择Elasticsearch实例所在**专有网络**和**交换机**。
 
-    ![绑定专有网络](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/zh-CN/4034659951/p134914.png)
+    ![绑定专有网络](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/4034659951/p134914.png)
 
 6.  单击已创建的独享资源组右侧的**修改归属工作空间**，参见[修改归属工作空间]()，为该独享资源组绑定目标工作空间。
 
-    ![绑定工作空间](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/zh-CN/4034659951/p139131.png)
+    ![绑定工作空间](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/4034659951/p139131.png)
 
 
 ## 步骤二：添加数据源
@@ -102,7 +102,7 @@ keyword: [odps数据同步到阿里云es, MaxCompute数据同步到阿里云es]
 
 4.  在**新增数据源**对话框中，单击**MaxCompute\(ODPS\)**，进入**新增MaxCompute\(ODPS\)数据源**页面，填写数据源信息。
 
-    ![新增MaxCompute (ODPS)数据源](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/zh-CN/4034659951/p40122.png)
+    ![新增MaxCompute (ODPS)数据源](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/4034659951/p40122.png)
 
     |参数|说明|
     |--|--|
@@ -115,13 +115,13 @@ keyword: [odps数据同步到阿里云es, MaxCompute数据同步到阿里云es]
 
     配置完成后，可与独享资源组进行连通性测试。**连通状态**显示为**可连通**时，表示连通成功。
 
-    ![测试连通成功](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/zh-CN/4034659951/p139093.png)
+    ![测试连通成功](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/4034659951/p139093.png)
 
 5.  单击**完成**。
 
 6.  使用同样的方式添加Elasticsearch数据源。
 
-    ![ES数据源配置](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/zh-CN/4034659951/p103880.png)
+    ![ES数据源配置](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/4034659951/p103880.png)
 
     |参数|说明|
     |--|--|
@@ -142,13 +142,13 @@ keyword: [odps数据同步到阿里云es, MaxCompute数据同步到阿里云es]
 
 3.  在**新建节点**对话框中，输入**节点名称**，单击**提交**。
 
-4.  在页面上方工具栏，单击![转换脚本图标](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/zh-CN/4034659951/p69021.png)图标。
+4.  在页面上方工具栏，单击![转换脚本图标](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/4034659951/p69021.png)图标。
 
 5.  确认后，配置数据同步脚本。
 
     详细配置说明请参见[通过脚本模式配置任务]()。
 
-    **说明：** 您可以单击页面上方工具栏中的![导入模板](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/zh-CN/4034659951/p87612.png)图标，导入对应的脚本配置模板，并在模板的基础上进行修改，完成数据同步脚本配置。
+    **说明：** 您可以单击页面上方工具栏中的![导入模板](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/4034659951/p87612.png)图标，导入对应的脚本配置模板，并在模板的基础上进行修改，完成数据同步脚本配置。
 
     示例脚本如下。
 
@@ -227,7 +227,7 @@ keyword: [odps数据同步到阿里云es, MaxCompute数据同步到阿里云es]
                             "type": "integer"
                         }
                     ],
-                    "datasource": "es_test",
+                    "datasource": "ES_data_source",
                     "discovery": false,
                     "index": "odps_index",
                     "indexType": "_doc",
@@ -261,7 +261,7 @@ keyword: [odps数据同步到阿里云es, MaxCompute数据同步到阿里云es]
     -   周期任务将于配置任务开始的第二天00:00，按照您的配置规则生效执行。
 7.  配置执行同步任务所使用的资源组。
 
-    ![选择资源组](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/zh-CN/4034659951/p69063.png)
+    ![选择资源组](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/4034659951/p69063.png)
 
     1.  在脚本配置页面右侧，单击**数据集成资源组配置**。
 
@@ -271,17 +271,17 @@ keyword: [odps数据同步到阿里云es, MaxCompute数据同步到阿里云es]
 
 8.  提交任务。
 
-    1.  保存当前配置，单击![提交图标](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/zh-CN/4034659951/p71328.png)图标。
+    1.  保存当前配置，单击![提交图标](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/4034659951/p71328.png)图标。
 
     2.  在**提交新版本**对话框中，填入**备注**。
 
     3.  单击**确认**。
 
-9.  单击![运行图标](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/zh-CN/4034659951/p103889.png)图标，运行任务。
+9.  单击![运行图标](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/4034659951/p103889.png)图标，运行任务。
 
     任务运行过程中，可查看运行日志。运行成功后，显示如下结果。
 
-    ![任务运行成功](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/zh-CN/4034659951/p103890.png)
+    ![任务运行成功](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/4034659951/p103890.png)
 
 
 ## 步骤四：验证数据同步结果
@@ -305,7 +305,7 @@ keyword: [odps数据同步到阿里云es, MaxCompute数据同步到阿里云es]
 
     数据同步成功后，返回如下结果。
 
-    ![查看同步的数据](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/zh-CN/4034659951/p40128.png)
+    ![查看同步的数据](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/4034659951/p40128.png)
 
 4.  执行如下命令，搜索文档中的`category`和`brand`字段。
 
