@@ -22,7 +22,7 @@ When you use a Hadoop cluster to perform interactive big data analytics and quer
 
 5.  [Step 4: Create and run a data synchronization task](#section_p0a_vwy_icq)
 
-    Configure a data synchronization script to import the data synchronized by Data Integration into the Elasticsearch cluster. The exclusive resource group is registered with Data Integration as a resource to run tasks. This resource group retrieves data from data sources and runs the task of writing data to the Elasticsearch cluster. The task is issued by Data Integration.
+    Configure a data synchronization script to store the data collected by Data Integration to the Elasticsearch cluster. The exclusive resource group is registered with Data Integration as a resource to run tasks. This resource group retrieves data from data sources and runs the task of writing data to the Elasticsearch cluster. The task is issued by Data Integration.
 
 6.  [Step 5: View synchronization results](#section_ti9_ca0_mkb)
 
@@ -61,7 +61,7 @@ When you use a Hadoop cluster to perform interactive big data analytics and quer
 
 5.  Click **Create Project** to create a data development project. In this step, set Select Resource Group to Default Resource Group.
 
-    For more information, see [Manage projects](/intl.en-US/Data Development/Manage a workflow project.md).
+    For more information, see [Manage projects](/intl.en-US/Data Development/Manage projects.md).
 
 6.  In the **Projects** section, find the created project and click **Edit Job** in the **Actions** column to create a job.
 
@@ -105,7 +105,7 @@ When you use a Hadoop cluster to perform interactive big data analytics and quer
 
     1.  Create a job for an ad hoc query.
 
-        For more information, see [Run ad hoc queries](/intl.en-US/Data Development/Ad hoc queries.md).
+        For more information, see [Implement ad hoc queries](/intl.en-US/Data Development/Implement ad hoc queries.md).
 
     2.  Enter the following SQL statement and click **Run**:
 
@@ -119,7 +119,7 @@ When you use a Hadoop cluster to perform interactive big data analytics and quer
 
         Then, you can check whether the data is inserted into the Hive table of the Hadoop cluster for synchronization. The following figure shows the inserted data.
 
-        ![View test data](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/en-US/8502788951/p103731.png)
+        ![View test data](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/8502788951/p103731.png)
 
 
 ## Step 2: Purchase and create an exclusive resource group
@@ -136,17 +136,17 @@ When you use a Hadoop cluster to perform interactive big data analytics and quer
 
     The following figure shows the configuration used in this example. **Resource Group Type** is set to **Exclusive Resource Groups for Data Integration**.
 
-    ![Create an exclusive resource group](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/en-US/9630852061/p134902.png)
+    ![Create an exclusive resource group](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/9630852061/p134902.png)
 
 5.  Find the created exclusive resource group. Then, click **Add VPC Binding** in the Actions column to bind the exclusive resource group to a VPC. For more information, see [Bind an exclusive resource group for data integration to a VPC]().
 
     Exclusive resources are deployed in a VPC managed by DataWorks. DataWorks can be used to synchronize data from the Hadoop cluster to the Elasticsearch cluster only after it connects to the VPCs where the clusters reside. In this topic, the Hadoop cluster and Elasticsearch cluster reside in the same VPC. Therefore, you only need to select the **VPC** and **VSwitch** of the Elasticsearch cluster for the binding.
 
-    ![Bind an exclusive resource group for data integration to a VPC](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/en-US/9630852061/p134914.png)
+    ![Bind an exclusive resource group for data integration to a VPC](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/9630852061/p134914.png)
 
 6.  Click **Change Workspace** in the Actions column that corresponds to the exclusive resource group to bind it to the DataWorks workspace you created. For more information, see [Change the workspace to which an exclusive resource group is bound]().
 
-    ![Bind an exclusive resource group to a workspace](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/en-US/9630852061/p139131.png)
+    ![Bind an exclusive resource group to a workspace](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/9630852061/p139131.png)
 
 
 ## Step 3: Add data sources
@@ -165,25 +165,25 @@ When you use a Hadoop cluster to perform interactive big data analytics and quer
 
 5.  In the **Add HDFS data source** dialog box, specify **Data Source Name** and **DefaultFS**.
 
-    ![Add an HDFS data source](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/en-US/8502788951/p103833.png)
+    ![Add an HDFS data source](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/8502788951/p103833.png)
 
     **DefaultFS**: If your EMR Hadoop cluster is in non-HA mode, set this parameter to `hdfs://Internal IP address of emr-header-1:9000`. If your EMR Hadoop cluster is in HA mode, set this parameter to `hdfs://Internal IP address of emr-header-1:8020`. The internal IP address of emr-header-1 is used because emr-header-1 communicates with DataWorks over a VPC.
 
-    After parameters are configured, you can test the connectivity to the exclusive resource group. If the connectivity test is passed, **Connectable** appears in the **Connectivity status** column.
+    After the parameters are configured, you can test the connectivity to the exclusive resource group. If the connectivity test is passed, **Connectable** appears in the **Connectivity status** column.
 
-    ![Connectivity test succeeded](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/en-US/9630852061/p139093.png)
+    ![Connectivity test succeeded](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/9630852061/p139093.png)
 
 6.  Click **Complete**.
 
 7.  Add an Elasticsearch data source in the same way.
 
-    ![Configuration of the Elasticsearch data source](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/en-US/8502788951/p103880.png)
+    ![Configuration of the Elasticsearch data source](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/8502788951/p103880.png)
 
     |Parameter|Description|
     |---------|-----------|
     |**Endpoint**|The URL that is used to access the Elasticsearch cluster. Specify the URL in the following format: `http://<Internal or public endpoint of the Elasticsearch cluster>:9200`. You can obtain the endpoint from the Basic Information page of the cluster. For more information, see [View the basic information of a cluster](/intl.en-US/Elasticsearch Instances Management/Manage clusters/View the basic information of a cluster.md).**Note:** If you use the public endpoint of the cluster, add the elastic IP address \(EIP\) of the exclusive resource group to the public IP address whitelist of the cluster. For more information, see [Configure a whitelist to access an Elasticsearch cluster over the Internet or a VPC](/intl.en-US/Elasticsearch Instances Management/Security/Configure a whitelist to access an Elasticsearch cluster over the Internet or a VPC.md) and [Add the information about an exclusive resource group for Data Integration to the whitelist of a data store](). |
     |**User name**|The username that is used to access the Elasticsearch cluster. The default username is elastic.|
-    |**Password**|The password that is used to access the Elasticsearch cluster. The password of the elastic account is specified when you create the cluster. If you forget the password, you can reset it. For more information about the procedure and precautions for resetting a password, see [Reset the access password for an Elasticsearch cluster](/intl.en-US/Elasticsearch Instances Management/Security/Reset the access password for an Elasticsearch cluster.md).|
+    |**Password**|The password that is used to access the Elasticsearch cluster. The password of the elastic account is specified when you create the cluster. If you forget the password, you can reset it. For more information about the procedure and precautions for resetting the password, see [Reset the access password for an Elasticsearch cluster](/intl.en-US/Elasticsearch Instances Management/Security/Reset the access password for an Elasticsearch cluster.md).|
 
     **Note:** Configure the parameters that are not listed in the preceding table as required.
 
@@ -198,13 +198,13 @@ When you use a Hadoop cluster to perform interactive big data analytics and quer
 
 3.  In the **New node** dialog box, set **Node name** and click **Submit**.
 
-4.  In the upper part of the page, click the ![Switch to the script mode](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/en-US/0557359951/p69021.png) icon.
+4.  In the upper part of the page, click the ![Switch to the script mode](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/0557359951/p69021.png) icon.
 
 5.  In the Tips message, click OK. Then, configure the data synchronization script.
 
     For more information, see [Create a sync node by using the code editor]().
 
-    **Note:** You can also click the ![Import Template](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/en-US/0557359951/p87612.png) icon in the upper part of the page to import a script configuration template. Then, modify the template as required.
+    **Note:** You can also click the ![Import Template](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/0557359951/p87612.png) icon in the upper part of the page to import a script configuration template. Then, modify the template as required.
 
     The following code provides a sample script:
 
@@ -327,7 +327,7 @@ When you use a Hadoop cluster to perform interactive big data analytics and quer
     |----|-----------|
     |`setting`|Used to configure parameters related to packet loss and the maximum concurrency during synchronization. The default value of the `record` field in the `errorLimit` parameter is 0. You must set the field to a larger value, such as 10.|
     |`Reader`|Used to configure the Hadoop cluster as the reader. `path` specifies the location of the data that is stored in the Hadoop cluster. To obtain the location, log on to the master node of the Hadoop cluster and run the `hdfs dfs –ls /user/hive/warehouse/hive_esdoc_good_sale` command. For a partitioned table, the data synchronization feature of DataWorks can automatically recurse to the partition where the data is stored. For more information, see [Configure HDFS Reader]().|
-    |`Writer`|Used to configure the Elasticsearch cluster as the writer. For more information, see [Configure Elasticsearch Writer]().     -   `index`: the name of the destination index.
+    |`Writer`|Used to configure the Elasticsearch cluster as the writer. For more information, see [Elasticsearch Writer]().     -   `index`: the name of the destination index.
     -   `indexType`: the type of the destination index. The index type of Elasticsearch clusters of V7.0 or later must be `_doc`. |
 
 6.  Save the script. Then, in the right-side navigation pane, click the **Scheduling configuration** tab. In the pane that appears, configure parameters based on your business needs.
@@ -341,9 +341,9 @@ When you use a Hadoop cluster to perform interactive big data analytics and quer
     -   The configuration of a periodic task takes effect at 00:00 of the next day.
 7.  Configure the resource group that is used to execute the synchronization task.
 
-    ![Select a resource group](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/en-US/0557359951/p69063.png)
+    ![Select a resource group](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/0557359951/p69063.png)
 
-    1.  Click the **Data integration resource group configuration** tab on the right side of the page.
+    1.  In the right-side navigation pane, click the **Data integration resource group configuration** tab.
 
     2.  Set **Programme** to **Exclusive data integration Resource Group**.
 
@@ -351,17 +351,17 @@ When you use a Hadoop cluster to perform interactive big data analytics and quer
 
 8.  Submit the data synchronization task.
 
-    1.  Save the current configurations and click the ![Submit icon](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/en-US/8873433951/p71328.png) icon.
+    1.  Save the current configurations and click the ![Submit icon](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/8873433951/p71328.png) icon.
 
     2.  In the **Submit New Version** dialog box, enter your comments in the **Change description** field.
 
     3.  Click **OK**.
 
-9.  Click the ![Run icon](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/en-US/5104243061/p103889.png) icon to run the task.
+9.  Click the ![Run icon](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/5104243061/p103889.png) icon to run the task.
 
     You can view the operational logs of the task when the task is running. After the task is successfully executed, the result shown in the following figure is returned.
 
-    ![Task execution succeeded](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/en-US/6104243061/p103890.png)
+    ![Task execution succeeded](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/6104243061/p103890.png)
 
 
 ## Step 5: View synchronization results
@@ -385,7 +385,7 @@ When you use a Hadoop cluster to perform interactive big data analytics and quer
 
     If the data is synchronized, the result shown in the following figure is returned.
 
-    ![View synchronized data](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/en-US/7615243061/p40081.png)
+    ![View synchronized data](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/7615243061/p40081.png)
 
 4.  Run the following command to search for all documents that contain Brand A:
 
@@ -396,7 +396,7 @@ When you use a Hadoop cluster to perform interactive big data analytics and quer
     }
     ```
 
-    ![All documents that contain Brand A returned](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/en-US/7615243061/p40082.png)
+    ![All documents that contain Brand A returned](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/7615243061/p40082.png)
 
 5.  Run the following command to sort products of each brand based on the **number of clicks**. Then, determine the popularity of the products:
 
@@ -409,7 +409,7 @@ When you use a Hadoop cluster to perform interactive big data analytics and quer
     }
     ```
 
-    ![Products sorted by the number of clicks](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/en-US/7615243061/p40083.png)
+    ![Products sorted by the number of clicks](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/7615243061/p40083.png)
 
     For more information about other commands and their use scenarios, see [Alibaba Cloud Elasticsearch documentation](https://www.alibabacloud.com/help/product/57736.htm) and [open source Elasticsearch documentation](https://www.elastic.co/guide/en/elasticsearch/reference/6.7/index.html).
 
