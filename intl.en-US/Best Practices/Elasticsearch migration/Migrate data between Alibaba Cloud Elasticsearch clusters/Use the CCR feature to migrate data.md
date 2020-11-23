@@ -2,11 +2,11 @@
 
 This topic describes how to use the cross-cluster replication \(CCR\) feature to migrate data between a local Alibaba Cloud Elasticsearch cluster and a remote Alibaba Cloud Elasticsearch cluster.
 
-CCR is a [commercial feature](https://www.elastic.co/cn/subscriptions) released in open source Elasticsearch Platinum. After you [purchase an Alibaba Cloud Elasticsearch cluster](/intl.en-US/Quick Start/Step 1: Create a cluster/Create an Elasticsearch cluster.md), you can use this feature free of charge based on a few simple configurations. Only single-zone Elasticsearch clusters of V6.7.0 or later support this feature. CCR is used in the following scenarios:
+CCR is a [commercial feature](https://www.elastic.co/cn/subscriptions) released in open source Elasticsearch Platinum. After you [purchase an Alibaba Cloud Elasticsearch cluster](/intl.en-US/Quick Start/Step 1: Create a cluster/Create an Alibaba Cloud Elasticsearch cluster.md), you can use this feature free of charge based on a few simple configurations. Only single-zone Elasticsearch clusters of V6.7.0 or later support this feature. CCR is used in the following scenarios:
 
 -   Disaster recovery and high availability
 
-    You can use CCR to back up data among Elasticsearch clusters deployed in different regions. If a cluster fails, you can retrieve its index data from other clusters. This prevents data loss.
+    You can use CCR to back up data among Elasticsearch clusters that reside in different regions. If a cluster fails, you can retrieve its index data from other clusters. This prevents data loss.
 
 -   Data access from a nearby cluster
 
@@ -14,7 +14,7 @@ CCR is a [commercial feature](https://www.elastic.co/cn/subscriptions) released 
 
 -   Centralized reporting
 
-    You can use CCR to replicate data from multiple small clusters to one cluster. Then, you can analyze and report the data in a visualized manner.
+    You can use CCR to replicate data from multiple small clusters to one cluster. Then, you can perform visualized analytics and reporting for the data in a centralized manner.
 
 
 To use CCR, you must prepare two types of clusters: local clusters and remote clusters. Remote clusters provide source data, which is stored in leader indexes. Local clusters replicate the data and store it in follower indexes. You can also use CCR to migrate large volumes of data at a time in real time. For more information, see [Cross-cluster replication](https://www.elastic.co/guide/en/elasticsearch/reference/current/xpack-ccr.html).
@@ -35,18 +35,18 @@ To use CCR, you must prepare two types of clusters: local clusters and remote cl
 
 4.  [Step 3: Configure CCR](#section_jz5_ir8_epc)
 
-    In the Kibana console of the local cluster, configure the leader index and follower index.
+    In the Kibana console of the local cluster, configure the leader index and a follower index.
 
 5.  [Step 4: View migration results](#section_qlz_hg6_yc7)
 
-    Insert data into the remote cluster and verify the data migration on the local cluster.
+    Insert data into the remote cluster. Then, verify the data migration on the local cluster.
 
 
 ## Preparations
 
-1.  Prepare a remote cluster and a local cluster.
+1.  Prepare a local cluster and a remote cluster.
 
-    For more information, see [Create an Elasticsearch cluster](/intl.en-US/Quick Start/Step 1: Create a cluster/Create an Elasticsearch cluster.md). The two clusters must be single-zone clusters and belong to the same virtual private cloud \(VPC\) and VSwitch. The versions of the two clusters must be the same \(V6.7.0 or later\).
+    For more information, see [Create an Alibaba Cloud Elasticsearch cluster](/intl.en-US/Quick Start/Step 1: Create a cluster/Create an Alibaba Cloud Elasticsearch cluster.md). The two clusters must be single-zone clusters and belong to the same virtual private cloud \(VPC\) and VSwitch. The versions of the two clusters must be the same \(V6.7.0 or later\).
 
 2.  [Log on to the Kibana console](/intl.en-US/Elasticsearch Instances Management/Data visualization/Kibana/Log on to the Kibana console.md) of the remote cluster and create a leader index.
 
@@ -74,7 +74,7 @@ To use CCR, you must prepare two types of clusters: local clusters and remote cl
         POST myindex/_close
         ```
 
-    2.  Update the settings configuration to disable the physical replication feature.
+    2.  Update the settings configuration of the index to disable the physical replication feature.
 
         ```
         POST myindex/_settings
@@ -94,7 +94,7 @@ To use CCR, you must prepare two types of clusters: local clusters and remote cl
 
 Configure the remote cluster to connect it to the local cluster. For more information, see [Connect two Elasticsearch clusters](/intl.en-US/Elasticsearch Instances Management/Security/Connect two Elasticsearch clusters.md). If the two clusters are connected, the information shown in the following figure appears.
 
-![Connect clusters](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/en-US/9201852061/p133815.png)
+![Connect clusters](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/9201852061/p133815.png)
 
 ## Step 2: Add the remote cluster
 
@@ -110,12 +110,12 @@ Configure the remote cluster to connect it to the local cluster. For more inform
 
 5.  In the **Add remote cluster** section, configure the following parameters.
 
-    ![Add remote cluster](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/en-US/9201852061/p133844.png)
+    ![Add remote cluster](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/9201852061/p133844.png)
 
     -   **Name**: the name of the remote cluster. The name must be unique.
-    -   **Seed nodes**: Specify this parameter in the format of IP address of the dedicated master node in the remote cluster:9300. To obtain the IP address, log on to the Kibana console of the remote cluster and run the `GET /_cat/nodes?v` command on the Console tab of the Dev Tools page.
+    -   **Seed nodes**: the nodes in the remote cluster. Specify each node in the format of Node IP address:9300. To obtain the IP addresses of nodes, log on to the Kibana console of the remote cluster and run the `GET /_cat/nodes?v` command on the Console tab of the Dev Tools page. The nodes you specify must include a dedicated master node of the remote cluster. We recommend that you specify multiple nodes. This way, if the dedicated master node fails, you can still use CCR.
 
-        ![Obtain the IP address of the dedicated master node](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/en-US/9201852061/p133849.png)
+        ![Obtain the IP address of a node](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/9201852061/p133849.png)
 
         **Note:** During CCR, Kibana uses the IP addresses of data nodes to access clusters over TCP port 9300. HTTP port 9200 is not supported.
 
@@ -123,7 +123,7 @@ Configure the remote cluster to connect it to the local cluster. For more inform
 
     The system then automatically connects to the remote cluster. If the connection is established, **Connected** appears.
 
-    ![Connection established](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/en-US/9201852061/p133856.png)
+    ![Connection established](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/9201852061/p133856.png)
 
 
 ## Step 3: Configure CCR
@@ -134,7 +134,7 @@ Configure the remote cluster to connect it to the local cluster. For more inform
 
 3.  In the **Add follower index** section, configure the following parameters.
 
-    ![Configure CCR](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/en-US/9201852061/p133858.png)
+    ![Configure CCR](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/9201852061/p133858.png)
 
     |Parameter|Description|
     |---------|-----------|
@@ -146,7 +146,7 @@ Configure the remote cluster to connect it to the local cluster. For more inform
 
     After the follower index is created, the index is in the **Active** state.
 
-    ![Index status](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/en-US/9201852061/p134052.png)
+    ![Index status](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/9201852061/p134052.png)
 
 
 ## Step 4: View migration results
@@ -169,9 +169,11 @@ Configure the remote cluster to connect it to the local cluster. For more inform
 
     If the command is successfully executed, the result shown in the following figure is returned.
 
-    ![Data migration results](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/en-US/9201852061/p134056.png)
+    ![Data migration results](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/9201852061/p134056.png)
 
     The preceding figure shows that data in the leader index myindex of the remote cluster is migrated to the follower index myindex\_follow of the local cluster.
+
+    **Note:** The follower index is read-only. To write data to the follower index like to a common index, you must first convert it into a common index. For more information, see [Cross-Datacenter Replication with Elasticsearch Cross-Cluster Replication](https://www.elastic.co/cn/blog/cross-datacenter-replication-with-elasticsearch-cross-cluster-replication).
 
 3.  Insert a data record into the remote cluster and check whether the data record is migrated to the local cluster in real time.
 
@@ -185,11 +187,11 @@ Configure the remote cluster to connect it to the local cluster. For more inform
 
     Query the inserted data record in the local cluster immediately. The following figure shows the data record.
 
-    ![Verify real-time data migration](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/en-US/0301852061/p135046.png)
+    ![Verify real-time data migration](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/0301852061/p135046.png)
 
-    The preceding example shows that the CCR feature can implement real-time migration of incremental data.
+    The preceding figure shows that the CCR feature can implement real-time migration of incremental data.
 
-    **Note:** You can also use the API operations for this feature to perform related operations. For more information, see [Cross-cluster replication APIs](https://www.elastic.co/guide/en/elasticsearch/reference/master/ccr-apis.html#ccr-apis).
+    **Note:** You can also call the API operations for this feature to perform related operations. For more information, see [Cross-cluster replication APIs](https://www.elastic.co/guide/en/elasticsearch/reference/master/ccr-apis.html#ccr-apis).
 
 
 ## FAQ
