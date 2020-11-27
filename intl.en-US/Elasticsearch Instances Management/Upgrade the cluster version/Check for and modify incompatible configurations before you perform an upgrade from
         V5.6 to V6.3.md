@@ -11,7 +11,7 @@ When you check for incompatible configurations, take note of the following point
 
 1.  Split each multi-type index on the Elasticsearch V5.X cluster into multiple single-type indexes.
 
-    Elasticsearch clusters of V6.X or later do not support multi-type indexes. If the V5.X cluster contains multi-type indexes, you can write data to the indexes but cannot create multi-type indexes after the cluster version is upgraded to V6.X. If you create multi-type indexes, errors are reported. Therefore, before the upgrade, we recommend that you split each multi-type index into single-type indexes. For more information about how to split a multi-type index, see [Use the reindex operation to migrate data in a multi-type index]().
+    Elasticsearch clusters of V6.X or later do not support multi-type indexes. If the V5.X cluster contains multi-type indexes, you can write data to the indexes but cannot create multi-type indexes after the cluster version is upgraded to V6.X. If you create multi-type indexes, errors are reported. Therefore, before the upgrade, we recommend that you split each multi-type index into single-type indexes.
 
 2.  Check whether the cluster contains indexes that are in the close state.
 
