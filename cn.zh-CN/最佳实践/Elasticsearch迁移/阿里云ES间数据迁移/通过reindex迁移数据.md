@@ -11,7 +11,7 @@
 
         在本地集群中准备待迁移的数据。本文使用快速入门章节中的数据进行测试，详情请参见[创建索引](/cn.zh-CN/快速入门/步骤四：业务查询/创建索引.md)和[创建文档并插入数据](/cn.zh-CN/快速入门/步骤四：业务查询/创建文档并插入数据.md)。
 
-        ![本地集群测试数据](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/zh-CN/7202659951/p135747.png)
+        ![本地集群测试数据](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/7202659951/p135747.png)
 
         **说明：** 如果您使用的是7.0及以上版本的集群，需要将索引类型修改为\_doc。
 
@@ -43,9 +43,9 @@ reindex的应用场景如下：
 
 1.  登录[阿里云Elasticsearch控制台](https://elasticsearch.console.aliyun.com/#/home)。
 
-2.  在顶部菜单栏处，选择资源组和地域。
+2.  在左侧导航栏，单击**Elasticsearch实例**。
 
-3.  在左侧导航栏，单击**Elasticsearch实例**，再在**实例列表**中单击目标实例ID。
+3.  在顶部菜单栏处，选择资源组和地域，然后在**实例列表**中单击目标实例ID。
 
 4.  在本地集群中，配置reindex白名单。
 
@@ -55,11 +55,11 @@ reindex的应用场景如下：
 
     3.  在**YML文件配置**页面的**其他Configure配置**中，配置reindex白名单。
 
-        reindex白名单的配置说明请参见[配置reindex白名单](/cn.zh-CN/ES实例/集群配置/配置YML文件/配置reindex白名单.md)。
+        reindex白名单的配置说明，请参见[配置reindex白名单](/cn.zh-CN/ES实例/集群配置/配置YML文件/修改YML参数配置.md)。
 
         -   对于单可用区实例，白名单的格式为<阿里云Elasticsearch实例的域名\>:9200。
 
-            ![单可用区配置示例](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/zh-CN/7202659951/p135190.png)
+            ![单可用区配置示例](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/7202659951/p135190.png)
 
             ```
             reindex.remote.whitelist: ["es-cn-09k1rgid9000g****.elasticsearch.aliyuncs.com:9200"]
@@ -67,7 +67,7 @@ reindex的应用场景如下：
 
         -   对于多可用区实例，白名单需要配置为实例中所有数据节点的IP地址与端口的组合。
 
-            ![多可用区远程白名单配置](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/zh-CN/7202659951/p135853.png)
+            ![多可用区远程白名单配置](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/7202659951/p135853.png)
 
             ```
             reindex.remote.whitelist: ["10.0.xx.xx:9200","10.0.xx.xx:9200","10.0.xx.xx:9200","10.15.xx.xx:9200","10.15.xx.xx:9200","10.15.xx.xx:9200"]
@@ -81,7 +81,7 @@ reindex的应用场景如下：
 
     在本地集群中，添加需要进行网络互通的远程集群，具体操作步骤请参见[配置实例网络互通](/cn.zh-CN/ES实例/安全配置/配置实例网络互通.md)。
 
-    ![配置实例网络互通](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/zh-CN/7202659951/p135740.png)
+    ![配置实例网络互通](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/7202659951/p135740.png)
 
 6.  在本地集群中，调用reindex API重建索引。
 
@@ -161,11 +161,11 @@ reindex的应用场景如下：
 
     -   单可用区实例
 
-        ![查看迁移成功的数据](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/zh-CN/5702852061/p135751.png)
+        ![查看迁移成功的数据](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/5702852061/p135751.png)
 
     -   多可用区实例
 
-        ![查看迁移成功的数据](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/zh-CN/6702852061/p135865.png)
+        ![查看迁移成功的数据](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/6702852061/p135865.png)
 
 
 ## 总结
