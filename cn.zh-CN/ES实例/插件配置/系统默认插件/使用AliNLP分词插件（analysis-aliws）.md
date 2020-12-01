@@ -4,13 +4,16 @@ keyword: [analysis-aliws插件, AliNLP分词插件, es分词]
 
 # 使用AliNLP分词插件（analysis-aliws）
 
-AliNLP分词插件是阿里云Elasticsearch自带的一个系统默认插件。通过该插件，您可以在阿里云Elasticsearch中集成对应的分析器和分词器，完成文档的分析和检索。您也可以使用AliNLP分词插件的词库配置功能，通过词典文件的热更新自定义词库配置。目前5.x版本的阿里云Elasticsearch实例不支持AliNLP分词插件。
+AliNLP分词插件是阿里云Elasticsearch自带的一个系统默认插件。通过该插件，您可以在阿里云Elasticsearch中集成对应的分析器和分词器，完成文档的分析和检索。您也可以使用AliNLP分词插件的词库配置功能，通过词典文件的热更新自定义词库配置。本文介绍如何使用AliNLP分词插件。
 
 已安装AliNLP分词插件（英文名为analysis-aliws，默认未安装）。
 
 如果还未安装，请先安装AliNLP分词插件。安装前需要确保实例的内存大小为4GB及以上（生产环境中要求最低为8GB）。具体安装步骤，请参见[安装或卸载系统默认插件](/cn.zh-CN/ES实例/插件配置/系统默认插件/安装或卸载系统默认插件.md)。
 
-**说明：** 如果实例的内存大小不满足要求，需要先进行升级。具体操作步骤，请参见[升配集群](/cn.zh-CN/ES实例/升降配实例/升配集群.md)。
+**说明：**
+
+-   5.x版本的实例不支持AliNLP分词插件。
+-   如果实例的内存大小不满足要求，需要先进行升级。具体操作步骤，请参见[升配集群](/cn.zh-CN/ES实例/升降配实例/升配集群.md)。
 
 AliNLP分词插件安装成功后，阿里云Elasticsearch默认会集成以下分析器和分词器：
 
@@ -153,7 +156,7 @@ AliNLP分词插件支持词库配置，即上传自定义词典文件。上传�
 
 7.  选择词典文件的上传方式，并按照以下说明上传词典文件。
 
-    ![更新ALIWS分词词库](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/zh-CN/5846359951/p103059.png)
+    ![更新ALIWS分词词库](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/5846359951/p103059.png)
 
     词典文件要求如下：
 
@@ -174,7 +177,7 @@ AliNLP分词插件支持词库配置，即上传自定义词典文件。上传�
 
 ## 测试分析器
 
-执行如下命令测试aliws分析器。
+执行如下命令，测试aliws分析器。
 
 ```
 GET _analyze
@@ -223,7 +226,7 @@ GET _analyze
 
 ## 测试分词器
 
-执行如下命令测试aliws\_tokenizer分词器。
+执行如下命令，测试aliws\_tokenizer分词器。
 
 ```
 GET _analyze
