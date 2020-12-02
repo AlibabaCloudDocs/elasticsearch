@@ -52,7 +52,7 @@ output {
         #shard_id => "0"
         #shard_keys => ["thread_id"]
         dirty_data_continue => true
-        dirty_data_file => "/Users/ph0ly/trash/dirty.data"
+        dirty_data_file => "/ssd/1/ls-cn-st21txlz****/logstash/data/文件名"
         dirty_data_file_max_size => 1000
     }
 }
