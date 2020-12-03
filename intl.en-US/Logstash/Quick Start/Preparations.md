@@ -14,7 +14,7 @@ Create two Alibaba Cloud Elasticsearch clusters to respectively act as the input
 
 **Note:**
 
--   The source Elasticsearch cluster must be connected to the same VPC as your Logstash cluster. Otherwise, you must configure network and security settings to enable access to the Logstash cluster over the Internet. For more information, see [Configure a NAT gateway for data transmission over the Internet]().
+-   The source Elasticsearch cluster must be connected to the same VPC as your Logstash cluster. Otherwise, you must configure network and security settings to enable access to the Logstash cluster over the Internet. For more information, see [Configure a NAT gateway for data transmission over the Internet](/intl.en-US/Logstash/Network and security/Configure a NAT gateway for data transmission over the Internet.md).
 -   The destination Elasticsearch cluster must reside in the same region, zone, and VPC as the Logstash cluster. In addition, the version of the destination Elasticsearch cluster must be the same as that of the Logstash cluster.
 -   The scripts provided in this tutorial only apply to scenarios where a Logstash V6.7 cluster is used to synchronize data between Elasticsearch V6.7 clusters.
 -   In this tutorial, the elastic account is used to access the Elasticsearch clusters. If you want to use a custom account, you must first create a role for the account and grant the required permissions to the role.
@@ -33,7 +33,7 @@ For more information about how to log on to the Kibana console, see [Log on to t
 
 The following code applies only to Elasticsearch V6.7 clusters.
 
--   Create an index named `my_index`
+-   Create an index named my\_index
 
     ```
     PUT /my_index
@@ -48,15 +48,13 @@ The following code applies only to Elasticsearch V6.7 clusters.
             "my_type" : {
                 "properties" : {
                   "post_date": {          
-                       "type": "date"
-                        "dynamic" : "true"       
+                       "type": "date"       
                    },
                   "tags": {
                        "type": "keyword"
                    },
                     "title" : {
-                        "type" : "text",
-                        "analyzer" : "cjk"
+                        "type" : "text"
                     }
                 }
             }
@@ -64,7 +62,7 @@ The following code applies only to Elasticsearch V6.7 clusters.
     }
     ```
 
--   Create a document named `1`
+-   Create a document named 1
 
     ```
     PUT /my_index/my_type/1?pretty
@@ -75,7 +73,7 @@ The following code applies only to Elasticsearch V6.7 clusters.
     }
     ```
 
--   Create a document named `2`
+-   Create a document named 2
 
     ```
     PUT /my_index/my_type/2?pretty
