@@ -11,7 +11,7 @@
 
 -   安装Java，要求JDK版本为1.8及以上。
 
-    安装方法请参见[安装JDK](/intl.zh-CN/最佳实践/数据库同步/RDS MySQL同步/使用Canal迁移数据至阿里云Elasticsearch.md)。
+    安装方法请参见[安装JDK](/intl.zh-CN/最佳实践/数据库同步/RDS MySQL同步/通过Canal将MySQL数据同步到阿里云Elasticsearch.md)。
 
 -   创建阿里云Elasticsearch实例，版本为5.5.3。
 
@@ -23,7 +23,7 @@
 
     如果未开启会提示如下报错。
 
-    ![报错](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/zh-CN/8769559951/p97345.png)
+    ![报错](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/8769559951/p97345.png)
 
 -   配置阿里云Elasticsearch实例的白名单，确保网络互通。
     -   如果运行Java代码的服务器在公网环境下，可通过阿里云Elasticsearch实例的公网地址进行连通。连通前，需要开启阿里云Elasticsearch实例的公网地址，并修改公网地址访问白名单，将服务器的公网IP地址加入白名单中。具体操作步骤请参见[配置ES公网或私网访问白名单](/intl.zh-CN/实例管理/安全配置/配置ES公网或私网访问白名单.md)。
@@ -57,7 +57,7 @@
 
 ## 示例
 
-单击下载[完整示例代码](http://docs-aliyun.cn-hangzhou.oss.aliyun-inc.com/assets/attach/33813/cn_zh/1593402410101/es5.5-demo.zip)。
+单击下载[完整示例代码](https://docs-aliyun.cn-hangzhou.oss.aliyun-inc.com/assets/attach/33813/cn_zh/1593402410101/es5.5-demo.zip)。
 
 通过Java REST Client访问阿里云Elasticsearch的9200端口进行测试，示例代码如下。
 
