@@ -154,17 +154,17 @@ xpack.security.audit.index.settings:
 
 ## 配置queue大小
 
-通过自定义queue大小，调整文档写入和搜索的队列大小。您可以在[YML文件配置](#section_8wn_rid_he1)中，配置queue大小。以下示例配置文档写入和搜索queue大小为500，实际业务中请根据具体情况自行调整。
+通过自定义queue大小，调整文档写入和搜索的队列大小。您可以在[YML文件配置](#section_8wn_rid_he1)中，配置queue大小。以下示例配置文档写入和搜索queue大小为500和1200，实际业务中请根据具体情况自行调整。
 
 ```
 thread_pool.bulk.queue_size: 500
 thread_pool.write.queue_size: 500
-thread_pool.search.queue_size: 500
+thread_pool.search.queue_size: 1200
 ```
 
 |参数|默认值|说明|
 |--|---|--|
-|thread\_pool.bulk.queue\_size|1024|文档写入队列大小，适用于阿里云Elasticsearch 5.x版本。|
-|thread\_pool.write.queue\_size|1024|文档写入队列大小，适用于阿里云Elasticsearch 6.x及7.x版本。|
-|thread\_pool.search.queue\_size|1024|文档搜索队列大小。|
+|thread\_pool.bulk.queue\_size|200|文档写入队列大小，适用于阿里云Elasticsearch 5.x版本。|
+|thread\_pool.write.queue\_size|200|文档写入队列大小，适用于阿里云Elasticsearch 6.x及7.x版本。|
+|thread\_pool.search.queue\_size|1000|文档搜索队列大小。|
 
