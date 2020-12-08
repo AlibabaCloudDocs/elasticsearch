@@ -55,8 +55,6 @@ ES-Hadoop是Elasticsearch推出的专门用于对接Hadoop生态的工具，可�
     {"id": 3, "name": "wangwu", "birth": "1992-01-01", "addr": "No.699 wangshang Rd, binjiang, hangzhou"}
     ```
 
-4.  准备Java环境，要求JDK版本为8.0及以上。
-
 
 ## 步骤一：上传ES-Hadoop JAR包至HDFS
 
@@ -196,6 +194,7 @@ ES-Hadoop是Elasticsearch推出的专门用于对接Hadoop生态的工具，可�
             conf.set("es.net.http.auth.pass", "xxxxxx");
             conf.set("es.nodes.wan.only", "true");
             conf.set("es.nodes.discovery","false");
+            conf.set("es.input.use.sliced.partitions","false");
             conf.set("es.resource", "maptest/_doc");
             conf.set("es.input.json", "yes");
     
@@ -230,6 +229,8 @@ ES-Hadoop是Elasticsearch推出的专门用于对接Hadoop生态的工具，可�
     |es.nodes.discovery|true|是否禁用节点发现：    -   true：禁用
     -   false：不禁用
 **说明：** 使用阿里云Elasticsearch，必须将此参数设置为false。 |
+    |es.input.use.sliced.partitions|true|是否使用slice分区：    -   true：使用。设置为true，可能会导致索引在预读阶段的时间明显变长，有时会远远超出查询数据所耗费的时间。建议设置为false，以提高查询效率。
+    -   false：不使用。 |
     |es.index.auto.create|yes|通过Hadoop组件向Elasticsearch集群写入数据，是否自动创建不存在的index：    -   true：自动创建
     -   false：不会自动创建 |
     |es.resource|/|指定要读写的index和type。|
@@ -271,7 +272,7 @@ ES-Hadoop是Elasticsearch推出的专门用于对接Hadoop生态的工具，可�
 
     查询成功后，返回结果如下。
 
-    ![返回结果](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/zh-CN/9357472061/p173107.png)
+    ![返回结果](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/9357472061/p173107.png)
 
 
 ## 总结
