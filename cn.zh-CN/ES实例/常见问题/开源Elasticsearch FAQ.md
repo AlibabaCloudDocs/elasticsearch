@@ -4,9 +4,9 @@
 
 ## 如何配置索引线程池大小？
 
-在YML参数配置中，指定thread\_pool.write.queue\_size参数的大小即可。具体操作步骤，请参见[修改YML参数配置](/cn.zh-CN/ES实例/集群配置/配置YML文件/修改YML参数配置.md)。
+在YML参数配置中，指定thread\_pool.write.queue\_size参数的大小即可。具体操作步骤，请参见[配置YML参数](/cn.zh-CN/ES实例/集群配置/配置YML参数.md)。
 
-![配置线程池大小](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/zh-CN/5850005061/p180387.png)
+![配置线程池大小](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/5850005061/p180387.png)
 
 **说明：** 对于6.x以下版本的Elasticsearch集群，需要使用thread\_pool.index.queue\_size参数。
 
@@ -91,7 +91,7 @@ PUT /_cluster/settings
 
 **说明：** `auto_create_index`参数的默认值为false，表示不允许自动创建索引。一般建议您不要调整该值，会引起索引太多、索引Mapping和Setting不符合预期等问题。
 
-## OOS快照大概需要多久？
+## OSS快照大概需要多久？
 
 在集群的分片数、内存、磁盘和CPU等正常的情况下，80GB的索引数据进行OSS快照，大约需要30分钟。
 
@@ -114,9 +114,9 @@ PUT /_cluster/settings
 
 您可以在Kibana中，通过转换时区来调整服务器时间，如下图（以6.7.0版本为例）。
 
-![调整服务器时间1](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/zh-CN/5850005061/p180469.png)
+![调整服务器时间1](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/5850005061/p180469.png)
 
-![选择时区](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/zh-CN/5850005061/p180471.png)
+![选择时区](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/5850005061/p180471.png)
 
 ## Elasticsearch的Term查询适用于哪种类型的数据？
 
