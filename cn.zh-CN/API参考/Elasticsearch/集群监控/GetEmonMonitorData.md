@@ -51,9 +51,7 @@ POST /openapi/emon/projects/[ProjectId]/metrics/query HTTPS|HTTP
 
 |a+b
 
-|指标数据查询表达式。
-
-| |
+|指标数据查询表达式。 |
 |queries
 
 |List
