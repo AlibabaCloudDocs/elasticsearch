@@ -545,7 +545,10 @@ RequestBody中还需要填入以下参数，用来指定待创建的实例信息
 
 |创建实例时是否校验配置，可选值：true（只校验，不创建）、false（校验并创建）。 |
 
-**说明：** └表示子参数。
+**说明：**
+
+-   └表示子参数。
+-   支持的节点规格列表，请参见[阿里云Elasticsearch定价信息](https://www.aliyun.com/price/product?spm=a2c4g.11186623.2.10.653c6c88NcQPZY#/elasticsearch/detail)。
 
 示例如下。
 
