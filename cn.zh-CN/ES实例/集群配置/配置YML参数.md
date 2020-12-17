@@ -6,6 +6,10 @@ keyword: [es yml配置, 自动创建索引, 删除索引指定名称, Auditlog�
 
 通过配置阿里云Elasticsearch实例的YML参数，您可以设置允许自动创建索引、删除索引指定名称、配置Auditlog索引、开启Watcher以及其他配置。本文介绍如何配置YML参数，以及CORS访问、reindex白名单、Auditlog索引和queue大小的配置。
 
+## 注意事项
+
+因阿里云Elasticsearch网络架构调整，2020年10月起创建的实例暂时不支持Watcher、LDAP认证、跨集群Reindex、跨集群搜索、实例网络互通功能，待后期功能上线后开放，请耐心等待。
+
 ## 修改配置
 
 1.  登录[阿里云Elasticsearch控制台](https://elasticsearch.console.aliyun.com/#/home)。
@@ -107,7 +111,7 @@ xpack.sql.enabled
     reindex.remote.whitelist: ["10.0.xx.xx:9200","10.0.xx.xx:9200","10.0.xx.xx:9200","10.15.xx.xx:9200","10.15.xx.xx:9200","10.15.xx.xx:9200"]
     ```
 
-    **说明：** reindex白名单配置完成后，即可调用reindex API重建索引。具体操作步骤，请参见[通过reindex迁移数据](/cn.zh-CN/最佳实践/Elasticsearch迁移/阿里云ES间数据迁移/通过reindex迁移数据.md)。
+    **说明：** reindex白名单配置完成后，即可调用reindex API重建索引。具体操作，请参见[通过reindex迁移数据](/cn.zh-CN/最佳实践/Elasticsearch迁移/阿里云ES间数据迁移/通过reindex迁移数据.md)。
 
 
 ## 配置Auditlog
@@ -150,7 +154,7 @@ xpack.security.audit.index.settings:
 
 **说明：** 如果您希望通过传入配置参数生成Auditlog索引，请在开启Auditlog索引（设置xpack.security.audit.enabled为true）的同时传入此配置。否则，Auditlog索引将使用默认的number\_of\_shards: 5、number\_of\_replicas: 1配置。
 
-更多详细信息，请参见[Auditing Security Settings](https://www.elastic.co/guide/en/elasticsearch/reference/6.3/auditing-settings.html#auditing-settings)。
+详细信息，请参见[Auditing Security Settings](https://www.elastic.co/guide/en/elasticsearch/reference/6.3/auditing-settings.html#auditing-settings)。
 
 ## 配置queue大小
 
