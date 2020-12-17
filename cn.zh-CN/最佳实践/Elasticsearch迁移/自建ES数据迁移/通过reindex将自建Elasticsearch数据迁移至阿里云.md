@@ -4,10 +4,7 @@
 
 ## 注意事项
 
-通过reindex迁移数据，仅支持单可用区实例。如果您使用的是多可用区实例，建议采用如下方案：
-
--   如果源端数据量较大，建议采用OSS快照方式，详情请参见[通过OSS将自建Elasticsearch数据迁移至阿里云](/cn.zh-CN/最佳实践/Elasticsearch迁移/自建ES数据迁移/通过OSS将自建Elasticsearch数据迁移至阿里云.md)。
--   如果需要对源端数据进行过滤，建议采用Losgatsh迁移方案，详情请参见[通过阿里云Logstash将自建ES数据迁移至阿里云ES](/cn.zh-CN/最佳实践/Elasticsearch迁移/自建ES数据迁移/通过阿里云Logstash将自建ES数据迁移至阿里云ES.md)。
+因阿里云Elasticsearch网络架构调整，2020年10月起创建的实例暂时不支持Watcher、LDAP认证、跨集群Reindex、跨集群搜索、实例网络互通功能，待后期功能上线后开放，请耐心等待。
 
 ## 前提条件
 
@@ -19,6 +16,13 @@
 
     **说明：** 您可以通过任意一台机器执行文档中的脚本，前提是该机器可以同时访问自建Elasticsearch和阿里云Elasticsearch集群的9200端口。
 
+
+## 背景信息
+
+通过reindex迁移数据，仅支持单可用区实例。如果您使用的是多可用区实例，建议采用如下方案：
+
+-   如果源端数据量较大，建议采用OSS快照方式。具体操作，请参见[通过OSS将自建Elasticsearch数据迁移至阿里云](/cn.zh-CN/最佳实践/Elasticsearch迁移/自建ES数据迁移/通过OSS将自建Elasticsearch数据迁移至阿里云.md)。
+-   如果需要对源端数据进行过滤，建议采用Losgatsh迁移方案。具体操作，请参见[通过阿里云Logstash将自建Elasticsearch数据迁移至阿里云](/cn.zh-CN/最佳实践/Elasticsearch迁移/自建ES数据迁移/通过阿里云Logstash将自建Elasticsearch数据迁移至阿里云.md)。
 
 ## 创建索引
 
@@ -131,7 +135,7 @@ if (len(systemIndex) > 0) :
 **说明：**
 
 -   为保证数据迁移前后一致，需要上游业务停止自建Elasticsearch集群的写操作，读操作才可以正常进行。迁移完毕后，直接切换到阿里云Elasticsearch集群进行读写操作。如果不停止写操作，可能会导致迁移前后数据不一致。
--   使用以下方案迁移数据时，如果是通过`IP:Port`的方式访问自建Elasticsearch集群，则必须在阿里云Elasticsearch集群的YML文件中配置`reindex`白名单，添加自建Elasticsearch集群的IP地址，例如`reindex.remote.whitelist: 1.1.1.1:9200,1.2.*.*:*`，详情请参见[配置YML参数](/cn.zh-CN/ES实例/集群配置/配置YML文件/修改YML参数配置.md)。
+-   使用以下方案迁移数据时，如果是通过`IP:Port`的方式访问自建Elasticsearch集群，则必须在阿里云Elasticsearch集群的YML文件中配置`reindex`白名单，添加自建Elasticsearch集群的IP地址，例如`reindex.remote.whitelist: 1.1.1.1:9200,1.2.*.*:*`，详情请参见[配置YML参数](/cn.zh-CN/ES实例/集群配置/配置YML参数.md)。
 -   当使用域名访问自建Elasticsearch或阿里云Elasticsearch集群时，不允许通过`http://host:port/path`这种带`path`的形式访问。
 
 -   数据量小
