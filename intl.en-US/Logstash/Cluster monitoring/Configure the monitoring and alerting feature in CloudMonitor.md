@@ -53,7 +53,7 @@ Logstash allows you to configure monitoring and alerting for the metrics that ar
     -   The values for cluster states Green \(normal\), Yellow \(alert\), and Red \(unhealthy\) are **0.0**, **1.0**, and **2.0**. Reference these values and set a suitable threshold for the **ClusterStatus** metric.
     -   The **Mute for** parameter specifies the intervals at which an alert notification is re-sent when a threshold is reached.
 
-        **Note:** For more information about other parameters, see [Alarm rule parameters]().
+        **Note:** For more information about other parameters, see [Create a threshold-triggered alert rule](/intl.en-US/Alarm service/Alarm rules/Create a threshold-triggered alert rule.md).
 
 4.  In the **Notification Method** section, select **Default Contact Group** from the Contact Group section and click the rightwards arrow to add it to the Selected Groups section.
 
