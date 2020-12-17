@@ -18,9 +18,9 @@ Logstash provides two billing methods: **Subscription** and **Pay-As-You-Go**. Y
 |**Version**|Valid values: **6.7** and **7.4**.|
 |**Region and Zone**|For more information, see [Regions and zones](#section_24a_luy_io8).|
 |**Category**|For more information, see [Specifications](#section_2jb_rjr_5f8).|
-|**Disk Type**|Valid values: -   **Cloud SSD**: This is the default value. A standard SSD provides a maximum of 2,048 GiB of storage space. Standard SSDs are suitable for online data analytics and search that require high IOPS and fast responses.
+|**Disk Type**|Valid values:-   **Cloud SSD**: This is the default value. A standard SSD provides a maximum of 2,048 GiB of storage space. Standard SSDs are suitable for online data analytics and search that require high IOPS and fast responses.
 -   **Efficient cloud disk**: An ultra disk provides a maximum of 5,120 GiB of storage space. Ultra disks are cost-effective and are suitable for scenarios such as logging and analyzing large amounts of data. |
-|**Node Storage**|The storage space of each node. It depends on the disk type. Unit: GiB. -   If the disk type is **Cloud SSD**, the value of this parameter ranges from 20 to 2048.
+|**Node Storage**|The storage space of each node. It depends on the disk type. Unit: GiB.-   If the disk type is **Cloud SSD**, the value of this parameter ranges from 20 to 2048.
 -   If the disk type is **Efficient cloud disk**, the maximum value of this parameter is 5120.
 
 **Note:** You can resize an ultra disk to a maximum of 2,048 GiB. Ultra disks with the storage space larger than 2,560 GiB cannot be resized because these disks are designed to run in disk arrays or RAID 0. |
@@ -57,7 +57,7 @@ The following table lists the regions and zones where Logstash clusters are avai
 
 ## Specifications
 
-Logstash provides different specifications based on vCPU-to-memory ratios. The following table lists the specifications. For more information about the prices of the specifications, see [Pricing]().
+Logstash provides different specifications based on vCPU-to-memory ratios. The following table lists the specifications.
 
 |vCPU-to-memory ratio|Specification|
 |--------------------|-------------|
