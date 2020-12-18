@@ -18,7 +18,7 @@ This topic describes how to modify the YML file configuration of your Alibaba Cl
 
 5.  On the **Cluster Configuration** page, click **Modify Configuration** on the right side of **YML Configuration**.
 
-6.  In the **YML File Configuration** pane, configure the following parameters.
+6.  In the **YML File Configuration** panel, configure the following parameters.
 
     ![Elasticsearch YML file configuration](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/8467819951/p40138.png)
 
@@ -26,18 +26,18 @@ This topic describes how to modify the YML file configuration of your Alibaba Cl
     |---------|-----------|
     |**Auto Indexing**|Specifies whether to automatically create an index when a new document is uploaded to your Elasticsearch cluster but no index has been created. We recommend that you disable Auto Indexing because indexes created by this feature may not meet your business requirements. This parameter corresponds to the `action.auto_create_index` configuration item in the YML file. The default value of this configuration item is `false`. |
     |**Index Deletion**|Specifies whether to specify the index name when you delete an index. If you select **Allow Wildcards**, you can use wildcards to delete multiple indexes at a time. Deleted indexes cannot be restored. Exercise caution when you configure this parameter. This parameter corresponds to the `action.destructive_requires_name` configuration item in the YML file. The default value of this configuration item is `true`. |
-    |**Audit Log Indexing**|If you enable Audit Log Indexing, index logs are generated when you create, delete, modify, or search for an index in your Elasticsearch cluster. These logs consume disk space and affect cluster performance. Therefore, we recommend that you disable Audit Log Indexing. Exercise caution when you configure this parameter. **Note:** This parameter is unavailable for Elasticsearch V7.4.0 clusters.
+    |**Audit Log Indexing**|If you enable Audit Log Indexing, index logs are generated when you create, delete, modify, or search for an index in your Elasticsearch cluster. These logs consume disk space and affect cluster performance. Therefore, we recommend that you disable Audit Log Indexing and exercise caution when you configure this parameter. **Note:** This parameter is unavailable for Elasticsearch V7.4.0 clusters.
 
 This parameter corresponds to the `xpack.security.audit.enabled` configuration item in the YML. The default value of this configuration item is `false`. |
     |**Watcher**|If you enable Watcher, you can use the X-Pack Watcher feature. Make sure that you clear the `.watcher-history*` index on a regular basis to free up disk space. This parameter corresponds to the `xpack.watcher.enabled` configuration item in the YML file. The default value of this configuration item is `false`. |
-    |**Other Configurations**|The following content lists some of the supported configuration items. Unless otherwise specified, these items are available for Elasticsearch V5.X, V6.X, and V7.X.     -   [Configure CORS](/intl.en-US/Elasticsearch Instances Management/Elasticsearch cluster configuration/Configure YML/Configure CORS.md)
+    |**Other Configurations**|The following description lists some of the supported configuration items. Unless otherwise specified, these items are available for Elasticsearch V5.X, V6.X, and V7.X.     -   [Configure CORS](/intl.en-US/Elasticsearch Instances Management/Elasticsearch cluster configuration/Configure YML/Configure CORS.md)
         -   `http.cors.enabled`
         -   `http.cors.allow-origin`
         -   `http.cors.max-age`
         -   `http.cors.allow-methods`
         -   `http.cors.allow-headers`
         -   `http.cors.allow-credentials`
-    -   [Recreate indexes by calling the Reindex operation](/intl.en-US/Elasticsearch Instances Management/Elasticsearch cluster configuration/Configure YML/Recreate indexes by calling the Reindex operation.md)
+    -   [Configure a remote reindex whitelist for an Elasticsearch cluster](/intl.en-US/Elasticsearch Instances Management/Elasticsearch cluster configuration/Configure YML/Configure a remote reindex whitelist for an Elasticsearch cluster.md)
 
 `reindex.remote.whitelist`
 
