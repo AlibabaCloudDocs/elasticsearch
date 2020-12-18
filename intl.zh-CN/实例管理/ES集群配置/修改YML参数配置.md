@@ -25,7 +25,7 @@ keyword: [es yml配置, 自动创建索引, 删除索引指定名称, Auditlog�
     |参数|说明|
     |--|--|
     |**自动创建索引**|当Elasticsearch实例在接收到新文档后，如果没有对应索引，是否允许系统自动新建索引。自动创建的索引可能不符合您的预期，不建议开启。 对应的YML文件的配置项为`action.auto_create_index`，默认为`false`。 |
-    |**删除索引指定名称**|在删除索引时是否需要明确指定索引名称。如果选择**删除时索引名称支持通配符**，则可以使用通配符进行批量删除索引。索引删除后不可恢复，请谨慎使用此配置。 对应的YML文件的配置项为`action.destructive_requires_name`，默认为`true`。 |
+    |**删除索引指定名称**|在删除索引时是否需要明确指定索引名称。如果选择**删除或关闭时索引名称支持通配符**，则可以使用通配符进行批量删除索引。索引删除后不可恢复，请谨慎使用此配置。 对应的YML文件的配置项为`action.destructive_requires_name`，默认为`true`。 |
     |**Auditlog索引**|开启后，系统会记录Elasticsearch实例对应的增、删、改、查等操作产生的索引日志，该日志信息会占用您的磁盘空间，同时也会影响性能，不建议开启，请谨慎使用此配置。 **说明：** 阿里云Elasticsearch 7.4.0版本的实例暂不支持配置该参数。
 
 对应的YML文件的配置项为`xpack.security.audit.enabled`，默认为`false`。 |
@@ -37,7 +37,7 @@ keyword: [es yml配置, 自动创建索引, 删除索引指定名称, Auditlog�
         -   `http.cors.allow-methods`
         -   `http.cors.allow-headers`
         -   `http.cors.allow-credentials`
-    -   [配置reindex白名单](/intl.zh-CN/实例管理/ES集群配置/配置YML文件/自定义reindex远程重建索引配置.md)
+    -   [配置reindex白名单](/intl.zh-CN/实例管理/ES集群配置/配置YML文件/配置reindex白名单.md)
 
 `reindex.remote.whitelist`
 
