@@ -15,7 +15,7 @@ You have completed the following operations:
     By default, the aliyun-sql plug-in is installed on the Elasticsearch cluster. You can check whether the plug-in is installed on the plug-in configuration page. If the plug-in is not installed, follow the instructions provided in [Install and remove a built-in plug-in](/intl.en-US/Elasticsearch Instances Management/Plug-ins/Built-in plug-ins/Install and remove a built-in plug-in.md) to install the plug-in.
 
 
-The aliyun-sql plug-in offers more features than open source SQL plug-ins. The following table compares the aliyun-sql plug-in with open-source SQL plug-ins.
+The aliyun-sql plug-in offers more features than open source SQL plug-ins. The following table compares the aliyun-sql plug-in with open source SQL plug-ins.
 
 |SQL plug-in|SQL parser|Paged query|Join|Nested|Common function|Case Function|Extended UDF|Optimization of execution plans|
 |-----------|----------|-----------|----|------|---------------|-------------|------------|-------------------------------|
@@ -39,7 +39,7 @@ The aliyun-sql plug-in offers more features than open source SQL plug-ins. The f
     }
     ```
 
-    Plug-in removal restarts your cluster. If you do not disable the plug-in before you remove it, your cluster remains stuck in the restart. In this case, you must run the following command to clear archiving configurations and resume the restart:
+    Plug-in removal restarts your cluster. If you do not disable the plug-in before you remove it, your cluster remains stuck in the restart. In this case, you must run the following command to clear the archiving configurations and resume the restart:
 
     ```
     PUT _cluster/settings
@@ -116,7 +116,7 @@ The aliyun-sql plug-in uses the syntax of MySQL 5.0 and supports a wide range of
         {"id":572555,"name":"xiaoliu","age":"21","addr":"addr3"}
         ```
 
-    -   Data of student ranking
+    -   Data of student rankings
 
         ```
         PUT sturank/_doc/_bulk? refresh
