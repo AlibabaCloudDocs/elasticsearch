@@ -26,7 +26,7 @@ If you choose the standard update method, you can modify the built-in main dicti
 
 ## Prerequisites
 
-Your Elasticsearch cluster is in a normal state. You can check the cluster status on the [Basic Information](/intl.en-US/Elasticsearch Instances Management/Manage clusters/View the configuration of an Elasticsearch cluster.md) page.
+Your Elasticsearch cluster is in a normal state. You can check the cluster status on the [Basic Information](/intl.en-US/Elasticsearch Instances Management/Manage clusters/View the basic information of a cluster.md) page.
 
 ## Perform a standard update for IK dictionaries
 
@@ -40,13 +40,13 @@ Your Elasticsearch cluster is in a normal state. You can check the cluster statu
 
 5.  On the **Built-in Plug-ins** tab, find the analysis-ik plug-in and click **Standard Update** in the **Actions** column.
 
-    ![Standard update](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/en-US/5567819951/p40216.png)
+    ![Standard update](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/5567819951/p40216.png)
 
 6.  In the **Standard Update** pane, click **Configure** in the lower-right corner.
 
 7.  Select a method to upload a dictionary file from the drop-down list that is below the **IK Main Dictionary** section. Then, upload the dictionary file based on the following instructions.
 
-    ![IK main dictionary](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/en-US/5567819951/p40219.png)
+    ![IK main dictionary](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/5567819951/p40219.png)
 
     You can select the **Upload DIC File** or **Add OSS File** method.
 
@@ -78,13 +78,13 @@ Your Elasticsearch cluster is in a normal state. You can check the cluster statu
 
 1.  On the **Built-in Plug-ins** tab, find the analysis-ik plug-in and click **Rolling Update** in the **Actions** column.
 
-    ![Rolling update](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/en-US/5567819951/p40222.png)
+    ![Rolling update](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/5567819951/p40222.png)
 
 2.  In the **Rolling Update** pane, click **Configure** in the lower-right corner.
 
 3.  Select a method to upload a dictionary file from the drop-down list that is below the **IK Main Dictionary** section. Then, upload the dictionary file based on the following instructions.
 
-    ![Plug-in configuration](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/en-US/5567819951/p40223.png)
+    ![Plug-in configuration](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/5567819951/p40223.png)
 
     **Note:** You cannot use the rolling update method to modify the built-in main dictionary. If you want to modify the built-in main dictionary, use the standard update method.
 
