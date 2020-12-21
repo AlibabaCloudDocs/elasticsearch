@@ -41,7 +41,7 @@ The source and destination Elasticsearch clusters must meet the following requir
 
     After the shared repository is added, the current page shows the cluster that owns the repository and the repository status.
 
-    ![Shared repository successfully added](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/en-US/4767819951/p63593.png)
+    ![Shared repository successfully added](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/4767819951/p63593.png)
 
     **Note:** The system uses your Elasticsearch cluster to retrieve the repository list. If the cluster is updating its configuration, is abnormal, or encounters heavy workloads, the system may fail to retrieve the repository list. If this error occurs, you can log on to the Kibana console and run the `GET _snapshot` command to retrieve the endpoints of all repositories. For more information about how to log on to the Kibana console, see [Log on to the Kibana console](/intl.en-US/Elasticsearch Instances Management/Data visualization/Kibana/Log on to the Kibana console.md).
 
@@ -63,7 +63,7 @@ The source and destination Elasticsearch clusters must meet the following requir
 
         The command returns information about all the snapshots in the repository.
 
-        ![Information about all the snapshots in the repository](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/en-US/4767819951/p63598.png)
+        ![Information about all the snapshots in the repository](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/4767819951/p63598.png)
 
         **Note:** `aliyun_snapshot_from_es-cn-a` is the name of the **shared repository** that is added in [Add a shared OSS repository](#section_zf4_nr6_ie2).
 
@@ -91,7 +91,7 @@ The source and destination Elasticsearch clusters must meet the following requir
 
             ```
             POST _snapshot/aliyun_snapshot_from_es-cn-a/es-cn-a_20190705220000/_restore 
-            {"indices":"*,-.monitoring*,-.security_audit*,-.kibana*","ignore_unavailable":"true"}
+            {"indices":"*,-.monitoring*,-.security*,-.kibana*","ignore_unavailable":"true"}
             ```
 
 
