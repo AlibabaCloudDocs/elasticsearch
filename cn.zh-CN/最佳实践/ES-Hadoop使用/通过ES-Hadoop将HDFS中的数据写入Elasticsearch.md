@@ -55,6 +55,8 @@ ES-Hadoop是Elasticsearch推出的专门用于对接Hadoop生态的工具，可�
     {"id": 3, "name": "wangwu", "birth": "1992-01-01", "addr": "No.699 wangshang Rd, binjiang, hangzhou"}
     ```
 
+4.  准备Java环境，要求JDK版本为1.8.0及以上。
+
 
 ## 步骤一：上传ES-Hadoop JAR包至HDFS
 
@@ -196,7 +198,7 @@ ES-Hadoop是Elasticsearch推出的专门用于对接Hadoop生态的工具，可�
             conf.set("es.nodes.discovery","false");
             conf.set("es.input.use.sliced.partitions","false");
             conf.set("es.resource", "maptest/_doc");
-            conf.set("es.input.json", "yes");
+            conf.set("es.input.json", "true");
     
             Job job = Job.getInstance(conf);
             job.setInputFormatClass(TextInputFormat.class);
@@ -231,10 +233,11 @@ ES-Hadoop是Elasticsearch推出的专门用于对接Hadoop生态的工具，可�
 **说明：** 使用阿里云Elasticsearch，必须将此参数设置为false。 |
     |es.input.use.sliced.partitions|true|是否使用slice分区：    -   true：使用。设置为true，可能会导致索引在预读阶段的时间明显变长，有时会远远超出查询数据所耗费的时间。建议设置为false，以提高查询效率。
     -   false：不使用。 |
-    |es.index.auto.create|yes|通过Hadoop组件向Elasticsearch集群写入数据，是否自动创建不存在的index：    -   true：自动创建
+    |es.index.auto.create|true|通过Hadoop组件向Elasticsearch集群写入数据，是否自动创建不存在的index：    -   true：自动创建
     -   false：不会自动创建 |
     |es.resource|/|指定要读写的index和type。|
-    |es.input.json|false|输入是否已经是JSON格式。|
+    |es.input.json|false|输入是否已经是JSON格式：    -   true：是JSON格式
+    -   false：不是JSON格式 |
     |es.mapping.names|/|表字段与Elasticsearch的索引字段名映射。|
     |es.read.metadata|false|操作Elasticsearch字段涉及到**\_id**之类的内部字段，请开启此属性。|
 
