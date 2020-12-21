@@ -73,15 +73,15 @@ For more information about how to grant permissions on Elasticsearch resources, 
     |------|-----------|----------|
     |elasticsearch:UpdatePublicNetwork|Enables or disables the Public Network Access feature for a cluster.|`instances/$instanceId`|
     |elasticsearch:UpdatePublicIps|Modifies the public IP address whitelist of a cluster.|`instances/$instanceId`|
-    |elasticsearch:UpdateWhiteIps|Modifies the VPC whitelist of a cluster.|`instances/$instanceId`|
-    |elasticsearch:UpdateKibanaIps|Modifies the Kibana whitelist of a cluster.|`instances/$instanceId`|
+    |elasticsearch:UpdateWhiteIps|Modifies the private IP address whitelist of a cluster.|`instances/$instanceId`|
+    |elasticsearch:UpdateKibanaIps|Modifies the IP address whitelist for access to the Kibana console of a cluster.|`instances/$instanceId`|
     |elasticsearch:OpenHttps|Enables HTTPS.|`instances/$instanceId`|
     |elasticsearch:CloseHttps|Disables HTTPS.|`instances/$instanceId`|
     |elasticsearch:DescribeConnectableClusters|Queries the clusters that can be connected in a VPC.|`instances/$instanceId`|
     |elasticsearch:ListConnectedClusters|Queries clusters that are connected.|`instances/$instanceId`|
     |elasticsearch:AddConnectableCluster|Connects clusters.|`instances/$instanceId`|
-    |elasticsearch:DeleteConnectedCluster|Disconnects clusters.|`instances/$instanceId`|
-    |elasticsearch:ModifyWhiteIps|Modifies the whitelists \(including the Kibana whitelist\) of a cluster.|`instances/$instanceId`|
+    |elasticsearch:DeleteConnectedCluster|Disconnects clusters that are connected.|`instances/$instanceId`|
+    |elasticsearch:ModifyWhiteIps|Modifies the whitelists of a cluster, including the IP address whitelist for access to the Kibana console of the cluster.|`instances/$instanceId`|
     |elasticsearch:TriggerNetwork|Enables or disables the Public Network Access or Private Network Access feature for Elasticsearch or Kibana.|`instances/$instanceId`|
 
     **Note:** If you specify a whitelist update-related operation such as UpdatePublicIps, UpdateWhiteIps, or UpdateKibanaIps for the Action parameter in a policy, you must also specify ModifyWhiteIps.
@@ -97,15 +97,15 @@ For more information about how to grant permissions on Elasticsearch resources, 
 
 |Action|Description|ARN format|
 |------|-----------|----------|
-|elasticsearch:ListTags|Allows RAM users to query tags.|`tags/$instanceId`|
-|elasticsearch:CreateTags|Allows RAM users to create or update a tag.|`tags/$instanceId`|
-|elasticsearch:RemoveTags|Allows RAM users to remove a tag.|`tags/$instanceId`|
+|elasticsearch:ListTags|Queries tags.|`tags/$instanceId`|
+|elasticsearch:CreateTags|Creates or updates a tag.|`tags/$instanceId`|
+|elasticsearch:RemoveTags|Removes a tag.|`tags/$instanceId`|
 
 For more information about how to create a custom policy for tags, see [Grant permissions on tags to a RAM user](/intl.en-US/RAM/Grant permissions on tags to a RAM user.md).
 
 ## Permissions on Cloud Monitor
 
-**Note:** The following ARN formats are shortened by using an asterisk \(`*`\).
+**Note:** The following ARN formats are shortened by using asterisks \(`*`\).
 
 |Action|Description|ARN format|
 |------|-----------|----------|
@@ -113,14 +113,14 @@ For more information about how to create a custom policy for tags, see [Grant pe
 |cms:ListAlarm|Queries the settings of a specific or all alert rules.|`*`|
 |cms:QueryMetricList|Queries the metric data of a cluster over a period of time.|`*`|
 
-## Permissions on VPCs and VSwitches on the Elasticsearch buy page
+## Permissions on VPCs and vSwitches on the Elasticsearch buy page
 
 **Note:** The following ARN formats are shortened. For information about the complete ARN formats, see [Resource types and ARN formats](#section_bw0_lnk_iuj).
 
 |Action|Description|ARN format|
 |------|-----------|----------|
 |DescribeVpcs|Queries VPCs.|`vpc/*`|
-|DescribeVswitches|Queries VSwitches.|`vswitch/*`|
+|DescribeVswitches|Queries vSwitches.|`vswitch/*`|
 
 ## Permissions on intelligent O&M
 
@@ -145,7 +145,7 @@ For more information about how to create a custom policy for tags, see [Grant pe
 |China|China \(Shanghai\)|cn-shanghai|
 |China \(Shenzhen\)|cn-shenzhen|
 |China \(Qingdao\)|cn-qingdao|
-|China \(Zhangjiakou-Beijing Winter Olympics\)|cn-zhangjiakou|
+|China \(Zhangjiakou\)|cn-zhangjiakou|
 |China \(Beijing\)|cn-beijing|
 |China \(Hangzhou\)|cn-hangzhou|
 |China \(Hong Kong\)|cn-hongkong|
@@ -154,8 +154,9 @@ For more information about how to create a custom policy for tags, see [Grant pe
 |Japan \(Tokyo\)|ap-northeast-1|
 |Australia \(Sydney\)|ap-southeast-2|
 |Indonesia \(Jakarta\)|ap-southeast-5|
-|Europe & Americas|US \(Silicon Valley\)|us-west-1|
+|Europe & Americas|US \(Virginia\)|us-east-1|
+|US \(Silicon Valley\)|us-west-1|
 |Germany \(Frankfurt\)|eu-central-1|
-|US \(Virginia\)|us-east-1|
+|UK \(London\)|eu-west-1|
 |Middle East & India|India \(Mumbai\)|ap-south-1|
 
