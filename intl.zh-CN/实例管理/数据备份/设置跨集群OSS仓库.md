@@ -29,11 +29,11 @@ keyword: [跨集群oss仓库, 不同es集群间数据恢复]
 
 4.  在左侧导航栏，单击**数据备份**。
 
-5.  在**跨集群OSS仓库设置**区域，单击**立即添加**。
+5.  在**跨集群OSS仓库设置**区域，单击**立即创建**。
 
-    **说明：** 如果不是首次添加仓库引用，请单击**新增OSS仓库引用**。
+    **说明：** 如果不是首次添加仓库引用，需要单击**创建OSS引用仓库**。
 
-6.  在**新增OSS引用仓库**页面，选择实例。
+6.  在**创建OSS引用仓库**页面，选择实例。
 
     **说明：** 所选实例与当前实例需要满足上文的前提条件。
 
@@ -41,13 +41,13 @@ keyword: [跨集群oss仓库, 不同es集群间数据恢复]
 
     添加成功后，被引用的实例显示在当前页面，并显示引用仓库的状态。
 
-    ![添加引用仓库成功状态](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/zh-CN/1056359951/p63593.png)
+    ![添加引用仓库成功状态](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/1107458061/p63593.png)
 
     **说明：** 由于仓库列表是通过访问对应实例获取到的，因此当实例在变更中、不健康或者负载特别高时，可能无法获取仓库情况。此时，您可以在Kibana控制台中，执行`GET _snapshot`命令，获取所有仓库的地址。具体操作步骤请参见[登录Kibana控制台](/intl.zh-CN/实例管理/可视化控制/Kibana/登录Kibana控制台.md)。
 
 8.  恢复索引。
 
-    **跨集群OSS仓库设置**功能只是实现了实例间仓库的引用，并不会自动进行数据的恢复。您可以按照需求在目标Elasticsearch实例的Kibana控制台上执行对应命令，才能恢复需要的索引数据。例如，从实例es-cn-a恢复file-2019-08-25索引，操作步骤如下：
+    跨集群OSS仓库设置功能只是实现了实例间仓库的引用，并不会自动进行数据的恢复。您可以按照需求在目标Elasticsearch实例的Kibana控制台上执行对应命令，才能恢复需要的索引数据。例如，从实例es-cn-a恢复file-2019-08-25索引，操作步骤如下：
 
     1.  登录目标Elasticsearch实例的Kibana控制台。
 
@@ -63,9 +63,9 @@ keyword: [跨集群oss仓库, 不同es集群间数据恢复]
 
         该请求会返回指定仓库下所存储的所有快照信息。
 
-        ![返回该仓库下所存储的所有快照信息](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/zh-CN/1056359951/p63598.png)
+        ![返回该仓库下所存储的所有快照信息](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/1056359951/p63598.png)
 
-        **说明：** `aliyun_snapshot_from_es-cn-a`为[添加OSS仓库引用](#section_zf4_nr6_ie2)中的**引用仓库名称**。
+        **说明：** `aliyun_snapshot_from_es-cn-a`为[添加OSS仓库引用](#section_zf4_nr6_ie2)中的引用仓库名称。
 
     4.  根据上一步获取的快照id，执行以下命令恢复该快照下的指定索引。
 
@@ -91,7 +91,7 @@ keyword: [跨集群oss仓库, 不同es集群间数据恢复]
 
             ```
             POST _snapshot/aliyun_snapshot_from_es-cn-a/es-cn-a_20190705220000/_restore 
-            {"indices":"*,-.monitoring*,-.security_audit*,-.kibana*","ignore_unavailable":"true"}
+            {"indices":"*,-.monitoring*,-.security*,-.kibana*","ignore_unavailable":"true"}
             ```
 
 
