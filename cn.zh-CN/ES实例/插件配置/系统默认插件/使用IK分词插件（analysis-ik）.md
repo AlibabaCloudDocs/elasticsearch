@@ -4,7 +4,7 @@ keyword: [ik词典冷更新, ik词典热更新, es停用词]
 
 # 使用IK分词插件（analysis-ik）
 
-IK分词插件（英文名为analysis-ik）是阿里云Elasticsearch的扩展插件，默认不能卸载。该插件在开源插件的基础上，扩展支持了对象存储服务OSS（Object Storage Service）词典文件的动态加载，可以实现IK词典的冷更新和热更新。本文为您介绍IK分词插件的使用方法。
+IK分词插件（英文名为analysis-ik）是阿里云Elasticsearch的扩展插件，默认不能卸载。该插件在开源插件的基础上，扩展支持了对象存储服务OSS（Object Storage Service）词典文件的动态加载，可以实现IK词典的冷更新和热更新。本文介绍如何使用IK分词插件。
 
 阿里云Elasticsearch的IK分词插件支持[IK词典冷更新](#ik)和[IK词典热更新](#section_5qm_xjg_ouf)，两者区别如下。
 
@@ -26,7 +26,7 @@ IK分词插件（英文名为analysis-ik）是阿里云Elasticsearch的扩展插
 
 ## 前提条件
 
-确保集群状态为正常。可在[基本信息](/cn.zh-CN/ES实例/实例管理/查看实例的配置信息.md)页面查看。
+确保集群状态为正常。可在基本信息页面查看。具体操作，请参见[查看实例的基本信息](/cn.zh-CN/ES实例/实例管理/查看实例的基本信息.md)。
 
 ## IK词典冷更新
 
@@ -40,13 +40,13 @@ IK分词插件（英文名为analysis-ik）是阿里云Elasticsearch的扩展插
 
 5.  在**系统默认插件列表**中，找到需要更新的IK插件，单击其右侧**操作**列下的**冷更新**。
 
-    ![IK词典冷更新入口](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/zh-CN/1846359951/p40216.png)
+    ![IK词典冷更新入口](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/1846359951/p40216.png)
 
 6.  在**冷更新**页面，单击下方的**配置**。
 
 7.  在**IK主分词词库**下方，选择词典的更新方式，并按照以下说明上传词典文件。
 
-    ![IK主分词词库](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/zh-CN/1846359951/p40219.png)
+    ![IK主分词词库](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/1846359951/p40219.png)
 
     阿里云Elasticsearch支持**上传DIC文件**和**添加OSS文件**两种词典更新方式：
 
@@ -82,13 +82,13 @@ IK分词插件（英文名为analysis-ik）是阿里云Elasticsearch的扩展插
 
 1.  在**系统默认插件列表**中，找到需要更新的IK插件，单击其右侧**操作**列下的**热更新**。
 
-    ![IK词典热更新入口](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/zh-CN/1846359951/p40222.png)
+    ![IK词典热更新入口](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/1846359951/p40222.png)
 
 2.  在**热更新**页面，单击右下方的**配置**。
 
 3.  在**IK主分词词库**下方，选择词典的更新方式，并按照以下说明上传词典文件。
 
-    ![插件配置](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/zh-CN/2846359951/p40223.png)
+    ![插件配置](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/2846359951/p40223.png)
 
     **说明：** IK热更新不支持修改系统自带的主词典，如果您需要修改系统主词典请使用IK冷更新的方式。
 
