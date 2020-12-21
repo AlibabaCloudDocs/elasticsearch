@@ -22,6 +22,8 @@ Spark是一种通用的大数据计算框架，拥有Hadoop MapReduce所具有�
 
     -   请参见[查看集群列表与详情](/cn.zh-CN/集群管理/集群配置/查看集群列表与详情.md)，获取EMR集群的内网IP地址。
     -   请参见[配置ES公网或私网访问白名单](/cn.zh-CN/ES实例/安全配置/配置ES公网或私网访问白名单.md)，配置Elasticsearch实例的VPC私网访问白名单。
+3.  准备Java环境，要求JDK版本为8.0及以上。
+
 
 ## 编写并运行Spark任务
 
@@ -164,7 +166,7 @@ Spark是一种通用的大数据计算框架，拥有Hadoop MapReduce所具有�
 **说明：** 使用阿里云Elasticsearch，必须将此参数设置为false。 |
     |es.input.use.sliced.partitions|true|是否使用slice分区：    -   true：使用。设置为true，可能会导致索引在预读阶段的时间明显变长，有时会远远超出查询数据所耗费的时间。建议设置为false，以提高查询效率。
     -   false：不使用。 |
-    |es.index.auto.create|yes|通过Hadoop组件向Elasticsearch集群写入数据，是否自动创建不存在的index：    -   true：自动创建
+    |es.index.auto.create|true|通过Hadoop组件向Elasticsearch集群写入数据，是否自动创建不存在的index：    -   true：自动创建
     -   false：不会自动创建 |
     |es.resource|/|指定要读写的index和type。|
     |es.mapping.names|/|表字段与Elasticsearch的索引字段名映射。|
