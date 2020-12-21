@@ -27,9 +27,9 @@ POST /openapi/instances HTTPS|HTTP
 
 ## 请求参数
 
-|名称|类型|是否必选|示例值|描述|
-|--|--|----|---|--|
-|clientToken|String|否|5A2CFF0E-5718-45B5-9D4D-70B3FF\*\*\*\*|用于保证请求的幂等性。由客户端生成该参数值，要保证在不同请求间唯一，最大不超过64个ASCII字符。 |
+|名称|类型|位置|是否必选|示例值|描述|
+|--|--|--|----|---|--|
+|clientToken|String|Query|否|5A2CFF0E-5718-45B5-9D4D-70B3FF\*\*\*\*|用于保证请求的幂等性。由客户端生成该参数值，要保证在不同请求间唯一，最大不超过64个ASCII字符。 |
 
 ## RequestBody
 
@@ -54,15 +54,51 @@ RequestBody中还需要填入以下参数，用来指定待创建的实例信息
 |postpaid
 
 |付费类型。可选值：postpaid（按量计费）、prepaid（包年包月）。 |
-|period
+|paymentInfo
 
-|int
+|Map
+
+|否
+
+|postpaid
+
+|包年包月实例的付费详情。 |
+|└duration
+
+|Integer
 
 |否
 
 |1
 
-|如果paymentType为prepaid（包年包月），则需要指定预付费的周期，支持的值包括：1,2,3,4,5,6,7,8,9,12,24,36，单位：月。 |
+|购买时间。支持按月和按年购买。 |
+|└pricingCycle
+
+|String
+
+|否
+
+|Month
+
+|包年包月单位，支持：Year（年）、Month（月）。 |
+|└isAutoRenew
+
+|Boolean
+
+|否
+
+|true
+
+|是否开启自动续费设置，支持：true（开启）、false（不开启）。 |
+|└autoRenewDuration
+
+|Integer
+
+|否
+
+|3
+
+|自动续费周期，单位：月。 |
 |nodeAmount
 
 |int
@@ -98,7 +134,7 @@ RequestBody中还需要填入以下参数，用来指定待创建的实例信息
 
 |5.5.3\_with\_X-Pack
 
-|ES实例版本。可选值：5.5.3\_with\_X-Pack、6.3\_with\_X-Pack、6.7\_with\_X-Pack。 |
+|实例版本。可选值：5.5.3\_with\_X-Pack、6.3\_with\_X-Pack、6.7\_with\_X-Pack、6.7\_with\_A-Pack、6.8\_with\_X-Pack、7.4\_with\_X-Pack、7.7\_with\_X-Pack。 |
 |nodeSpec
 
 |Map
@@ -114,7 +150,7 @@ RequestBody中还需要填入以下参数，用来指定待创建的实例信息
 
 |elasticsearch.sn2ne.xlarge
 
-|规格名称。 |
+|节点规格。 |
 |└disk
 
 |String
@@ -123,7 +159,7 @@ RequestBody中还需要填入以下参数，用来指定待创建的实例信息
 
 |20
 
-|单数据节点硬盘大小，单位：GB。 |
+|单节点存储空间，单位：GB。 |
 |└diskType
 
 |String
@@ -132,7 +168,25 @@ RequestBody中还需要填入以下参数，用来指定待创建的实例信息
 
 |cloud\_ssd
 
-|硬盘类型。可选值：cloud\_ssd（SSD云盘）、cloud\_efficiency（高效云盘）。 |
+|存储类型。可选值：cloud\_ssd（SSD云盘）、cloud\_essd（ESSD云盘）、cloud\_efficiency（高效云盘）。 |
+|└performanceLevel
+
+|String
+
+|否
+
+|PL1
+
+|ESSD云盘的性能级别。当存储类型为cloud\_essd时，该参数必选，支持PL1、PL2、PL3。 |
+|└diskEncryption
+
+|Boolean
+
+|否
+
+|true
+
+|是否开启云盘加密，支持：true（开启）、false（不开启）。 |
 |advancedDedicateMaster
 
 |boolean
@@ -157,7 +211,7 @@ RequestBody中还需要填入以下参数，用来指定待创建的实例信息
 
 |elasticsearch.sn2ne.xlarge
 
-|规格名称。 |
+|节点规格。 |
 |└amount
 
 |int
@@ -166,7 +220,7 @@ RequestBody中还需要填入以下参数，用来指定待创建的实例信息
 
 |3
 
-|数量，目前固定为3。 |
+|节点数量，目前固定为3。 |
 |└disk
 
 |int
@@ -175,7 +229,7 @@ RequestBody中还需要填入以下参数，用来指定待创建的实例信息
 
 |20
 
-|专有主节点的硬盘大小。单位：GB。当前只支持20GB。 |
+|单节点存储空间大小。当前只支持20GB。 |
 |└diskType
 
 |string
@@ -184,7 +238,7 @@ RequestBody中还需要填入以下参数，用来指定待创建的实例信息
 
 |cloud\_ssd
 
-|专有主节点的硬盘类型，当前只支持cloud\_ssd（SSD云盘）。 |
+|节点存储类型。可选值：cloud\_ssd（SSD云盘）、cloud\_essd（ESSD云盘）。 |
 |warmNode
 
 |boolean
@@ -209,7 +263,7 @@ RequestBody中还需要填入以下参数，用来指定待创建的实例信息
 
 |elasticsearch.ic5.large
 
-|规格名称。 |
+|节点规格。 |
 |└amount
 
 |Integer
@@ -218,7 +272,7 @@ RequestBody中还需要填入以下参数，用来指定待创建的实例信息
 
 |2
 
-|数量。 |
+|节点数量。 |
 |└diskType
 
 |string
@@ -227,7 +281,7 @@ RequestBody中还需要填入以下参数，用来指定待创建的实例信息
 
 |cloud\_efficiency
 
-|磁盘类型。 |
+|节点存储类型。可选值：cloud\_efficiency（高效云盘）。 |
 |└disk
 
 |Integer
@@ -236,16 +290,16 @@ RequestBody中还需要填入以下参数，用来指定待创建的实例信息
 
 |500
 
-|磁盘大小。 |
+|单节点存储空间。 |
 |└diskEncryption
 
-|boolean
+|Boolean
 
 |否
 
 |true
 
-|磁盘是否加密。 |
+|是否开启云盘加密，支持：true（开启）、false（不开启）。 |
 |haveClientNode
 
 |boolean
@@ -262,6 +316,58 @@ RequestBody中还需要填入以下参数，用来指定待创建的实例信息
 |否
 
 | |协调节点配置。haveClientNode为true时必填。 |
+|└spec
+
+|string
+
+|是
+
+|elasticsearch.ic5.large
+
+|节点规格。 |
+|└amount
+
+|Integer
+
+|是
+
+|2
+
+|节点数量。 |
+|└diskType
+
+|string
+
+|是
+
+|cloud\_efficiency
+
+|节点存储类型。可选值：cloud\_efficiency（高效云盘）。 |
+|└disk
+
+|Integer
+
+|是
+
+|20
+
+|单节点存储空间大小。 |
+|haveElasticDataNode
+
+|boolean
+
+|否
+
+|false
+
+|是否购买弹性节点。购买弹性节点前，需要先购买专有主节点。 |
+|elasticDataNodeConfiguration
+
+|Map
+
+|否
+
+| |弹性节点配置。haveElasticDataNode为true时必填。 |
 |└spec
 
 |string
@@ -288,7 +394,7 @@ RequestBody中还需要填入以下参数，用来指定待创建的实例信息
 
 |cloud\_efficiency
 
-|磁盘类型。 |
+|节点存储类型。可选值：cloud\_ssd（SSD云盘）、cloud\_essd（ESSD云盘）、cloud\_efficiency（高效云盘）。 |
 |└disk
 
 |Integer
@@ -297,7 +403,25 @@ RequestBody中还需要填入以下参数，用来指定待创建的实例信息
 
 |20
 
-|磁盘大小。 |
+|单节点存储空间大小。 |
+|└performanceLevel
+
+|String
+
+|否
+
+|PL1
+
+|ESSD云盘的性能级别。当存储类型为cloud\_essd时，该参数必选，支持PL1、PL2、PL3。 |
+|└diskEncryption
+
+|Boolean
+
+|否
+
+|true
+
+|是否开启云盘加密，支持：true（开启）、false（不开启）。 |
 |haveKibana
 
 |boolean
@@ -322,7 +446,7 @@ RequestBody中还需要填入以下参数，用来指定待创建的实例信息
 
 |elasticsearch.n4.small
 
-|规格名称。 |
+|节点规格。 |
 |└amount
 
 |Integer
@@ -331,7 +455,7 @@ RequestBody中还需要填入以下参数，用来指定待创建的实例信息
 
 |1
 
-|数量，目前固定为1。 |
+|节点数量，目前固定为1。 |
 |└disk
 
 |Integer
@@ -356,7 +480,7 @@ RequestBody中还需要填入以下参数，用来指定待创建的实例信息
 
 |VPC
 
-|网络类型。目前仅支持专有网络VPC（Virtual Private Cloud）。 |
+|网络类型。目前仅支持专有网络。 |
 |└vpcId
 
 |string
@@ -384,8 +508,45 @@ RequestBody中还需要填入以下参数，用来指定待创建的实例信息
 |vsw-bp1k4ec6s7sjdbudw\*\*\*\*
 
 |交换机ID。 |
+|extendConfigs
 
-**说明：** └表示子参数。
+|list
+
+|否
+
+| |实例扩展配置。 |
+|└configType
+
+|string
+
+|是
+
+|sharedDisk
+
+|配置类型，固定为sharedDisk（共享存储），仅适用于增强版实例。 |
+|└disk
+
+|Integer
+
+|是
+
+|5120
+
+|共享存储磁盘大小。 |
+|dryRun
+
+|boolean
+
+|否
+
+|true
+
+|创建实例时是否校验配置，可选值：true（只校验，不创建）、false（校验并创建）。 |
+
+**说明：**
+
+-   └表示子参数。
+-   支持的节点规格列表，请参见[阿里云Elasticsearch定价信息](https://www.aliyun.com/price/product?spm=a2c4g.11186623.2.10.653c6c88NcQPZY#/elasticsearch/detail)。
 
 示例如下。
 
