@@ -6,9 +6,9 @@ Apache Spark is a general-purpose framework for big data computing and has all t
 
 1.  Create an Alibaba Cloud Elasticsearch cluster and enable the Auto Indexing feature for the cluster.
 
-    For more information, see [Create an Alibaba Cloud Elasticsearch cluster](/intl.en-US/Quick Start/Step 1: Create a cluster/Create an Alibaba Cloud Elasticsearch cluster.md) and [Enable the Auto Indexing feature](/intl.en-US/Quick Start/Step 2: (Optional) Configure a cluster.md). An Elasticsearch V6.7.0 cluster is used in this topic.
+    For more information, see [Create an Alibaba Cloud Elasticsearch cluster](/intl.en-US/Quick Start/Step 1: Create a cluster/Create an Alibaba Cloud Elasticsearch cluster.md) and [Enable the Auto Indexing feature](/intl.en-US/Quick Start/Step 2: (Optional) Configure a cluster.md). In this topic, an Elasticsearch V6.7.0 cluster is created.
 
-    **Note:** In a production environment, we recommend that you disable the Auto Indexing feature for the cluster. You must create an index and configure mappings for the index in advance. The Elasticsearch cluster used in this topic is only for tests. Therefore, the Auto Indexing feature is enabled.
+    **Note:** In a production environment, we recommend that you disable the Auto Indexing feature. You must create an index and configure mappings for the index in advance. The Elasticsearch cluster used in this topic is only for tests. Therefore, the Auto Indexing feature is enabled.
 
 2.  Create an E-MapReduce \(EMR\) cluster in the virtual private cloud \(VPC\) where the Elasticsearch cluster resides.
 
@@ -18,18 +18,18 @@ Apache Spark is a general-purpose framework for big data computing and has all t
     -   Required Services: Spark \(2.4.5\) is one of the required services. Default settings are retained for other services.
     For more information, see [Create a cluster](/intl.en-US/Quick Start/Create a cluster.md).
 
-    **Note:** By default, 0.0.0.0/0 is specified in the internal IP address whitelist of the Elasticsearch cluster. You can view the whitelist configuration on the cluster security configuration page. If the default setting is not used, you must add the internal IP address of the EMR cluster to the whitelist.
+    **Note:** By default, 0.0.0.0/0 is specified in the private IP address whitelist of the Elasticsearch cluster. You can view the whitelist configuration on the cluster security configuration page. If the default setting is not used, you must add the private IP address of the EMR cluster to the whitelist.
 
-    -   For more information, see [View the cluster list and cluster details](/intl.en-US/Cluster Management/Configure clusters/View the cluster list and cluster details.md).
-    -   For more information about how to configure an internal IP address whitelist for access to the Elasticsearch cluster over a VPC, see [Configure a whitelist to access an Elasticsearch cluster over the Internet or a VPC](/intl.en-US/Elasticsearch Instances Management/Security/Configure a whitelist to access an Elasticsearch cluster over the Internet or a VPC.md).
-3.  Prepare a Java environment. The JDK version must be 8.0 or later.
+    -   For more information about how to obtain the private IP address of the EMR cluster, see [View the cluster list and cluster details](/intl.en-US/Cluster Management/Configure clusters/View the cluster list and cluster details.md).
+    -   For more information about how to configure the private IP address whitelist of the Elasticsearch cluster, see [Configure a whitelist to access an Elasticsearch cluster over the Internet or a VPC](/intl.en-US/Elasticsearch Instances Management/Security/Configure a whitelist to access an Elasticsearch cluster over the Internet or a VPC.md). The IP addresses in the whitelist can be used to access the Elasticsearch cluster over a VPC.
+3.  Prepare a Java environment. The JDK version must be 1.8.0 or later.
 
 
 ## Compile and run a Spark job
 
 1.  Prepare test data.
 
-    1.  Log on to the [EMR console](https://emr.console.aliyun.com/) and obtain the IP address of the master node of the EMR cluster. Then, log on to the related Elastic Compute Service \(ECS\) instance over SSH.
+    1.  Log on to the [EMR console](https://emr.console.aliyun.com/) and obtain the IP address of the master node of the EMR cluster. Then, use SSH to log on to the Elastic Compute Service \(ECS\) instance that is indicated by the IP address.
 
         For more information, see [Connect to the master node of an EMR cluster in SSH mode](/intl.en-US/Cluster Management/Configure clusters/Connect to a cluster/Connect to the master node of an EMR cluster in SSH mode.md).
 
@@ -102,6 +102,7 @@ Apache Spark is a general-purpose framework for big data computing and has all t
                 conf.set("es.net.http.auth.pass", "xxxxxx");
                 conf.set("es.nodes.wan.only", "true");
                 conf.set("es.nodes.discovery","false");
+                conf.set("es.input.use.sliced.partitions","false");
                 SparkSession ss = new SparkSession(new SparkContext(conf));
                 final AtomicInteger employeesNo = new AtomicInteger(0);
                 //Replace /tmp/hadoop-es/http_log.txt with the actual path of your test data.
@@ -134,6 +135,7 @@ Apache Spark is a general-purpose framework for big data computing and has all t
                         .set("es.net.http.auth.pass", "xxxxxx")
                         .set("es.nodes.wan.only", "true")
                         .set("es.nodes.discovery","false")
+                        .set("es.input.use.sliced.partitions","false")
                         .set("es.resource", "company/_doc")
                         .set("es.scroll.size","500");
         
@@ -153,22 +155,25 @@ Apache Spark is a general-purpose framework for big data computing and has all t
 
     |Parameter|Default value|Description|
     |---------|-------------|-----------|
-    |es.nodes|localhost|The endpoint that is used to access your Elasticsearch cluster. We recommend that you use the internal endpoint. You can obtain the internal endpoint on the Basic Information page of the cluster. For more information, see [View the basic information of a cluster](/intl.en-US/Elasticsearch Instances Management/Manage clusters/View the basic information of a cluster.md).|
-    |es.port|9200|The port number that is used to access your Elasticsearch cluster.|
-    |es.net.http.auth.user|elastic|The username that is used to access your Elasticsearch cluster.|
-    |es.net.http.auth.pass|/|The password that corresponds to the username you specified. The password is specified when you create your Elasticsearch cluster. If you forget the password, you can reset it. For more information, see [Reset the access password for an Elasticsearch cluster](/intl.en-US/Elasticsearch Instances Management/Security/Reset the access password for an Elasticsearch cluster.md).|
-    |es.nodes.wan.only|false|Specifies whether to enable node sniffing when your Elasticsearch cluster uses a virtual IP address for connections. Valid values:    -   true: indicates that node sniffing is enabled.
-    -   false: indicates that node sniffing is disabled. |
+    |es.nodes|localhost|The endpoint that is used to access the Elasticsearch cluster. We recommend that you use the internal endpoint. You can obtain the internal endpoint on the Basic Information page of the Elasticsearch cluster. For more information, see [View the basic information of a cluster](/intl.en-US/Elasticsearch Instances Management/Manage clusters/View the basic information of a cluster.md).|
+    |es.port|9200|The port number that is used to access the Elasticsearch cluster.|
+    |es.net.http.auth.user|elastic|The username that is used to access the Elasticsearch cluster.**Note:** If you use the elastic account to access your Elasticsearch cluster and then reset the password of the account, it may require some time for the new password to take effect. During this period, you cannot use the elastic account to access the cluster. Therefore, we recommend that you do not use the elastic account to access an Elasticsearch cluster. You can log on to the Kibana console and create a user with the required role to access an Elasticsearch cluster. For more information, see [Create a role](/intl.en-US/RAM/Manage Kibana role/Create a role.md) and [Create a user](/intl.en-US/RAM/Manage Kibana role/Create a user.md). |
+    |es.net.http.auth.pass|/|The password that corresponds to the elastic username. The password is specified when you create the Elasticsearch cluster. If you forget the password, you can reset it. For more information, see [Reset the access password for an Elasticsearch cluster](/intl.en-US/Elasticsearch Instances Management/Security/Reset the access password for an Elasticsearch cluster.md).|
+    |es.nodes.wan.only|false|Specifies whether to enable node sniffing when the Elasticsearch cluster uses a virtual IP address for connections. Valid values:    -   true: indicates that node sniffing is enabled.
+    -   false: indicates that node sniff is disabled. |
     |es.nodes.discovery|true|Specifies whether to prohibit the node discovery mechanism. Valid values:    -   true: indicates that the node discovery mechanism is prohibited.
-    -   false: indicates that the node discovery mechanism is not prohibited. |
-    |es.index.auto.create|yes|Specifies whether the system creates an index in your Elasticsearch cluster when you use ES-Hadoop to write data to the cluster. Valid values:    -   true: indicates that the system creates an index in your Elasticsearch cluster.
-    -   false: indicates that the system does not create an index in your Elasticsearch cluster. |
+    -   false: indicates that the node discovery mechanism is not prohibited.
+**Note:** If you use Alibaba Cloud Elasticsearch, you must set this parameter to false. |
+    |es.input.use.sliced.partitions|true|Specifies whether to use partitions. Valid values:    -   true: indicates that partitions are used. In this case, more time may be required for the index read-ahead phase. The time required for this phase may be longer than the time required for data queries. To improve query efficiency, we recommend that you set this parameter to false.
+    -   false: indicates that partitions are not used. |
+    |es.index.auto.create|true|Specifies whether the system creates an index in the Elasticsearch cluster when you use ES-Hadoop to write data to the cluster. Valid values:    -   true: indicates that the system creates an index in the Elasticsearch cluster.
+    -   false: indicates that the system does not create an index in the Elasticsearch cluster. |
     |es.resource|/|The name and type of the index on which data read or write operations are performed.|
-    |es.mapping.names|/|The mappings between the field names in the table and those in the index of your Elasticsearch cluster.|
+    |es.mapping.names|/|The mappings between the field names in the table and those in the index of the Elasticsearch cluster.|
 
-    For more information about the configuration items of ES-Hadoop, see [Open source ES-Hadoop configuration](https://www.elastic.co/guide/en/elasticsearch/hadoop/current/configuration.html?spm=a2c4g.11186623.2.28.2ce94609aDHRug).
+    For more information about the configuration items of ES-Hadoop, see [open source ES-Hadoop configuration](https://www.elastic.co/guide/en/elasticsearch/hadoop/current/configuration.html?spm=a2c4g.11186623.2.28.2ce94609aDHRug).
 
-4.  Compress the code into a JAR package and upload it to an EMR client, such as the master node of the EMR cluster or the gateway cluster that is associated with this EMR cluster.
+4.  Compress the code into a JAR package and upload it to an EMR client, such as the master node in the EMR cluster or the gateway cluster that is associated with this EMR cluster.
 
 5.  On the EMR client, run the following Spark jobs:
 
@@ -190,12 +195,12 @@ Apache Spark is a general-purpose framework for big data computing and has all t
 
         After the data is read, the result shown in the following figure is returned.
 
-        ![Result](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/6523836061/p180140.png)
+        ![Returned result](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/6523836061/p180140.png)
 
 
 ## Verify results
 
-1.  Log on to the Kibana console of your Elasticsearch cluster.
+1.  Log on to the Kibana console of the Elasticsearch cluster.
 
     For more information, see [Log on to the Kibana console](/intl.en-US/Elasticsearch Instances Management/Data visualization/Kibana/Log on to the Kibana console.md).
 
@@ -212,7 +217,7 @@ Apache Spark is a general-purpose framework for big data computing and has all t
     }
     ```
 
-    If the command is successfully executed, the result shown in the following figure is returned.
+    If the command is successfully run, the result shown in the following figure is returned.
 
     ![Query result](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/6523836061/p180149.png)
 
