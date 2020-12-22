@@ -68,7 +68,6 @@ This topic provides answers to some commonly asked questions about Alibaba Cloud
 -   FAQ about cluster monitoring and alerting
     -   [How do I use the email notification feature of X-Pack Watcher?](#section_268_v23_5fr)
     -   [What do I do if the system reports an alert indicating that memory cannot be allocated to the garbage collector?](#section_m0x_9og_rkr)
-    -   [Does Elasticsearch support Grafana-based monitoring?](#Grafana)
 -   FAQ about access to clusters
     -   [How do I use a client to access an Alibaba Cloud Elasticsearch cluster? What is the difference between access to an Alibaba Cloud Elasticsearch cluster and access to an open source Elasticsearch cluster?](#section_id1_eed_y9x)
     -   [When I use a client to access an Elasticsearch cluster, can I disable the basic authentication feature?](#section_cwg_j34_x6v)
@@ -123,7 +122,7 @@ If the resources that you want to purchase are still unavailable after you take 
 
 ## Can I upgrade or downgrade the version of an Elasticsearch cluster?
 
-Upgrades are supported, whereas downgrades are not supported. You can upgrade Elasticsearch clusters only from V6.3.2 to V6.7.0. For more information, see [Upgrade the version of a cluster](/intl.en-US/Elasticsearch Instances Management/Upgrade the cluster version/Upgrade the version of a cluster.md).
+Upgrades are supported, whereas downgrades are not supported. You can upgrade Elasticsearch clusters only from V6.3.2 to V6.7.0. For more information, see [Upgrade the version of a cluster](/intl.en-US/Elasticsearch Instances Management/Upgrade/Upgrade the version of a cluster.md).
 
 If you want to perform upgrades between other versions or downgrades, purchase an Elasticsearch cluster of the desired version. Then, migrate data from the original cluster to the new cluster and cancel the subscription of or release the original cluster.
 
@@ -145,7 +144,7 @@ Yes, when you create an index, Elasticsearch allows you to create a tokenizer. W
 
 ## Does Elasticsearch support LDAP?
 
-No, if you want to use Lightweight Directory Access Protocol \(LDAP\) to authenticate requests sent to your Elasticsearch cluster, you must deploy an on-premises Elasticsearch cluster of the same version. Then, use the on-premises Elasticsearch cluster to conduct an authentication test. If LDAP runs as expected, send related configurations to Alibaba Cloud Elasticsearch technical engineers. Then, the engineers can configure your cluster to support LDAP based on the configurations. For more information, see [Best practice of integrating X-Pack with LDAP](/intl.en-US/Best Practices/Elasticsearch applications/Index management/Best practice of integrating X-Pack with LDAP.md).
+No, if you want to use Lightweight Directory Access Protocol \(LDAP\) to authenticate requests sent to your Elasticsearch cluster, you must deploy an on-premises Elasticsearch cluster of the same version. Then, use the on-premises Elasticsearch cluster to conduct an authentication test. If LDAP runs as expected, send related configurations to Alibaba Cloud Elasticsearch technical engineers. Then, the engineers can configure your cluster to support LDAP based on the configurations. For more information, see [Integrate X-Pack with LDAP](/intl.en-US/Best Practices/Elasticsearch applications/Index management/Integrate X-Pack with LDAP.md).
 
 ## Does Alibaba Cloud provide Elasticsearch SDK for Java?
 
@@ -214,7 +213,7 @@ The required time is determined by the data volume, data structure, and cluster 
 
 ## Are services affected when I upgrade the version of an Elasticsearch cluster?
 
-When you upgrade the version of an Elasticsearch cluster, you can still read data from or write data to the cluster but cannot make other changes. We recommend that you perform a version upgrade during off-peak hours. For more information about the precautions and procedure for a version upgrade, see [Upgrade the version of a cluster](/intl.en-US/Elasticsearch Instances Management/Upgrade the cluster version/Upgrade the version of a cluster.md).
+When you upgrade the version of an Elasticsearch cluster, you can still read data from or write data to the cluster but cannot make other changes. We recommend that you perform a version upgrade during off-peak hours. For more information about the precautions and procedure for a version upgrade, see [Upgrade the version of a cluster](/intl.en-US/Elasticsearch Instances Management/Upgrade/Upgrade the version of a cluster.md).
 
 ## Can I use the YML configuration file of an Elasticsearch cluster to change the settings of the http.max\_content\_length and discovery.zen.ping\_timeout parameters?
 
