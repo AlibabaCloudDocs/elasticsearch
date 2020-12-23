@@ -77,7 +77,7 @@ To use CCR, you must prepare two types of clusters: local clusters and remote cl
     2.  Update the settings configuration of the index to disable the physical replication feature.
 
         ```
-        POST myindex/_settings
+        PUT myindex/_settings
         {
         "index.replication.type" : null
         }
