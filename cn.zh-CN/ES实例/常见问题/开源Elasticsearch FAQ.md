@@ -104,11 +104,11 @@ PUT /_cluster/settings
 -   分片数过多会导致需要打开的文件比较多。由于分片是存储在不同机器上的，因此分片数越多，各个节点之间的交互也就越多，导致查询效率降低。
 -   分片数过少会导致单个分片索引过大，降低整体的查询效率。
 
-## 自建Elasticsearch迁移数据，使用elasticsearch-repositoty-oss插件遇到如下问题，如何解决？
+## 自建Elasticsearch迁移数据，使用elasticsearch-repository-oss插件遇到如下问题，如何解决？
 
 问题：`ERROR: This plugin was built with an older plugin structure. Contact the plugin author to remove the intermediate "elasticsearch" directory within the plugin zip`。
 
-解决方案：将elasticsearch改名为elasticsearch-repositoty-oss， 然后复制到plugins目录下。
+解决方案：将elasticsearch改名为elasticsearch-repository-oss， 然后复制到plugins目录下。
 
 ## Elasticsearch服务器的时间不准，如何调整？
 
