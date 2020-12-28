@@ -87,6 +87,6 @@ keyword: [logstash管道配置调试, logstash管道配置调试日志]
 
         对于多个管道，您可在搜索框中输入pipelineId: <管道ID\>过滤对应的日志。
 
-        ![查看调试日志](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/7629919951/p127155.png)
+        ![查看调试日志](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/0126219061/p127155.png)
 
 
