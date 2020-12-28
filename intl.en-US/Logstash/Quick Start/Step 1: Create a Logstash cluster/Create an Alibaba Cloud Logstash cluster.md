@@ -8,7 +8,7 @@ This topic describes how to create an Alibaba Cloud Logstash cluster.
 
 -   A Virtual Private Cloud \(VPC\) and a VSwitch are created.
 
-    For more information, see [Create a VPC and a VSwitch](/intl.en-US/Logstash/Quick Start/Preparations.md).
+    For more information, see [Create a VPC and a vSwitch](/intl.en-US/Logstash/Quick Start/Preparations.md).
 
     **Note:** A Logstash cluster can push data only to an Elasticsearch cluster that has the same version and resides in the same VPC.
 
@@ -19,7 +19,7 @@ This topic describes how to create an Alibaba Cloud Logstash cluster.
 
 3.  On the buy page, complete cluster launch configurations.
 
-    In this tutorial, **Billing Method** is set to **Pay-As-You-Go** and **Version** is set to **6.7**. Default values are used for other parameters. For more information about parameters on the buy page, see [Parameters on the buy page]().
+    In this tutorial, **Billing Method** is set to **Pay-As-You-Go** and **Version** is set to **6.7**. Default values are used for other parameters. For more information about parameters on the buy page, see [Parameters on the buy page](/intl.en-US/Logstash/Quick Start/Step 1: Create a Logstash cluster/Parameters on the buy page.md).
 
     **Note:**
 
