@@ -4,7 +4,7 @@ keyword: configure a YML file for a Logstash cluster
 
 # Configure a YML file
 
-You can use the YML Configuration function to modify the parameter values in a YML file. These parameters are used to control the tasks that are running in Alibaba Cloud Logstash.
+You can use the YML Configuration feature to modify the parameters in the YML file of your Logstash cluster. These parameters are used to control the tasks that are running on the cluster.
 
 1.  Log on to the [Alibaba Cloud Elasticsearch console](https://elasticsearch.console.aliyun.com/#/home).
 
@@ -16,14 +16,16 @@ You can use the YML Configuration function to modify the parameter values in a Y
 
 5.  On the **Cluster Configuration** page, click **Modify Configuration** on the right of **YML Configuration**.
 
-6.  In the **YML File Configuration** pane, modify the parameter values as required.
+6.  In the **YML File Configuration** panel, modify the parameters as required.
 
     ![YML File Configuration](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/5942986061/p61153.png)
 
-    For more information about the parameters, see [Logstash 6.7.0 Reference](https://www.elastic.co/guide/en/logstash/6.7/logstash-settings-file.html)
+    For more information about the parameters, see [Logstash 6.7.0 Reference](https://www.elastic.co/guide/en/logstash/6.7/logstash-settings-file.html).
 
-    -   By default, the slow query log is configured in the YML file. We recommend that you do not remove this configuration item.
-    -   To ensure a stable service, Logstash does not allow you to modify the following parameter values:
+    When you modify the parameters, take note of the following items:
+
+    -   By default, the slow log feature is enabled in the YML file. The feature helps you locate Logstash issues. Therefore, we recommend that you do not delete the configurations for this feature.
+    -   To ensure a stable service, Logstash does not allow you to modify the following parameters:
 
         ```
         node.name
@@ -48,10 +50,10 @@ You can use the YML Configuration function to modify the parameter values in a Y
         xpack.monitoring.elasticsearch.hosts
         ```
 
-    **Warning:** After you modify the configuration in the YML file, the system restarts the Logstash cluster for the modification to take effect. Proceed with caution.
+    **Warning:** After you modify the configurations in the YML file, the system restarts the Logstash cluster for the modifications to take effect. Therefore, before you perform the following operations, make sure that your business is not affected.
 
 7.  Select the **This operation will restart the cluster. Continue?** check box and click **OK**.
 
-    Then, the system restarts the Logstash cluster. During cluster restart, you can view the task progress by referring to [View progress of running cluster tasks](). After the Logstash cluster is restarted, the YML configuration is updated.
+    Then, the system restarts the Logstash cluster. During the restart, you can view the restart progress. For more information, see [View progress of running cluster tasks](/intl.en-US/Logstash/Cluster management/View progress of running cluster tasks.md). After the Logstash cluster is restarted, the configurations in the YML file are updated.
 
 
