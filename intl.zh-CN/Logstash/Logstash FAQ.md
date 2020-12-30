@@ -2,10 +2,6 @@
 
 本文介绍使用阿里云Logstash的常见问题。
 
-## Logstash是否支持将数据源配置为DRDS？
-
-支持。可参考RDS MySQL数据迁移方案进行配置，具体操作步骤请参见[通过Logstash将RDS MySQL数据同步至Elasticsearch]()。
-
 ## 如何将公网数据导入或导出到Logstash中？
 
 Logstash实例部署在专有网络VPC（Virtual Private Cloud）下，可以通过配置NAT网关实现与公网的连通，详情请参见[配置NAT公网数据传输](/intl.zh-CN/Logstash/网络与安全/配置NAT公网数据传输.md)。
