@@ -63,10 +63,7 @@ output {
 }
 ```
 
-**Note:**
-
--   Alibaba Cloud Logstash supports data transmission only within a virtual private cloud \(VPC\). If source data is on the Internet, configure a NAT gateway to access Alibaba Cloud Logstash over the Internet. For more information, see [Configure a NAT gateway for data transmission over the Internet](/intl.en-US/Logstash/Network and security/Configure a NAT gateway for data transmission over the Internet.md).
--   For more information about how to use the logstash-output-oss plug-in, see [Synchronize OSS data based on event notifications from MNS]().
+**Note:** Alibaba Cloud Logstash supports data transmission only within a virtual private cloud \(VPC\). If source data is on the Internet, configure a NAT gateway to access Alibaba Cloud Logstash over the Internet. For more information, see [Configure a NAT gateway for data transmission over the Internet](/intl.en-US/Logstash/Network and security/Configure a NAT gateway for data transmission over the Internet.md).
 
 ## Parameters
 
