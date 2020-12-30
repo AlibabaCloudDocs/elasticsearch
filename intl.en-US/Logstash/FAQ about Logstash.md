@@ -2,10 +2,6 @@
 
 This topic provides answers to some commonly asked questions about Alibaba Cloud Logstash.
 
-## Can PolarDB-X be configured as a data source of Logstash?
-
-Yes, you can perform the configuration based on the instructions provided in [Use Alibaba Cloud Logstash to migrate data from an ApsaraDB RDS for MySQL database to an Alibaba Cloud Elasticsearch cluster]().
-
 ## How do I import or export data to Logstash over the Internet?
 
 Logstash clusters are deployed in virtual private clouds \(VPCs\). You must configure NAT gateways to connect Logstash clusters to the Internet. For more information, see [Configure a NAT gateway for data transmission over the Internet](/intl.en-US/Logstash/Network and security/Configure a NAT gateway for data transmission over the Internet.md).
@@ -40,5 +36,5 @@ Solution: Check whether the Kafka service is running properly or whether the set
 
 ## Does the Logstash JDBC driver support MySQL databases?
 
-Yes, upload the related mysql-connector-java package. For more information, see [Configure third-party files](/intl.en-US/Logstash/Cluster configuration/Configure third-party files.md).
+Yes, upload the related mysql-connector-java package. For more information, see [Configure third-party libraries](/intl.en-US/Logstash/Cluster configuration/Configure third-party libraries.md).
 
