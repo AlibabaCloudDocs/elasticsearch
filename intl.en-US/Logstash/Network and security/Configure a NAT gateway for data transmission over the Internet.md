@@ -17,19 +17,19 @@ This topic describes how to configure a Network Address Translation \(NAT\) gate
 
 1.  Log on to the [Alibaba Cloud Elasticsearch console](https://elasticsearch.console.aliyun.com/#/home).
 
-2.  In the top navigation bar, select the region where your cluster resides.
+2.  In the left-side navigation pane, click **Logstash Clusters**.
 
-3.  In the left-side navigation pane, click **Logstash Clusters**. On the page that appears, find the target cluster and click its ID in the **Cluster ID/Name** column.
+3.  In the top navigation bar, select a region. On the **Clusters** page, click the ID of the desired cluster.
 
 4.  In the left-side navigation pane, click **Networks and Security**.
 
 5.  In the **Network Settings** section, click **Configure NAT Gateway**.
 
-    For more information about the descriptions and configurations of NAT gateways, see [NAT Gateway](/intl.en-US/User Guide/NAT Gateway Instance/Overview.md). Destination Network Address Translation \(DNAT\) entries allow services on the Internet to send data to Logstash. Source Network Address Translation \(SNAT\) entries allow Logstash to access the Internet.
+    For more information about the descriptions and configurations of NAT gateways, see [Manage NAT gateways](/intl.en-US/User Guide/Manage NAT gateways.md). Destination Network Address Translation \(DNAT\) entries allow services on the Internet to send data to Logstash. Source Network Address Translation \(SNAT\) entries allow Logstash to access the Internet.
 
 6.  On the NAT Gateway page, click Create NAT Gateway.
 
-    When you create a NAT gateway, select the region and VPC where the Logstash cluster resides. For more information, see [Create a NAT gateway](/intl.en-US/User Guide/NAT Gateway Instance/Create a NAT gateway.md).
+    When you create a NAT gateway, select the region and VPC where the Logstash cluster resides. For more information, see [Create a NAT gateway]().
 
 7.  Associate an elastic IP address \(EIP\) with the NAT gateway.
 
@@ -80,7 +80,7 @@ If you choose **Specific Port**, you must specify **Public Port** \(the external
         |**VSwitch**|Select a vSwitch from the VPC where the Logstash cluster resides. All ECS instances under the specified vSwitch can access the Internet by using the SNAT feature.|
         |**Public IP Address**|Select the public IP address that is used to access the Internet. You can select multiple public IP addresses to build an SNAT IP address pool. If you select multiple public IP addresses to build an SNAT IP address pool, make sure that each public IP address is added to the same EIP Bandwidth Plan instance. For more information, see [Associate an EIP with an EIP bandwidth plan](/intl.en-US/User Guide/Manage Pay-As-You-Go-billed EIPs/Associate an EIP with an EIP bandwidth plan.md). |
 
-        For more information about the parameters, see [t395012.md\#](/intl.en-US/User Guide/SNAT/Create a SNAT entry.md).
+        For more information about the parameters, see [Create a SNAT entry to access the Internet](/intl.en-US/User Guide/Create a SNAT entry to access the Internet.md).
 
     4.  Click **OK**.
 
