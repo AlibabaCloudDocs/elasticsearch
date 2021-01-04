@@ -37,7 +37,7 @@ Uptime需要与以下服务结合使用：
 
     具体操作，请参见[使用向导创建实例](/cn.zh-CN/实例/创建实例/使用向导创建实例.md)。
 
-    **说明：** Beats目前仅支持Aliyun Linux、RedHat和CentOS这三种操作系统。
+    **说明：** 在创建ECS实例时，需要选择Aliyun Linux、RedHat和CentOS这三种操作系统，因为Beats（包含Heartbeat）目前仅支持这三种操作系统。
 
 3.  在ECS实例上安装云助手和Docker服务。
 
