@@ -29,7 +29,7 @@ PATCH|POST /openapi/instances/[InstanceId]/public-network HTTPS|HTTP
 
 ## RequestBody
 
-You can also enter the **enablePublic**parameter in RequestBody \(optional\). The default value is false. The Boolean type. A value of true indicates that access to public endpoint is enabled. A value of false indicates that access to public endpoint is disabled. Example:
+You can also enter the **enablePublic** parameter in RequestBody \(optional\). The default value is false. The Boolean type. A value of true indicates that access to public endpoint is enabled. A value of false indicates that access to public endpoint is disabled. Example:
 
 You can also fill in the **enablePublic** parameter in the RequestBody \(optional, the default is false\). Boolean type. True means that public network address access is enabled and false means disabled. Example:
 
@@ -38,7 +38,7 @@ You can also fill in the **enablePublic** parameter in the RequestBody \(optiona
 {
   "enablePublic": true
 }
-
+            
 ```
 
 ## Response parameters
