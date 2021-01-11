@@ -6,11 +6,11 @@ If the specifications in your zone are insufficient, you can upgrade your instan
 
 -   The error message returned because the current account is in a zone that has sufficient resources.
 
-    After migrating nodes with current specifications to another zone, you need to manually[upgrade cluster](~~96650~~) because the cluster will not be upgraded during the migration process. Therefore, select a zone with sufficient resources to avoid cluster upgrade failure. We recommend that you choose new zones that are in lower alphabetical order. For example, for cn-hangzhou-e and cn-hangzhou-h zones, choose cn-hangzhou-h first.
+    After migrating nodes with current specifications to another zone, you need to manually [upgrade cluster](~~96650~~) because the cluster will not be upgraded during the migration process. Therefore, select a zone with sufficient resources to avoid cluster upgrade failure. We recommend that you choose new zones that are in lower alphabetical order. For example, for cn-hangzhou-e and cn-hangzhou-h zones, choose cn-hangzhou-h first.
 
 -   The cluster is in the healthy state.
 
-    Can be passed`GET _cat/health? V`command to view the health status of the cluster.
+    Can be passed`GET _cat/health?v`command to view the health status of the cluster.
 
 
 ## Debugging
