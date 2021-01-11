@@ -114,7 +114,7 @@ GET /openapi/instances/[InstanceId] HTTPS|HTTP
 |paymentType|String|postpaid|The billing method of the created ECS instance. Support: **prepaid**\(subscription\) and**postpaid**\(that uses the pay-as-you-go billing method\) . |
 |port|Integer|9200|The access port of the instance. |
 |privateNetworkIpWhiteList|List|0.0.0.0/0|The IP address whitelist of the instance. |
-|protocol|String|HTTP|The communication protocol. Supported: **HTTP**and**HTTPS**. |
+|protocol|String|HTTP|The communication protocol. Supported: **HTTP** and **HTTPS**. |
 |publicDomain|String|es-cn-abc.elasticsearch.aliyuncs.com|The public endpoint of the instance. |
 |publicIpWhitelist|List|\[ "0.0.0.0/0" \]|The public endpoint whitelist of the instance. |
 |publicPort|Integer|9200|The Internet access port of the instance. |
