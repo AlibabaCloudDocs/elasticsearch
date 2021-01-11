@@ -326,7 +326,7 @@ When you use a Hadoop cluster to perform interactive big data analytics and quer
     |Part|Description|
     |----|-----------|
     |`setting`|Used to configure parameters related to packet loss and the maximum concurrency during synchronization. The default value of the `record` field in the `errorLimit` parameter is 0. You must set the field to a larger value, such as 10.|
-    |`Reader`|Used to configure the Hadoop cluster as the reader. `path` specifies the location of the data that is stored in the Hadoop cluster. To obtain the location, log on to the master node of the Hadoop cluster and run the `hdfs dfs –ls /user/hive/warehouse/hive_esdoc_good_sale` command. For a partitioned table, the data synchronization feature of DataWorks can automatically recurse to the partition where the data is stored. For more information, see [HDFS Reader]().|
+    |`Reader`|Used to configure the Hadoop cluster as the reader. `path` specifies the location of the data that is stored in the Hadoop cluster. To obtain the location, log on to the master node of the Hadoop cluster and run the `hdfs dfs -ls /user/hive/warehouse/hive_esdoc_good_sale` command. For a partitioned table, the data synchronization feature of DataWorks can automatically recurse to the partition where the data is stored. For more information, see [HDFS Reader]().|
     |`Writer`|Used to configure the Elasticsearch cluster as the writer. For more information, see [Elasticsearch Writer]().     -   `index`: the name of the destination index.
     -   `indexType`: the type of the destination index. The index type of Elasticsearch clusters of V7.0 or later must be `_doc`. |
 
