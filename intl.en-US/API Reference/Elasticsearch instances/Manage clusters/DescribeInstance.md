@@ -66,7 +66,7 @@ GET /openapi/instances/[InstanceId] HTTPS|HTTP
 -   STOP: The STOP word.
 -   MAIN: MAIN Dictionary
 -   SYNONYMS: SYNONYMS
--   ALI\_WS: an Alibaba Dictionary. |
+-   ALI\_WS: an Alibaba Dictionary |
 |domain|String|es-cn-n6w1o1x0w001c\*\*\*\*.elasticsearch.aliyuncs.com|The internal network address of the instance. |
 |elasticDataNodeConfiguration|Struct| |The configuration of the elastic data node. |
 |amount|Integer|3|The number of nodes in the cluster. |
@@ -111,7 +111,7 @@ GET /openapi/instances/[InstanceId] HTTPS|HTTP
 |diskEncryption|Boolean|true|Specifies whether to enable disk encryption. |
 |diskType|String|cloud\_ssd|The disk type of nodes. Valid values: cloud\_ssd and cloud\_efficiency. |
 |spec|String|elasticsearch.n4.small|The specification of data nodes. |
-|paymentType|String|postpaid|The billing method of the created ECS instance. Support: **prepaid**\(subscription\) and**postpaid**\(that uses the pay-as-you-go billing method\) . |
+|paymentType|String|postpaid|The billing method of the created ECS instance. Support: **prepaid**\(subscription\) and **postpaid**\(that uses the pay-as-you-go billing method\) . |
 |port|Integer|9200|The access port of the instance. |
 |privateNetworkIpWhiteList|List|0.0.0.0/0|The IP address whitelist of the instance. |
 |protocol|String|HTTP|The communication protocol. Supported: **HTTP** and **HTTPS**. |
