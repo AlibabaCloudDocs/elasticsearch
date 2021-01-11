@@ -40,7 +40,7 @@ The change item needs to be entered in RequestBody, as shown in the following ex
       "disk": 40
     }
 }
-
+            
 ```
 
 ## Response parameters
@@ -81,7 +81,7 @@ The change item needs to be entered in RequestBody, as shown in the following ex
 |disk|Integer|40|The size of the node storage space. Unit: GB. |
 |diskType|String|cloud\_ssd|The storage type of the node. Valid values: cloud\_ssd and cloud\_efficiency. |
 |spec|String|elasticsearch.sn2ne.xlarge|The specification of data nodes. |
-|paymentType|String|postpaid|The billing method of the created ECS instance. Support: **prepaid**\(subscription\) and**postpaid**\(that uses the pay-as-you-go billing method\). |
+|paymentType|String|postpaid|The billing method of the created ECS instance. Support: **prepaid**\(subscription\) and **postpaid**\(that uses the pay-as-you-go billing method\). |
 |publicDomain|String|es-cn-abc.elasticsearch.aliyuncs.com|The public endpoint of the instance. |
 |publicPort|Integer|8033|The Internet access port of the instance. |
 |status|String|active|The state of the cluster. Support: **active**\(normal\),**activating**\(entry into force\),**inactive**\(freeze\): sets and**invalid** \(Invalid\). |
