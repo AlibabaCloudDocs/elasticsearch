@@ -42,7 +42,7 @@ When you use a Hadoop cluster to perform interactive big data analytics and quer
     -   **Assign Public IP Address**: turned on
 2.  Create an Elasticsearch cluster and enable the Auto Indexing feature for the cluster.
 
-    For more information, see [Create an Alibaba Cloud Elasticsearch cluster](/intl.en-US/Quick Start/Step 1: Create a cluster/Create an Alibaba Cloud Elasticsearch cluster.md) and [Enable the Auto Indexing feature](/intl.en-US/Quick Start/Step 2: (Optional) Configure a cluster.md). Make sure that the Elasticsearch cluster resides in the same virtual private cloud \(VPC\), region, and zone as the EMR Hadoop cluster. In this step, an Elasticsearch V6.7.0 cluster of the Standard Edition is created.
+    For more information, see [Create an Alibaba Cloud Elasticsearch cluster](/intl.en-US/Elasticsearch Instances Management/Quick Start/Step 1: Create a cluster/Create an Alibaba Cloud Elasticsearch cluster.md) and [Enable the Auto Indexing feature](/intl.en-US/Elasticsearch Instances Management/Quick Start/Step 2: (Optional) Configure a cluster.md). Make sure that the Elasticsearch cluster resides in the same virtual private cloud \(VPC\), region, and zone as the EMR Hadoop cluster. In this step, an Elasticsearch V6.7.0 cluster of the Standard Edition is created.
 
 3.  Create a DataWorks workspace.
 
@@ -128,23 +128,23 @@ When you use a Hadoop cluster to perform interactive big data analytics and quer
 
 2.  In the top navigation bar, select a region. In the left-side navigation pane, click **Resource Groups**.
 
-3.  Purchase exclusive resources for data integration. For more information, see [Purchase an exclusive resource group for data integration]().
+3.  Purchase exclusive resources for data integration. For more information, see [Purchase an exclusive resource group for Data Integration]().
 
     **Note:** The exclusive resources for data integration must reside in the same region as the DataWorks workspace you created.
 
-4.  Create an exclusive resource group for data integration. For more information, see [Add an exclusive resource group for data integration]().
+4.  Create an exclusive resource group for data integration. For more information, see [Create an exclusive resource group for Data Integration]().
 
     The following figure shows the configuration used in this example. **Resource Group Type** is set to **Exclusive Resource Groups for Data Integration**.
 
     ![Create an exclusive resource group](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/9630852061/p134902.png)
 
-5.  Find the created exclusive resource group. Then, click **Add VPC Binding** in the Actions column to bind the exclusive resource group to a VPC. For more information, see [Bind an exclusive resource group for data integration to a VPC]().
+5.  Find the created exclusive resource group. Then, click **Add VPC Binding** in the Actions column to bind the exclusive resource group to a VPC. For more information, see [Configure network settings]().
 
     Exclusive resources are deployed in a VPC managed by DataWorks. DataWorks can be used to synchronize data from the Hadoop cluster to the Elasticsearch cluster only after it connects to the VPCs where the clusters reside. In this topic, the Hadoop cluster and Elasticsearch cluster reside in the same VPC. Therefore, you only need to select the **VPC** and **VSwitch** of the Elasticsearch cluster for the binding.
 
     ![Bind an exclusive resource group for data integration to a VPC](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/9630852061/p134914.png)
 
-6.  Click **Change Workspace** in the Actions column that corresponds to the exclusive resource group to bind it to the DataWorks workspace you created. For more information, see [Change the workspace to which an exclusive resource group is bound]().
+6.  Click **Change Workspace** in the Actions column that corresponds to the exclusive resource group to bind it to the DataWorks workspace you created. For more information, see [Change the workspace]().
 
     ![Bind an exclusive resource group to a workspace](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/9630852061/p139131.png)
 
@@ -326,7 +326,7 @@ When you use a Hadoop cluster to perform interactive big data analytics and quer
     |Part|Description|
     |----|-----------|
     |`setting`|Used to configure parameters related to packet loss and the maximum concurrency during synchronization. The default value of the `record` field in the `errorLimit` parameter is 0. You must set the field to a larger value, such as 10.|
-    |`Reader`|Used to configure the Hadoop cluster as the reader. `path` specifies the location of the data that is stored in the Hadoop cluster. To obtain the location, log on to the master node of the Hadoop cluster and run the `hdfs dfs –ls /user/hive/warehouse/hive_esdoc_good_sale` command. For a partitioned table, the data synchronization feature of DataWorks can automatically recurse to the partition where the data is stored. For more information, see [Configure HDFS Reader]().|
+    |`Reader`|Used to configure the Hadoop cluster as the reader. `path` specifies the location of the data that is stored in the Hadoop cluster. To obtain the location, log on to the master node of the Hadoop cluster and run the `hdfs dfs –ls /user/hive/warehouse/hive_esdoc_good_sale` command. For a partitioned table, the data synchronization feature of DataWorks can automatically recurse to the partition where the data is stored. For more information, see [HDFS Reader]().|
     |`Writer`|Used to configure the Elasticsearch cluster as the writer. For more information, see [Elasticsearch Writer]().     -   `index`: the name of the destination index.
     -   `indexType`: the type of the destination index. The index type of Elasticsearch clusters of V7.0 or later must be `_doc`. |
 
