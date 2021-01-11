@@ -86,7 +86,7 @@ input {
 }
 output {
 elasticsearch {
-hosts => ["es-cn-o40xxxxxxxxxxxxwm.elasticsearch.aliyuncs.com:9200"]
+hosts => ["http://es-cn-o40xxxxxxxxxxxxwm.elasticsearch.aliyuncs.com:9200"]
 index => "logstash_test_1"
 password => "es_password"
 user => "elastic"
