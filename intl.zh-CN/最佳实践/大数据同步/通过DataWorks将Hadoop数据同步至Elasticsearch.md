@@ -33,7 +33,7 @@
 
 1.  搭建Hadoop集群。
 
-    进行数据同步前，请确保您的Hadoop集群环境正常。本文使用阿里云E-MapReduce服务自动化搭建Hadoop集群，详情请参见[创建集群](/intl.zh-CN/快速入门/创建集群.md)。
+    进行数据同步前，请确保您的Hadoop集群环境正常。本文使用阿里云E-MapReduce服务自动化搭建Hadoop集群。详细信息，请参见[创建集群](/intl.zh-CN/快速入门/创建集群.md)。
 
     E-MapReduce Hadoop集群配置信息如下（未提到的信息，本文均保持默认，您也可以根据自身需求修改配置）：
 
@@ -42,11 +42,11 @@
     -   **挂载公网**：开启
 2.  创建阿里云Elasticsearch实例，并开启实例的自动创建索引功能。
 
-    具体操作步骤请参见[创建阿里云Elasticsearch实例](/intl.zh-CN/快速入门/步骤一：创建实例/创建阿里云Elasticsearch实例.md)和[开启自动创建索引](/intl.zh-CN/快速入门/步骤二：配置实例（可选）.md)。创建实例时，请选择与E-MapReduce集群相同的区域、可用区以及专有网络。本文使用的阿里云Elasticsearch版本为通用商业版6.7.0。
+    具体操作，请参见[创建阿里云Elasticsearch实例](/intl.zh-CN/Elasticsearch/快速入门/步骤一：创建实例/创建阿里云Elasticsearch实例.md)和[开启自动创建索引](/intl.zh-CN/Elasticsearch/快速入门/步骤二：配置实例（可选）.md)。创建实例时，请选择与E-MapReduce集群相同的区域、可用区以及专有网络。本文使用的阿里云Elasticsearch版本为通用商业版6.7.0。
 
 3.  创建DataWorks工作空间。
 
-    创建工作区间时，所选区域需要与阿里云Elasticsearch一致，具体操作步骤请参见[创建工作空间]()。
+    创建工作区间时，所选区域需要与阿里云Elasticsearch一致，具体操作，请参见[创建工作空间]()。
 
 
 ## 步骤一：准备数据
@@ -61,11 +61,11 @@
 
 5.  在**数据开发**页面，新建一个数据开发项目，其中资源组选择默认资源组。
 
-    具体操作步骤请参见[项目管理](/intl.zh-CN/数据开发/项目管理.md)。
+    具体操作，请参见[项目管理](/intl.zh-CN/数据开发/项目管理.md)。
 
 6.  在**项目列表**中，单击目标项目右侧**操作**列下的**作业编辑**，新建一个作业。
 
-    具体操作步骤请参见[作业编辑](/intl.zh-CN/数据开发/作业编辑.md)。其中作业类型选择Hive。
+    具体操作，请参见[作业编辑](/intl.zh-CN/数据开发/作业编辑.md)。其中作业类型选择Hive。
 
 7.  创建数据表并插入数据。
 
@@ -105,7 +105,7 @@
 
     1.  新建一个临时查询作业。
 
-        具体操作步骤请参见[临时查询](/intl.zh-CN/数据开发/临时查询.md)。
+        具体操作，请参见[临时查询](/intl.zh-CN/数据开发/临时查询.md)。
 
     2.  输入如下SQL语句，单击**运行**。
 
@@ -119,7 +119,7 @@
 
         此操作可以检查Hadoop集群表中是否已存在数据可用于同步，运行成功后的结果如下。
 
-        ![查看测试数据](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/zh-CN/3824659951/p103731.png)
+        ![查看测试数据](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/3824659951/p103731.png)
 
 
 ## 步骤二：购买并创建独享资源组
@@ -136,17 +136,17 @@
 
     本文使用的配置如下，其中**资源组类型**选择**独享数据集成资源组**。
 
-    ![创建独享资源组](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/zh-CN/3034659951/p134902.png)
+    ![创建独享资源组](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/3034659951/p134902.png)
 
-5.  单击已创建的独享资源组右侧的**专有网络绑定**，参见[绑定专有网络]()，为该独享资源组绑定专有网络。
+5.  单击已创建的独享资源组右侧的**专有网络绑定**，参见[网络配置]()，为该独享资源组绑定专有网络。
 
     独享资源部署在DataWorks托管的专有网络中。DataWorks需要与Hadoop集群和Elasticsearch实例的专有网络连通才能同步数据。而Hadoop集群和Elasticsearch实例在同一专有网络下，因此在绑定专有网络时，选择Elasticsearch实例所在**专有网络**和**交换机**即可。
 
-    ![绑定专有网络](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/zh-CN/4034659951/p134914.png)
+    ![绑定专有网络](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/4034659951/p134914.png)
 
-6.  单击已创建的独享资源组右侧的**修改归属工作空间**，参见[修改归属工作空间]()，为该独享资源组绑定目标工作空间。
+6.  单击已创建的独享资源组右侧的**修改归属工作空间**，参见[绑定归属工作空间]()，为该独享资源组绑定目标工作空间。
 
-    ![绑定工作空间](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/zh-CN/4034659951/p139131.png)
+    ![绑定工作空间](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/4034659951/p139131.png)
 
 
 ## 步骤三：添加数据源
@@ -165,25 +165,25 @@
 
 5.  在**新增HDFS数据源**对话框中，填写**数据源名称**和**DefaultFS**。
 
-    ![添加HDFS数据源](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/zh-CN/4824659951/p103833.png)
+    ![添加HDFS数据源](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/4824659951/p103833.png)
 
     **DefaultFS**：对于E-MapReduce Hadoop集群而言，如果Hadoop集群为非HA集群，则此处地址为`hdfs://emr-header-1的IP:9000`。如果Hadoop集群为HA集群，则此处地址为`hdfs://emr-header-1的IP:8020`。在本文中，emr-header-1与DataWorks通过专有网络连接，因此此处填写内网IP。
 
     配置完成后，可与独享资源组进行连通性测试。**连通状态**显示为**可连通**时，表示连通成功。
 
-    ![测试连通成功](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/zh-CN/4034659951/p139093.png)
+    ![测试连通成功](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/4034659951/p139093.png)
 
 6.  单击**完成**。
 
 7.  使用同样的方式添加Elasticsearch数据源。
 
-    ![ES数据源配置](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/zh-CN/4034659951/p103880.png)
+    ![ES数据源配置](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/4034659951/p103880.png)
 
     |参数|说明|
     |--|--|
-    |**Endpoint**|阿里云Elasticsearch的访问地址，格式为：`http://<实例的内网或公网地址>:9200`。实例的内网或公网地址可在基本信息页面获取，详情请参见[查看实例的基本信息](/intl.zh-CN/实例管理/管理实例/查看实例的基本信息.md)。**说明：** 如果您使用的是公网地址，需要将独享资源组的EIP地址添加到阿里云Elasticsearch的公网地址访问白名单中，详情请参见[配置ES公网或私网访问白名单](/intl.zh-CN/实例管理/安全配置/配置ES公网或私网访问白名单.md)和[添加独享数据集成资源组的白名单]()。 |
+    |**Endpoint**|阿里云Elasticsearch的访问地址，格式为：`http://<实例的内网或公网地址>:9200`。实例的内网或公网地址可在基本信息页面获取，详情请参见[查看实例的基本信息](/intl.zh-CN/Elasticsearch/管理实例/查看实例的基本信息.md)。**说明：** 如果您使用的是公网地址，需要将独享资源组的EIP地址添加到阿里云Elasticsearch的公网地址访问白名单中，详情请参见[配置ES公网或私网访问白名单](/intl.zh-CN/Elasticsearch/安全配置/配置ES公网或私网访问白名单.md)和[添加独享数据集成资源组的白名单]()。 |
     |**用户名**|访问阿里云Elasticsearch实例的用户名，默认为elastic。|
-    |**密码**|对应用户的密码。elastic用户的密码在创建实例时设定，如果忘记可重置，重置密码的注意事项和操作步骤请参见[重置实例访问密码](/intl.zh-CN/实例管理/安全配置/重置实例访问密码.md)。|
+    |**密码**|对应用户的密码。elastic用户的密码在创建实例时设定，如果忘记可重置，重置密码的注意事项和操作步骤请参见[重置实例访问密码](/intl.zh-CN/Elasticsearch/安全配置/重置实例访问密码.md)。|
 
     **说明：** 其他未提及的参数请自定义输入。
 
@@ -198,13 +198,13 @@
 
 3.  在**新建节点**对话框中，输入**节点名称**，单击**提交**。
 
-4.  在页面上方工具栏，单击![转换脚本图标](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/zh-CN/4034659951/p69021.png)图标。
+4.  在页面上方工具栏，单击![转换脚本图标](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/4034659951/p69021.png)图标。
 
 5.  确认后，配置数据同步脚本。
 
-    详细配置说明请参见[通过脚本模式配置任务]()。
+    详细配置说明，请参见[通过脚本模式配置任务]()。
 
-    **说明：** 您可以单击页面上方工具栏中的![导入模板](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/zh-CN/4034659951/p87612.png)图标，导入对应的脚本配置模板，并在模板的基础上进行修改，完成数据同步脚本配置。
+    **说明：** 您可以单击页面上方工具栏中的![导入模板](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/4034659951/p87612.png)图标，导入对应的脚本配置模板，并在模板的基础上进行修改，完成数据同步脚本配置。
 
     示例脚本如下。
 
@@ -326,8 +326,8 @@
     |配置|说明|
     |--|--|
     |`setting`|用来配置同步中的一些丢包和最大并发等参数。其中`errorLimit`的`record`字段值默认为0，请将其修改为大一些的数值，比如10。|
-    |`Reader`|用来配置HDFS Reader。`path`为数据在Hadoop集群中存放的位置，您可以在登录Master节点后，使用`hdfs dfs –ls /user/hive/warehouse/hive_esdoc_good_sale`命令确认。对于分区表，您可以不指定分区，DataWorks数据同步会自动递归到分区路径。详情请参见[HDFS Reader]()。|
-    |`Writer`|用来配置Elasticsearch Writer，详情请参见[Elasticsearch Writer]()。     -   `index`：索引名称。
+    |`Reader`|用来配置HDFS Reader。`path`为数据在Hadoop集群中存放的位置，您可以在登录Master节点后，使用`hdfs dfs -ls /user/hive/warehouse/hive_esdoc_good_sale`命令确认。对于分区表，您可以不指定分区，DataWorks数据同步会自动递归到分区路径。详细信息，请参见[HDFS Reader]()。|
+    |`Writer`|用来配置Elasticsearch Writer。详细信息，请参见[Elasticsearch Writer]()。     -   `index`：索引名称。
     -   `indexType`：索引类型，7.0及以上版本的Elasticsearch必须使用`_doc`。 |
 
 6.  保存配置脚本，单击右侧的**调度配置**，按照需求配置相应的调度参数。
@@ -341,7 +341,7 @@
     -   周期任务将于配置任务开始的第二天00:00，按照您的配置规则生效执行。
 7.  配置执行同步任务所使用的资源组。
 
-    ![选择资源组](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/zh-CN/4034659951/p69063.png)
+    ![选择资源组](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/4034659951/p69063.png)
 
     1.  在脚本配置页面右侧，单击**数据集成资源组配置**。
 
@@ -351,24 +351,24 @@
 
 8.  提交任务。
 
-    1.  保存当前配置，单击![提交图标](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/zh-CN/4034659951/p71328.png)图标。
+    1.  保存当前配置，单击![提交图标](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/4034659951/p71328.png)图标。
 
     2.  在**提交新版本**对话框中，填入**备注**。
 
     3.  单击**确认**。
 
-9.  单击![运行图标](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/zh-CN/4034659951/p103889.png)图标，运行任务。
+9.  单击![运行图标](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/4034659951/p103889.png)图标，运行任务。
 
     任务运行过程中，可查看运行日志。运行成功后，显示如下结果。
 
-    ![任务运行成功](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/zh-CN/4034659951/p103890.png)
+    ![任务运行成功](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/4034659951/p103890.png)
 
 
 ## 步骤五：验证数据同步结果
 
 1.  登录目标阿里云Elasticsearch实例的Kibana控制台。
 
-    具体操作步骤请参见[登录Kibana控制台](/intl.zh-CN/实例管理/可视化控制/Kibana/登录Kibana控制台.md)。
+    具体操作，请参见[登录Kibana控制台](/intl.zh-CN/Elasticsearch/可视化控制/Kibana/登录Kibana控制台.md)。
 
 2.  在左侧导航栏，单击**Dev Tools**（开发工具）。
 
@@ -385,7 +385,7 @@
 
     数据同步成功后，返回如下结果。
 
-    ![查看已经同步的数据](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/zh-CN/5824659951/p40081.png)
+    ![查看已经同步的数据](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/5824659951/p40081.png)
 
 4.  执行如下命令，搜索品牌为A的所有文档。
 
@@ -396,9 +396,9 @@
     }
     ```
 
-    ![返回品牌为A的所有文档](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/zh-CN/5824659951/p40082.png)
+    ![返回品牌为A的所有文档](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/5824659951/p40082.png)
 
-5.  执行如下命令，按照**点击次数**进行排序，判断各品牌产品的热度。
+5.  执行如下命令，按照**点击次数**排序，判断各品牌产品的热度。
 
     ```
     POST /hive_esdoc_good_sale/_search?pretty
@@ -409,7 +409,7 @@
     }
     ```
 
-    ![按照点击次数进行排序](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/zh-CN/5824659951/p40083.png)
+    ![按照点击次数进行排序](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/5824659951/p40083.png)
 
     更多命令和访问方式，请参见[阿里云Elasticsearch官方文档](https://www.alibabacloud.com/help/product/57736.htm)和[Elasticsearch官方文档](https://www.elastic.co/guide/en/elasticsearch/reference/6.7/index.html)。
 
