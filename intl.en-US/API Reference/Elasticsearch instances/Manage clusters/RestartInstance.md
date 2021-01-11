@@ -94,15 +94,15 @@ The following parameters must be specified in RequestBody:
 
 **Note:**
 
--   If the **restartType** parameter is not specified or is empty, the default value is **instance**. For **instance**the blueGreenDep parameter is ignored by default, and the following conditions must be met:
+-   If the **restartType** parameter is not specified or is empty, the default value is **instance**. For **instance** the blueGreenDep parameter is ignored by default, and the following conditions must be met:
 
     -   When the value of **force** is **true**, the value of **batchCount** must be greater than 0 but less than or equal to 100. Otherwise, a RestartBatchValueError error is returned.
     -   When the **force** parameter is set to **false**, **batchCount** is set to 0 by default. If it is set to another value, an error NormalRestartNotSupportBatch.
     is
 
--   When the value of **restartType**is **nodeIp**, the**batchCount**parameter is ignored. And the following conditions are met:
+-   When the value of **restartType** is **nodeIp**, the **batchCount** parameter is ignored. And the following conditions are met:
     -   The error message returned if the **nodes** parameter is null.
-    -   when the **bluependep**is true, the blue-green deployment is enabled when the node is restarted. When this parameter is set to **false**, the system does not enable the blue-green deployment and restarts normally.
+    -   when the **bluependep** is true, the blue-green deployment is enabled when the node is restarted. When this parameter is set to **false**, the system does not enable the blue-green deployment and restarts normally.
 
 Example:
 
@@ -113,7 +113,7 @@ Example:
     "nodes":["172.16.xx.xx","172.16.xx.xx"],
     "blueGreenDep":true
 }
-
+            
 ```
 
 ## Response parameters
