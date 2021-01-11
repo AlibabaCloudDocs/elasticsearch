@@ -17,7 +17,7 @@ Elasticsearch supports the following system policies:
 
 -   The AliyunElasticsearchFullAccess and AliyunElasticsearchReadOnlyAccess policies grant the permissions on Elasticsearch to only RAM users. The permissions do not include permissions on Cloud Monitor and tags. If you want to grant the permissions on Cloud Monitor or tags, attach AliyunCloudMonitorFullAccess, AliyunCloudMonitorReadOnlyAccess, [specific policies related to Cloud Monitor](/intl.en-US/Appendix 3 account authorization/Control permissions of RAM users.md), or [tag-related custom policies](/intl.en-US/RAM/Grant permissions on tags to a RAM user.md) to the users.
 -   You can use policies to grant permissions only on all the resources under an Alibaba Cloud account. You cannot use them to grant permissions on a specific resource group.
--   
+
 1.  Log on to the [RAM console](https://ram.console.aliyun.com/) by using an Alibaba Cloud account.
 
 2.  In the left-side navigation pane, click **Policies** under **Permissions**.
@@ -30,7 +30,7 @@ Elasticsearch supports the following system policies:
 
 6.  In the **Policy Document** section, select an existing system policy and edit the policy document.
 
-    ![Policy Document section](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/en-US/1724309951/p96968.png)
+    ![Policy Document section](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/5750988061/p96968.png)
 
     **Note:** You can enter a keyword into the search box to perform a fuzzy search.
 
