@@ -84,7 +84,7 @@ The change item needs to be entered in RequestBody, as shown in the following ex
 |paymentType|String|postpaid|The billing method of the created ECS instance. Support: **prepaid**\(subscription\) and **postpaid**\(that uses the pay-as-you-go billing method\). |
 |publicDomain|String|es-cn-abc.elasticsearch.aliyuncs.com|The public endpoint of the instance. |
 |publicPort|Integer|8033|The Internet access port of the instance. |
-|status|String|active|The state of the cluster. Support: **active**\(normal\),**activating**\(entry into force\),**inactive**\(freeze\): sets and**invalid** \(Invalid\). |
+|status|String|active|The state of the cluster. Support: **active**\(normal\),**activating**\(entry into force\),**inactive**\(freeze\): sets and **invalid** \(Invalid\). |
 |synonymsDicts|Array of SynonymsDicts| |The configuration of the synonym dictionary. |
 |fileSize|Long|100|The size of the Dictionary File. Unit: bytes. |
 |name|String|dicts.txt|The name of the dictionary file. |
