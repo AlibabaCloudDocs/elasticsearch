@@ -6,7 +6,7 @@ You have completed the following operations:
 
 -   An Elasticsearch cluster is created.
 
-    For more information, see [Create an Alibaba Cloud Elasticsearch cluster](/intl.en-US/Quick Start/Step 1: Create a cluster/Create an Alibaba Cloud Elasticsearch cluster.md).
+    For more information, see [Create an Alibaba Cloud Elasticsearch cluster](/intl.en-US/Elasticsearch Instances Management/Quick Start/Step 1: Create a cluster/Create an Alibaba Cloud Elasticsearch cluster.md).
 
 -   A Logstash cluster is created.
 
@@ -17,9 +17,9 @@ You have completed the following operations:
 
 1.  Log on to the [Alibaba Cloud Elasticsearch console](https://elasticsearch.console.aliyun.com/#/home).
 
-2.  In the top navigation bar, select the region where your cluster resides.
+2.  In the left-side navigation pane, click **Logstash Clusters**.
 
-3.  In the left-side navigation pane, click **Logstash Clusters**. On the page that appears, find the target cluster and click its ID in the **Cluster ID/Name** column.
+3.  In the top navigation bar, select a region. On the **Clusters** page, click the ID of the desired cluster.
 
 4.  In the left-side navigation pane, click **Pipelines**.
 
@@ -41,19 +41,15 @@ You have completed the following operations:
 
 9.  Select a value from the **Pipeline ID** drop-down list.
 
-    If you do not have a pipeline ID, click **Log on to Kibana console** to create a pipeline. You are then redirected to the Kibana console of the Elasticsearch cluster. For more information, see [Manage pipelines in the Kibana console](#section_2h6_sur_165).****
-
-    ![Log on to Kibana console](../images/p60376.png)
+    If you do not have a pipeline ID, click **Log on to Kibana console** to create a pipeline. You are then redirected to the Kibana console of the Elasticsearch cluster. For more information, see [Manage pipelines in the Kibana console](#section_2h6_sur_165).
 
     After the pipeline is created, return to the **Edit Configuration** page of the Logstash cluster and click **Test Connectivity and Query Pipelines** again to obtain the ID of the created pipeline.
-
-    ![Obtain the pipeline ID](../images/p60374.png)
 
     **Warning:** Changing the configuration of a pipeline triggers a restart of the Logstash cluster. Before you can proceed, make sure that the restart does not affect your services.
 
 10. Select the check box for precautions in the Logstash restart and click **OK**.
 
-    The Logstash cluster is then restarted. During the restart, you can view the restart progress in the [Tasks]() dialog box. After the cluster is restarted, it is associated with the Elasticsearch cluster and data transmission starts.
+    The Logstash cluster is then restarted. During the restart, you can view the restart progress in the [Tasks](/intl.en-US/Logstash/Cluster management/Restart a cluster or node.md) dialog box. After the cluster is restarted, it is associated with the Elasticsearch cluster and data transmission starts.
 
 
 ## Manage pipelines in the Kibana console
@@ -70,11 +66,7 @@ After the Elasticsearch cluster is associated, you can create or modify a pipeli
 
 5.  In the **Pipelines** section, click **Create pipeline**.
 
-    ![Create pipeline button](../images/p60371.png)
-
 6.  On the **Create Pipeline** page, enter values in **Pipeline ID** and **Description**, and set other parameters.
-
-    ![Create Pipeline page](../images/p60372.png)
 
     You can move the pointer over a parameter to view the parameter description.
 
@@ -112,6 +104,6 @@ user => "elastic"
 
     After the pipeline is created, the system returns to the **Pipelines** page. You can view the created pipeline on this page.
 
-8.  Click the ID of the created pipeline. You can modify the pipeline settings on the pipeline details page.****
+8.  Click the ID of the created pipeline. You can modify the pipeline settings on the pipeline details page.
 
 
