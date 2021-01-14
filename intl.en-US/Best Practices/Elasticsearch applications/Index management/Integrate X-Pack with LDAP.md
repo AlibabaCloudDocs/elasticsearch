@@ -2,9 +2,15 @@
 
 This topic describes how to configure Lightweight Directory Access Protocol \(LDAP\) for Alibaba Cloud Elasticsearch. After LDAP is configured, you can use LDAP with assigned roles to access Alibaba Cloud Elasticsearch.
 
+## Precautions
+
+Due to the adjustment made to the Alibaba Cloud Elasticsearch network architecture, clusters created after October 2020 do not support some features. These features include X-Pack Watcher, LDAP authentication, cross-cluster reindexing, cross-cluster searches, and cluster interconnection. The features will be available soon.
+
+## Prerequisites
+
 -   An Alibaba Cloud Elasticsearch cluster is created. In this topic, a V6.7.0 cluster is used.
 
-    For more information, see [Create an Alibaba Cloud Elasticsearch cluster](/intl.en-US/Quick Start/Step 1: Create a cluster/Create an Alibaba Cloud Elasticsearch cluster.md).
+    For more information, see [Create an Alibaba Cloud Elasticsearch cluster](/intl.en-US/Elasticsearch Instances Management/Quick Start/Step 1: Create a cluster/Create an Alibaba Cloud Elasticsearch cluster.md).
 
 -   SNAT entries are created in the NAT gateway.
 
@@ -17,7 +23,7 @@ This topic describes how to configure Lightweight Directory Access Protocol \(LD
     ![LDAP environment and user data](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/1757359951/p76477.png)
 
 
-## Precautions
+## Background information
 
 Take note of the following items when you configure LDAP:
 
@@ -49,19 +55,19 @@ xpack.security.authc.realms.ldap1.unmapped_groups_as_roles: false
 
 |Parameter|Description|
 |---------|-----------|
-|`type`|The type of the realm. This parameter must be set to `ldap`.|
-|`url`|The URL and port for the LDAP server. `ldap` indicates that a common connection and port 389 are used. `ldaps` indicates that an SSL-encrypted connection and port 636 are used.|
-|`bind_dn`|The DN of the user that is used to bind authenticating users to the LDAP server and perform searches. This parameter is valid only in the user search mode.|
-|`bind_password`|The password of the user that is used to bind authenticating users to the LDAP directory.|
-|`user_search.base_dn`|The container DN that is used to search for users.|
-|`group_search.base_dn`|The container DN that is used to search for groups to which the user belongs. If this parameter is not configured, Elasticsearch searches for the attribute specified by the `user_group_attribute` parameter to determine group membership.|
-|`unmapped_groups_as_roles`|The default value of this parameter is `false`. If you set this parameter to `true`, the names of unmapped LDAP groups are used as role names.|
+|type|The type of the realm. This parameter must be set to ldap.|
+|url|The URL and port for the LDAP server. ldap indicates that a common connection and port 389 are used. ldaps indicates that an SSL-encrypted connection and port 636 are used.|
+|bind\_dn|The DN of the user that is used to bind authenticating users to the LDAP server and perform searches. This parameter is valid only in the user search mode.|
+|bind\_password|The password of the user that is used to bind authenticating users to the LDAP server.|
+|user\_search.base\_dn|The container DN that is used to search for users.|
+|group\_search.base\_dn|The container DN that is used to search for groups to which the user belongs. If this parameter is not configured, Elasticsearch searches for the attribute specified by the user\_group\_attribute parameter to determine group membership.|
+|unmapped\_groups\_as\_roles|The default value of this parameter is false. If you set this parameter to true, the names of unmapped LDAP groups are used as role names.|
 
 For more information about the parameters, see [Security settings in Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/6.7/security-settings.html#ref-ldap-settings).
 
 ## Map roles to realm accounts
 
-Run the following command to map an administrator role to the `lettie*` account:
+Run the following command to map an administrator role to the lettie\* account:
 
 ```
 POST _xpack/security/role_mapping/ldap_super_user?pretty
@@ -82,7 +88,7 @@ POST _xpack/security/role_mapping/ldap_super_user?pretty
 
 ## Verify results
 
-Run the following command and use the authorized `lettie` account for testing:
+Run the following command and use the authorized lettie account for testing:
 
 ```
 # curl -XGET -u lettie:<password> http://es-cn-v0h1****.public.elasticsearch.aliyuncs.com:9200/_cat/indices?v
@@ -90,7 +96,7 @@ Run the following command and use the authorized `lettie` account for testing:
 
 ![Use the lettie account for testing](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/1757359951/p76483.png)
 
-Run the following command and use the unauthorized `cent` account for testing. The command output indicates that the cent account does not have the required permissions.
+Run the following command and use the unauthorized cent account for testing. The command output indicates that the cent account does not have the required permissions.
 
 ![Use the cent account for testing](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/1757359951/p76484.png)
 
