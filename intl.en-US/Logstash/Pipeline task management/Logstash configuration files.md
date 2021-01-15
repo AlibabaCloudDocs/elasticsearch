@@ -26,7 +26,7 @@ Each part can contain one or more plug-ins. If you specify multiple filter plug-
 
 **Note:**
 
--   If the configuration file contains a parameter similar to `last_run_metadata_path`, the file path must be provided by Logstash. The Logstash backend provides the /ssd/1/ls-cn-xxxxxxx/logstash/data/ path for test purposes. The system does not delete the data stored in this path. Make sure that your disk has sufficient storage space when you use this path.
+-   If the configuration file contains a parameter similar to `last_run_metadata_path`, the file path must be provided by Logstash. The Logstash backend provides the /ssd/1/<Logstash cluster ID\>/logstash/data/ path for test purposes. The system does not delete the data stored in this path. Make sure that your disk has sufficient storage space when you use this path.
 -   For security purposes, if you use a JDBC driver to configure a pipeline, you must add `allowLoadLocalInfile=false&autoDeserialize=false` at the end of the `jdbc_connection_string` parameter, such as `jdbc_connection_string => "jdbc:mysql://xxx.drds.aliyuncs.com:3306/test-database?allowLoadLocalInfile=false&autoDeserialize=false"`. Otherwise, the system displays an error message that indicates a check failure.
 
 ## Plug-in configuration
