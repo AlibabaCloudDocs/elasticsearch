@@ -10,7 +10,7 @@ For more information, see [Create an IPv4 VPC network](/intl.en-US/Quick Start/C
 
 Create two Alibaba Cloud Elasticsearch clusters to respectively act as the input and output of Alibaba Cloud Logstash. For more information, see [Create an Alibaba Cloud Elasticsearch cluster](/intl.en-US/Elasticsearch Instances Management/Quick Start/Step 1: Create a cluster/Create an Alibaba Cloud Elasticsearch cluster.md). The following figure shows the configurations of the clusters.
 
-![Cluster configuration](../images/p127592.png)
+![configurations of the clusters](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/0705960161/p127592.png)
 
 In this topic, a Logstash V6.7.0 cluster is used to migrate data between Elasticsearch V6.7.0 clusters of the Standard Edition. The code provided in this topic applies only to this type of data migration.
 
