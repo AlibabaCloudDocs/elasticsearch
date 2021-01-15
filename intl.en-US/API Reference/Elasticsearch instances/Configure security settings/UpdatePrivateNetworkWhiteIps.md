@@ -36,7 +36,7 @@ The **privateNetworkIpWhiteList** parameter needs to be filled in the RequestBod
 {
   "privateNetworkIpWhiteList": ["192.168.**.**/24"]
 }
-
+            
 ```
 
 ## Response parameters
@@ -47,7 +47,7 @@ The **privateNetworkIpWhiteList** parameter needs to be filled in the RequestBod
 |Result|Struct| |The returned results. |
 |privateNetworkIpWhiteList|List|\["192.168. \*\*. \*\*/24"\]|The IP addresses in the VPC whitelist. |
 
-**Note:** In the following response examples, only the parameters in the returned data list are guaranteed to be included. The parameters that are not described in this topic are only for reference. For more information about Parameter descriptions, see[ListInstance](~~142230~~). The program must not rely on obtaining these parameters.
+**Note:** In the following response examples, only the parameters in the returned data list are guaranteed to be included. The parameters that are not described in this topic are only for reference. For more information about Parameter descriptions, see [ListInstance](~~142230~~). The program must not rely on obtaining these parameters.
 
 ## Examples
 
