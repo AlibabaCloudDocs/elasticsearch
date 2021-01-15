@@ -89,7 +89,7 @@ Example:
 |---------|----|-------|-----------|
 |RequestId|String|3D8795D9-8FF5-46B2-86E6-E3B407\*\*\*\*\*\*\*|The ID of the request. |
 
-The response parameters also include the **Result**parameter. The value is of the Boolean type. If the resource relationship is created, true is returned. If the resource relationship is failed, false is returned.
+The response parameters also include the **Result** parameter. The value is of the Boolean type. If the resource relationship is created, true is returned. If the resource relationship is failed, false is returned.
 
 ## Examples
 
