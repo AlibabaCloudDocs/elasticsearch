@@ -27,9 +27,9 @@ Logstash allows you to configure pipelines by using the following methods:
 
 1.  Log on to the [Alibaba Cloud Elasticsearch console](https://elasticsearch.console.aliyun.com/#/home).
 
-2.  In the top navigation bar, select the region where your cluster resides.
+2.  In the left-side navigation pane, click **Logstash Clusters**.
 
-3.  In the left-side navigation pane, click **Logstash Clusters**. On the page that appears, find the target cluster and click its ID in the **Cluster ID/Name** column.
+3.  In the top navigation bar, select a region. On the **Clusters** page, click the ID of the desired cluster.
 
 4.  In the left-side navigation pane, click **Pipelines**.
 
@@ -71,7 +71,7 @@ Logstash allows you to configure pipelines by using the following methods:
     -   The input plug-ins can listen to only the ports from 8000 to 9000 on the node where the Logstash process is running.
     -   If you want to define a plug-in, driver, or file in the input part, perform the following steps: Click **Show Third-party Libraries**. In the **Third-party Libraries** dialog box, click **Upload**. Then, upload files as prompted. For more information, see [Configure third-party libraries](/intl.en-US/Logstash/Cluster configuration/Configure third-party libraries.md). |
     |`filter`|Specifies the plug-in that is used to filter input data. For more information about supported plug-ins, see [Filter plugins](https://www.elastic.co/guide/en/logstash/7.4/filter-plugins.html).|
-    |`output`|Specifies the output data source. For more information about supported data source types, see [Output plugins](https://www.elastic.co/guide/en/logstash/7.4/output-plugins.html). The `file_extend` parameter in the output part is used to enable the pipeline configuration debugging feature. You can use the `path` field to specify the path that stores debug logs. For more information, see [t1898579.md\#]().
+    |`output`|Specifies the output data source. For more information about supported data source types, see [Output plugins](https://www.elastic.co/guide/en/logstash/7.4/output-plugins.html). The `file_extend` parameter in the output part is used to enable the pipeline configuration debugging feature. You can use the `path` field to specify the path that stores debug logs. For more information, see [Use the pipeline configuration debugging feature](/intl.en-US/Logstash/Pipeline task management/Use the pipeline configuration debugging feature.md).
 
 **Note:** By default, the `path` field is set to a system-specified path. We recommend that you do not change it. You can click **Start Configuration Debug** to obtain the `path`. |
 
@@ -80,7 +80,7 @@ Logstash allows you to configure pipelines by using the following methods:
     **Note:**
 
     -   For security purposes, if you use a JDBC driver to configure a pipeline, you must add `allowLoadLocalInfile=false&autoDeserialize=false` at the end of the `jdbc_connection_string` parameter, such as `jdbc_connection_string => "jdbc:mysql://xxx.drds.aliyuncs.com:3306/test-database?allowLoadLocalInfile=false&autoDeserialize=false"`. Otherwise, the system displays an error message that indicates a check failure.
-    -   If a parameter similar to `last_run_metadata_path` exists in the Config Settings field, the file path must be provided by Logstash. The /ssd/1/ls-cn-xxxxxxx/logstash/data/ path at the backend is available for tests, and the system does not delete the data in this path. Make sure that your disk has sufficient storage space when you use this path.
+    -   If a parameter similar to `last_run_metadata_path` exists in the Config Settings field, the file path must be provided by Logstash. The /ssd/1/<Logstash cluster ID\>/logstash/data/ path at the backend is available for tests, and the system does not delete the data in this path. Make sure that your disk has sufficient storage space when you use this path.
     -   The Logstash cluster is deployed in a virtual private cloud \(VPC\). If other Alibaba Cloud services are involved in pipeline configuration, we recommend that you select the instances in the same VPC. If you want to allow access to your Logstash cluster over the Internet, configure network and security settings. For more information, see [Configure a NAT gateway for data transmission over the Internet](/intl.en-US/Logstash/Network and security/Configure a NAT gateway for data transmission over the Internet.md).
 7.  Click **Next** to configure pipeline parameters.
 
