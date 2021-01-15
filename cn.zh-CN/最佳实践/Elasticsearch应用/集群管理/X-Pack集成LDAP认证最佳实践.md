@@ -4,7 +4,7 @@
 
 ## 注意事项
 
-因阿里云Elasticsearch网络架构调整，2020年10月起创建的实例暂时不支持Watcher、LDAP认证、跨集群Reindex、跨集群搜索、实例网络互通功能，待后期功能上线后开放，请耐心等待。
+因阿里云Elasticsearch网络架构调整，2020年10月起创建的实例暂不支持Watcher报警和LDAP认证功能，且不支持与2020年10月前创建的实例进行跨集群Reindex、跨集群搜索、跨集群复制等相关操作。即10月前创建的集群，仅支持与10月前创建的集群进行这些操作；10月后创建的集群仅支持与10月后创建的集群进行这些操作。因网络调整带来的影响，待后期功能上线将会解决，请耐心等待。
 
 ## 前提条件
 
@@ -12,11 +12,11 @@
 
 -   创建阿里云Elasticsearch实例，本文使用6.7.0版本。
 
-    具体操作，请参见[创建阿里云Elasticsearch实例](/cn.zh-CN/快速入门/步骤一：创建实例/创建阿里云Elasticsearch实例.md)。
+    具体操作，请参见[创建阿里云Elasticsearch实例](/cn.zh-CN/Elasticsearch/快速入门/步骤一：创建实例/创建阿里云Elasticsearch实例.md)。
 
 -   配置NAT网关下的SNAT。
 
-    由于阿里云Elasticsearch服务处于专有网络下，为确保LDAP服务与Elasticsearch之间网络互通，您需要配置SNAT网关，实现Elasticsearch与公网连通。操作方法与配置Logstash的NAT公网传输类似，详细信息，请参见[配置NAT公网数据传输](/cn.zh-CN/Logstash实例/网络与安全/配置NAT公网数据传输.md)。
+    由于阿里云Elasticsearch服务处于专有网络下，为确保LDAP服务与Elasticsearch之间网络互通，您需要配置SNAT网关，实现Elasticsearch与公网连通。操作方法与配置Logstash的NAT公网传输类似，详细信息请参见[配置NAT公网数据传输](/cn.zh-CN/Logstash/网络与安全/配置NAT公网数据传输.md)。
 
 -   准备LDAP环境及用户数据。
 
