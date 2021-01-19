@@ -4,19 +4,19 @@
 
 ## 注意事项
 
-因阿里云Elasticsearch网络架构调整，2020年10月起创建的实例暂时不支持Watcher、LDAP认证、跨集群Reindex、跨集群搜索、实例网络互通功能，待后期功能上线后开放，请耐心等待。
+因阿里云Elasticsearch网络架构调整，2020年10月起创建的实例暂不支持Watcher报警和LDAP认证功能，且不支持与2020年10月前创建的实例进行跨集群Reindex、跨集群搜索、跨集群复制等相关操作。即10月前创建的集群，仅支持与10月前创建的集群进行这些操作；10月后创建的集群仅支持与10月后创建的集群进行这些操作。因网络调整带来的影响，待后期功能上线将会解决，请耐心等待。
 
 ## 前提条件
 
 -   创建单可用区的阿里云Elasticsearch实例。
 
-    具体操作，请参见[创建阿里云Elasticsearch实例](/cn.zh-CN/快速入门/步骤一：创建实例/创建阿里云Elasticsearch实例.md)。
+    具体操作，请参见[创建阿里云Elasticsearch实例](/cn.zh-CN/Elasticsearch/快速入门/步骤一：创建实例/创建阿里云Elasticsearch实例.md)。
 
     **说明：** X-Pack Watcher功能仅支持单可用区的Elasticsearch实例，不支持多可用区实例。
 
 -   开启Elasticsearch实例的X-Pack Watcher功能（默认关闭）。
 
-    具体操作，请参见[配置YML参数](/cn.zh-CN/ES实例/集群配置/配置YML参数.md)。
+    具体操作，请参见[配置YML参数](/cn.zh-CN/Elasticsearch/集群配置/配置YML参数.md)。
 
 -   购买ECS实例。
 
@@ -68,7 +68,7 @@ X-Pack Watcher功能主要由Trigger、Input、Condition和Actions组成：
         |**优先级**|保持默认。|
         |**协议类型**|选择**自定义TCP**。|
         |**端口范围**|填写您常用的端口（配置Nginx时需要用到，本文以8080为例）。|
-        |**授权对象**|添加您购买的阿里云Elasticsearch实例所有节点的IP地址。 **说明：** 参见[查看节点信息](/cn.zh-CN/ES实例/实例管理/查看可视化节点信息.md)，获取Elasticsearch实例中所有节点的IP地址。 |
+        |**授权对象**|添加您购买的阿里云Elasticsearch实例所有节点的IP地址。 **说明：** 参见[查看节点的基本信息](/cn.zh-CN/Elasticsearch/实例管理/查看集群状态和节点信息.md)，获取Elasticsearch实例中所有节点的IP地址。 |
         |**描述**|输入对规则的描述。|
 
     6.  单击**保存**。
@@ -116,7 +116,7 @@ X-Pack Watcher功能主要由Trigger、Input、Condition和Actions组成：
 
     1.  登录对应阿里云Elasticsearch实例的Kibana控制台。
 
-        具体操作，请参见[登录Kibana控制台](/cn.zh-CN/ES实例/可视化控制/Kibana/登录Kibana控制台.md)。
+        具体操作，请参见[登录Kibana控制台](/cn.zh-CN/Elasticsearch/可视化控制/Kibana/登录Kibana控制台.md)。
 
     2.  在左侧菜单栏，单击**Dev Tools**（开发工具）。
 
