@@ -9,17 +9,17 @@
 
 1.  创建角色。
 
-    具体操作，请参见[创建角色](/cn.zh-CN/ES访问控制/Kibana角色管理/创建角色.md)，相关参数说明如下。
+    具体操作，请参见[创建角色](/cn.zh-CN/访问控制/Kibana角色管理/创建角色.md)，相关参数说明如下。
 
     ![填写角色信息](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/8858997061/p199132.png)
 
     |参数|说明|
     |--|--|
     |**Role name**|角色名称。|
-    |**Run As privileges**|扮演该角色的用户，可选。如果此处未选择，可在创建用户时，为该用户指定对应角色，具体操作，请参见[创建用户](/cn.zh-CN/ES访问控制/Kibana角色管理/创建用户.md)。|
+    |**Run As privileges**|扮演该角色的用户，可选。如果此处未选择，可在创建用户时，为该用户指定对应角色，具体操作，请参见[创建用户](/cn.zh-CN/访问控制/Kibana角色管理/创建用户.md)。|
     |**Cluster privileges**|定义集群的操作权限，例如查看集群健康度和Settings、创建快照等。详细信息，请参见[Cluster privileges](https://www.elastic.co/guide/en/elasticsearch/reference/6.7/security-privileges.html#privileges-list-cluster)。|
     |**Index privileges**|定义索引的操作权限，例如只读查看所有索引的所有字段（索引名设置为\*后，授予read索引），索引名支持[通配符（\*）及正则表达式](https://www.elastic.co/guide/en/elasticsearch/reference/6.7/defining-roles.html#roles-indices-priv)。详细信息，请参见[Indices privileges](https://www.elastic.co/guide/en/elasticsearch/reference/6.7/security-privileges.html#privileges-list-indices)。|
-    |**Kibana privileges**|定义Kibana操作权限。**说明：** Kibaba 7.0以下版本仅支持[Base privileges](https://www.elastic.co/guide/en/kibana/6.7/kibana-privileges.html#kibana-privileges)，默认为所有空间授权；7.0及以上版本在Base privileges的基础上，还支持[Feature privileges](https://www.elastic.co/guide/en/kibana/7.10/kibana-privileges.html#kibana-feature-privileges)。即对Kibana特定功能授权，需要指定Kibana空间。 |
+    |**Kibana privileges**|定义Kibana操作权限。**说明：** Kibana 7.0以下版本仅支持[Base privileges](https://www.elastic.co/guide/en/kibana/6.7/kibana-privileges.html#kibana-privileges)，默认为所有空间授权；7.0及以上版本在Base privileges的基础上，还支持[Feature privileges](https://www.elastic.co/guide/en/kibana/7.10/kibana-privileges.html#kibana-feature-privileges)。即对Kibana特定功能授权，需要指定Kibana空间。 |
 
     创建角色时，需要为该角色分配对应权限。本文的角色权限配置示例如下：
 
@@ -37,11 +37,11 @@
 
 2.  创建用户，并为该用户分配对应角色，为其授予该角色拥有的权限。
 
-    具体操作，请参见[创建用户](/cn.zh-CN/ES访问控制/Kibana角色管理/创建用户.md)。
+    具体操作，请参见[创建用户](/cn.zh-CN/访问控制/Kibana角色管理/创建用户.md)。
 
 3.  通过自定义用户登录Kibana控制台，执行相关操作。
 
-    具体操作，请参见[登录Kibana控制台](/cn.zh-CN/ES实例/可视化控制/Kibana/登录Kibana控制台.md)。
+    具体操作，请参见[登录Kibana控制台](/cn.zh-CN/Elasticsearch/可视化控制/Kibana/登录Kibana控制台.md)。
 
 
 ## 配置索引只读权限
@@ -59,7 +59,7 @@
     |**Index privileges**|**indices**|kibana\_sample\_data\_logs|指定索引名称，支持索引全名、别名、通配符及正则表达式。详细信息，请参见[Indices Privileges](https://www.elastic.co/guide/en/elasticsearch/reference/6.7/defining-roles.html#roles-indices-priv)。|
     |**privileges**|read|设置索引只读权限。只读权限包括count、explain、get、mget、scripts、search、scroll等操作权限。详细信息，请参见[privileges-list-indices](https://www.elastic.co/guide/en/elasticsearch/reference/6.7/security-privileges.html#privileges-list-indices)。|
     |**fileds**|\*|索引字段。\*表示索引的所有字段。|
-    |**Kibana privileges**|**privileges**|read|为所有空间授予Kibana只读权限。默认为none，表示所有空间无权限访问Kibana。**说明：** Kibaba 7.0以下版本仅支持[Base privileges](https://www.elastic.co/guide/en/kibana/6.7/kibana-privileges.html#kibana-privileges)，默认为所有空间授权；7.0及以上版本在Base privileges的基础上，还支持[Feature privileges](https://www.elastic.co/guide/en/kibana/7.10/kibana-privileges.html#kibana-feature-privileges)。即对Kibana特定功能授权，需要指定Kibana空间。 |
+    |**Kibana privileges**|**privileges**|read|为所有空间授予Kibana只读权限。默认为none，表示所有空间无权限访问Kibana。**说明：** Kibana 7.0以下版本仅支持[Base privileges](https://www.elastic.co/guide/en/kibana/6.7/kibana-privileges.html#kibana-privileges)，默认为所有空间授权；7.0及以上版本在Base privileges的基础上，还支持[Feature privileges](https://www.elastic.co/guide/en/kibana/7.10/kibana-privileges.html#kibana-feature-privileges)。即对Kibana特定功能授权，需要指定Kibana空间。 |
 
 -   验证
 
@@ -76,7 +76,7 @@
 
 -   角色配置
 
-    在[创建用户](/cn.zh-CN/ES访问控制/Kibana角色管理/创建用户.md)时，为该用户分配角色：read-index和kibana\_dashboard\_only\_user。
+    在[创建用户](/cn.zh-CN/访问控制/Kibana角色管理/创建用户.md)时，为该用户分配角色：read-index和kibana\_dashboard\_only\_user。
 
     ![Dashboard角色配置](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/8858997061/p199843.png)
 
@@ -106,7 +106,7 @@
 
     |权限类型|权限Key|权限Value|描述|
     |----|-----|-------|--|
-    |**Cluster privileges**|**cluster**|monitor|集群只读权限。例如查看集群的健康度、状态、热线程、节点信息、状态、阻塞的任务等。|
+    |**Cluster privileges**|**cluster**|monitor|集群只读权限。例如查看集群的健康度、状态、热线程、节点信息、阻塞的任务等。|
     |**Index privileges**|indices|heartbeat-\*,library\*|指定索引名称，支持索引全名、别名、通配符及正则表达式。详细信息，请参见[roles-indices-priv](https://www.elastic.co/guide/en/elasticsearch/reference/6.7/defining-roles.html#roles-indices-priv)。|
     |privileges|read|设置索引只读权限。只读权限包括count、explain、get、mget、scripts、search、scroll等操作权限。详细信息，请参见[privileges-list-indices](https://www.elastic.co/guide/en/elasticsearch/reference/6.7/security-privileges.html#privileges-list-indices)。|
     |create\_index|创建索引权限。如果在创建索引时，定义了索引别名，还需要授予索引manage权限。**说明：** 索引别名需要同时满足indices下定义的匹配规则。 |
@@ -116,7 +116,7 @@
     |delete|删除索引文档权限。|
     |delete\_index|删除索引权限。|
     |granted fields|\*|待授权的索引字段，\*表示索引的所有字段。|
-    |**Kibana privileges**|privileges|read|为所有空间授予Kibana只读权限。默认为none，表示所有空间无权限访问Kibana。**说明：** Kibaba 7.0以下版本仅支持[Base privileges](https://www.elastic.co/guide/en/kibana/6.7/kibana-privileges.html#kibana-privileges)，默认为所有空间授权；7.0及以上版本在Base privileges的基础上，还支持[Feature privileges](https://www.elastic.co/guide/en/kibana/7.10/kibana-privileges.html#kibana-feature-privileges)。即对Kibana特定功能授权，需要指定Kibana空间。 |
+    |**Kibana privileges**|privileges|read|为所有空间授予Kibana只读权限。默认为none，表示所有空间无权限访问Kibana。**说明：** Kibana 7.0以下版本仅支持[Base privileges](https://www.elastic.co/guide/en/kibana/6.7/kibana-privileges.html#kibana-privileges)，默认为所有空间授权；7.0及以上版本在Base privileges的基础上，还支持[Feature privileges](https://www.elastic.co/guide/en/kibana/7.10/kibana-privileges.html#kibana-feature-privileges)。即对Kibana特定功能授权，需要指定Kibana空间。 |
 
 -   验证
 
