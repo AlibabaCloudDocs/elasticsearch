@@ -34,7 +34,7 @@ You must enter the ID list of the zone to be restored in RequestBody, as shown i
 |Parameter|Type|Example|Description|
 |---------|----|-------|-----------|
 |RequestId|String|5A5D8E74-565C-43DC-B031-29289FA\*\*\*\*|The ID of the request. |
-|Result|Boolean|true|Returned results
+|Result|Boolean|true|Returned results:
 
 -   true: recovery zone successfully
 -   false: recovery zone failed |
@@ -45,7 +45,7 @@ Sample requests
 
 ```
 POST /openapi/instances/es-cn-n6w1o1x0w001c****/actions/recover-zones HTTP/1.1
-Common request parameters
+common request parameters
 ["cn-hangzhou-i","cn-hangzhou-h"]
 ```
 
@@ -73,5 +73,5 @@ Sample success responses
 |--------|----------|-------------|-----------|
 |400|InstanceNotFound|The instanceId provided does not exist.|The error message returned because the instance cannot be found. Check the status of the instance.|
 
-Go to the [Error Center](https://error-center.alibabacloud.com/status/product/elasticsearch)For more information, see error codes.
+For a list of error codes,  visit the [API Error Center](https://error-center.alibabacloud.com/status/product/elasticsearch).
 
