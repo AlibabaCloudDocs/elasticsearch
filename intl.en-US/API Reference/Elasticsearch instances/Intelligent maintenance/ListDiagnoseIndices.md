@@ -55,17 +55,17 @@ Sample success responses
 
 ```
 {
-	"Result": [
-		"my_index_aliws",
-		"aliyun-index-test",
-		"filebeat-6.7.0-2020.11.15",
-		"filebeat-6.7.0-2020.12.27"
-	],
-	"RequestId": "F05ED12E-140A-4ACB-B059-3A508A69F2E1"
+    "Result": [
+        "my_index_aliws",
+        "aliyun-index-test",
+        "filebeat-6.7.0-2020.11.15",
+        "filebeat-6.7.0-2020.12.27"
+    ],
+    "RequestId": "F05ED12E-140A-4ACB-B059-3A508A69F2E1"
 }
 ```
 
 ## Error codes
 
-The port number of a client that accesses a [Error Center](https://error-center.alibabacloud.com/status/product/elasticsearch)For more information, see error codes.
+For more information about error codes, see [error center](https://error-center.alibabacloud.com/status/product/elasticsearch).
 
