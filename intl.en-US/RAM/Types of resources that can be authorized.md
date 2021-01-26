@@ -1,32 +1,63 @@
 ---
-keyword: [types of Elasticsearch resources that can be authorized, actions for authorizing Elasticsearch resources]
+keyword: [types of Elasticsearch resources that can be authorized, API operations that can be specified in the Action element]
 ---
 
 # Types of resources that can be authorized
 
-This topic describes the types of Elasticsearch resources that can be authorized. You can grant different permissions on the resources to different users.
+When you use a permission policy to grant permissions to a RAM user, you must configure the Action and Resource elements in the policy. This topic describes the types and Alibaba Cloud Resource Name \(ARN\) formats of the resources that are related to Alibaba Cloud Elasticsearch. These resources include Elasticsearch resources, Logstash resources, tags, virtual private clouds \(VPCs\), vSwitches, Cloud Monitor resources, and resources for intelligent O&M. This topic also describes the API operations that you can specify in the Action element.
 
 ## Resource types and ARN formats
 
-The following table lists the resource types supported by Elasticsearch and the related Alibaba Cloud Resource Name \(ARN\) formats.
+-   Elasticsearch
 
-|Resource type|ARN format|
-|-------------|----------|
-|instances|`acs:elasticsearch:$regionId:$accountId:instances/*`|
-|instances|`acs:elasticsearch:$regionId:$accountId:instances/$instanceId`|
-|vpc|`acs:elasticsearch:$regionId:$accountId:vpc/*`|
-|vswitch|`acs:elasticsearch:$regionId:$accountId:vswitch/*`|
-|tags|`acs:elasticsearch:$regionId:$accountId:tags/*`|
+    |Resource type|ARN format|
+    |-------------|----------|
+    |instances|`acs:elasticsearch:$regionId:$accountId:instances/*`|
+    |instances|`acs:elasticsearch:$regionId:$accountId:instances/$instanceId`|
+    |tags|`acs:elasticsearch:$regionId:$accountId:tags/*`|
 
--   `$regionId`: Set the value to the region ID of your Elasticsearch cluster or to an asterisk \(`*`\).
--   `$accountId`: Set the value to the ID of your Alibaba Cloud account or to an asterisk \(`*`\).
--   `$instanceId`: Set the value to the ID of your Elasticsearch cluster or to an asterisk \(`*`\).
+-   Logstash
 
-For more information about how to grant permissions on Elasticsearch resources, see [Create a custom policy](/intl.en-US/RAM/Create a custom policy.md).
+    |Resource type|ARN format|
+    |-------------|----------|
+    |instances|`acs:elasticsearch:$regionId:$accountId:logstashes/*`|
+    |instances|`acs:elasticsearch:$regionId:$accountId:logstashes/$instanceId`|
+
+-   VPC and vSwitch
+
+    |Resource type|ARN format|
+    |-------------|----------|
+    |vpc|`acs:elasticsearch:$regionId:$accountId:vpc/*`|
+    |vswitch|`acs:elasticsearch:$regionId:$accountId:vswitch/*`|
+
+    -   `$regionId`: Set the value to the region ID of your Elasticsearch cluster or to an asterisk \(`*`\). The following table lists the IDs of all regions where Elasticsearch is available.
+
+        |Country/District|Region|Region ID|
+        |----------------|------|---------|
+        |China|China \(Shanghai\)|cn-shanghai|
+        |China \(Shenzhen\)|cn-shenzhen|
+        |China \(Qingdao\)|cn-qingdao|
+        |China \(Zhangjiakou\)|cn-zhangjiakou|
+        |China \(Beijing\)|cn-beijing|
+        |China \(Hangzhou\)|cn-hangzhou|
+        |China \(Hong Kong\)|cn-hongkong|
+        |Asia Pacific|Singapore \(Singapore\)|ap-southeast-1|
+        |Malaysia \(Kuala Lumpur\)|ap-southeast-3|
+        |Japan \(Tokyo\)|ap-northeast-1|
+        |Australia \(Sydney\)|ap-southeast-2|
+        |Indonesia \(Jakarta\)|ap-southeast-5|
+        |Europe & Americas|US \(Virginia\)|us-east-1|
+        |US \(Silicon Valley\)|us-west-1|
+        |Germany \(Frankfurt\)|eu-central-1|
+        |UK \(London\)|eu-west-1|
+        |Middle East & India|India \(Mumbai\)|ap-south-1|
+
+    -   `$accountId`: Set the value to the ID of your Alibaba Cloud account or to an asterisk \(`*`\).
+    -   `$instanceId`: Set the value to the ID of your cluster or to an asterisk \(`*`\).
 
 ## Permissions on Elasticsearch resources
 
-**Note:** The following ARN formats are shortened. For information about the complete ARN formats, see [Resource types and ARN formats](#section_bw0_lnk_iuj).
+**Note:** The ARN formats in the following table are shortened. For information about the complete ARN formats, see [Resource types and ARN formats](#section_bw0_lnk_iuj).
 
 -   Manage Elasticsearch clusters
 
@@ -78,13 +109,13 @@ For more information about how to grant permissions on Elasticsearch resources, 
     |elasticsearch:OpenHttps|Enables HTTPS.|`instances/$instanceId`|
     |elasticsearch:CloseHttps|Disables HTTPS.|`instances/$instanceId`|
     |elasticsearch:DescribeConnectableClusters|Queries the clusters that can be connected in a VPC.|`instances/$instanceId`|
-    |elasticsearch:ListConnectedClusters|Queries clusters that are connected.|`instances/$instanceId`|
+    |elasticsearch:ListConnectedClusters|Queries the clusters that are connected.|`instances/$instanceId`|
     |elasticsearch:AddConnectableCluster|Connects clusters.|`instances/$instanceId`|
-    |elasticsearch:DeleteConnectedCluster|Disconnects clusters that are connected.|`instances/$instanceId`|
+    |elasticsearch:DeleteConnectedCluster|Disconnects the clusters that are connected.|`instances/$instanceId`|
     |elasticsearch:ModifyWhiteIps|Modifies the whitelists of a cluster, including the IP address whitelist for access to the Kibana console of the cluster.|`instances/$instanceId`|
     |elasticsearch:TriggerNetwork|Enables or disables the Public Network Access or Private Network Access feature for Elasticsearch or Kibana.|`instances/$instanceId`|
 
-    **Note:** If you specify a whitelist update-related operation such as UpdatePublicIps, UpdateWhiteIps, or UpdateKibanaIps for the Action parameter in a policy, you must also specify ModifyWhiteIps.
+    **Note:** If you specify a whitelist update-related operation such as UpdatePublicIps, UpdateWhiteIps, or UpdateKibanaIps for the Action element in a policy, you must also specify ModifyWhiteIps.
 
 -   Manage dictionaries
 
@@ -101,21 +132,17 @@ For more information about how to grant permissions on Elasticsearch resources, 
 |elasticsearch:CreateTags|Creates or updates a tag.|`tags/$instanceId`|
 |elasticsearch:RemoveTags|Removes a tag.|`tags/$instanceId`|
 
-For more information about how to create a custom policy for tags, see [Grant permissions on tags to a RAM user](/intl.en-US/RAM/Grant permissions on tags to a RAM user.md).
-
 ## Permissions on Cloud Monitor
 
-**Note:** The following ARN formats are shortened by using asterisks \(`*`\).
+**Note:** The ARN formats in the following table are shortened by using asterisks \(`*`\).
 
 |Action|Description|ARN format|
 |------|-----------|----------|
-|cms:ListProductOfActiveAlert|Queries services with Cloud Monitor activated.|`*`|
+|cms:ListProductOfActiveAlert|Queries the services for which Cloud Monitor is activated.|`*`|
 |cms:ListAlarm|Queries the settings of a specific or all alert rules.|`*`|
-|cms:QueryMetricList|Queries the metric data of a cluster over a period of time.|`*`|
+|cms:QueryMetricList|Queries the monitoring data of a cluster over a specific period of time.|`*`|
 
-## Permissions on VPCs and vSwitches on the Elasticsearch buy page
-
-**Note:** The following ARN formats are shortened. For information about the complete ARN formats, see [Resource types and ARN formats](#section_bw0_lnk_iuj).
+## Permissions on VPCs and vSwitches displayed on the Elasticsearch buy page
 
 |Action|Description|ARN format|
 |------|-----------|----------|
@@ -123,8 +150,6 @@ For more information about how to create a custom policy for tags, see [Grant pe
 |DescribeVswitches|Queries vSwitches.|`vswitch/*`|
 
 ## Permissions on intelligent O&M
-
-**Note:** The following ARN formats are shortened. For information about the complete ARN formats, see [Resource types and ARN formats](#section_bw0_lnk_iuj).
 
 |Action|Description|ARN format|
 |------|-----------|----------|
@@ -136,27 +161,72 @@ For more information about how to create a custom policy for tags, see [Grant pe
 |elasticsearch:DiagnoseInstance|Starts intelligent health diagnostics.|`instances/*` or `instances/$instanceId`|
 |elasticsearch:ListDiagnoseReportIds|Queries diagnostic report IDs.|`instances/*` or `instances/$instanceId`|
 |elasticsearch:DescribeDiagnoseReport|Queries the details of a diagnostic report.|`instances/*` or `instances/$instanceId`|
-|elasticsearch:ListDiagnoseReport|Queries diagnostic reports.|`instances/*` or `instances/$instanceId`|
+|elasticsearch:ListDiagnoseReport|Queries the details of diagnostic reports.|`instances/*` or `instances/$instanceId`|
 
-## Supported regions
+## Permissions on Logstash resources
 
-|Country/District|Region|Region ID|
-|----------------|------|---------|
-|China|China \(Shanghai\)|cn-shanghai|
-|China \(Shenzhen\)|cn-shenzhen|
-|China \(Qingdao\)|cn-qingdao|
-|China \(Zhangjiakou\)|cn-zhangjiakou|
-|China \(Beijing\)|cn-beijing|
-|China \(Hangzhou\)|cn-hangzhou|
-|China \(Hong Kong\)|cn-hongkong|
-|Asia Pacific|Singapore \(Singapore\)|ap-southeast-1|
-|Malaysia \(Kuala Lumpur\)|ap-southeast-3|
-|Japan \(Tokyo\)|ap-northeast-1|
-|Australia \(Sydney\)|ap-southeast-2|
-|Indonesia \(Jakarta\)|ap-southeast-5|
-|Europe & Americas|US \(Virginia\)|us-east-1|
-|US \(Silicon Valley\)|us-west-1|
-|Germany \(Frankfurt\)|eu-central-1|
-|UK \(London\)|eu-west-1|
-|Middle East & India|India \(Mumbai\)|ap-south-1|
+-   Manage Logstash clusters
+
+    |Action|Description|ARN format|
+    |------|-----------|----------|
+    |elasticsearch:CreateLogstash|Creates a cluster.|`logstashes/*` or `logstashes/$instanceId`|
+    |elasticsearch:UpdateLogstash|Updates a cluster.|`logstashes/$instanceId`|
+    |elasticsearch:ListLogstash|Queries clusters.|`logstashes/$instanceId`|
+    |elasticsearch:UpdateLogstashDescription|Changes the name of a cluster.|`logstashes/$instanceId`|
+    |elasticsearch:DescribeLogstash|Queries the details of a cluster.|`logstashes/$instanceId`|
+    |elasticsearch:DeleteLogstash|Deletes a cluster.|`logstashes/$instanceId`|
+    |elasticsearch:RestartLogstash|Restarts a cluster.|`logstashes/$instanceId`|
+    |ListLogstashLog|Queries the logs of a cluster.|`logstashes/$instanceId`|
+    |UpdateLogstashSettings|Modifies the YML file of a cluster.|`logstashes/$instanceId`|
+    |UpdateLogstashChargeType|Changes the billing method of a cluster.|`logstashes/$instanceId`|
+    |RenewLogstash|Renews a subscription cluster.|`logstashes/$instanceId`|
+
+-   Manage plug-ins
+
+    |Action|Description|ARN format|
+    |------|-----------|----------|
+    |elasticsearch:ListPlugin|Queries plug-ins.|`logstashes/$instanceId`|
+    |elasticsearch:InstallSystemPlugin|Installs a built-in plug-in.|`logstashes/$instanceId`|
+    |elasticsearch:UninstallPlugin|Removes a plug-in.|`logstashes/$instanceId`|
+    |elasticsearch:InstallUserPlugin|Installs a custom plug-in.|`logstashes/$instanceId`|
+
+-   Manage logs
+
+    |Action|Description|ARN format|
+    |------|-----------|----------|
+    |elasticsearch:ListLogstashLog|Queries logs.|`logstashes/$instanceId`|
+
+-   Manage YML files
+
+    |Action|Description|ARN format|
+    |------|-----------|----------|
+    |elasticsearch:UpdateLogstashSettings|Configures a YML file.|`logstashes/$instanceId`|
+
+-   Manage tasks
+
+    |Action|Description|ARN format|
+    |------|-----------|----------|
+    |elasticsearch:InterruptLogstashTask|Pauses a task.|`logstashes/$instanceId`|
+    |elasticsearch:ResumeLogstashTask|Resumes a task.|`logstashes/$instanceId`|
+
+-   Manage pipelines
+
+    |Action|Description|ARN format|
+    |------|-----------|----------|
+    |elasticsearch:UpdatePipelineManagementConfig|Updates the pipeline management method.|`logstashes/$instanceId`|
+    |elasticsearch:DescribePipelineManagementConfig|Queries the pipeline management configurations.|`logstashes/$instanceId`|
+    |elasticsearch:VerifyPipelineManagementConfig|Verifies the pipeline management configurations.|`logstashes/$instanceId`|
+    |elasticsearch:ListAvailableEsInstanceIds|Queries valid cluster IDs.|`logstashes/$instanceId`|
+    |elasticsearch:CreatePipelines|Creates a pipeline.|`logstashes/$instanceId`|
+    |elasticsearch:UpdatePipelines|Modifies the configuration of a pipeline.|`logstashes/$instanceId`|
+    |elasticsearch:RunPipelines|Deploys a pipeline immediately.|`logstashes/$instanceId`|
+    |elasticsearch:StopPipelines|Stops a pipeline.|`logstashes/$instanceId`|
+    |elasticsearch:ListPipeline|Queries pipelines.|`logstashes/$instanceId`|
+    |elasticsearch:DescribePipeline|Queries the details of a pipeline.|`logstashes/$instanceId`|
+    |elasticsearch:DeletePipelines|Deletes a pipeline.|`logstashes/$instanceId`|
+
+
+## Additional information
+
+When you create custom policies, you can use the resources and API operations provided in this topic. For more information, see [Create a custom policy](/intl.en-US/RAM/Create a custom policy.md).
 
