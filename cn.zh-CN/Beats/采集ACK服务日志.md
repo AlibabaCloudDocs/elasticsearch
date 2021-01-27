@@ -90,7 +90,7 @@ keyword: [Filebeat采集ACK服务日志, Filebeat采集K8S日志]
 **说明：** Docker容器配置集成了[Filebeat Autodiscover](https://www.elastic.co/guide/en/beats/filebeat/7.10/configuration-autodiscover.html#_kubernetes)，配置模板可引用[Autodiscover](https://www.elastic.co/guide/en/beats/filebeat/7.10/configuration-autodiscover.html#_kubernetes)事件变量。
 
     -   fileds.k8s\_node\_name：在采集器的输出信息中，添加k8s\_node\_name字段，引用变量$\{data.kubernetes.node.name\}。
-    -   fileds.k8s\_pod：在采集器的输出信息中，添加k8s\_pod字段, 引用变量$\{data.kubernetes.pod.name\}。
+    -   fileds.k8s\_pod：在采集器的输出信息中，添加k8s\_pod字段，引用变量$\{data.kubernetes.pod.name\}。
     -   fileds.k8s\_pod\_namespace：在采集器的输出信息中，添加k8s\_pod\_namespace字段，引用变量$\{data.kubernetes.namespace\}。
     -   fields\_under\_root：设置为true，fileds存储在输出文档的顶级位置。详细信息，请参见[Docker input（fields\_under\_root）](https://www.elastic.co/guide/en/beats/filebeat/6.8/filebeat-input-docker.html#fields-under-root-docker)。
 **说明：**
