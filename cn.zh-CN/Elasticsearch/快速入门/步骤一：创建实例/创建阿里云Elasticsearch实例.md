@@ -10,18 +10,18 @@
 
 -   创建专有网络VPC（Virtual Private Cloud）和虚拟交换机。
 
-    具体操作步骤请参见[创建专有网络和虚拟交换机](/cn.zh-CN/Elasticsearch/快速入门/准备工作/创建专有网络和虚拟交换机.md)。
+    具体操作，请参见[创建专有网络和虚拟交换机](/cn.zh-CN/Elasticsearch/快速入门/准备工作/创建专有网络和虚拟交换机.md)。
 
 -   完成规格容量评估。
 
-    具体操作步骤请参见[规格容量评估](/cn.zh-CN/Elasticsearch/快速入门/准备工作/规格容量评估.md)。
+    具体操作，请参见[规格容量评估](/cn.zh-CN/Elasticsearch/快速入门/准备工作/规格容量评估.md)。
 
 
 1.  前往[实例创建页面](https://common-buy.aliyun.com/new?commodityCode=elasticsearch&orderType=BUY)。
 
 2.  在购买页面的前四个配置页面，完成实例启动配置。
 
-    本教程使用的配置如下，未提及的配置保持默认，更多配置信息详情请参见[购买页面参数（商业版）](/cn.zh-CN/Elasticsearch/快速入门/步骤一：创建实例/购买页面参数（商业版）.md)。
+    本教程使用的配置如下，未提及的配置保持默认。更多配置参数信息，请参见[购买页面参数（商业版）](/cn.zh-CN/Elasticsearch/快速入门/步骤一：创建实例/购买页面参数（商业版）.md)。
 
     |配置页面|配置项|示例|说明|
     |----|---|--|--|
@@ -57,11 +57,11 @@
 
     ![实例配置预览](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/2157248951/p84861.png)
 
-4.  勾选**我已阅读并同意阿里云Elasticsearch（按量付费）服务协议**，单击**立即购买**。
+4.  勾选服务协议，单击**立即购买**。
 
 5.  提示开通成功后，单击**管理控制台**，进入阿里云Elasticsearch的控制台**概览**页面。
 
-6.  在左侧导航栏，单击**Elasticsearch实例**，在**实例列表**页面查看创建成功的阿里云Elasticsearch实例。
+6.  在左侧导航栏，单击**Elasticsearch实例**。在顶部菜单栏，选择资源组和地域，然后在**实例列表**页面查看创建成功的阿里云Elasticsearch实例。
 
 
 等待实例**状态**变为**正常**，即可开始[步骤二：配置实例（可选）](/cn.zh-CN/Elasticsearch/快速入门/步骤二：配置实例（可选）.md)或者[访问与配置概述](/cn.zh-CN/Elasticsearch/快速入门/步骤三：访问实例.md)。
