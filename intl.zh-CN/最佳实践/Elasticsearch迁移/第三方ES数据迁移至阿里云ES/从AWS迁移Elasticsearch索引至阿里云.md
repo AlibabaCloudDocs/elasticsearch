@@ -52,11 +52,11 @@
 
 -   创建阿里云Elasticsearch实例，版本号为5.5.3，区域为杭州。
 
-    具体操作步骤请参见[创建阿里云Elasticsearch实例](/intl.zh-CN/快速入门/步骤一：创建实例/创建阿里云Elasticsearch实例.md)。
+    具体操作步骤请参见[创建阿里云Elasticsearch实例](/intl.zh-CN/Elasticsearch/快速入门/步骤一：创建实例/创建阿里云Elasticsearch实例.md)。
 
 -   创建OSS Bucket。
 
-    本文创建的Bucket区域为华东1（杭州）、存储类型为标准存储、读写权限为私有，其他参数保持默认，具体操作步骤请参见[创建存储空间](/intl.zh-CN/快速入门/创建存储空间.md)。
+    本文创建的Bucket区域为华东1（杭州）、存储类型为标准存储、读写权限为私有，其他参数保持默认，具体操作步骤请参见[创建存储空间](/intl.zh-CN/快速入门/控制台快速入门/创建存储空间.md)。
 
 -   准备待迁移的索引，示例索引名称为`movies`。
 
@@ -106,7 +106,7 @@ AWS Elasticsearch每天会自动为一个域中的主要索引分片创建快照
 
     您可以在AWS IAM控制台查看信任关系的详细信息。
 
-    ![查看信任关系](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/zh-CN/6302659951/p87368.png)
+    ![查看信任关系](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/6302659951/p87368.png)
 
     **说明：** 在IAM控制台创建AWS服务角色时，**Select role type**下拉列表中不包含AWS Elasticsearch。 但是，您可以先选择**Amazon EC2**，按照提示完成角色创建，然后将`ec2.amazonaws.com`修改为`es.amazonaws.com`。
 
@@ -144,15 +144,15 @@ AWS Elasticsearch每天会自动为一个域中的主要索引分片创建快照
 
     1.  将策略内容复制到编辑策略区域。
 
-        ![策略编辑区域](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/zh-CN/6302659951/p87369.png)
+        ![策略编辑区域](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/6302659951/p87369.png)
 
     2.  检查策略是否正确。
 
-        ![Policy Summary](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/zh-CN/6302659951/p87370.png)
+        ![Policy Summary](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/6302659951/p87370.png)
 
     3.  为IAM角色添加IAM策略。
 
-        ![为IAM角色添加IAM策略](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/zh-CN/6302659951/p87373.png)
+        ![为IAM角色添加IAM策略](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/6302659951/p87373.png)
 
 
 ## 步骤一：注册手动快照存储库
@@ -204,7 +204,7 @@ AWS Elasticsearch每天会自动为一个域中的主要索引分片创建快照
     GET _snapshot
     ```
 
-    ![查看请求结果](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/zh-CN/7302659951/p87377.png)
+    ![查看请求结果](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/7302659951/p87377.png)
 
 
 ## 步骤二：创建首次快照并恢复
@@ -218,7 +218,7 @@ AWS Elasticsearch每天会自动为一个域中的主要索引分片创建快照
         ```
         PUT _snapshot/eric-snapshot-repository/snapshot_movies_1
         {
-        "indexes": "movies"
+        "indices": "movies"
         }
         ```
 
@@ -228,11 +228,11 @@ AWS Elasticsearch每天会自动为一个域中的主要索引分片创建快照
         GET _snapshot/ eric-snapshot-repository/snapshot_movies_1
         ```
 
-        ![查看快照状态](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/zh-CN/7302659951/p87378.png)
+        ![查看快照状态](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/7302659951/p87378.png)
 
     -   在AWS S3控制台中，查看快照文件。
 
-        ![瞎看快照文件](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/zh-CN/7302659951/p87381.png)
+        ![瞎看快照文件](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/7302659951/p87381.png)
 
 2.  从AWS S3提取快照数据至阿里云OSS。
 
@@ -240,12 +240,12 @@ AWS Elasticsearch每天会自动为一个域中的主要索引分片创建快照
 
     数据提取后，在OSS控制台中查看存储的快照数据。
 
-    ![OSS快照数据](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/zh-CN/7302659951/p87382.png)
+    ![OSS快照数据](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/7302659951/p87382.png)
 
 3.  还原快照至阿里云Elasticsearch实例。
     1.  创建快照存储库。
 
-        进入目标阿里云Elasticsearch实例的Kibana控制台（[登录Kibana控制台](/intl.zh-CN/实例管理/可视化控制/Kibana/登录Kibana控制台.md)），在**Dev Tools**页面的**Console**中，执行如下命令创建一个同名的快照存储库。
+        进入目标阿里云Elasticsearch实例的Kibana控制台（[登录Kibana控制台](/intl.zh-CN/Elasticsearch/可视化控制/Kibana/登录Kibana控制台.md)），在**Dev Tools**页面的**Console**中，执行如下命令创建一个同名的快照存储库。
 
         ```
         PUT _snapshot/eric-snapshot-repository
@@ -267,7 +267,7 @@ AWS Elasticsearch每天会自动为一个域中的主要索引分片创建快照
         GET _snapshot/eric-snapshot-repository/snapshot_movies_1
         ```
 
-        ![查看快照](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/zh-CN/7302659951/p87387.png)
+        ![查看快照](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/7302659951/p87387.png)
 
         **说明：** 请记录此快照操作的起始时间和结束时间。当您使用阿里云OssImport迁移工具迁移增量快照数据时，此记录会被用到。例如：
 
@@ -280,14 +280,14 @@ AWS Elasticsearch每天会自动为一个域中的主要索引分片创建快照
     ```
     POST _snapshot/eric-snapshot-repository/snapshot_movies_1/_restore
     {
-        "indexes": "movies"
+        "indices": "movies"
     }
     GET movies/_recovery
     ```
 
     执行成功后，可以看到`movies`索引中存在三组数据，且与AWS Elasticsearch实例中的数据相同。
 
-    ![查看ES索引数据](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/zh-CN/7302659951/p87388.png)
+    ![查看ES索引数据](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/7302659951/p87388.png)
 
 
 ## 步骤三：创建末次快照并恢复
@@ -296,7 +296,7 @@ AWS Elasticsearch每天会自动为一个域中的主要索引分片创建快照
 
     `movies`索引中已存在三组数据，您还需插入另两组数据。
 
-    ![插入另外两条数据](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/zh-CN/7302659951/p87389.png)
+    ![插入另外两条数据](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/7302659951/p87389.png)
 
     使用`GET movies/_count`命令，可查看索引数据量。
 
@@ -319,7 +319,7 @@ AWS Elasticsearch每天会自动为一个域中的主要索引分片创建快照
 
     查看S3存储空间中列出的文件。
 
-    ![查看S3空间文件](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/zh-CN/7302659951/p87392.png)
+    ![查看S3空间文件](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/7302659951/p87392.png)
 
 3.  从AWS S3提取增量快照数据至阿里云OSS。
 
@@ -329,7 +329,7 @@ AWS Elasticsearch每天会自动为一个域中的主要索引分片创建快照
 
     迁移工作完成后，您可以看到新的文件已被迁移至OSS中。
 
-    ![新文件迁移到OSS中](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/zh-CN/7302659951/p87402.png)
+    ![新文件迁移到OSS中](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/7302659951/p87402.png)
 
 4.  恢复增量快照。
 
@@ -352,7 +352,7 @@ AWS Elasticsearch每天会自动为一个域中的主要索引分片创建快照
         ```
         POST _snapshot/eric-snapshot-repository/snapshot_movies_2/_restore
         {
-            "indexes": "movies"
+            "indices": "movies"
         }
         ```
 
@@ -364,7 +364,7 @@ AWS Elasticsearch每天会自动为一个域中的主要索引分片创建快照
 
     恢复快照步骤完成后，可以看到`movies`索引中文档数量为`5`，与AWS Elasticsearch实例中的文档数量相同。
 
-    ![恢复快照结果](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/zh-CN/7302659951/p87394.png)
+    ![恢复快照结果](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/7302659951/p87394.png)
 
 
 ## 总结
