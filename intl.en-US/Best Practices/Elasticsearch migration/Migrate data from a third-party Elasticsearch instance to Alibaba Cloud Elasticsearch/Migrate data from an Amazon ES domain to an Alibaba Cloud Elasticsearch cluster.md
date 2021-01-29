@@ -52,11 +52,11 @@ You have completed the following operations:
 
 -   Create an Alibaba Cloud Elasticsearch V5.5.3 cluster in the China \(Hangzhou\) region.
 
-    For more information, see [Create an Alibaba Cloud Elasticsearch cluster](/intl.en-US/Quick Start/Step 1: Create a cluster/Create an Alibaba Cloud Elasticsearch cluster.md).
+    For more information, see [Create an Alibaba Cloud Elasticsearch cluster](/intl.en-US/Elasticsearch Instances Management/Quick Start/Step 1: Create a cluster/Create an Alibaba Cloud Elasticsearch cluster.md).
 
 -   Create an OSS bucket.
 
-    In this topic, an OSS bucket is created in the China \(Hangzhou\) region. The storage class of the bucket is Standard, and the access control list \(ACL\) of the bucket is Private. Default settings are used for other parameters. For more information, see [Create buckets](/intl.en-US/Quick Start/Create buckets.md).
+    In this topic, an OSS bucket is created in the China \(Hangzhou\) region. The storage class of the bucket is Standard, and the access control list \(ACL\) of the bucket is Private. Default settings are used for other parameters. For more information, see [Create buckets](/intl.en-US/Quick Start/OSS console/Create buckets.md).
 
 -   Prepare the index whose data you want to migrate. The `movies` index is used in this topic.
 
@@ -236,7 +236,7 @@ You can create manual snapshots only after you register a snapshot repository wi
 
 2.  Transfer the created snapshot from your S3 bucket to your OSS bucket.
 
-    For more information, see [Migrate data from Amazon S3 to Alibaba Cloud OSS](/intl.en-US/Best Practices/Migrate data to OSS/Migrate data from Amazon S3 to Alibaba Cloud OSS.md).
+    For more information, see [Seamlessly migrate data from Amazon S3 to Alibaba Cloud OSS](/intl.en-US/Best Practices/Migrate data to OSS/Seamlessly migrate data from Amazon S3 to Alibaba Cloud OSS.md).
 
     After the snapshot is transferred, view the snapshot in the OSS console.
 
@@ -376,6 +376,6 @@ References:
 -   [Open source Elasticsearch documentation](https://www.elastic.co/products/elasticsearch)
 -   [Snapshot module](https://www.elastic.co/guide/en/elasticsearch/reference/current/modules-snapshots.html)
 -   [Working with Amazon Elasticsearch Service Index Snapshots](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-managedomains-snapshots.html)
--   [Migrate data from Amazon S3 to Alibaba Cloud OSS](/intl.en-US/Best Practices/Migrate data to OSS/Migrate data from Amazon S3 to Alibaba Cloud OSS.md)
+-   [Seamlessly migrate data from Amazon S3 to Alibaba Cloud OSS](/intl.en-US/Best Practices/Migrate data to OSS/Seamlessly migrate data from Amazon S3 to Alibaba Cloud OSS.md)
 -   [ossimport description and configuration](/intl.en-US/Tools/ossimport/Architectures and configurations.md)
 
