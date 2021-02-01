@@ -1,11 +1,11 @@
 # UpdateInstance
 
-调用UpdateInstance，升配集群。
+调用UpdateInstance，变更集群配置（升配或降配）。
 
 调用该接口时，请注意：
 
--   当实例状态为生效中（activating）、失效（invalid）和冻结（inactive）时，无法修改信息。
--   每次只能升级一种类型的节点（数据节点、专有主节点、冷数据节点、协调节点、Kibana节点）的配置。更多升配集群的注意事项，请参见[升配集群](~~96650~~)。
+-   当实例状态为生效中（activating）、失效（invalid）和冻结（inactive）时，无法变更配置。
+-   每次只能变更一种类型的节点（数据节点、专有主节点、冷数据节点、协调节点、Kibana节点、弹性节点）的配置。更多注意事项，请参见[升配集群](~~96650~~)和[降配集群](~~198887~~)。
 
 ## 调试
 
@@ -18,16 +18,23 @@
 ## 请求语法
 
 ```
-PUT /openapi/instances/[InstanceId] HTTPS|HTTP
+PUT /openapi/instances/[InstanceId] HTTP/1.1
 ```
 
 ## 请求参数
 
-|名称|类型|是否必选|示例值|描述|
-|--|--|----|---|--|
-|InstanceId|String|是|es-cn-n6w1ptcb30009\*\*\*\*|实例ID。 |
-|clientToken|String|否|5A2CFF0E-5718-45B5-9D4D-70B3FF\*\*\*\*|用于保证请求的幂等性。由客户端生成该参数值，要保证在不同请求间唯一，最大不超过64个ASCII字符。 |
-|ignoreStatus|Boolean|否|true|升配集群时，是否忽略集群状态。 |
+|名称|类型|位置|是否必选|示例值|描述|
+|--|--|--|----|---|--|
+|InstanceId|String|Path|是|es-cn-n6w1ptcb30009\*\*\*\*|实例ID。 |
+|clientToken|String|Query|否|5A2CFF0E-5718-45B5-9D4D-70B3FF\*\*\*\*|用于保证请求的幂等性。由客户端生成该参数值，要保证在不同请求间唯一，最大不超过64个ASCII字符。 |
+|ignoreStatus|Boolean|Query|否|true|变更集群配置时，是否忽略集群状态：
+
+ -   true：是
+-   false：否 |
+|orderActionType|String|Query|否|upgrade|配置变更类型，可选值：
+
+ -   downgrade：降配
+-   upgrade：升配 |
 
 ## RequestBody
 
@@ -55,7 +62,12 @@ RequestBody中还需要填写变更项，示例如下。
 |fileSize|Long|1000|词典文件大小，单位：字节。 |
 |name|String|test.dic|词典文件名称。 |
 |sourceType|String|ORIGIN|词典文件来源类型。 |
-|type|String|MAIN|IK词典类型。STOP：停用词、MAIN：主词典、SYNONYMS：同义词词典、ALI\_WS：阿里词典。 |
+|type|String|MAIN|IK词典类型。支持：
+
+ -   STOP：停用词
+-   MAIN：主词典
+-   SYNONYMS：同义词词典
+-   ALI\_WS：阿里词典 |
 |domain|String|es-cn-abc.elasticsearch.aliyuncs.com|实例的私网访问域名。 |
 |esVersion|String|5.5.3\_with\_X-Pack|实例版本。 |
 |instanceId|String|es-cn-abc|实例ID。 |
@@ -79,17 +91,33 @@ RequestBody中还需要填写变更项，示例如下。
 |nodeAmount|Integer|2|数据节点的数量。 |
 |nodeSpec|Struct| |数据节点配置信息。 |
 |disk|Integer|40|节点存储空间大小，单位：GB。 |
-|diskType|String|cloud\_ssd|节点存储类型。支持：cloud\_ssd（SSD云盘）、cloud\_efficiency（高效云盘）。 |
+|diskType|String|cloud\_ssd|节点存储类型。支持：
+
+ -   cloud\_ssd：SSD云盘
+-   cloud\_efficiency：高效云盘 |
 |spec|String|elasticsearch.sn2ne.xlarge|节点规格。 |
-|paymentType|String|postpaid|实例的付费方式。支持：**prepaid**（包年包月）和**postpaid**（按量付费）。 |
+|paymentType|String|postpaid|实例的付费方式。支持：
+
+ -   prepaid：包年包月
+-   postpaid：按量付费 |
 |publicDomain|String|es-cn-abc.elasticsearch.aliyuncs.com|实例的公网访问域名。 |
 |publicPort|Integer|8033|实例的公网访问端口。 |
-|status|String|active|实例的状态。支持：**active**（正常）、**activating**（生效中）、**inactive**（冻结）和**invalid**（失效）。 |
+|status|String|active|实例的状态。支持：
+
+ -   active：正常
+-   activating：生效中
+-   inactive：冻结
+-   invalid：失效 |
 |synonymsDicts|Array of SynonymsDicts| |同义词词典配置。 |
 |fileSize|Long|100|词典文件大小，单位：字节。 |
 |name|String|dicts.txt|词典文件名称。 |
 |sourceType|String|ORIGIN|来源类型。 |
-|type|String|MAIN|词典文件类型。STOP：停用词、MAIN：主词典、SYNONYMS：同义词词典、ALI\_WS：阿里词典。 |
+|type|String|MAIN|词典文件类型。支持：
+
+ -   STOP：停用词
+-   MAIN：主词典
+-   SYNONYMS：同义词词典
+-   ALI\_WS：阿里词典 |
 |updatedAt|String|2018-07-18T10:10:04.484Z|实例最后更新时间。 |
 
 **说明：** 以下返回示例中，本文只保证包含返回数据列表中的参数，而未提到的参数仅供参考，程序中不能强制依赖获取这些参数。
@@ -110,7 +138,7 @@ PUT /openapi/instances/es-cn-n6w1ptcb30009**** HTTP/1.1
 
 正常返回示例
 
-`XML` 格式
+`XML`格式
 
 ```
 <Result>
@@ -213,7 +241,7 @@ PUT /openapi/instances/es-cn-n6w1ptcb30009**** HTTP/1.1
 <RequestId>B5246080-9C30-4B6A-8F8A-8C705405****</RequestId>
 ```
 
-`JSON` 格式
+`JSON`格式
 
 ```
 {
