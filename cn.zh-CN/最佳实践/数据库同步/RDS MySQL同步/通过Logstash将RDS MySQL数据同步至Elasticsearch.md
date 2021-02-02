@@ -31,9 +31,9 @@ keyword: [logstash数据同步, mysql数据同步到es]
 
 2.  创建阿里云Logstash实例，并上传与RDS MySQL版本兼容的SQL JDBC驱动（本文使用mysql-connector-java-5.1.48.jar）。
 
-    创建时所选专有网络VPC（Virtual Private Cloud）和版本要与目标Elasticsearch实例相同。具体操作，请参见[创建阿里云Logstash实例](/cn.zh-CN/Logstash/快速入门/步骤一：创建实例/创建阿里云Logstash实例.md)和[配置扩展文件](/cn.zh-CN/Logstash/集群配置/配置扩展文件.md)。
+    创建时所选专有网络和版本要与目标Elasticsearch实例相同。具体操作，请参见[创建阿里云Logstash实例](/cn.zh-CN/Logstash/快速入门/步骤一：创建实例/创建阿里云Logstash实例.md)和[配置扩展文件](/cn.zh-CN/Logstash/集群配置/配置扩展文件.md)。
 
-    **说明：** 您也可以使用公网环境的服务，前提是需要配置SNAT、打开RDS MySQL的公网地址和取消白名单限制。SNAT的具体配置方法，请参见[配置NAT公网数据传输](/cn.zh-CN/Logstash/网络与安全/配置NAT公网数据传输.md)。
+    **说明：** 您也可以使用公网环境的服务，前提是需要配置SNAT、打开RDS MySQL的公网地址并取消白名单限制。SNAT的具体配置方法，请参见[配置NAT公网数据传输](/cn.zh-CN/Logstash/网络与安全/配置NAT公网数据传输.md)。
 
 3.  准备测试数据，并在RDS MySQL的白名单中加入阿里云Logstash节点的IP地址（可在基本信息页面获取）。
 
@@ -111,29 +111,35 @@ keyword: [logstash数据同步, mysql数据同步到es]
 
     **说明：** 代码中`<Logstash实例ID>`需要替换为您创建的Logstash实例的ID。获取方式，请参见[实例列表](/cn.zh-CN/Logstash/实例管理/实例列表.md)。
 
+    |配置|说明|
+    |--|--|
+    |input|指定输入数据源。支持的数据源类型，请参见[Input plugins](https://www.elastic.co/guide/en/logstash/7.4/input-plugins.html)。本文使用JDBC数据源，具体参数说明请参见[表 2](#table_mk0_sqv_csg)。|
+    |filter|指定对输入数据进行过滤的插件。支持的插件类型，请参见[Filter plugins](https://www.elastic.co/guide/en/logstash/7.4/filter-plugins.html)。|
+    |output|指定目标数据源类型。支持的数据源类型，请参见[Output plugins](https://www.elastic.co/guide/en/logstash/7.4/output-plugins.html)。本文需要将MySQL中的数据同步至Elasticsearch中，因此output中需要指定目标Elasticsearch的信息。具体参数说明，请参见[创建并运行管道任务](/cn.zh-CN/Logstash/快速入门/步骤二：创建并运行管道任务.md)。|
+
     |参数|描述|
     |--|--|
-    |`jdbc_driver_class`|JDBC Class配置。|
-    |`jdbc_driver_library`|指定JDBC连接MySQL驱动文件。|
-    |`jdbc_connection_string`|配置数据库连接的域名、端口及数据库。|
-    |`jdbc_user`|数据库用户名。|
-    |`jdbc_password`|数据库密码。|
-    |`jdbc_paging_enabled`|是否启用分页，默认false。|
-    |`jdbc_page_size`|分页大小。|
-    |`statement`|指定SQL语句。|
-    |`schedule`|指定定时操作，`"* * * * *"`表示每分钟定时同步数据。|
-    |`record_last_run`|是否记录上次执行结果。如果为true，则会把上次执行到的`tracking_column`字段的值记录下来，保存到`last_run_metadata_path`指定的文件中。|
-    |`last_run_metadata_path`|指定最后运行时间文件存放的地址。目前后端开放了/ssd/1/ls-cn-xxxxxxx/logstash/data/路径来保存文件。|
-    |`clean_run`|是否清除`last_run_metadata_path`的记录，默认为false。如果为true，那么每次都要从头开始查询所有的数据库记录。|
-    |`use_column_value`|是否需要记录某个column的值。|
-    |`tracking_column_type`|跟踪列的类型，默认是numeric。|
-    |`tracking_column`|指定跟踪列，该列必须是递增的，一般是MySQL主键。|
+    |jdbc\_driver\_class|JDBC Class配置。|
+    |jdbc\_driver\_library|指定JDBC连接MySQL驱动文件。|
+    |jdbc\_connection\_string|配置数据库连接的域名、端口及数据库。|
+    |jdbc\_user|数据库用户名。|
+    |jdbc\_password|数据库密码。|
+    |jdbc\_paging\_enabled|是否启用分页，默认false。|
+    |jdbc\_page\_size|分页大小。|
+    |statement|指定SQL语句。|
+    |schedule|指定定时操作，"\* \* \* \* \*"表示每分钟定时同步数据。|
+    |record\_last\_run|是否记录上次执行结果。如果为true，则会把上次执行到的tracking\_column字段的值记录下来，保存到last\_run\_metadata\_path指定的文件中。|
+    |last\_run\_metadata\_path|指定最后运行时间文件存放的地址。目前后端开放了/ssd/1/ls-cn-xxxxxxx/logstash/data/路径来保存文件。|
+    |clean\_run|是否清除last\_run\_metadata\_path的记录，默认为false。如果为true，那么每次都要从头开始查询所有的数据库记录。|
+    |use\_column\_value|是否需要记录某个column的值。|
+    |tracking\_column\_type|跟踪列的类型，默认是numeric。|
+    |tracking\_column|指定跟踪列，该列必须是递增的，一般是MySQL主键。|
 
     **说明：**
 
     -   以上配置按照测试数据配置，在实际业务中，请按照业务需求进行合理配置。input插件支持的其他配置选项，请参见官方[Logstash Jdbc input plugin](https://www.elastic.co/guide/en/logstash/6.7/plugins-inputs-jdbc.html#plugins-inputs-jdbc-common-options)文档。
-    -   如果配置中有类似`last_run_metadata_path`的参数，那么需要阿里云Logstash服务提供文件路径。目前后端开放了`/ssd/1/<Logstash实例ID>/logstash/data/`路径供您测试使用，且该目录下的数据不会被删除。因此在使用时，请确保磁盘有充足的使用空间。
-    -   为了提升安全性，如果在配置管道时使用了JDBC驱动，需要在`jdbc_connection_string`参数后面添加`allowLoadLocalInfile=false&autoDeserialize=false`，否则当您在添加Logstash配置文件时，调度系统会抛出校验失败的提示，例如`jdbc_connection_string => "jdbc:mysql://xxx.drds.aliyuncs.com:3306/<数据库名称>?allowLoadLocalInfile=false&autoDeserialize=false"`。
+    -   如果配置中有类似last\_run\_metadata\_path的参数，那么需要阿里云Logstash服务提供文件路径。目前后端开放了/ssd/1/<Logstash实例ID\>/logstash/data/路径供您测试使用，且该目录下的数据不会被删除。因此在使用时，请确保磁盘有充足的使用空间。
+    -   为了提升安全性，如果在配置管道时使用了JDBC驱动，需要在jdbc\_connection\_string参数后面添加allowLoadLocalInfile=false&autoDeserialize=false，否则当您在添加Logstash配置文件时，调度系统会抛出校验失败的提示，例如`jdbc_connection_string => "jdbc:mysql://xxx.drds.aliyuncs.com:3306/<数据库名称>?allowLoadLocalInfile=false&autoDeserialize=false"`。
     更多Config配置，请参见[Logstash配置文件说明](/cn.zh-CN/Logstash/管道任务管理/Logstash配置文件说明.md)。
 
 7.  单击**下一步**，配置管道参数。
@@ -165,7 +171,7 @@ keyword: [logstash数据同步, mysql数据同步到es]
 
 2.  在左侧导航栏，单击**Dev Tools**（开发工具）。
 
-3.  在**Console**中，执行以下命令，查看同步成功的索引数量。
+3.  在**Console**中，执行如下命令，查看同步成功的索引数量。
 
     ```
     GET rds_es_dxhtest_datetime/_count
