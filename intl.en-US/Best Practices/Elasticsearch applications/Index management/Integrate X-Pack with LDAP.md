@@ -2,10 +2,6 @@
 
 This topic describes how to configure Lightweight Directory Access Protocol \(LDAP\) for Alibaba Cloud Elasticsearch. After LDAP is configured, you can use LDAP with assigned roles to access Alibaba Cloud Elasticsearch.
 
-## Precautions
-
-Due to the adjustment made to the Alibaba Cloud Elasticsearch network architecture, clusters created after October 2020 do not support some features. These features include X-Pack Watcher, LDAP authentication, cross-cluster reindexing, cross-cluster searches, and cluster interconnection. The features will be available soon.
-
 ## Prerequisites
 
 -   An Alibaba Cloud Elasticsearch cluster is created. In this topic, a V6.7.0 cluster is used.
@@ -27,7 +23,7 @@ Due to the adjustment made to the Alibaba Cloud Elasticsearch network architectu
 
 Take note of the following items when you configure LDAP:
 
--   You cannot configure LDAP in Alibaba Cloud Elasticsearch by yourself. If you want to use LDAP to authenticate requests sent to your Alibaba Cloud Elasticsearch cluster, create an on-premises Elasticsearch cluster of the same version as your Alibaba Cloud Elasticsearch cluster. Then, use the on-premises Elasticsearch cluster to run an authentication test. If LDAP runs normally, send the related configurations to Alibaba Cloud Elasticsearch technical engineers to configure LDAP for your Alibaba Cloud Elasticsearch cluster. Otherwise, your online services may be affected. Alibaba Cloud Elasticsearch does not provide a service level agreement \(SLA\) for LDAP authentication.
+-   You cannot configure LDAP in Alibaba Cloud Elasticsearch by yourself. If you want to use LDAP to authenticate requests sent to your Alibaba Cloud Elasticsearch cluster, create an on-premises Elasticsearch cluster of the same version as your Alibaba Cloud Elasticsearch cluster. Then, configure LDAP for the on-premises Elasticsearch cluster and use the on-premises Elasticsearch cluster to run an authentication test. If LDAP runs normally, send the related configurations to Alibaba Cloud Elasticsearch technical engineers to configure LDAP for your Alibaba Cloud Elasticsearch cluster. Otherwise, your online services may be affected. Alibaba Cloud Elasticsearch does not provide a service level agreement \(SLA\) for LDAP authentication.
 -   You can configure LDAP only for single-zone clusters.
 
 ## Configure LDAP
