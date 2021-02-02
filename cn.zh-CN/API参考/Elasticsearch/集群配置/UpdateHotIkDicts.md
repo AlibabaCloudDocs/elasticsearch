@@ -1,6 +1,6 @@
 # UpdateHotIkDicts
 
-调用UpdateHotIkDicts，更新阿里云Elasticsearch实例的IK热词词典。
+调用UpdateHotIkDicts，热更新阿里云Elasticsearch实例的IK词典。
 
 调用此接口时，请注意：
 
@@ -17,15 +17,15 @@
 ## 请求语法
 
 ```
-PUT /openapi/instances/[InstanceId]/ik-hot-dict HTTPS|HTTP
+PUT /openapi/instances/[InstanceId]/ik-hot-dict HTTP/1.1
 ```
 
 ## 请求参数
 
-|名称|类型|是否必选|示例值|描述|
-|--|--|----|---|--|
-|InstanceId|String|是|es-cn-oew1q8bev0002\*\*\*\*|实例ID。 |
-|clientToken|String|否|5A2CFF0E-5718-45B5-9D4D-70B3FF\*\*\*\*|用于保证请求的幂等性。由客户端生成该参数值，要保证在不同请求间唯一，最大不超过64个ASCII字符。 |
+|名称|类型|位置|是否必选|示例值|描述|
+|--|--|--|----|---|--|
+|InstanceId|String|Path|是|es-cn-oew1q8bev0002\*\*\*\*|实例ID。 |
+|clientToken|String|Query|否|5A2CFF0E-5718-45B5-9D4D-70B3FF\*\*\*\*|用于保证请求的幂等性。由客户端生成该参数值，要保证在不同请求间唯一，最大不超过64个ASCII字符。 |
 
 ## RequestBody
 
@@ -52,7 +52,9 @@ RequestBody中还需填入以下参数。
 |您上传的词典文件名称。 |
 |ossObject
 
-| |否
+|Array
+
+|否
 
 | |OSS的开放存储文件描述。当sourceType为OSS时，必填。 |
 |└bucketName
@@ -81,16 +83,16 @@ RequestBody中还需填入以下参数。
 
 |OSS
 
-|同义词来源类型，支持：OSS（OSS开放存储）、ORIGIN（开源Elasticsearch）、UPLOAD（上传的文件）。如果为OSS，需要确保OSS存储空间为公共可读。 |
+|词典文件来源类型，支可选值：OSS（OSS开放存储）、ORIGIN（开源Elasticsearch）、UPLOAD（上传的文件）。如果为OSS，需要确保OSS存储空间为公共可读；如果为UPLOAD，需要将文件先上传至OSS，再通过OSS引用。 |
 |type
 
 |String
 
 |是
 
-|MAIN
+|IK\_HOT
 
-|词典类型，支持：STOP（停用词）、MAIN（主词典）、SYNONYMS（同义词）、ALI\_WS（阿里词典）。 |
+|词典类型，固定为IK\_HOT。 |
 
 **说明：** └表示子参数。
 
@@ -106,17 +108,20 @@ RequestBody中还需填入以下参数。
             "key":"user_dict/dict_0.dic"
         },
         "sourceType":"OSS",
-        "type":"MAIN"
+        "type":"IK_HOT"
+    },
+   {
+        "name": "dict_0.dic",
+        "ossObject": {
+            "key": "dict_0.dic"
+        },
+        "sourceType": "UPLOAD",
+        "type":"IK_HOT"
     },
     {
         "name":"SYSTEM_MAIN.dic",
-        "type":"MAIN",
-        "sourceType":"ORIGIN"
-    },
-    {
-        "name":"SYSTEM_STOPWORD.dic",
-        "type":"STOP",
-        "sourceType":"ORIGIN"
+        "sourceType":"ORIGIN",
+        "type":"IK_HOT"
     }
 ]
 
@@ -129,11 +134,15 @@ RequestBody中还需填入以下参数。
 |Result|Array of DictList| |返回结果。 |
 |fileSize|Long|6|同义词文件的字节数大小。 |
 |name|String|ik\_main|上传对应OSS文件的文件名。 |
-|sourceType|String|OSS|数据源类型。 |
-|type|String|MAIN|支持MAIN和STOP：
+|sourceType|String|OSS|词典文件的来源类型，支持：
 
- -   MAIN：IK主分词词库。
--   STOP：IK停用词词库。 |
+ -   OSS：OSS开放存储
+-   ORIGIN：开源Elasticsearch
+-   UPLOAD：上传的文件 |
+|type|String|MAIN|词典类型，支持MAIN和STOP：
+
+ -   MAIN：IK主分词词库
+-   STOP：IK停用词词库 |
 |RequestId|String|5FFD9ED4-C2EC-4E89-B22B-1ACB6FE1\*\*\*\*|请求ID。 |
 
 ## 示例
@@ -151,24 +160,24 @@ PUT /openapi/instances/es-cn-oew1q8bev0002****/ik-hot-dict HTTP/1.1
             "key":"user_dict/dict_0.dic"
         },
         "sourceType":"OSS",
-        "type":"MAIN"
+        "type":"IK_HOT"
     },
     {
         "name":"SYSTEM_MAIN.dic",
-        "type":"MAIN",
-        "sourceType":"ORIGIN"
+        "sourceType":"ORIGIN",
+         "type":"IK_HOT"
     },
     {
         "name":"SYSTEM_STOPWORD.dic",
-        "type":"STOP",
-        "sourceType":"ORIGIN"
+        "sourceType":"ORIGIN",
+       "type":"IK_HOT"
     }
 ]
 ```
 
 正常返回示例
 
-`XML` 格式
+`XML`格式
 
 ```
 <Result>
@@ -192,7 +201,7 @@ PUT /openapi/instances/es-cn-oew1q8bev0002****/ik-hot-dict HTTP/1.1
 <RequestId>E1F6991B-1F77-47EA-9666-593F11E3****</RequestId>
 ```
 
-`JSON` 格式
+`JSON`格式
 
 ```
 {
