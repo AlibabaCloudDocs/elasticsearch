@@ -4,7 +4,7 @@
 
 ## 注意事项
 
-因阿里云Elasticsearch网络架构调整，2020年10月起创建的实例暂时不支持Watcher、LDAP认证、跨集群Reindex、跨集群搜索、实例网络互通功能，待后期功能上线后开放，请耐心等待。
+因阿里云Elasticsearch网络架构调整，2020年10月起创建的实例暂不支持Watcher报警和LDAP认证功能，且不支持与2020年10月前创建的实例进行跨集群Reindex、跨集群搜索、跨集群复制等相关操作。即10月前创建的集群，仅支持与10月前创建的集群进行这些操作；10月后创建的集群仅支持与10月后创建的集群进行这些操作。因网络调整带来的影响，待后期功能上线将会解决，请耐心等待。
 
 ## 前提条件
 
@@ -135,7 +135,7 @@ if (len(systemIndex) > 0) :
 **说明：**
 
 -   为保证数据迁移前后一致，需要上游业务停止自建Elasticsearch集群的写操作，读操作才可以正常进行。迁移完毕后，直接切换到阿里云Elasticsearch集群进行读写操作。如果不停止写操作，可能会导致迁移前后数据不一致。
--   使用以下方案迁移数据时，如果是通过`IP:Port`的方式访问自建Elasticsearch集群，则必须在阿里云Elasticsearch集群的YML文件中配置`reindex`白名单，添加自建Elasticsearch集群的IP地址，例如`reindex.remote.whitelist: 1.1.1.1:9200,1.2.*.*:*`，详情请参见[配置YML参数](/intl.zh-CN/Elasticsearch/ES集群配置/修改YML参数配置.md)。
+-   使用以下方案迁移数据时，如果是通过`IP:Port`的方式访问自建Elasticsearch集群，则必须在阿里云Elasticsearch集群的YML文件中配置`reindex`白名单，添加自建Elasticsearch集群的IP地址，例如`reindex.remote.whitelist: 1.1.1.1:9200,1.2.*.*:*`，详情请参见[配置YML参数](/intl.zh-CN/Elasticsearch/ES集群配置/配置YML参数.md)。
 -   当使用域名访问自建Elasticsearch或阿里云Elasticsearch集群时，不允许通过`http://host:port/path`这种带`path`的形式访问。
 
 -   数据量小
