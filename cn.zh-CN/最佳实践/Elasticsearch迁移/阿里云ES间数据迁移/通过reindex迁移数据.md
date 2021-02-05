@@ -10,7 +10,7 @@
 
 -   准备两个阿里云Elasticsearch集群，一个为本地集群，一个为远程集群。
 
-    具体操作，请参见[创建阿里云Elasticsearch实例](/cn.zh-CN/Elasticsearch/快速入门/步骤一：创建实例/创建阿里云Elasticsearch实例.md)。本地集群和远程集群需要在同一专有网络和虚拟交换机下。本文使用6.7.0版本的实例作为本地集群，6.3.2版本的实例作为远程集群。
+    具体操作，请参见[创建阿里云Elasticsearch实例](/cn.zh-CN/Elasticsearch/实例管理/创建阿里云Elasticsearch实例.md)。本地集群和远程集群需要在同一专有网络和虚拟交换机下。本文使用6.7.0版本的实例作为本地集群，6.3.2版本的实例作为远程集群。
 
 -   准备测试数据。
     -   本地集群
@@ -29,7 +29,7 @@
 
     -   远程集群
 
-        在远程集群中准备待迁移的数据。本文使用快速入门章节中的数据测试，详细信息请参见[创建索引](/cn.zh-CN/Elasticsearch/快速入门/步骤四：业务查询/创建索引.md)和[创建文档并插入数据](/cn.zh-CN/Elasticsearch/快速入门/步骤四：业务查询/创建文档并插入数据.md)。
+        在远程集群中准备待迁移的数据。本文使用快速入门章节中的数据测试，详细信息请参见[快速开始](/cn.zh-CN/Elasticsearch/快速开始.md)。
 
         ![本地集群测试数据](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/7202659951/p135747.png)
 
