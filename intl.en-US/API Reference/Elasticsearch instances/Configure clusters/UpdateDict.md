@@ -270,5 +270,5 @@ Sample success responses
 
 ## Error codes
 
-The port number of a client that accesses a [Error Center](https://error-center.alibabacloud.com/status/product/elasticsearch)For more information, see error codes.
+For a list of error codes, visit the [API Error Center](https://error-center.alibabacloud.com/status/product/elasticsearch).
 
