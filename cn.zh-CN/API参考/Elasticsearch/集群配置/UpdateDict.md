@@ -1,10 +1,11 @@
 # UpdateDict
 
-调用UpdateDict，冷更新阿里云Elasticsearch实例的IK词典。
+调用UpdateDict，冷更新阿里云Elasticsearch实例的IK分词插件，包括IK主分词词库和IK停用词词库。
 
 调用此接口时，请注意：
 
-如果词典文件来源于OSS，需要确保OSS存储空间为公共可读。
+-   如果词典文件来源于OSS，需要确保OSS存储空间为公共可读。
+-   如果已经上传的词典不加ORIGIN配置，调用此接口后，词典文件会被删除。
 
 ## 调试
 
@@ -49,32 +50,32 @@ RequestBody中还需填入以下参数。
 
 |dic\_0.dic
 
-|您上传的词典文件名称。 |
+|上传的词典文件名称。 |
 |ossObject
 
 |Array
 
-|否
+|是
 
 | |OSS的开放存储文件描述。当sourceType为OSS时，必填。 |
 |└bucketName
 
 |String
 
-|否
+|是
 
 |search-cloud-test-cn-\*\*\*\*
 
-|OSS存储空间名称。 |
+|OSS存储空间（Bucket）名称。 |
 |└key
 
 |String
 
-|否
+|是
 
 |oss/dic\_0.dic
 
-|词典文件在OSS中的存储路径。 |
+|词典文件在OSS Bucket中的存储路径。 |
 |sourceType
 
 |String
@@ -83,16 +84,22 @@ RequestBody中还需填入以下参数。
 
 |OSS
 
-|词典文件来源类型，可选值：OSS（OSS开放存储）、ORIGIN（开源Elasticsearch）、UPLOAD（上传的文件）。如果为OSS，需要确保OSS存储空间为公共可读；；如果为UPLOAD，需要将文件先上传至OSS，再通过OSS引用。 |
+|词典文件来源类型，可选值：OSS（使用OSS开放存储）、ORIGIN（保留之前已经上传的词典）。
+
+ **注意：**
+
+ 本地文件需要先上传至OSS，再通过OSS引用。
+
+ 如果之前已经完成上传的词典不加ORIGIN进行配置，会被系统删除。 |
 |type
 
 |String
 
 |是
 
-|IK
+|MAIN
 
-|词典类型，固定为IK。 |
+|要更新的词典类型。可选值：MAIN（IK主分词词库）或STOP（IK停用词库）。 |
 
 **说明：** └表示子参数。
 
@@ -108,20 +115,26 @@ RequestBody中还需填入以下参数。
             "key":"user_dict/dict_0.dic"
         },
         "sourceType":"OSS",
-        "type":"IK"
+        "type":"MAIN"
     },
-   {
-        "name": "dict_0.dic",
-        "ossObject": {
-            "key": "dict_0.dic"
+    {
+        "name":"deploy_2.dic",
+        "ossObject":{
+            "bucketName":"search-cloud-test-cn-****",
+            "key":"user_dict/dict_2.dic"
         },
-        "sourceType": "UPLOAD",
-        "type":"IK"
+        "sourceType":"OSS",
+        "type":"STOP"
     },
     {
         "name":"SYSTEM_MAIN.dic",
         "sourceType":"ORIGIN",
-        "type":"IK"
+         "type":"MAIN"
+    },
+    {
+        "name":"SYSTEM_STOPWORD.dic",
+        "sourceType":"ORIGIN",
+       "type":"STOP"
     }
 ]
 
@@ -133,14 +146,13 @@ RequestBody中还需填入以下参数。
 |--|--|---|--|
 |RequestId|String|5FFD9ED4-C2EC-4E89-B22B-1ACB6FE1D\*\*\*\*|请求ID。 |
 |Result|Array of DictList| |返回结果。 |
-|fileSize|Long|2782602|文件大小。 |
-|name|String|SYSTEM\_MAIN.dic|上传的文件名称。 |
-|sourceType|String|ORIGIN|词典文件的来源类型，支持：
+|fileSize|Long|2782602|词典文件大小，单位：Byte。 |
+|name|String|SYSTEM\_MAIN.dic|词典文件名称。 |
+|sourceType|String|ORIGIN|词典文件来源类型，支持：
 
  -   OSS：OSS开放存储
--   ORIGIN：开源Elasticsearch
--   UPLOAD：上传的文件 |
-|type|String|MAIN|词典类型，支持MAIN和STOP：
+-   ORIGIN：保留之前已经上传的词典 |
+|type|String|MAIN|词典类型，支持：
 
  -   MAIN：IK主分词词库
 -   STOP：IK停用词词库 |
@@ -150,7 +162,7 @@ RequestBody中还需填入以下参数。
 请求示例
 
 ```
-PUT /openapi/instances/es-cn-nif1q9o8r0008****/dict HTTP/1.1
+PUT /openapi/instances/es-cn-oew1q8bev0002****/ik-hot-dict HTTP/1.1
 公共请求头
 [
     {
@@ -160,17 +172,26 @@ PUT /openapi/instances/es-cn-nif1q9o8r0008****/dict HTTP/1.1
             "key":"user_dict/dict_0.dic"
         },
         "sourceType":"OSS",
-        "type":"IK"
+        "type":"MAIN"
+    },
+    {
+        "name":"deploy_2.dic",
+        "ossObject":{
+            "bucketName":"search-cloud-test-cn-****",
+            "key":"user_dict/dict_2.dic"
+        },
+        "sourceType":"OSS",
+        "type":"STOP"
     },
     {
         "name":"SYSTEM_MAIN.dic",
         "sourceType":"ORIGIN",
-        "type":"IK"
+         "type":"MAIN"
     },
     {
         "name":"SYSTEM_STOPWORD.dic",
         "sourceType":"ORIGIN",
-        "type":"IK"
+       "type":"STOP"
     }
 ]
 ```
@@ -182,50 +203,70 @@ PUT /openapi/instances/es-cn-nif1q9o8r0008****/dict HTTP/1.1
 ```
 <Result>
     <name>deploy_0.dic</name>
-    <fileSize>220</fileSize>
+    <ossObject>
+        <bucketName>search-cloud-test-cn-****</bucketName>
+        <key>user_dict/dict_0.dic</key>
+    </ossObject>
     <sourceType>OSS</sourceType>
     <type>MAIN</type>
 </Result>
 <Result>
+    <name>deploy_2.dic</name>
+    <ossObject>
+        <bucketName>search-cloud-test-cn-****</bucketName>
+        <key>user_dict/dict_2.dic</key>
+    </ossObject>
+    <sourceType>OSS</sourceType>
+    <type>STOP</type>
+</Result>
+<Result>
     <name>SYSTEM_MAIN.dic</name>
-    <fileSize>2782602</fileSize>
     <sourceType>ORIGIN</sourceType>
     <type>MAIN</type>
 </Result>
 <Result>
     <name>SYSTEM_STOPWORD.dic</name>
-    <fileSize>132</fileSize>
     <sourceType>ORIGIN</sourceType>
     <type>STOP</type>
 </Result>
-<RequestId>671B4AF2-4209-472A-A423-DACF91D9****</RequestId>
+<RequestId>E1F6991B-1F77-47EA-9666-593F11E3****</RequestId>
 ```
 
 `JSON`格式
 
 ```
 {
-	"Result": [
-		{
-			"name": "deploy_0.dic",
-			"fileSize": 220,
-			"sourceType": "OSS",
-			"type": "MAIN"
-		},
-		{
-			"name": "SYSTEM_MAIN.dic",
-			"fileSize": 2782602,
-			"sourceType": "ORIGIN",
-			"type": "MAIN"
-		},
-		{
-			"name": "SYSTEM_STOPWORD.dic",
-			"fileSize": 132,
-			"sourceType": "ORIGIN",
-			"type": "STOP"
-		}
-	],
-	"RequestId": "671B4AF2-4209-472A-A423-DACF91D9****"
+  "Result": [
+    {
+      "name": "deploy_0.dic",
+      "ossObject": {
+        "bucketName": "search-cloud-test-cn-****",
+        "key": "user_dict/dict_0.dic"
+      },
+      "sourceType": "OSS",
+      "type": "MAIN"
+    },
+    {
+      "name": "deploy_2.dic",
+      "ossObject": {
+        "bucketName": "search-cloud-test-cn-****",
+        "key": "user_dict/dict_2.dic"
+      },
+      "sourceType": "OSS",
+      "type": "STOP"
+    },
+    {
+      "name": "SYSTEM_MAIN.dic",
+      "sourceType": "ORIGIN",
+      "type": "MAIN"
+    },
+    {
+      "name": "SYSTEM_STOPWORD.dic",
+      "sourceType": "ORIGIN",
+      "type": "STOP"
+    }
+  ],
+  "RequestId": "E1F6991B-1F77-47EA-9666-593F11E3****"
 }
 ```
 
