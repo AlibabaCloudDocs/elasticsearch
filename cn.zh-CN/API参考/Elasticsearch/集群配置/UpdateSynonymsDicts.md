@@ -4,7 +4,8 @@
 
 调用此接口时，请注意：
 
-如果同义词词典文件来源于OSS，需要确保OSS存储空间为公共可读。
+-   如果词典文件来源于OSS，需要确保OSS存储空间为公共可读。
+-   如果已经上传的词典不加ORIGIN配置，调用此接口后，词典文件会被删除。
 
 ## 调试
 
@@ -49,7 +50,7 @@ RequestBody中还需填入以下参数。
 
 |dic\_0.txt
 
-|您上传的词典文件名称，必须为.txt类型。 |
+|上传的词典文件名称，必须为TXT类型。 |
 |ossObject
 
 |Array
@@ -65,7 +66,7 @@ RequestBody中还需填入以下参数。
 
 |search-cloud-test-cn-\*\*\*\*
 
-|OSS存储空间名称。 |
+|OSS存储空间（Bucket）名称。 |
 |└key
 
 |String
@@ -74,7 +75,7 @@ RequestBody中还需填入以下参数。
 
 |oss/dic\_0.txt
 
-|词典文件在OSS中的存储路径。 |
+|词典文件在OSS Bucket中的存储路径。 |
 |sourceType
 
 |String
@@ -83,7 +84,13 @@ RequestBody中还需填入以下参数。
 
 |OSS
 
-|词典文件来源类型，可选值：OSS（OSS开放存储）、ORIGIN（开源Elasticsearch）、UPLOAD（上传的文件）。如果为OSS，需要确保OSS存储空间为公共可读；如果为UPLOAD，需要将文件先上传至OSS，再通过OSS引用。 |
+|词典文件来源类型，可选值：OSS（使用OSS开放存储）、ORIGIN（保留之前已经上传的词典）。
+
+ **注意：**
+
+ 本地文件需要先上传至OSS，再通过OSS引用。
+
+ 如果已经完成上传的词典不加ORIGIN进行配置，会被系统删除。 |
 |type
 
 |String
@@ -92,7 +99,7 @@ RequestBody中还需填入以下参数。
 
 |SYNONYMS
 
-|词典类型，固定为SYNONYMS。 |
+|要更新的词典类型，固定为SYNONYMS。 |
 
 **说明：** └表示子参数。
 
@@ -110,20 +117,13 @@ RequestBody中还需填入以下参数。
         "sourceType":"OSS",
         "type":"SYNONYMS"
     },
-   {
-        "name": "dict_0.txt",
-        "ossObject": {
-            "key": "dict_0.dic"
-        },
-        "sourceType": "UPLOAD",
-        "type":"SYNONYMS"
-    },
     {
         "name":"SYSTEM_STOPWORD.txt",
         "sourceType":"ORIGIN",
         "type":"SYNONYMS"
     }
 ]
+
 
 ```
 
@@ -133,13 +133,12 @@ RequestBody中还需填入以下参数。
 |--|--|---|--|
 |RequestId|String|7C5622CC-B312-426F-85AA-B0271\*\*\*\*\*\*\*|请求ID。 |
 |Result|Array of DictList| |返回结果。 |
-|fileSize|Long|220|文件大小，单位为MB。 |
-|name|String|deploy\_0.txt|上传的文件名称。 |
-|sourceType|String|OSS|词典文件的来源类型，支持：
+|fileSize|Long|220|词典文件大小，单位：Byte。 |
+|name|String|deploy\_0.txt|词典文件名称。 |
+|sourceType|String|OSS|词典文件来源类型，支持：
 
  -   OSS：OSS开放存储
--   ORIGIN：开源Elasticsearch
--   UPLOAD：上传文件 |
+-   ORIGIN：保留之前已经上传的词典 |
 |type|String|SYNONYMS|词典类型，支持：SYNONYMS（同义词）。 |
 
 ## 示例
@@ -157,11 +156,6 @@ PUT /openapi/instances/es-cn-nif1q9o8r0008****/synonymsDict HTTP/1.1
             "key":"user_dict/dict_0.dic"
         },
         "sourceType":"OSS",
-        "type":"SYNONYMS"
-    },
-    {
-        "name":"SYSTEM_MAIN.txt",
-        "sourceType":"ORIGIN",
         "type":"SYNONYMS"
     },
     {
