@@ -18,22 +18,11 @@ PATCH|POST /openapi/instances/[InstanceId]/description HTTPS|HTTP
 
 ## 请求参数
 
-|名称|类型|是否必选|示例值|描述|
-|--|--|----|---|--|
-|InstanceId|String|是|es-cn-n6w1ptcb30009\*\*\*\*|实例ID。 |
-|clientToken|String|否|5A2CFF0E-5718-45B5-9D4D-70B350\*\*\*\*|用于保证请求的幂等性。由客户端生成该参数值，要保证在不同请求间唯一，最大不超过64个ASCII字符。 |
-
-## RequestBody
-
-RequestBody中还需要填入**description**参数，用来指定更新后的实例名称，示例如下。
-
-```
-
-{
-  "description": "aliyunes_name_test"
-}
-
-```
+|名称|类型|位置|是否必选|示例值|描述|
+|--|--|--|----|---|--|
+|InstanceId|String|Path|是|es-cn-n6w1ptcb30009\*\*\*\*|实例ID。 |
+|clientToken|String|Query|否|5A2CFF0E-5718-45B5-9D4D-70B350\*\*\*\*|用于保证请求的幂等性。由客户端生成该参数值，要保证在不同请求间唯一，最大不超过64个ASCII字符。 |
+|description|String|Body|否|aliyunes\_name\_test|指定更新后的实例名称。 |
 
 ## 返回数据
 
@@ -52,9 +41,6 @@ RequestBody中还需要填入**description**参数，用来指定更新后的实
 ```
 PATCH /openapi/instances/es-cn-n6w1ptcb30009****/description HTTP/1.1
 公共请求头
-{
-  "description": "aliyunes_name_test"
-}
 ```
 
 正常返回示例
