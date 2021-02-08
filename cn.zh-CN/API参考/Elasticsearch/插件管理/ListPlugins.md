@@ -13,18 +13,18 @@
 ## 请求语法
 
 ```
-GET /openapi/instances/[InstanceId]/plugins HTTPS|HTTP
+GET /openapi/instances/[InstanceId]/plugins HTTP/1.1
 ```
 
 ## 请求参数
 
-|名称|类型|是否必选|示例值|描述|
-|--|--|----|---|--|
-|InstanceId|String|是|es-cn-nif1q9o8r0008\*\*\*\*|实例ID。 |
-|name|String|否|analysis-ik|插件名称。 |
-|page|String|否|1|分页数。 |
-|size|Integer|否|10|每页记录数。 |
-|source|String|否|SYSTEM|插件来源类型。 |
+|名称|类型|位置|是否必选|示例值|描述|
+|--|--|--|----|---|--|
+|InstanceId|String|Path|是|es-cn-nif1q9o8r0008\*\*\*\*|实例ID。 |
+|name|String|Query|否|analysis-ik|插件名称。 |
+|page|String|Query|否|1|分页数。 |
+|size|Integer|Query|否|10|每页记录数。 |
+|source|String|Query|否|SYSTEM|插件来源类型。 |
 
 ## 返回数据
 
@@ -51,7 +51,7 @@ GET /openapi/instances/es-cn-nif1q9o8r0008****/plugins HTTP/1.1
 
 正常返回示例
 
-`XML` 格式
+`XML`格式
 
 ```
 <Result>
@@ -167,7 +167,7 @@ GET /openapi/instances/es-cn-nif1q9o8r0008****/plugins HTTP/1.1
 </Headers>
 ```
 
-`JSON` 格式
+`JSON`格式
 
 ```
 {
