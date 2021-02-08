@@ -13,7 +13,7 @@
 ## 请求语法
 
 ```
-GET /openapi/collectors HTTPS|HTTP
+GET /openapi/collectors HTTP/1.1
 ```
 
 ## 请求参数
@@ -23,8 +23,8 @@ GET /openapi/collectors HTTPS|HTTP
 |resId|String|Query|否|ct-cn-77uqof2s7rg5c\*\*\*\*|采集器ID。 |
 |name|String|Query|否|collectorName1|采集器名称。 |
 |instanceId|String|Query|否|es-cn-nif1q8auz0003\*\*\*\*|采集器关联的实例ID。 |
-|page|Integer|Query|否|1|返回结果的分页数。 |
-|size|Integer|Query|否|10|每页的结果数。 |
+|page|Integer|Query|否|1|返回结果的分页数。默认值：1，最小值：1，最大值：200。 |
+|size|Integer|Query|否|10|每页的结果数。默认值：20，最小值：1，最大值：500。 |
 |sourceType|String|Query|否|ECS|指定采集器部署机器的类型，不填返回全部类型。可选值：
 
  -   ECS：ECS实例
