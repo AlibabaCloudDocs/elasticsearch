@@ -13,26 +13,26 @@
 ## 请求语法
 
 ```
-GET /openapi/instances/[InstanceId]/search-log HTTPS|HTTP
+GET /openapi/instances/[InstanceId]/search-log HTTP/1.1
 ```
 
 ## 请求参数
 
-|名称|类型|是否必选|示例值|描述|
-|--|--|----|---|--|
-|beginTime|Long|是|1531910852074|日志开始时间戳，单位：毫秒。 |
-|endTime|Long|是|1531910852074|日志结束时间戳，单位：毫秒。 |
-|InstanceId|String|是|es-cn-n6w1o1x0w001c\*\*\*\*|实例ID。 |
-|page|Integer|是|1|插件列表的页码。起始值：1，默认值：1。 |
-|query|String|是|host:172.16.\*\*.\*\* AND content:netty|要查询的关键词。 |
-|size|Integer|是|20|分页查询时设置的每页条数。 |
-|type|String|是|INSTANCELOG|日志类型。可选值：
+|名称|类型|位置|是否必选|示例值|描述|
+|--|--|--|----|---|--|
+|InstanceId|String|Path|是|es-cn-n6w1o1x0w001c\*\*\*\*|实例ID。 |
+|query|String|Query|是|host:172.16.\*\*.\*\* AND content:netty|要查询的关键词。 |
+|type|String|Query|是|INSTANCELOG|日志类型。可选值：
 
  -   **INSTANCELOG**：主日志
 -   **SEARCHSLOW**：searching慢日志
 -   **INDEXINGSLOW**：indexing慢日志
 -   **JMVLOG**：GC日志
 -   **ES\_SEARCH\_ACCESS\_LOG**：ES访问日志 |
+|beginTime|Long|Query|否|1531910852074|日志开始时间戳，单位：毫秒。 |
+|endTime|Long|Query|否|1531910852074|日志结束时间戳，单位：毫秒。 |
+|page|Integer|Query|否|1|插件列表的页码。起始值：1，默认值：1。 |
+|size|Integer|Query|否|20|分页查询时设置的每页条数。默认值：20，最小值：1，最大值：50。 |
 
 ## 返回数据
 
@@ -83,7 +83,7 @@ GET /openapi/instances/es-cn-n6w1o1x0w001c****/search-log?type=INSTANCELOG&query
 
 正常返回示例
 
-`XML` 格式
+`XML`格式
 
 ```
 <Result>
@@ -114,7 +114,7 @@ GET /openapi/instances/es-cn-n6w1o1x0w001c****/search-log?type=INSTANCELOG&query
 </Headers>
 ```
 
-`JSON` 格式
+`JSON`格式
 
 ```
 {
