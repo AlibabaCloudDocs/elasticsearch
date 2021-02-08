@@ -13,18 +13,18 @@
 ## 请求语法
 
 ```
-GET /openapi/logstashes/[InstanceId]/plugins HTTPS|HTTP
+GET /openapi/logstashes/[InstanceId]/plugins HTTP/1.1
 ```
 
 ## 请求参数
 
-|名称|类型|是否必选|示例值|描述|
-|--|--|----|---|--|
-|InstanceId|String|是|ls-cn-oew1qbgl\*\*\*\*|实例ID。 |
-|name|String|否|logstash-filter-clone|插件名称。 |
-|page|Integer|否|10|插件列表的分页数。起始值：1，默认值：1。 |
-|size|Integer|否|3|分页查询时设置的每页条数。最大值：100，默认值：10。 |
-|source|String|否|USER|插件来源。可选值：
+|名称|类型|位置|是否必选|示例值|描述|
+|--|--|--|----|---|--|
+|InstanceId|String|Path|是|ls-cn-oew1qbgl\*\*\*\*|实例ID。 |
+|name|String|Query|否|logstash-filter-clone|插件名称。 |
+|page|Integer|Query|否|10|插件列表的分页数。默认值：1，最小值：1，最大值：200。 |
+|size|Integer|Query|否|3|分页查询时设置的每页条数。最小值：1，最大值：200。 |
+|source|String|Query|否|USER|插件来源。可选值：
 
  -   USER：自定义插件
 -   SYSTEM：系统预置插件 |
@@ -77,7 +77,7 @@ GET /openapi/logstashes/ls-cn-oew1qbgl****/plugins?name=logstash-filter-clone&pa
 
 正常返回示例
 
-`XML` 格式
+`XML`格式
 
 ```
 <Result>
@@ -107,7 +107,7 @@ GET /openapi/logstashes/ls-cn-oew1qbgl****/plugins?name=logstash-filter-clone&pa
 </Headers>
 ```
 
-`JSON` 格式
+`JSON`格式
 
 ```
 {
