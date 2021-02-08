@@ -1,6 +1,6 @@
 # ListInstance
 
-You can call this operation to list all specified instances and display their details.
+Call the ListInstance to display the details of all instances in a list.
 
 ## Debugging
 
@@ -8,33 +8,33 @@ You can call this operation to list all specified instances and display their de
 
 ## Request header
 
-This operation uses common request parameters only. For more information, see Common parameters.
+This operation uses only common request headers. For more information, see Common parameters.
 
 ## Request syntax
 
 ```
-GET /openapi/instances HTTPS|HTTP
+GET /openapi/instances HTTPS|HTTP 
 ```
 
 ## Request parameters
 
-|Parameter|Type|Required|Example|Description|
-|---------|----|--------|-------|-----------|
-|page|Integer|No|1|The number of the page to return.
+|Parameter|Type|Position|Required|Example|Description|
+|---------|----|--------|--------|-------|-----------|
+|page|Integer|Query|No|1|The page number of the returned page.
 
-Starting value: **1**. Default value: **1**. |
-|size|Integer|No|10|The number of entries to return on each page.
+Start value: **1** . Default value: **1** . |
+|size|Integer|Query|No|10|The number of entries to return on each page.
 
-Maximum Value: **100**. Default value: **10**. |
-|description|String|No|es-cn-abc|The name of the instance. You can specify a keyword to match multiple instances. For example, if you specify **abc**, instances whose names are **abc**, **abcde**, **xyabc**, and **xabcy** are matched. |
-|instanceId|String|No|es-cn-n6w1o1x0w001c\*\*\*\*|The ID of the instance. |
-|esVersion|String|No|5.3\_with\_X-Pack|The version of the instance. |
-|resourceGroupId|String|No|rg-aekzvowej3i\*\*\*\*|The ID of the resource group to which the instance belongs. |
-|tags|String|No|dev-env|The tags of the instances. |
-|vpcId|String|No|vpc-bp16k1dvzxtmagcva\*\*\*\*|The ID of the VPC to which the instance belongs. |
-|zoneId|String|No|cn-hangzhou-i|The ID of the zone to which the instance belongs. |
-|paymentType|String|No|postpaid|The billing method of the instance. Valid values: postpaid and prepaid. |
-|instanceCategory|String|No|advanced|The version of the instance. Valid values: x-pack \(commercial edition\) and advanced \(Enhanced Edition\). |
+Maximum value: **100** . Default value: **10** . |
+|description|String|Query|No|es-cn-abc|The name of the instance. You can specify a keyword to match multiple instances. For example, search **abc** may return all instances of **abc**, **abcde**,**xyabc**,**xabcy**. |
+|instanceId|String|Query|No|es-cn-n6w1o1x0w001c\*\*\*\*|The ID of the instance. |
+|esVersion|String|Query|No|5.3\_with\_X-Pack|The version of the instance. |
+|resourceGroupId|String|Query|No|rg-aekzvowej3i\*\*\*\*|The ID of the resource group to which the ECS instance belongs. |
+|tags|String|Query|No|dev-env|Details about the tags. |
+|vpcId|String|Query|No|vpc-bp16k1dvzxtmagcva\*\*\*\*|The Virtual Private Cloud of the instance. |
+|zoneId|String|Query|No|cn-hangzhou-i|The ID of the zone where the instance resides. |
+|paymentType|String|Query|No|postpaid|The billing method of the cloned instance. Valid values: postpaid \(pay-as-you-go\) and prepaid \(subscription\). |
+|instanceCategory|String|Query|No|advanced|The version of the instance. Valid values: x-pack \(commercial edition\) and advanced \(Enhanced Edition\). |
 
 ## Response parameters
 
@@ -45,62 +45,67 @@ Maximum Value: **100**. Default value: **10**. |
 |RequestId|String|5FFD9ED4-C2EC-4E89-B22B-1ACB6FE1\*\*\*\*|The ID of the request. |
 |Result|Array of Instance| |The return results. |
 |advancedDedicateMaster|Boolean|false|Indicates whether the instance contains dedicated master nodes. |
-|clientNodeConfiguration|Struct| |The client node configuration. |
-|amount|Integer|3|The number of nodes in the cluster. |
-|disk|Integer|20|The size of the node storage space. Unit: GB. |
-|diskType|String|cloud\_efficiency|The storage type of the node. Only ultra disks are supported \(cloud\_efficiency\). |
-|spec|String|elasticsearch.sn2ne.large|The node specifications of the cluster. |
+|clientNodeConfiguration|Struct| |Coordinates node configuration. |
+|amount|Integer|3|The number of nodes. |
+|disk|Integer|20|The storage space of the node. Unit: GB. |
+|diskType|String|cloud\_efficiency|The storage type of the node. Only ultra disks \(cloud\_efficiency\) are supported. |
+|spec|String|elasticsearch.sn2ne.large|The node specification. |
 |createdAt|String|2018-07-13T03:58:07.253Z|The time when the instance was created. |
 |dedicateMaster|Boolean|false|Indicates whether the instance contains dedicated master nodes. This parameter is only supported by earlier Elasticsearch versions. |
 |description|String|es-cn-abc|The name of the instance. |
 |elasticDataNodeConfiguration|Struct| |The configuration of the elastic data node. |
-|amount|Integer|3|The number of nodes in the cluster. |
-|disk|Integer|20|The size of the node storage space. Unit: GB. |
-|diskEncryption|Boolean|true|Specifies whether to enable disk encryption for the node. |
-|diskType|String|cloud\_ssd|The storage type of the node. Support: cloud\_ssd\(SSD cloud disk\), cloud\_essd \(Enhanced SSD\), cloud\_efficiency \(ultra cloud disk\) |
-|spec|String|elasticsearch.sn2ne.large|The node specifications of the cluster. |
+|amount|Integer|3|The number of nodes. |
+|disk|Integer|20|The storage space of the node. Unit: GB. |
+|diskEncryption|Boolean|true|Specifies whether to enable cloud disk encryption for the node. |
+|diskType|String|cloud\_ssd|The storage type of the node. Supported options: cloud\_ssd \(standard SSD\), cloud\_essd \(Enhanced SSD\), and cloud\_efficiency \(ultra disk\). |
+|spec|String|elasticsearch.sn2ne.large|The node specification. |
 |esVersion|String|5.5.3\_with\_X-Pack|The version of the instance. |
+|extendConfigs|List|\[\{ "configType": "aliVersion", "aliVersion": "ali1.3.0" \}\]|The configuration of the cluster extension parameter. |
 |instanceId|String|es-cn-abc|The ID of the Elasticsearch instance. |
 |kibanaConfiguration|Struct| |The configuration of Kibana nodes. |
-|amount|Integer|1|The number of performance metrics. |
-|disk|Integer|20|The size of the node storage space. Unit: GB. |
+|amount|Integer|1|The number of DRDS server nodes. |
+|disk|Integer|20|The storage space of the node. Unit: GB. |
 |diskType|String|cloud\_ssd|The storage type of the node. |
 |spec|String|elasticsearch.n4.small|The specification of data nodes. |
 |masterConfiguration|Struct| |The configuration of dedicated master nodes. |
-|amount|Integer|3|The number of nodes in the cluster. |
-|disk|Integer|20|The size of the node storage space. Unit: GB. |
-|diskType|String|cloud\_ssd|The storage type of the node. This tool only supports cloud\_ssd \(cloud SSD\) disks. |
-|spec|String|elasticsearch.sn2ne.large|The node specifications of the cluster. |
+|amount|Integer|3|The number of nodes. |
+|disk|Integer|20|The storage space of the node. Unit: GB. |
+|diskType|String|cloud\_ssd|The storage type of the node. Only cloud\_ssd is supported. |
+|spec|String|elasticsearch.sn2ne.large|The node specification. |
 |networkConfig|Struct| |The network configuration. |
-|type|String|vpc|The network type. Only Virtual Private Cloud \(VPC\) is supported. |
+|type|String|vpc|The type of the network. Only Virtual Private Cloud \(VPC\) is supported. |
 |vpcId|String|vpc-abc|The ID of the VPC. |
 |vsArea|String|cn-hangzhou-e|The zone where the instance is deployed. |
-|vswitchId|String|vsw-def|The ID of the VSwitch associated with the specified VPC. |
+|vswitchId|String|vsw-def|The ID of the vSwitch in the specified VPC. |
 |nodeAmount|Integer|2|The number of data nodes. |
 |nodeSpec|Struct| |The configuration of data nodes. |
-|disk|Integer|50|The storage space size per data node. Unit: GB. |
-|diskType|String|cloud\_ssd|The storage type of the node. Valid values: cloud\_ssd and cloud\_efficiency. |
+|disk|Integer|50|The storage size of the node. Unit: GB. |
+|diskEncryption|Boolean|false|Indicates whether to use disk encryption. Valid values:
+
+-   true
+-   false |
+|diskType|String|cloud\_ssd|The storage type of the node. Supported options: cloud\_ssd\(SSD cloud disks\) and cloud\_efficiency \(ultra cloud disks\). |
 |spec|String|elasticsearch.n4.small|The specification of data nodes. |
-|paymentType|String|postpaid|The billing method of the created ECS instance.
+|paymentType|String|postpaid|The billing method of the physical connection.
 
-Valid values: **prepaid** and **postpaid**. |
+Supported: **prepaid** \(Subscription\) and **postpaid** \(Pay-as-you-go\). |
 |resourceGroupId|String|rg-aekzvowej3i\*\*\*\*|The ID of the resource group. |
-|status|String|active|The state of the cluster.
+|status|String|active|The status of the cluster.
 
-Supported options: **active** \(normal\), **activating** \(initializing\), **inactive** \(blocked\), and **invalid** \(expired\). |
-|tags|Array of Tag| |The tags of the instances. |
-|tagKey|String|env|The key of the tag. |
-|tagValue|String|dev|The value of the tag. |
+Supported: **active** \(Normal\), **activating** \(In effect\), **inactive** \(Frozen\) and **invalid** \(Invalidation\). |
+|tags|Array of Tag| |Details about the tags. |
+|tagKey|String|env|The tag key of the disk. |
+|tagValue|String|dev|The tag value of the disk. |
 |updatedAt|String|2018-07-18T10:10:04.484Z|The time when the instance was last updated. |
 
-**Note:** The following response examples may contain the parameters in the list of returned data. These parameters are for reference only. You must make sure that your application is not strongly reliant on these parameters.
+**Note:** In the following return example, only the parameters in the returned data list are guaranteed to be included in this article, and the parameters that are not mentioned are for reference only. It is not mandatory to obtain these parameters in the program.
 
 ## Examples
 
 Sample requests
 
 ```
-GET /openapi/instances? description=abc&page=1&size=10
+GET /openapi/instances?description=abc&page=1&size=10 
 ```
 
 Sample success responses
@@ -170,7 +175,7 @@ Sample success responses
     <enableKibanaPublicNetwork>false</enableKibanaPublicNetwork>
     <enableKibanaPrivateNetwork>false</enableKibanaPrivateNetwork>
     <advancedSetting>
-        <gcName>CMS
+        <gcName>CMS</gcName>
     </advancedSetting>
 </Result>
 <RequestId>83EC620F-70A2-4497-A6A3-B1DF359D****</RequestId>
@@ -179,7 +184,7 @@ Sample success responses
 </Headers>
 ```
 
-`JSON` format
+`JSON` Syntax
 
 ```
 {
