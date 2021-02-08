@@ -1,6 +1,6 @@
 # DescribeInstance
 
-You can call this operation to query detailed information about a specified Elasticsearch instance.
+Call DescribeInstance to query detailed information about a specified Elasticsearch instance.
 
 ## Debugging
 
@@ -8,7 +8,7 @@ You can call this operation to query detailed information about a specified Elas
 
 ## Request header
 
-This operation uses common request parameters only. For more information, see Common parameters.
+This operation uses only common request headers. For more information, see Common parameters.
 
 ## Request syntax
 
@@ -18,9 +18,9 @@ GET /openapi/instances/[InstanceId] HTTPS|HTTP
 
 ## Request parameters
 
-|Parameter|Type|Required|Example|Description|
-|---------|----|--------|-------|-----------|
-|InstanceId|String|Required|es-cn-s9dsk3k4k\*\*\*\*|The ID of the instance. |
+|Parameter|Type|Position|Required|Example|Description|
+|---------|----|--------|--------|-------|-----------|
+|InstanceId|String|Path|Yes|es-cn-s9dsk3k4k\*\*\*\*|The ID of the instance. |
 
 ## Response parameters
 
@@ -30,25 +30,25 @@ GET /openapi/instances/[InstanceId] HTTPS|HTTP
 |Result|Struct| |The return results. |
 |advancedDedicateMaster|Boolean|true|Indicates whether the instance contains dedicated master nodes. |
 |advancedSetting|Struct| |Advanced Configuration. |
-|gcName|String|CMS|The name of the GC garbage collector. CMS and G1. |
-|aliwsDicts|Array of Dict| |The configuration of the word-breaking dictionary provided by Alibaba. |
+|gcName|String|CMS|The name of the GC garbage collector. CMS and G1 are supported. |
+|aliwsDicts|Array of Dict| |The configuration of the Alibaba word segmentation Dictionary. |
 |fileSize|Long|2782602|The size of the Dictionary File. Unit: bytes. |
 |name|String|aliws\_ext\_dict.txt|The name of the dictionary file. |
-|sourceType|String|OSS|The source type of the Dictionary File. Valid values:
+|sourceType|String|OSS|The type of the Dictionary File Source. Valid values:
 
--   OSS:OSS open storage \(the OSS storage space must be publicly readable.\)
+-   OSS:OSS open storage \(make sure the OSS bucket is publicly readable.\)
 -   ORIGIN: open-source Elasticsearch
--   UPLOAD |
-|type|String|ALI\_WS|The file type of the dictionary. Valid values:
+-   UPLOAD: uploaded files |
+|type|String|ALI\_WS|The type of the Dictionary File. Valid values:
 
--   STOP: The STOP word.
+-   STOP: stopwords
 -   MAIN: MAIN Dictionary
--   SYNONYMS: SYNONYMS
--   ALI\_WS: an Alibaba Dictionary. |
-|clientNodeConfiguration|Struct| |The configuration of client nodes. |
-|amount|Integer|3|The number of nodes in the cluster. |
-|disk|Integer|40|The size of the node storage space. Unit: GB. |
-|diskType|String|cloud\_efficiency|The storage type of the node. You can only select ultra disk \(cloud\_efficiency\). |
+-   SYNONYMS: Synonym Dictionary
+-   ALI\_WS: Alibaba Dictionary |
+|clientNodeConfiguration|Struct| |The configuration information of the coordination node. |
+|amount|Integer|3|The number of nodes. |
+|disk|Integer|40|The storage space of the node. Unit: GB. |
+|diskType|String|cloud\_efficiency|The storage type of the node. Only ultra disks \(cloud\_efficiency\) are supported. |
 |spec|String|elasticsearch.n4.small|The specification of data nodes. |
 |createdAt|String|2018-07-13T03:58:07.253Z|The time when the instance was created. |
 |dedicateMaster|Boolean|false|Indicates whether the instance contains dedicated master nodes. This parameter is only supported by earlier Elasticsearch versions. |
@@ -56,101 +56,105 @@ GET /openapi/instances/[InstanceId] HTTPS|HTTP
 |dictList|Array of DictList| |The configuration of the IK dictionary. |
 |fileSize|Long|2782602|The size of the Dictionary File. Unit: bytes. |
 |name|String|SYSTEM\_MAIN.dic|The name of the dictionary file. |
-|sourceType|String|ORIGIN|The source type of the Dictionary File. Valid values:
+|sourceType|String|ORIGIN|The type of the Dictionary File Source. Valid values:
 
--   OSS:OSS open storage \(the OSS storage space must be publicly readable.\)
+-   OSS:OSS open storage \(make sure the OSS bucket is publicly readable.\)
 -   ORIGIN: open-source Elasticsearch
--   UPLOAD |
-|type|String|MAIN|The file type of the dictionary. Valid values:
+-   UPLOAD: uploaded files |
+|type|String|MAIN|The type of the Dictionary File. Valid values:
 
--   STOP: The STOP word.
+-   STOP: stopwords
 -   MAIN: MAIN Dictionary
--   SYNONYMS: SYNONYMS
--   ALI\_WS: an Alibaba Dictionary |
+-   SYNONYMS: Synonym Dictionary
+-   ALI\_WS: Alibaba Dictionary |
 |domain|String|es-cn-n6w1o1x0w001c\*\*\*\*.elasticsearch.aliyuncs.com|The internal network address of the instance. |
 |elasticDataNodeConfiguration|Struct| |The configuration of the elastic data node. |
-|amount|Integer|3|The number of nodes in the cluster. |
-|disk|Integer|20|The size of the node storage space. Unit: GB. |
-|diskEncryption|Boolean|true|Specifies whether to enable disk encryption for the node. |
+|amount|Integer|3|The number of nodes. |
+|disk|Integer|20|The storage space of the node. Unit: GB. |
+|diskEncryption|Boolean|true|Specifies whether to enable cloud disk encryption for the node. |
 |diskType|String|cloud\_ssd|The storage type of the node. Supported:
 
--   cloud\_ssd: standard SSDs
+-   cloud\_ssd: standard SSD
 -   cloud\_essd: enhanced SSD \(ESSD\)
 -   cloud\_efficiency: ultra disk |
-|spec|String|elasticsearch.sn2ne.large|The node specifications of the cluster. |
-|enableKibanaPrivateNetwork|Boolean|false|Indicates whether Kibana network access is enabled. |
-|enableKibanaPublicNetwork|Boolean|true|Whether the Kibana Internet access is enabled. |
-|enablePublic|Boolean|true|Specifies whether to enable the public endpoint for the instance. |
-|esConfig|Map|\{"http.cors.allow-credentials":"false"\}|The YML configuration of the instance. |
-|esIPBlacklist|List|\[ "0.0.0.0/0" \]|Private network access blacklist \(deprecated\). |
-|esIPWhitelist|List|\[ "0.0.0.0/0" \]|Private network access whitelist \(deprecated\). |
-|esVersion|String|5.5.3\_with\_X-Pack|The version of the PolarDB-X instance. |
+|spec|String|elasticsearch.sn2ne.large|The node specification. |
+|enableKibanaPrivateNetwork|Boolean|false|Whether to enable Kibana private network access. |
+|enableKibanaPublicNetwork|Boolean|true|Specifies whether to enable Kibana for public network access. |
+|enablePublic|Boolean|true|Specifies whether to enable the public network access feature for the cluster. |
+|esConfig|Map|\{"http.cors.allow-credentials":"false"\}|The YML configuration file of the instance. |
+|esIPBlacklist|List|\[ "0.0.0.0/0" \]|The private network access blacklist \(abandoned\). |
+|esIPWhitelist|List|\[ "0.0.0.0/0" \]|The private network access whitelist \(discarded\). |
+|esVersion|String|5.5.3\_with\_X-Pack|The version of the instance. |
+|extendConfigs|List|\[\{ "configType": "aliVersion","aliVersion": "ali1.3.0" \}\]|The extended configurations of the instance. |
 |haveClientNode|Boolean|true|Indicates whether the instance contains client nodes. |
 |haveKibana|Boolean|true|Indicates whether the instance contains Kibana nodes. |
-|instanceId|String|es-cn-abc|The ID of the instance. |
+|instanceId|String|es-cn-abc|The ID of the Elasticsearch instance. |
 |kibanaConfiguration|Struct| |The configuration of Kibana nodes. |
-|amount|Integer|1|The number of nodes in the cluster. |
-|spec|String|elasticsearch.n4.small|The node specifications of the cluster. |
+|amount|Integer|1|The number of DRDS server nodes. |
+|spec|String|elasticsearch.n4.small|The specification of data nodes. |
 |kibanaDomain|String|es-cn-abc.kibana.elasticsearch.aliyuncs.com|The endpoint of Kibana. |
-|kibanaIPWhitelist|List|\[ "0.0.0.0/0" \]|Kibana public endpoint whitelist. |
-|kibanaPort|Integer|5601|The access port of Kibana. |
-|kibanaPrivateIPWhitelist|List|\["192.168.xx.xx"\]|The Kibana private IP address whitelist. |
+|kibanaIPWhitelist|List|\[ "0.0.0.0/0" \]|Kibana public endpoint access whitelist. |
+|kibanaPort|Integer|5601|The port used to access Kibana. |
+|kibanaPrivateIPWhitelist|List|\["192.168.xx.xx"\]|The list of Kibana private address access whitelists. |
 |masterConfiguration|Struct| |The configuration of dedicated master nodes. |
-|amount|Integer|3|The number of nodes in the cluster. |
-|disk|Integer|40|The size of the node storage space. Unit: GB. |
-|diskType|String|cloud\_ssd|The storage type of the node. This tool only supports cloud\_ssd \(cloud SSD\) disks. |
-|spec|String|elasticsearch.n4.small|The node specifications of the cluster. |
+|amount|Integer|3|The number of nodes. |
+|disk|Integer|40|The storage space of the node. Unit: GB. |
+|diskType|String|cloud\_ssd|The storage type of the node. Only cloud\_ssd is supported. |
+|spec|String|elasticsearch.n4.small|The specification of data nodes. |
 |networkConfig|Struct| |The network configuration. |
-|type|String|vpc|The network type. Only Virtual Private Cloud \(VPC\) is supported. |
+|type|String|vpc|The type of the network. Only Virtual Private Cloud \(VPC\) is supported. |
 |vpcId|String|vpc-abc|The ID of the VPC network. |
 |vsArea|String|cn-hangzhou-b|The zone where the instance is deployed. |
-|vswitchId|String|vsw-abc|The ID of the VSwitch associated with the specified VPC. |
+|vswitchId|String|vsw-abc|The ID of the vSwitch in the specified VPC. |
 |nodeAmount|Integer|2|The number of data nodes. |
 |nodeSpec|Struct| |The configuration of data nodes. |
-|disk|Integer|0|The size of the node storage space. Unit: GB. |
-|diskEncryption|Boolean|true|Specifies whether to enable disk encryption. |
-|diskType|String|cloud\_ssd|The disk type of nodes. Valid values: cloud\_ssd and cloud\_efficiency. |
+|disk|Integer|0|The storage space of the node. Unit: GB. |
+|diskEncryption|Boolean|true|Indicates whether to enable disk encryption. Valid values:
+
+-   true: Dynamic indexing is enabled.
+-   false: Dynamic indexing is disabled. |
+|diskType|String|cloud\_ssd|The disk type of the node. Supported options: cloud\_ssd\(SSD cloud disks\) and cloud\_efficiency \(ultra cloud disks\). |
 |spec|String|elasticsearch.n4.small|The specification of data nodes. |
-|paymentType|String|postpaid|The billing method of the created ECS instance. Support: **prepaid**\(subscription\) and **postpaid**\(that uses the pay-as-you-go billing method\) . |
-|port|Integer|9200|The access port of the instance. |
-|privateNetworkIpWhiteList|List|0.0.0.0/0|The IP address whitelist of the instance. |
+|paymentType|String|postpaid|The billing method of the physical connection. Supported: **prepaid** \(Subscription\) and **postpaid** \(Pay-as-you-go\). |
+|port|Integer|9200|The port number that is used to access your Elasticsearch cluster. |
+|privateNetworkIpWhiteList|List|0.0.0.0/0|The whitelist for access to the private network addresses of the instance. |
 |protocol|String|HTTP|The communication protocol. Supported: **HTTP** and **HTTPS**. |
 |publicDomain|String|es-cn-abc.elasticsearch.aliyuncs.com|The public endpoint of the instance. |
-|publicIpWhitelist|List|\[ "0.0.0.0/0" \]|The public endpoint whitelist of the instance. |
-|publicPort|Integer|9200|The Internet access port of the instance. |
-|resourceGroupId|String|rg-aekzvowej3i\*\*\*\*|The ID of the resource group to which the instance belongs. |
-|status|String|active|The state of the cluster. Supported: active\(normal\), activating \(in progress\), inactive \(freeze\), and Invalid. |
+|publicIpWhitelist|List|\[ "0.0.0.0/0" \]|The public endpoint access whitelist of the instance. |
+|publicPort|Integer|9200|The public network access port of the instance. |
+|resourceGroupId|String|rg-aekzvowej3i\*\*\*\*|The ID of the resource group to which the ApsaraDB for Redis instance belongs. |
+|status|String|active|The status of the cluster. Supported: **active** \(Normal\), **activating** \(In effect\), **inactive** \(Frozen\) and **invalid** \(Invalidation\). |
 |synonymsDicts|Array of SynonymsDicts| |The configuration of the synonym dictionary. |
 |fileSize|Long|2782602|The size of the Dictionary File. Unit: bytes. |
 |name|String|SYSTEM\_MAIN.dic|The name of the dictionary file. |
 |sourceType|String|ORIGIN|The source of the synonym dictionary file. |
 |type|String|STOP|The type of the synonym dictionary. STOP: stopwords, MAIN: MAIN dictionary, SYNONYMS: Synonym Dictionary, and ALI\_WS: Alibaba Dictionary. |
-|tags|Array of Tag| |The tags of the instances. |
-|tagKey|String|env|The key of the tag. |
-|tagValue|String|dev|The value of the tag. |
+|tags|Array of Tag| |Details about the tags. |
+|tagKey|String|env|The tag key of the disk. |
+|tagValue|String|dev|The tag value of the disk. |
 |updatedAt|String|2018-07-13T03:58:07.253Z|The time when the instance was last updated. |
 |vpcInstanceId|String|vpc-bp1uag5jj38c\*\*\*\*|The ID of the VPC. |
-|warmNode|Boolean|true|Specifies whether to enable warm nodes. |
-|warmNodeConfiguration|Struct| |The configuration of warm nodes. |
-|amount|Integer|6|The number of nodes in the cluster. |
-|disk|Integer|500|The size of the node storage space. Unit: GB. |
-|diskEncryption|Boolean|true|Specifies whether to enable disk encryption. |
-|diskType|String|cloud\_efficiency|The storage space type of the node. Only cloud\_efficiency \(ultra cloud disk\) is supported. |
+|warmNode|Boolean|true|Specifies whether to enable cold data nodes. |
+|warmNodeConfiguration|Struct| |The configuration information of cold data nodes. |
+|amount|Integer|6|The number of nodes. |
+|disk|Integer|500|The storage space of the node. Unit: GB. |
+|diskEncryption|Boolean|true|Whether to enable cloud disk encryption. |
+|diskType|String|cloud\_efficiency|The storage space type of the node. Only supports cloud\_efficiency \(ultra disks\). |
 |spec|String|elasticsearch.n4.small|The specification of data nodes. |
 |zoneCount|Integer|2|The number of zones. |
 |zoneInfos|Array of ZoneInfo| |Zone information. |
-|status|String|NORMAL|The status of the zone. Supported: ISOLATION\(offline\), NORMAL\(normal\).|
-|zoneId|String|cn-hangzhou-b|The zone ID. |
+|status|String|NORMAL|The status of the zone. Supported: **ISOLATION**\(Offline\), **NORMAL** \(Normal\). |
+|zoneId|String|cn-hangzhou-b|The ID of the zone. |
 
-**Note:** The following response examples may contain the parameters in the list of returned data. These parameters are for reference only. You must make sure that your application is not strongly reliant on these parameters.
+**Note:** In the following return example, only the parameters in the returned data list are guaranteed to be included in this article, and the parameters that are not mentioned are for reference only. It is not mandatory to obtain these parameters in the program.
 
 ## Examples
 
 Sample requests
 
 ```
-GET /openapi/instances/es-cn-s9dsk3k4k**** HTTP/1.1
-Common request header
+GET /openapi/instances/es-cn-s9dsk3k4k**** HTTP/1.1 
+common request header
 ```
 
 Sample success responses
@@ -252,13 +256,13 @@ Sample success responses
     <enableKibanaPublicNetwork>true</enableKibanaPublicNetwork>
     <enableKibanaPrivateNetwork>false</enableKibanaPrivateNetwork>
     <advancedSetting>
-        <gcName>CMS
+        <gcName>CMS</gcName>
     </advancedSetting>
 </Result>
 <RequestId>D6888749-44DB-4510-A5DF-2959A035****</RequestId>
 ```
 
-`JSON` format
+`JSON` Syntax
 
 ```
 {
