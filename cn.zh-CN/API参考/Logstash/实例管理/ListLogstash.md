@@ -13,15 +13,15 @@
 ## 请求语法
 
 ```
-GET /openapi/logstashes HTTPS|HTTP
+GET /openapi/logstashes HTTP/1.1
 ```
 
 ## 请求参数
 
 |名称|类型|位置|是否必选|示例值|描述|
 |--|--|--|----|---|--|
-|page|Integer|Query|否|1|实例列表的页码。起始值：1，默认值：1。 |
-|size|Integer|Query|否|10|分页查询时设置的每页条数。最大值：100，默认值：10。 |
+|page|Integer|Query|否|1|实例列表的页码。默认值：1。 |
+|size|Integer|Query|否|10|分页查询时设置的每页条数。默认值：20。 |
 |description|String|Query|否|ls-cn-abc|实例名称，支持模糊查询。例如查询名称为abc的实例，则可能返回名称为abc、abcde、xyabc、xabcy的所有实例。 |
 |instanceId|String|Query|否|ls-cn-n6w1o5jq\*\*\*\*|实例ID。 |
 |version|String|Query|否|5.5.3\_with\_X-Pack|实例版本。 |
@@ -198,7 +198,7 @@ GET /openapi/logstashes?description=abc&page=1&size=10
 
 正常返回示例
 
-`XML` 格式
+`XML`格式
 
 ```
 <Result>
@@ -246,7 +246,7 @@ GET /openapi/logstashes?description=abc&page=1&size=10
 </Headers>
 ```
 
-`JSON` 格式
+`JSON`格式
 
 ```
 {
