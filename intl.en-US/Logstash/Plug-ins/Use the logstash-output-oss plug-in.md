@@ -59,6 +59,9 @@ output {
       max_connections_to_oss => 1024                      
       secure_connection_enabled => false                  
     }
+    codec => json {
+      charset => "UTF-8"
+    }
   }
 }
 ```
