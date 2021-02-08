@@ -18,9 +18,9 @@ GET /openapi/instances/[InstanceId] HTTPS|HTTP
 
 ## 请求参数
 
-|名称|类型|是否必选|示例值|描述|
-|--|--|----|---|--|
-|InstanceId|String|是|es-cn-s9dsk3k4k\*\*\*\*|实例ID。 |
+|名称|类型|位置|是否必选|示例值|描述|
+|--|--|--|----|---|--|
+|InstanceId|String|Path|是|es-cn-s9dsk3k4k\*\*\*\*|实例ID。 |
 
 ## 返回数据
 
@@ -85,6 +85,7 @@ GET /openapi/instances/[InstanceId] HTTPS|HTTP
 |esIPBlacklist|List|\[ "0.0.0.0/0" \]|私网访问黑名单（已废弃）。 |
 |esIPWhitelist|List|\[ "0.0.0.0/0" \]|私网访问白名单（已废弃）。 |
 |esVersion|String|5.5.3\_with\_X-Pack|实例版本。 |
+|extendConfigs|List|\[\{ "configType": "aliVersion","aliVersion": "ali1.3.0" \}\]|实例的扩展配置。 |
 |haveClientNode|Boolean|true|是否包含协调节点。 |
 |haveKibana|Boolean|true|是否包含Kibana节点。 |
 |instanceId|String|es-cn-abc|实例ID。 |
@@ -108,7 +109,10 @@ GET /openapi/instances/[InstanceId] HTTPS|HTTP
 |nodeAmount|Integer|2|实例的数据节点数量。 |
 |nodeSpec|Struct| |数据节点配置信息。 |
 |disk|Integer|0|节点存储空间大小，单位：GB。 |
-|diskEncryption|Boolean|true|是否开启云盘加密。 |
+|diskEncryption|Boolean|true|是否开启云盘加密：
+
+ -   true：开启
+-   false：不开启 |
 |diskType|String|cloud\_ssd|节点磁盘类型。支持：cloud\_ssd（SSD云盘）、cloud\_efficiency（高效云盘）。 |
 |spec|String|elasticsearch.n4.small|节点规格。 |
 |paymentType|String|postpaid|实例的付费方式。支持：**prepaid**（包年包月）和**postpaid**（按量付费）。 |
