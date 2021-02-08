@@ -13,15 +13,15 @@
 ## 请求语法
 
 ```
-GET /openapi/tags/all-tags HTTPS|HTTP
+GET /openapi/tags/all-tags HTTP/1.1
 ```
 
 ## 请求参数
 
-|名称|类型|是否必选|示例值|描述|
-|--|--|----|---|--|
-|pageSize|Integer|是|20|返回结果的分页数。 |
-|resourceType|String|否|INSTANCE|资源类型，固定为INSTANCE。 |
+|名称|类型|位置|是否必选|示例值|描述|
+|--|--|--|----|---|--|
+|pageSize|Integer|Query|是|20|返回结果的分页数。默认值：50。 |
+|resourceType|String|Query|否|INSTANCE|资源类型，固定为INSTANCE。 |
 
 ## 返回数据
 
@@ -43,7 +43,7 @@ GET /openapi/tags/all-tags?pageSize=20 HTTP/1.1
 
 正常返回示例
 
-`XML` 格式
+`XML`格式
 
 ```
 <Result>
@@ -93,7 +93,7 @@ GET /openapi/tags/all-tags?pageSize=20 HTTP/1.1
 <RequestId>5ADCBB89-6596-4AF3-94A5-64E5393A****</RequestId>
 ```
 
-`JSON` 格式
+`JSON`格式
 
 ```
 {
