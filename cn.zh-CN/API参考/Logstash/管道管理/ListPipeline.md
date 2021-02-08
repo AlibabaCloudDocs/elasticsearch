@@ -13,17 +13,17 @@
 ## 请求语法
 
 ```
-GET /openapi/logstashes/[InstanceId]/pipelines HTTPS|HTTP
+GET /openapi/logstashes/[InstanceId]/pipelines HTTP/1.1
 ```
 
 ## 请求参数
 
-|名称|类型|是否必选|示例值|描述|
-|--|--|----|---|--|
-|InstanceId|String|是|ls-cn-oew1qbgl\*\*\*\*|Logstash实例ID。 |
-|pipelineId|String|是|pipeline\_test|管道ID。 |
-|page|Integer|否|1|返回结果的分页数。 |
-|size|Integer|否|15|每页的管道数。 |
+|名称|类型|位置|是否必选|示例值|描述|
+|--|--|--|----|---|--|
+|InstanceId|String|Path|是|ls-cn-oew1qbgl\*\*\*\*|Logstash实例ID。 |
+|pipelineId|String|Query|否|pipeline\_test|管道ID。 |
+|page|Integer|Query|否|1|返回结果的分页数。默认值：1，最小值：1，最大值：200。 |
+|size|Integer|Query|否|15|每页的管道数。最小值：1，最大值：200。 |
 
 ## 返回数据
 
@@ -49,7 +49,7 @@ GET /openapi/logstashes/ls-cn-oew1qbgl****/pipelines?pipelineId=test HTTP/1.1
 
 正常返回示例
 
-`XML` 格式
+`XML`格式
 
 ```
 <Result>
@@ -76,7 +76,7 @@ GET /openapi/logstashes/ls-cn-oew1qbgl****/pipelines?pipelineId=test HTTP/1.1
 </Headers>
 ```
 
-`JSON` 格式
+`JSON`格式
 
 ```
 {
