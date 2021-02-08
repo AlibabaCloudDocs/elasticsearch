@@ -1,6 +1,6 @@
 # UpdateDescription
 
-Call UpdateDescription, updates the name of the instance.
+Call UpdateDescription to update the name of a specified instance.
 
 ## Debugging
 
@@ -8,7 +8,7 @@ Call UpdateDescription, updates the name of the instance.
 
 ## Request header
 
-This operation uses common request parameters only. For more information, see Common parameters.
+This operation uses only common request headers. For more information, see Common parameters.
 
 ## Request syntax
 
@@ -18,22 +18,11 @@ PATCH|POST /openapi/instances/[InstanceId]/description HTTPS|HTTP
 
 ## Request parameters
 
-|Parameter|Type|Required|Example|Description|
-|---------|----|--------|-------|-----------|
-|InstanceId|String|Yes|es-cn-n6w1ptcb30009\*\*\*\*|The ID of the instance. |
-|clientToken|String|No|5A2CFF0E-5718-45B5-9D4D-70B350\*\*\*\*|This parameter is used to ensure the idempotence of the request. You can use the client to generate the value, but you must ensure that it is unique among different requests. The token can only contain ASCII characters and cannot exceed 64 characters in length. |
-
-## RequestBody
-
-You must also specify the **description** parameter in RequestBody to specify the updated instance name, as shown in the following example:
-
-```
-
-{
-  "description": "aliyunes_name_test"
-}
-
-```
+|Parameter|Type|Position|Required|Example|Description|
+|---------|----|--------|--------|-------|-----------|
+|InstanceId|String|Path|Yes|es-cn-n6w1ptcb30009\*\*\*\*|The ID of the instance. |
+|clientToken|String|Query|No|5A2CFF0E-5718-45B5-9D4D-70B350\*\*\*\*|This parameter is used to ensure the idempotence of the request. You can use the client to generate the value, but you must ensure that it is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. |
+|description|String|Body|No|aliyunes\_name\_test|Specify the updated instance name. |
 
 ## Response parameters
 
@@ -43,18 +32,15 @@ You must also specify the **description** parameter in RequestBody to specify th
 |Result|Struct| |The return results. |
 |description|String|aliyunes\_test\_name|The new name of the instance. |
 
-**Note:** The following response examples only contain the parameters in the list of returned data. These parameters are for reference only. For more information about the parameters, see [ListInstance](~~142230~~). The program cannot forcibly depend on obtaining these parameters.
+**Note:** In the following return example, only the parameters in the returned data list are included in this article. The parameters that are not mentioned are for reference only. For more information about Parameter descriptions, see [ListInstance](~~142230~~) . It is not mandatory for a program to obtain these parameters.
 
 ## Examples
 
 Sample requests
 
 ```
-PATCH /openapi/instances/es-cn-n6w1ptcb30009****/description HTTP/1.1
+PATCH /openapi/instances/es-cn-n6w1ptcb30009****/description?description=aliyunes_name_test HTTP/1.1
 Common request parameters
-{
-  "description": "aliyunes_name_test"
-}
 ```
 
 Sample success responses
@@ -207,7 +193,7 @@ Sample success responses
 <RequestId>24A68E4C-94B4-45E4-9068-CB12F33C****</RequestId>
 ```
 
-`JSON` format
+`JSON` Syntax
 
 ```
 {
@@ -389,7 +375,7 @@ Sample success responses
 
 |HttpCode|Error code|Error message|Description|
 |--------|----------|-------------|-----------|
-|400|InstanceNotFound|The instanceId provided does not exist.|The error message returned because the specified instance cannot be found. Check the instance status.|
+|400|InstanceNotFound|The instanceId provided does not exist.|The error message returned because the instance cannot be found. Check the status of the instance.|
 
 For a list of error codes, visit the [API Error Center](https://error-center.alibabacloud.com/status/product/elasticsearch).
 
