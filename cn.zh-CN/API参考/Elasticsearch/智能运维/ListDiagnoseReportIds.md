@@ -13,20 +13,20 @@
 ## 请求语法
 
 ```
-GET /openapi/diagnosis/instances/[InstanceId]/report-ids HTTPS|HTTP
+GET /openapi/diagnosis/instances/[InstanceId]/report-ids HTTP/1.1
 ```
 
 ## 请求参数
 
-|名称|类型|是否必选|示例值|描述|
-|--|--|----|---|--|
-|endTime|Long|是|1595174399999|查询结束时间戳。 |
-|InstanceId|String|是|es-cn-n6w1qu7ei000p\*\*\*\*|实例ID。 |
-|startTime|Long|是|1595088000000|查询开始时间戳。 |
-|lang|String|否|spanish|获取的报告的语言。 |
-|page|Integer|否|1|分页数。 |
-|size|Integer|否|15|每页报告ID的数量。 |
-|trigger|String|否|SYSTEM|健康诊断的触发方式，支持：SYSTEM（系统自动触发）、INNER（内部触发）和USER（用户手动触发）。 |
+|名称|类型|位置|是否必选|示例值|描述|
+|--|--|--|----|---|--|
+|endTime|Long|Query|是|1595174399999|查询结束时间戳。 |
+|InstanceId|String|Path|是|es-cn-n6w1qu7ei000p\*\*\*\*|实例ID。 |
+|startTime|Long|Query|是|1595088000000|查询开始时间戳。 |
+|lang|String|Query|否|spanish|获取的报告的语言。 |
+|page|Integer|Query|否|1|分页数。默认值：1，最小值：1，最大值：200。 |
+|size|Integer|Query|否|15|每页报告ID的数量。默认值：10，最小值：1，最大值：500。 |
+|trigger|String|Query|否|SYSTEM|健康诊断的触发方式，支持：SYSTEM（系统自动触发）、INNER（内部触发）和USER（用户手动触发）。 |
 
 ## 返回数据
 
@@ -48,7 +48,7 @@ GET /openapi/diagnosis/instances/es-cn-09k1rocex0006****/report-ids?startTime=16
 
 正常返回示例
 
-`XML` 格式
+`XML`格式
 
 ```
 <Result>scheduled__2020-09-15T00:40:00</Result>
@@ -58,7 +58,7 @@ GET /openapi/diagnosis/instances/es-cn-09k1rocex0006****/report-ids?startTime=16
 </Headers>
 ```
 
-`JSON` 格式
+`JSON`格式
 
 ```
 {
