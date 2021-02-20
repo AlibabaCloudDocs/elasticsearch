@@ -6,14 +6,14 @@ Call the ListInstance to display the details of all instances in a list.
 
 [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=elasticsearch&api=ListInstance&type=ROA&version=2017-06-13)
 
-## Request header
+## Request headers
 
-This operation uses only common request headers. For more information, see Common parameters.
+This operation uses only common request parameters, and does not involve special request headers. For more information, see the topic about common parameters.
 
 ## Request syntax
 
 ```
-GET /openapi/instances HTTPS|HTTP 
+GET /openapi/instances HTTP/1.1
 ```
 
 ## Request parameters
@@ -23,17 +23,15 @@ GET /openapi/instances HTTPS|HTTP
 |page|Integer|Query|No|1|The page number of the returned page.
 
 Start value: **1** . Default value: **1** . |
-|size|Integer|Query|No|10|The number of entries to return on each page.
-
-Maximum value: **100** . Default value: **10** . |
+|size|Integer|Query|No|10|The number of entries to return on each page. Default value: **20** . |
 |description|String|Query|No|es-cn-abc|The name of the instance. You can specify a keyword to match multiple instances. For example, search **abc** may return all instances of **abc**, **abcde**,**xyabc**,**xabcy**. |
 |instanceId|String|Query|No|es-cn-n6w1o1x0w001c\*\*\*\*|The ID of the instance. |
 |esVersion|String|Query|No|5.3\_with\_X-Pack|The version of the instance. |
 |resourceGroupId|String|Query|No|rg-aekzvowej3i\*\*\*\*|The ID of the resource group to which the ECS instance belongs. |
 |tags|String|Query|No|dev-env|Details about the tags. |
-|vpcId|String|Query|No|vpc-bp16k1dvzxtmagcva\*\*\*\*|The Virtual Private Cloud of the instance. |
+|vpcId|String|Query|No|vpc-bp16k1dvzxtmagcva\*\*\*\*|The Virtual Private Cloud of the ID. where the instance resides. |
 |zoneId|String|Query|No|cn-hangzhou-i|The ID of the zone where the instance resides. |
-|paymentType|String|Query|No|postpaid|The billing method of the cloned instance. Valid values: postpaid \(pay-as-you-go\) and prepaid \(subscription\). |
+|paymentType|String|Query|No|postpaid|The billing method of the instance. Valid values: postpaid \(pay-as-you-go\) and prepaid \(subscription\). |
 |instanceCategory|String|Query|No|advanced|The version of the instance. Valid values: x-pack \(commercial edition\) and advanced \(Enhanced Edition\). |
 
 ## Response parameters
@@ -46,19 +44,19 @@ Maximum value: **100** . Default value: **10** . |
 |Result|Array of Instance| |The return results. |
 |advancedDedicateMaster|Boolean|false|Indicates whether the instance contains dedicated master nodes. |
 |clientNodeConfiguration|Struct| |Coordinates node configuration. |
-|amount|Integer|3|The number of nodes. |
+|amount|Integer|3|The number of cores used for calculation. |
 |disk|Integer|20|The storage space of the node. Unit: GB. |
 |diskType|String|cloud\_efficiency|The storage type of the node. Only ultra disks \(cloud\_efficiency\) are supported. |
-|spec|String|elasticsearch.sn2ne.large|The node specification. |
+|spec|String|elasticsearch.sn2ne.large|The node specifications of the cluster. |
 |createdAt|String|2018-07-13T03:58:07.253Z|The time when the instance was created. |
 |dedicateMaster|Boolean|false|Indicates whether the instance contains dedicated master nodes. This parameter is only supported by earlier Elasticsearch versions. |
 |description|String|es-cn-abc|The name of the instance. |
 |elasticDataNodeConfiguration|Struct| |The configuration of the elastic data node. |
-|amount|Integer|3|The number of nodes. |
+|amount|Integer|3|The number of cores used for calculation. |
 |disk|Integer|20|The storage space of the node. Unit: GB. |
 |diskEncryption|Boolean|true|Specifies whether to enable cloud disk encryption for the node. |
 |diskType|String|cloud\_ssd|The storage type of the node. Supported options: cloud\_ssd \(standard SSD\), cloud\_essd \(Enhanced SSD\), and cloud\_efficiency \(ultra disk\). |
-|spec|String|elasticsearch.sn2ne.large|The node specification. |
+|spec|String|elasticsearch.sn2ne.large|The node specifications of the cluster. |
 |esVersion|String|5.5.3\_with\_X-Pack|The version of the instance. |
 |extendConfigs|List|\[\{ "configType": "aliVersion", "aliVersion": "ali1.3.0" \}\]|The configuration of the cluster extension parameter. |
 |instanceId|String|es-cn-abc|The ID of the Elasticsearch instance. |
@@ -68,15 +66,15 @@ Maximum value: **100** . Default value: **10** . |
 |diskType|String|cloud\_ssd|The storage type of the node. |
 |spec|String|elasticsearch.n4.small|The specification of data nodes. |
 |masterConfiguration|Struct| |The configuration of dedicated master nodes. |
-|amount|Integer|3|The number of nodes. |
+|amount|Integer|3|The number of cores used for calculation. |
 |disk|Integer|20|The storage space of the node. Unit: GB. |
 |diskType|String|cloud\_ssd|The storage type of the node. Only cloud\_ssd is supported. |
-|spec|String|elasticsearch.sn2ne.large|The node specification. |
+|spec|String|elasticsearch.sn2ne.large|The node specifications of the cluster. |
 |networkConfig|Struct| |The network configuration. |
 |type|String|vpc|The type of the network. Only Virtual Private Cloud \(VPC\) is supported. |
 |vpcId|String|vpc-abc|The ID of the VPC. |
 |vsArea|String|cn-hangzhou-e|The zone where the instance is deployed. |
-|vswitchId|String|vsw-def|The ID of the vSwitch in the specified VPC. |
+|vswitchId|String|vsw-def|The ID of the vSwitch. |
 |nodeAmount|Integer|2|The number of data nodes. |
 |nodeSpec|Struct| |The configuration of data nodes. |
 |disk|Integer|50|The storage size of the node. Unit: GB. |
@@ -89,13 +87,13 @@ Maximum value: **100** . Default value: **10** . |
 |paymentType|String|postpaid|The billing method of the physical connection.
 
 Supported: **prepaid** \(Subscription\) and **postpaid** \(Pay-as-you-go\). |
-|resourceGroupId|String|rg-aekzvowej3i\*\*\*\*|The ID of the resource group. |
+|resourceGroupId|String|rg-aekzvowej3i\*\*\*\*|The ID of the resource group to which the cluster belongs. |
 |status|String|active|The status of the cluster.
 
 Supported: **active** \(Normal\), **activating** \(In effect\), **inactive** \(Frozen\) and **invalid** \(Invalidation\). |
 |tags|Array of Tag| |Details about the tags. |
-|tagKey|String|env|The tag key of the disk. |
-|tagValue|String|dev|The tag value of the disk. |
+|tagKey|String|env|The key of the tag. |
+|tagValue|String|dev|The value of the tag. |
 |updatedAt|String|2018-07-18T10:10:04.484Z|The time when the instance was last updated. |
 
 **Note:** In the following return example, only the parameters in the returned data list are guaranteed to be included in this article, and the parameters that are not mentioned are for reference only. It is not mandatory to obtain these parameters in the program.
@@ -105,7 +103,7 @@ Supported: **active** \(Normal\), **activating** \(In effect\), **inactive** \(F
 Sample requests
 
 ```
-GET /openapi/instances?description=abc&page=1&size=10 
+GET /openapi/instances?description=abc&page=1&size=10
 ```
 
 Sample success responses
@@ -184,7 +182,7 @@ Sample success responses
 </Headers>
 ```
 
-`JSON` Syntax
+`JSON` Format
 
 ```
 {
@@ -278,7 +276,7 @@ Sample success responses
 }
 ```
 
-## Error codes
+## Error code
 
 For a list of error codes, visit the [API Error Center](https://error-center.alibabacloud.com/status/product/elasticsearch).
 
