@@ -90,3 +90,5 @@ Sample success responses
 
 ## Error codes
 
+For a list of error codes, visit the [API Error Center](https://error-center.alibabacloud.com/status/product/elasticsearch).
+
