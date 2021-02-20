@@ -4,13 +4,16 @@ keyword: [analysis-aliws, AliNLP tokenization plug-in, Elasticsearch tokenizatio
 
 # Use the analysis-aliws plug-in
 
-analysis-aliws is a built-in plug-in of Alibaba Cloud Elasticsearch. This plug-in integrates an analyzer and a tokenizer into Elasticsearch to implement document analysis and retrieval. The plug-in allows you to upload a tailored dictionary file to it. After the upload, the system automatically performs a rolling update for your cluster. Alibaba Cloud Elasticsearch clusters of V5.X do not support this plug-in.
+analysis-aliws is a built-in plug-in of Alibaba Cloud Elasticsearch. This plug-in integrates an analyzer and a tokenizer into Elasticsearch to search and analyze documents. The plug-in allows you to upload a tailored dictionary file to it. After the upload, the system automatically performs a rolling update for your cluster and replaces the default dictionary file. This topic describes how to use the analysis-aliws plug-in.
 
 The analysis-aliws plug-in is installed. It is not installed by default.
 
-If it is not installed, install it. Make sure that your Elasticsearch cluster offers at least 4 GiB of memory. If your cluster is in a production environment, it must offer at least 8 GiB of memory. For more information about how to install the plug-in, see [Install and remove a built-in plug-in](/intl.en-US/Elasticsearch Instances Management/Plug-ins/Built-in plug-ins/Install and remove a built-in plug-in.md).
+If it is not installed, install it. Make sure that your Elasticsearch cluster offers at least 4 GiB of memory. If your cluster is in a production environment, it must offer at least 8 GiB of memory. For more information about how to install the analysis-aliws plug-in, see [Install and remove a built-in plug-in](/intl.en-US/Elasticsearch Instances Management/Plug-ins/Install and remove a built-in plug-in.md).
 
-**Note:** If the memory capacity of your cluster does not meet the preceding requirements, upgrade the configuration of your cluster. For more information, see [Upgrade the configuration of a cluster](/intl.en-US/Elasticsearch Instances Management/Upgrade or downgrade a cluster/Upgrade the configuration of a cluster.md).
+**Note:**
+
+-   Alibaba Cloud Elasticsearch V5.0 clusters do not support the analysis-aliws plug-in.
+-   If the memory size of your cluster does not meet the preceding requirements, upgrade the configuration of your cluster. For more information, see [Upgrade the configuration of a cluster](/intl.en-US/Elasticsearch Instances Management/Upgrade or downgrade a cluster/Upgrade the configuration of a cluster.md).
 
 After the analysis-aliws plug-in is installed, the following analyzer and tokenizer are integrated into your Elasticsearch cluster:
 
@@ -27,27 +30,45 @@ You can use the analyzer and tokenizer to search for documents. You can also upl
 
 2.  In the left-side navigation pane, click **Dev Tools**.
 
-3.  On the **Console** tab of the page that appears, run the following command to create an index:
+3.  On the **Console** tab of the page that appears, run one of the following commands to create an index:
 
-    ```
-    PUT /index
-    {
-        "mappings": {
-            "fulltext": {
-                "properties": {
-                    "content": {
-                        "type": "text",
-                        "analyzer": "aliws"
+    -   Command for Elasticsearch clusters earlier than V7.0
+
+        ```
+        PUT /index
+        {
+            "mappings": {
+                "fulltext": {
+                    "properties": {
+                        "content": {
+                            "type": "text",
+                            "analyzer": "aliws"
+                        }
                     }
                 }
             }
         }
-    }
-    ```
+        ```
 
-    The preceding command creates an index named `index`. The type of the index is `fulltext`. The index contains the `content` property. The type of the property is `text`. The command also adds the `aliws` analyzer.
+    -   Command for Elasticsearch clusters of V7.0 or later
 
-    If the command is successfully executed, the following result is returned:
+        ```
+        PUT /index
+        {
+          "mappings": {
+            "properties": {
+                "content": {
+                    "type": "text",
+                    "analyzer": "aliws"
+                  }
+              }
+          }
+        }
+        ```
+
+    In this example, an index named `index` is created. In versions earlier than V7.0, the type of the index is `fulltext`. In V7.0 or later, the type of the index is `_doc`. The index contains the `content` property. The type of the property is `text`. In addition, the `aliws` analyzer is added to the index.
+
+    If the running of the command is successful, the following result is returned:
 
     ```
     {
@@ -59,6 +80,8 @@ You can use the analyzer and tokenizer to search for documents. You can also upl
 
 4.  Run the following command to add a document:
 
+    **Note:** The following command is suitable only for Elasticsearch clusters earlier than V7.0. For Elasticsearch clusters of V7.0 or later, you must change `fulltext` to `_doc`.
+
     ```
     POST /index/fulltext/1
     {
@@ -66,9 +89,9 @@ You can use the analyzer and tokenizer to search for documents. You can also upl
     }
     ```
 
-    The preceding command adds a document named `1` and sets the value of the `content` field in the document to `I like go to school.`
+    The preceding command adds a document named `1` and sets the value of the `content` field in the document to `I like go to school.`.
 
-    If the command is successfully executed, the following result is returned:
+    If the running of the command is successful, the following result is returned:
 
     ```
     {
@@ -89,6 +112,8 @@ You can use the analyzer and tokenizer to search for documents. You can also upl
 
 5.  Run the following command to search for the document:
 
+    **Note:** The following command is suitable only for Elasticsearch clusters earlier than V7.0. For Elasticsearch clusters of V7.0 or later, you must change `fulltext` to `_doc`.
+
     ```
     GET /index/fulltext/_search
     {
@@ -102,7 +127,7 @@ You can use the analyzer and tokenizer to search for documents. You can also upl
 
     The preceding command uses the `aliws` analyzer to analyze all `fulltext`-type documents, and returns the document that has `school` contained in the `content` field.
 
-    If the command is successfully executed, the following result is returned:
+    If the running of the command is successful, the following result is returned:
 
     ```
     {
@@ -137,32 +162,32 @@ You can use the analyzer and tokenizer to search for documents. You can also upl
 
 ## Configure a dictionary
 
-The analysis-aliws plug-in allows you to upload a tailored dictionary file to it. After the upload, all nodes in your Elasticsearch cluster automatically load the file. In this case, the system does not need to restart the cluster.
+The analysis-aliws plug-in allows you to upload a tailored dictionary file to it to replace the default dictionary file. After you upload a tailored dictionary file, all nodes in your Elasticsearch cluster automatically load the file. In this case, the system does not restart the cluster.
 
 1.  Log on to the [Alibaba Cloud Elasticsearch console](https://elasticsearch.console.aliyun.com/#/home).
 
-2.  In the top navigation bar, select the region where your cluster resides.
+2.  In the left-side navigation pane, click **Elasticsearch Clusters**.
 
-3.  In the left-side navigation pane, click **Elasticsearch Clusters**. On the page that appears, find the target cluster and click its ID in the **Cluster ID/Name** column.
+3.  In the top navigation bar, select a resource group and a region. On the **Clusters** page, click the ID of the desired cluster.
 
 4.  In the left-side navigation pane, click **Plug-ins**.
 
 5.  On the **Built-in Plug-ins** tab, find the **analysis-aliws** plug-in and click **Dictionary Configuration** in the **Actions** column.
 
-6.  In the **Plug-ins** pane, click **Configure** in the lower-right corner.
+6.  In the **Plug-ins** panel, click **Configure**.
 
-7.  Select the method to upload the dictionary file. Then, upload the dictionary file based on the following instructions.
+7.  Select the method to upload the dictionary file. Then, upload the dictionary file based on the following instructions:
 
-    ![Update the dictionary file of the analysis-aliws plug-in](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/en-US/3681523061/p103059.png)
+    ![Update the dictionary file of the analysis-aliws plug-in](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/3681523061/p103059.png)
 
     The dictionary file must meet the following requirements:
 
     -   Name: aliws\_ext\_dict.txt.
     -   Encoding format: UTF-8.
-    -   Content: Each row contains one word and ends with `\n` \(line break in UNIX or Linux\). No whitespace characters are used before or after this word. If the dictionary file that you want to upload is generated in Windows, you must use the dos2unix tool to convert the file before the upload.
+    -   Content: Each row contains one word and ends with `\n` \(line feed in UNIX or Linux\). No whitespace characters are used before and after this word. If the dictionary file that you want to upload is generated in Windows, you must use the dos2unix tool to convert the file before the upload.
     You can select the **TXT File** or **Add OSS File** method.
 
-    -   **TXT File**: If you select this method, click **Upload TXT File** and select the local file that you want to upload.
+    -   **TXT File**: If you select this method, click **Upload TXT File** and select a file that you want to upload from your on-premises machine.
     -   **Add OSS File**: If you select this method, specify Bucket Name and File Name, and click **Add**.
 
         Make sure that the bucket you specify resides in the same region as your Elasticsearch cluster. If the content of the dictionary that is stored in OSS changes, you must manually upload the dictionary file again.
@@ -184,7 +209,7 @@ GET _analyze
 }
 ```
 
-If the command is successfully executed, the following result is returned:
+If the running of the command is successful, the following result is returned:
 
 ```
 {
@@ -233,7 +258,7 @@ GET _analyze
 }
 ```
 
-If the command is successfully executed, the following result is returned:
+If the running of the command is successful, the following result is returned:
 
 ```
 {
