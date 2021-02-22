@@ -6,12 +6,12 @@ keyword: [Elasticsearch physical replication, Elasticsearch apack]
 
 The apack plug-in is developed by the Alibaba Cloud Elasticsearch team. This plug-in provides the physical replication and vector retrieval features. This topic describes only the physical replication feature. This feature greatly reduces CPU overheads and improves write performance in scenarios such as logging and time series analytics. In these scenarios, replica shards are configured for indexes, large amounts of data are written, and data visibility is latency-insensitive.
 
--   An Alibaba Cloud Elasticsearch cluster of V6.7.0 is created. The kernel version of the cluster is 1.2.0 or later. For more information, see [Create an Elasticsearch cluster](/intl.en-US/Quick Start/Step 1: Create a cluster/Create an Elasticsearch cluster.md).
+-   An Alibaba Cloud Elasticsearch cluster of V6.7.0 is created. The kernel version of the cluster is 1.2.0 or later. For more information, see [Create an Alibaba Cloud Elasticsearch cluster](/intl.en-US/Elasticsearch Instances Management/Manage clusters/Create an Alibaba Cloud Elasticsearch cluster.md).
 -   The apack plug-in is installed.
 
-    Only Alibaba Cloud Elasticsearch clusters of V6.7.0 support this plug-in. If the kernel version of your cluster is earlier than 1.2.0, you must update the kernel before you use the plug-in. For more information about how to update the kernel of a cluster, see [Update the kernel of a cluster](/intl.en-US/Elasticsearch Instances Management/Upgrade or downgrade a cluster/Update the kernel of a cluster.md). If the kernel version of your cluster is 1.2.0 or later, the plug-in is already installed on your cluster and cannot be removed. You can go to the [Plug-ins](/intl.en-US/Elasticsearch Instances Management/Plug-ins/Overview of plug-ins.md) page to check whether the plug-in is installed.
+    Only Alibaba Cloud Elasticsearch clusters of V6.7.0 support this plug-in. If the kernel version of your cluster is earlier than 1.2.0, you must update the kernel before you use the plug-in. For more information about how to update the kernel of a cluster, see [Upgrade the version of a cluster](/intl.en-US/Elasticsearch Instances Management/Upgrade version/Upgrade the version of a cluster.md). If the kernel version of your cluster is 1.2.0 or later, the plug-in is already installed on your cluster and cannot be removed. You can go to the [Plug-ins](/intl.en-US/Elasticsearch Instances Management/Plug-ins/Overview.md) page to check whether the plug-in is installed.
 
-    **Note:** After the apack plug-in is installed, you can use both the physical replication and vector retrieval features. For more information about how to use the vector retrieval feature, see [Use the aliyun-knn plug-in for vector search]().
+    **Note:** After the apack plug-in is installed, you can use both the physical replication and vector retrieval features. For more information about how to use the vector retrieval feature, see [Use the aliyun-knn plug-in for vector searches]().
 
 
 Basic principle of the physical replication feature:
