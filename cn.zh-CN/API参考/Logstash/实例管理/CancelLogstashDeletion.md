@@ -39,6 +39,7 @@ POST /openapi/logstashes/[InstanceId]/actions/cancel-deletion HTTP/1.1
 
 ```
 POST /openapi/logstashes/ls-cn-m7r1vsi2****/actions/cancel-deletion HTTP/1.1
+公共请求头
 ```
 
 正常返回示例
