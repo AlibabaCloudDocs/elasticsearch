@@ -100,15 +100,15 @@ You can use the ClassicLink feature to access an Elasticsearch cluster from the 
 
 ## How do I release an Elasticsearch cluster?
 
-On the Elasticsearch Clusters page, find the cluster that you want to release. Then, in the Actions column, choose **More** \> **Release**. For more information, see [Release a cluster](/intl.en-US/Quick Start/Step 5 (optional): Release a cluster.md).
+On the Elasticsearch Clusters page, find the cluster that you want to release. Then, in the Actions column, choose **More** \> **Release**. For more information, see [Release a cluster](/intl.en-US/Elasticsearch Instances Management/Quick Start/Step 5 (optional): Release a cluster.md).
 
 ## When is an Elasticsearch cluster released after it is suspended?
 
-The cluster is released 24 hours after it is suspended. After it is released, all data in the cluster is permanently deleted and cannot be recovered. For more information, see [Overdue payments and cluster release](/intl.en-US/Pricing/Overdue payments.md).
+The cluster is released 24 hours after it is suspended. After it is released, all data in the cluster is permanently deleted and cannot be recovered. For more information, see [Overdue payments and cluster release](/intl.en-US/Pricing/Overdue payments and cluster release.md).
 
 ## Can I purchase an Elasticsearch cluster that has only one node?
 
-No, an Elasticsearch cluster must have a minimum of two data nodes. For more information, see [Parameters on the buy page](/intl.en-US/Quick Start/Step 1: Create a cluster/Parameters on the buy page.md).
+No, an Elasticsearch cluster must have a minimum of two data nodes. For more information, see [Parameters on the buy page](/intl.en-US/Elasticsearch Instances Management/Quick Start/Step 1: Create a cluster/Parameters on the buy page.md).
 
 ## When I purchase an Elasticsearch cluster, resources of a specific category are sold out. What do I do?
 
@@ -122,7 +122,7 @@ If the resources that you want to purchase are still unavailable after you take 
 
 ## Can I upgrade or downgrade the version of an Elasticsearch cluster?
 
-Upgrades are supported, whereas downgrades are not supported. You can upgrade Elasticsearch clusters only from V6.3.2 to V6.7.0. For more information, see [Upgrade the version of a cluster](/intl.en-US/Elasticsearch Instances Management/Upgrade/Upgrade the version of a cluster.md).
+Upgrades are supported, whereas downgrades are not supported. You can upgrade Elasticsearch clusters only from V6.3.2 to V6.7.0. For more information, see [Upgrade the version of a cluster](/intl.en-US/Elasticsearch Instances Management/Upgrade version/Upgrade the version of a cluster.md).
 
 If you want to perform upgrades between other versions or downgrades, purchase an Elasticsearch cluster of the desired version. Then, migrate data from the original cluster to the new cluster and cancel the subscription of or release the original cluster.
 
@@ -132,7 +132,7 @@ No, for security purposes, you are not allowed to log on to your Elasticsearch c
 
 ## Is Logstash V6.7 compatible with Elasticsearch V6.3?
 
-Yes, for more information, see [Compatibility matrixes](/intl.en-US/Product Introduction/Compatibility matrixes.md).
+Yes, for more information, see [Compatibility matrixes](/intl.en-US/Product Introduction/Product edition/Compatibility matrixes.md).
 
 ## Can Elasticsearch be used as a data source of Quick BI?
 
@@ -140,7 +140,7 @@ No, you can use Kibana to analyze and present analysis results.
 
 ## Does Elasticsearch support scoring plug-ins?
 
-Yes, when you create an index, Elasticsearch allows you to create a tokenizer. When you search for data, Elasticsearch uses a scoring plug-in to sort search results by score. For more information, see [Search for data](/intl.en-US/Quick Start/Step 4: Query business data/Search for data.md).
+Yes, when you create an index, Elasticsearch allows you to create a tokenizer. When you search for data, Elasticsearch uses a scoring plug-in to sort search results by score. For more information, see [Search for data](/intl.en-US/Elasticsearch Instances Management/Quick Start/Step 4: Query business data/Search for data.md).
 
 ## Does Elasticsearch support LDAP?
 
@@ -172,7 +172,7 @@ This issue is caused by unbalanced loads on the cluster. Unbalanced loads may be
 
 ## How do I plan resources before I use Elasticsearch, such as cluster specifications, the number of shards, and the size of each shard?
 
-Evaluate the specifications and storage capacity of your Elasticsearch cluster. For more information, see [Evaluate specifications and storage capacity](/intl.en-US/Quick Start/Preparations/Evaluate specifications and storage capacity.md). You can purchase an Elasticsearch cluster or upgrade the configuration of the cluster based on the evaluation results.
+Evaluate the specifications and storage capacity of your Elasticsearch cluster. For more information, see [Evaluate specifications and storage capacity](). You can purchase an Elasticsearch cluster or upgrade the configuration of the cluster based on the evaluation results.
 
 ## How do I view the configuration of an Elasticsearch cluster?
 
@@ -213,7 +213,7 @@ The required time is determined by the data volume, data structure, and cluster 
 
 ## Are services affected when I upgrade the version of an Elasticsearch cluster?
 
-When you upgrade the version of an Elasticsearch cluster, you can still read data from or write data to the cluster but cannot make other changes. We recommend that you perform a version upgrade during off-peak hours. For more information about the precautions and procedure for a version upgrade, see [Upgrade the version of a cluster](/intl.en-US/Elasticsearch Instances Management/Upgrade/Upgrade the version of a cluster.md).
+When you upgrade the version of an Elasticsearch cluster, you can still read data from or write data to the cluster but cannot make other changes. We recommend that you perform a version upgrade during off-peak hours. For more information about the precautions and procedure for a version upgrade, see [Upgrade the version of a cluster](/intl.en-US/Elasticsearch Instances Management/Upgrade version/Upgrade the version of a cluster.md).
 
 ## Can I use the YML configuration file of an Elasticsearch cluster to change the settings of the http.max\_content\_length and discovery.zen.ping\_timeout parameters?
 
@@ -243,7 +243,7 @@ No, you can only delete or update dictionary files on the cluster management pag
 
 ## After I update IK dictionaries, how do I apply the new dictionaries to existing data?
 
-You must perform a reindex operation. If indexes are configured with IK tokens, the new dictionaries apply only to new data in these indexes. If you want to apply the new dictionaries to all the data in these indexes, you must perform a reindex operation. For more information, see [Configure a remote reindex whitelist for an Elasticsearch cluster](/intl.en-US/Elasticsearch Instances Management/Elasticsearch cluster configuration/Configure YML/Configure a remote reindex whitelist for an Elasticsearch cluster.md).
+You must perform a reindex operation. If indexes are configured with IK tokens, the new dictionaries apply only to new data in these indexes. If you want to apply the new dictionaries to all the data in these indexes, you must perform a reindex operation. For more information, see [Configure the YML file](/intl.en-US/Elasticsearch Instances Management/Elasticsearch cluster configuration/Configure the YML file.md).
 
 ## Is there a specific threshold for full GC?
 
@@ -251,7 +251,7 @@ Full garbage collection \(GC\) is used to clean the entire heap memory. Whether 
 
 ## Can I remove plug-ins that are not used?
 
-You can remove only some plug-ins. On the Built-in Plug-ins tab of the Plug-ins page of your Elasticsearch cluster, you can view plug-ins that can be removed. If the system displays Remove in the Actions column of a plug-in, the plug-in can be removed. For more information about how to remove a plug-in, see [Install and remove a built-in plug-in](/intl.en-US/Elasticsearch Instances Management/Plug-ins/Built-in plug-ins/Install and remove a built-in plug-in.md).
+You can remove only some plug-ins. On the Built-in Plug-ins tab of the Plug-ins page of your Elasticsearch cluster, you can view plug-ins that can be removed. If the system displays Remove in the Actions column of a plug-in, the plug-in can be removed. For more information about how to remove a plug-in, see [Install and remove a built-in plug-in](/intl.en-US/Elasticsearch Instances Management/Plug-ins/Install and remove a built-in plug-in.md).
 
 ## Are the dictionaries provided by the IK analysis plug-in of Alibaba Cloud Elasticsearch the same as those provided by the IK analysis plug-in of open source Elasticsearch?
 
@@ -287,7 +287,7 @@ The dictionary file must meet the following requirements:
 
 ## Can I specify a retention period for the .security indexes of an Elasticsearch cluster?
 
-No, Elasticsearch does not automatically delete expired indexes. You must manually delete the expired .security indexes. For more information, see [Delete an index](/intl.en-US/Quick Start/Step 4: Query business data/Delete an index.md).
+No, Elasticsearch does not automatically delete expired indexes. You must manually delete the expired .security indexes. For more information, see [Delete an index](/intl.en-US/Elasticsearch Instances Management/Quick Start/Step 4: Query business data/Delete an index.md).
 
 ## I can view Elasticsearch cluster logs that are generated only over the last seven days. How do I view more logs?
 
@@ -311,11 +311,11 @@ You can call the ListSearchLog operation on a regular basis to obtain the slow l
 
 For automatic snapshots, you can restore data from the snapshots only to the original cluster. For more information, see [Create automatic snapshots and restore data from automatic snapshots](/intl.en-US/Elasticsearch Instances Management/Data backup/Create automatic snapshots and restore data from automatic snapshots.md).
 
-For manual snapshots, you can restore data from the snapshots to a cluster other than the original cluster. We recommend that the versions of the destination cluster and original cluster must be the same. If the versions are different, compatibility issues may occur. For more information, see [Commands to create snapshots and restore data](/intl.en-US/Elasticsearch Instances Management/Data backup/Commands for creating snapshots and restoring data.md).
+For manual snapshots, you can restore data from the snapshots to a cluster other than the original cluster. We recommend that the versions of the destination cluster and original cluster must be the same. If the versions are different, compatibility issues may occur. For more information, see [Commands to create snapshots and restore data](/intl.en-US/Elasticsearch Instances Management/Data backup/Commands to create snapshots and restore data.md).
 
 ## When I back up data for an Elasticsearch cluster, the system displays a message indicating that the cluster is unhealthy. What do I do?
 
-When an Elasticsearch cluster is unhealthy, you cannot use the Auto Snapshot feature and specify shared OSS repositories. You can purchase an OSS bucket that resides in the same region as your Elasticsearch cluster. Then, create an OSS repository and manually create snapshots. For more information, see [Commands to create snapshots and restore data](/intl.en-US/Elasticsearch Instances Management/Data backup/Commands for creating snapshots and restoring data.md).
+When an Elasticsearch cluster is unhealthy, you cannot use the Auto Snapshot feature and specify shared OSS repositories. You can purchase an OSS bucket that resides in the same region as your Elasticsearch cluster. Then, create an OSS repository and manually create snapshots. For more information, see [Commands to create snapshots and restore data](/intl.en-US/Elasticsearch Instances Management/Data backup/Commands to create snapshots and restore data.md).
 
 ## I enable the Auto Snapshot feature but do not specify shared OSS repositories for an Elasticsearch cluster. Are snapshots created?
 
@@ -359,12 +359,12 @@ Possible causes include heavy loads, high query QPS, or large amounts of data to
 -   Heavy loads: For more information, see [High disk usage and read-only indexes]().
 -   High query QPS or large amounts of data to write: We recommend that you install the aliyun-qos plug-in on your Elasticsearch cluster to implement read/write throttling. For more information, see [Use the aliyun-qos plug-in](/intl.en-US/Elasticsearch Instances Management/Plug-ins/Built-in plug-ins/Use the aliyun-qos plug-in.md).
 
-    **Note:** For image searches, we recommend that you install the aliyun-knn plug-in on your cluster and plan your cluster and indexes. For more information, see [Use the aliyun-knn plug-in for vector search]().
+    **Note:** For image searches, we recommend that you install the aliyun-knn plug-in on your cluster and plan your cluster and indexes. For more information, see [Use the aliyun-knn plug-in for vector searches]().
 
 
 ## How do I use a client to access an Alibaba Cloud Elasticsearch cluster? What is the difference between access to an Alibaba Cloud Elasticsearch cluster and access to an open source Elasticsearch cluster?
 
-Access an Alibaba Cloud Elasticsearch cluster by using its internal or public endpoint. Access an open source Elasticsearch cluster by using its address. For more information, see [Use a client to access an Alibaba Cloud Elasticsearch cluster](/intl.en-US/Developer Guide/Access Alibaba Cloud Elasticsearch by using a client.md).
+Access an Alibaba Cloud Elasticsearch cluster by using its internal or public endpoint. Access an open source Elasticsearch cluster by using its address. For more information, see [Use a client to access an Alibaba Cloud Elasticsearch cluster](/intl.en-US/Developer Guide/Use a client to access an Alibaba Cloud Elasticsearch cluster.md).
 
 ## When I use a client to access an Elasticsearch cluster, can I disable the basic authentication feature?
 
@@ -376,5 +376,5 @@ Yes, you can use an ECS instance to access an Elasticsearch cluster from an inte
 
 ## How do I access an Elasticsearch cluster from the Internet?
 
-You can access the cluster from the Internet by using its public endpoint and configuring a public IP address whitelist. For more information, see [Configure a whitelist to access an Elasticsearch cluster over the Internet or a VPC](/intl.en-US/Elasticsearch Instances Management/Security/Configure a whitelist to access an Elasticsearch cluster over the Internet or a VPC.md). When you access the cluster, you must configure parameters, such as the domain name, username, and password. For more information, see [Use a client to access an Alibaba Cloud Elasticsearch cluster](/intl.en-US/Developer Guide/Access Alibaba Cloud Elasticsearch by using a client.md).
+You can access the cluster from the Internet by using its public endpoint and configuring a public IP address whitelist. For more information, see [Configure a whitelist to access an Elasticsearch cluster over the Internet or a VPC](/intl.en-US/Elasticsearch Instances Management/Security/Configure a whitelist to access an Elasticsearch cluster over the Internet or a VPC.md). When you access the cluster, you must configure parameters, such as the domain name, username, and password. For more information, see [Use a client to access an Alibaba Cloud Elasticsearch cluster](/intl.en-US/Developer Guide/Use a client to access an Alibaba Cloud Elasticsearch cluster.md).
 
