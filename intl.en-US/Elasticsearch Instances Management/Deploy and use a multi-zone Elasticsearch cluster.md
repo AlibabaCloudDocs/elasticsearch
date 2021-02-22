@@ -16,10 +16,8 @@ You can deploy an Alibaba Cloud Elasticsearch cluster by using one of the follow
 
     When you purchase an Alibaba Cloud Elasticsearch cluster, you can select the number of zones for the cluster. If you select two or three zones, the system deploys the cluster across these zones. During the deployment, you do not need to select each zone. The system automatically selects the zones. For more information, see [Create a cluster](/intl.en-US/Elasticsearch Instances Management/Quick Start/Step 1: Create a cluster/Create a cluster.md) and [Parameters on the buy page](/intl.en-US/Elasticsearch Instances Management/Quick Start/Step 1: Create a cluster/Parameters on the buy page.md).
 
-    **Note:**
+    **Note:** If you choose to deploy a cluster across zones, the console displays only the zones where nodes that receive network traffic from clients are deployed, such as Hangzhou Zone J. The system actually deploys the cluster to the zones that have sufficient ECS instances, such as Beijing Zone H and Beijing Zone J.
 
-    -   You can deploy an Elasticsearch cluster across three zones only in the China \(Hangzhou\), China \(Beijing\), China \(Shanghai\), and China \(Shenzhen\) regions.
-    -   If you choose to deploy a cluster across zones, the console displays only the zones where nodes that receive network traffic from clients are deployed, such as Hangzhou Zone J. The system actually deploys the cluster to the zones that have sufficient ECS instances, such as Beijing Zone H and Beijing Zone J.
 -   Precautions
 
     |Category|Precaution|
