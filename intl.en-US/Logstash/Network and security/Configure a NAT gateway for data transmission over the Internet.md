@@ -29,7 +29,7 @@ This topic describes how to configure a Network Address Translation \(NAT\) gate
 
 6.  On the NAT Gateway page, click Create NAT Gateway.
 
-    When you create a NAT gateway, select the region and VPC where the Logstash cluster resides. For more information, see [Create a NAT gateway]().
+    When you create a NAT gateway, select the region and VPC where the Logstash cluster resides. For more information, see [Step 2: Create a NAT gateway](/intl.en-US/Quick Start/Enable ECS instances to access the Internet through SNAT.md).
 
 7.  Associate an elastic IP address \(EIP\) with the NAT gateway.
 
