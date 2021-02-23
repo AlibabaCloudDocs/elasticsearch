@@ -5,7 +5,7 @@ You can call the UpdateInstance operation to change the configuration of a clust
 When you call this operation, take note of the following limits:
 
 -   You cannot change the configuration of an instance when it is in the activating, invalid, or inactive state.
--   You can only change the configuration of one type of node at a time, including data nodes, dedicated master nodes, cold data nodes, coordinator nodes, Kibana nodes, and elastic nodes. For more information, see [Upgrade the configuration of a cluster](~~96650~~) and [Downgrade cluster](~~198887~~).
+-   You can only change the configuration of one type of node at a time, including data nodes, dedicated master nodes, cold data nodes, coordinator nodes, Kibana nodes, and elastic nodes. For more information, see [Upgrade the configuration of a cluster](~~96650~~).
 
 ## Debugging
 
