@@ -6,9 +6,19 @@ keyword: [aliyun-qos插件, es集群限流]
 
 集群限流插件（简称aliyun-qos插件）是阿里云Elasticsearch团队自研的插件，目的是为了提高集群的稳定性。该插件能够实现节点级别的读写限流，在关键时刻对指定索引降级，将流量控制在合适范围内。例如当上游业务无法进行流量控制时，尤其对于读请求业务，可根据aliyun-qos插件设置的规则，按照业务的优先级进行适当的降级，来保护Elasticsearch服务的稳定性。
 
+## 前提条件
+
+升级插件版本至rc4及以上。
+
+[登录Kibana控制台](/cn.zh-CN/Elasticsearch/可视化控制/Kibana/登录Kibana控制台.md)，通过`GET /_cat/plugins?v`命令查看该插件的版本。如果版本低于rc4， 需要[提交工单](https://selfservice.console.aliyun.com/ticket/createIndex)联系阿里云Elasticsearch技术工程师升级插件版本。升级后，需要您手动重启Elasticsearch实例生效。
+
+![查看插件版本](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/6807854161/p244629.png)
+
+**说明：** 使用aliyun-qos插件时，如果其版本低于rc4，会出现`unsupported_operation_exception`的报错。
+
 ## 注意事项
 
-aliyun-qos插件为预装插件，限流功能默认关闭，不支持卸载。该插件是为了保护集群，提高稳定性，并不会对读写流量进行精准的计量。
+aliyun-qos插件为预装插件，限流功能默认关闭，不支持卸载。该插件是为了保护集群，提高稳定性，并不会精准计量读写流量。
 
 ![aliyun-qos插件](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/6846359951/p89247.png)
 
