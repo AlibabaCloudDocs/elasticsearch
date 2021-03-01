@@ -58,7 +58,7 @@ RequestBody中还需填入以下参数，用来指定更新后的扩展文件配
 
 |ORIGIN
 
-|扩展文件来源。目前只支持ORIGIN。即保留对应扩展文件，未配置该参数的扩展文件会被删除。添加和修改扩展文件功能正在开发中，您可以在控制实现全部管控操作。 |
+|扩展文件来源，目前只支持ORIGIN。即保留对应扩展文件，未配置该参数的扩展文件会被删除。添加和修改扩展文件功能正在开发中，您可以在控制实现全部管控操作。 |
 
 ## 返回数据
 
@@ -68,7 +68,7 @@ RequestBody中还需填入以下参数，用来指定更新后的扩展文件配
 |Result|Array of Result| |返回结果。 |
 |fileSize|Long|1853083|扩展文件大小，单位：Byte。 |
 |name|String|mysql-connector-java-6.0.2.jar|扩展文件名称。 |
-|sourceType|String|ORIGIN|扩展文件来源。ORIGIN（保留的原有扩展文件）。 |
+|sourceType|String|ORIGIN|扩展文件来源，仅支持ORIGIN（保留的原有扩展文件）。 |
 
 ## 示例
 
@@ -77,7 +77,6 @@ RequestBody中还需填入以下参数，用来指定更新后的扩展文件配
 ```
 PUT /openapi/logstashes/ls-cn-oew1qbgl****/extendfiles HTTP/1.1
 公共请求头
-```
 [
     {
         "sourceType":"ORIGIN",
@@ -92,11 +91,11 @@ PUT /openapi/logstashes/ls-cn-oew1qbgl****/extendfiles HTTP/1.1
 
 ```
 <Result>
-    <name>mysql-connector-java-6.0.2.jar</name>
-    <fileSize>1853083</fileSize>
-    <sourceType>UPLOAD</sourceType>
+    <name>mysql-connector-java-5.1.35.jar</name>
+    <fileSize>968668</fileSize>
+    <sourceType>ORIGIN</sourceType>
 </Result>
-<RequestId>964F2663-0961-41FB-AB2E-AC4E931A4F44</RequestId>
+<RequestId>27F32ECF-0527-43BF-A116-D6260D1240BE</RequestId>
 ```
 
 `JSON`格式
