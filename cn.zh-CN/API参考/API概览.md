@@ -14,6 +14,7 @@
 |[UpdateInstanceChargeType](/cn.zh-CN/API参考/Elasticsearch/实例管理/UpdateInstanceChargeType.md)|调用UpdateInstanceChargeType，将按量付费实例转换为包年包月实例。|
 |[UpdateDescription](/cn.zh-CN/API参考/Elasticsearch/实例管理/UpdateDescription.md)|调用UpdateDescription，更新指定实例的名称。|
 |[DeleteInstance](/cn.zh-CN/API参考/Elasticsearch/实例管理/DeleteInstance.md)|调用DeleteInstance，释放指定按量付费类型的阿里云Elasticsearch实例。释放后，实例所使用的物理资源都被回收，相关数据全部丢失且不可恢复；挂载实例节点的云盘和相应的快照都会被释放。|
+|[CancelDeletion](/cn.zh-CN/API参考/Elasticsearch/实例管理/CancelDeletion.md)|调用CancelDeletion，恢复释放后被冻结的Elasticsearch实例。|
 |[RenewInstance](/cn.zh-CN/API参考/Elasticsearch/实例管理/RenewInstance.md)|调用RenewInstance，为包年包月实例续费。|
 |[ActivateZones](/cn.zh-CN/API参考/Elasticsearch/实例管理/ActivateZones.md)|调用ActivateZones，恢复已下线的可用区中的节点。仅对多可用区实例有效。|
 |[DeactivateZones](/cn.zh-CN/API参考/Elasticsearch/实例管理/DeactivateZones.md)|调用DeactivateZones，在有多个可用区的情况下，下线部分可用区。并将下线的可用区中的节点迁移到其他可用区。|
@@ -42,23 +43,27 @@
 |[ValidateShrinkNodes](/cn.zh-CN/API参考/Elasticsearch/实例升降配/ValidateShrinkNodes.md)|调用ValidateShrinkNodes，校验指定实例中的某些节点是否可以缩容。|
 |[ShrinkNode](/cn.zh-CN/API参考/Elasticsearch/实例升降配/ShrinkNode.md)|调用ShrinkNode，执行集群节点缩容操作。|
 |[UpgradeEngineVersion](/cn.zh-CN/API参考/Elasticsearch/实例升降配/UpgradeEngineVersion.md)|调用UpgradeEngineVersion，升级Elasticsearch的实例版本或内核补丁版本。升级实例版本功能仅支持将6.3版本的实例升级至6.7版本。|
-|[UpdateInstance](/cn.zh-CN/API参考/Elasticsearch/实例升降配/UpdateInstance.md)|调用UpdateInstance，升配集群。|
+|[UpdateInstance](/cn.zh-CN/API参考/Elasticsearch/实例升降配/UpdateInstance.md)|调用UpdateInstance，变更集群配置（升配或降配）。|
 |集群配置|[UpdateInstanceSettings](/cn.zh-CN/API参考/Elasticsearch/集群配置/UpdateInstanceSettings.md)|调用UpdateInstanceSettings，更新指定实例的YML参数配置。|
 |[UpdateHotIkDicts](/cn.zh-CN/API参考/Elasticsearch/集群配置/UpdateHotIkDicts.md)|调用UpdateHotIkDicts，更新阿里云Elasticsearch实例的IK热词词典。|
 |[UpdateSynonymsDicts](/cn.zh-CN/API参考/Elasticsearch/集群配置/UpdateSynonymsDicts.md)|调用UpdateSynonymsDicts，更新阿里云Elasticsearch实例的同义词词典。|
 |[UpdateDict](/cn.zh-CN/API参考/Elasticsearch/集群配置/UpdateDict.md)|调用UpdateDict，更新Elasticsearch实例的用户词典。|
+|[UpdateAliwsDict](/cn.zh-CN/API参考/Elasticsearch/集群配置/UpdateAliwsDict.md)|调用UpdateAliwsDict，更新AliNLP分词插件（analysis-aliws）的词典文件。支持自定义词库配置。|
 |[UpdateAdvancedSetting](/cn.zh-CN/API参考/Elasticsearch/集群配置/UpdateAdvancedSetting.md)|调用UpdateAdvancedSetting，更改指定实例的垃圾回收器配置。|
 |[DescribeTemplates](/cn.zh-CN/API参考/Elasticsearch/集群配置/DescribeTemplates.md)|调用DescribeTemplates，获取实例的场景模板配置。|
 |[UpdateExtendConfig](/cn.zh-CN/API参考/Elasticsearch/集群配置/UpdateExtendConfig.md)|调用UpdateExtendConfig，修改集群的场景化配置模板。|
 |[UpdateTemplate](/cn.zh-CN/API参考/Elasticsearch/集群配置/UpdateTemplate.md)|调用UpdateTemplate，修改集群的场景化模板配置内容。|
+|[RecommendTemplates](/cn.zh-CN/API参考/Elasticsearch/集群配置/RecommendTemplates.md)|调用RecommendTemplates，获取推荐的集群配置。|
 |插件管理|[ListPlugins](/cn.zh-CN/API参考/Elasticsearch/插件管理/ListPlugins.md)|调用ListPlugins，获取指定阿里云Elasticsearch实例的插件列表。|
 |[InstallSystemPlugin](/cn.zh-CN/API参考/Elasticsearch/插件管理/InstallSystemPlugin.md)|调用InstallSystemPlugin，安装系统预置插件。|
 |[UninstallPlugin](/cn.zh-CN/API参考/Elasticsearch/插件管理/UninstallPlugin.md)|调用UninstallPlugin，卸载已安装的预置插件。|
+|集群监控|[GetEmonMonitorData](/cn.zh-CN/API参考/Elasticsearch/集群监控/GetEmonMonitorData.md)|调用GetEmonMonitorData，查询Elasticsearch实例的Grafana指标监控数据。|
 |日志查询|[ListSearchLog](/cn.zh-CN/API参考/Elasticsearch/日志查询/ListSearchLog.md)|调用ListSearchLog，查看实例日志。|
 |安全配置|[TriggerNetwork](/cn.zh-CN/API参考/Elasticsearch/安全配置/TriggerNetwork.md)|调用TriggerNetwork，开启或关闭Elasticsearch、Kibana的公网或私网访问。|
 |[UpdatePrivateNetworkWhiteIps](/cn.zh-CN/API参考/Elasticsearch/安全配置/UpdatePrivateNetworkWhiteIps.md)|调用UpdatePrivateNetworkWhiteIps，更新指定实例的VPC私网访问白名单。|
 |[UpdatePublicWhiteIps](/cn.zh-CN/API参考/Elasticsearch/安全配置/UpdatePublicWhiteIps.md)|调用UpdatePublicWhiteIps，更新指定实例的公网地址访问白名单。|
 |[UpdatePublicNetwork](/cn.zh-CN/API参考/Elasticsearch/安全配置/UpdatePublicNetwork.md)|调用UpdatePublicNetwork，开启或关闭指定实例的公网地址。|
+|[UpdateWhiteIps](/cn.zh-CN/API参考/Elasticsearch/安全配置/UpdateWhiteIps.md)|调用UpdateWhiteIps，更新Elasticsearch实例的VPC私网访问白名单。|
 |[ModifyWhiteIps](/cn.zh-CN/API参考/Elasticsearch/安全配置/ModifyWhiteIps.md)|调用ModifyWhiteIps，更新指定实例的访问白名单。|
 |[UpdateAdminPassword](/cn.zh-CN/API参考/Elasticsearch/安全配置/UpdateAdminPassword.md)|调用UpdateAdminPassword，更新指定实例的elastic账号的密码。|
 |[OpenHttps](/cn.zh-CN/API参考/Elasticsearch/安全配置/OpenHttps.md)|调用OpenHttps，开启HTTPS协议。开启前请确保您已购买协调节点。|
@@ -76,8 +81,10 @@
 |[DeleteSnapshotRepo](/cn.zh-CN/API参考/Elasticsearch/数据备份/DeleteSnapshotRepo.md)|调用DeleteSnapRepo，删除一个跨集群OSS引用仓库。|
 |智能运维|[OpenDiagnosis](/cn.zh-CN/API参考/Elasticsearch/智能运维/OpenDiagnosis.md)|调用OpenDiagnosis，打开实例的智能运维功能。|
 |[CloseDiagnosis](/cn.zh-CN/API参考/Elasticsearch/智能运维/CloseDiagnosis.md)|调用CloseDiagnosis，关闭实例的智能运维功能。|
+|[DiagnoseInstance](/cn.zh-CN/API参考/Elasticsearch/智能运维/DiagnoseInstance.md)|调用DiagnoseInstance，即刻诊断实例。|
 |[ListDiagnoseReport](/cn.zh-CN/API参考/Elasticsearch/智能运维/ListDiagnoseReport.md)|调用ListDiagnoseReport，获取智能运维的历史报告。|
 |[ListDiagnoseReportIds](/cn.zh-CN/API参考/Elasticsearch/智能运维/ListDiagnoseReportIds.md)|调用ListDiagnoseReportIds，获取智能运维历史报告的ID。|
+|[ListDiagnoseIndices](/cn.zh-CN/API参考/Elasticsearch/智能运维/ListDiagnoseIndices.md)|调用ListDiagnoseIndices，获取指定实例智能运维模块中，健康诊断的诊断索引。|
 |[DescribeDiagnoseReport](/cn.zh-CN/API参考/Elasticsearch/智能运维/DescribeDiagnoseReport.md)|调用DescribeDiagnoseReport，查看智能运维的历史报告。|
 |[DescribeDiagnosisSettings](/cn.zh-CN/API参考/Elasticsearch/智能运维/DescribeDiagnosisSettings.md)|调用DescribeDiagnosisSettings，获取智能运维的场景设置。|
 |[UpdateDiagnosisSettings](/cn.zh-CN/API参考/Elasticsearch/智能运维/UpdateDiagnosisSettings.md)|调用UpdateDiagnosisSettings，更新实例的智能运维场景设置。|
@@ -96,7 +103,8 @@
 
 |类别|API|描述|
 |--|---|--|
-|实例管理|[ListLogstash](/cn.zh-CN/API参考/Logstash/实例管理/ListLogstash.md)|调用ListLogstash，在列表中展示所有或指定Logstash实例的详细信息。|
+|实例管理|[CreateLogstash](/cn.zh-CN/API参考/Logstash/实例管理/CreateLogstash.md)|调用CreateLogstash，创建一个Logstash实例。|
+|[ListLogstash](/cn.zh-CN/API参考/Logstash/实例管理/ListLogstash.md)|调用ListLogstash，在列表中展示所有或指定Logstash实例的详细信息。|
 |[DescribeLogstash](/cn.zh-CN/API参考/Logstash/实例管理/DescribeLogstash.md)|调用DescribeLogstash，查询指定实例的详细信息。|
 |[UpdateLogstash](/cn.zh-CN/API参考/Logstash/实例管理/UpdateLogstash.md)|调用UpdateLogstash，修改指定实例的部分信息，例如节点数、配额、名称、硬盘大小等。|
 |[RenewLogstash](/cn.zh-CN/API参考/Logstash/实例管理/RenewLogstash.md)|调用RenewLogstash，为实例续费。|
@@ -105,8 +113,10 @@
 |[UpdateLogstashChargeType](/cn.zh-CN/API参考/Logstash/实例管理/UpdateLogstashChargeType.md)|调用UpdateLogstashChargeType，将按量付费的阿里云Logstash实例转换为包年包月实例。|
 |[EstimatedLogstashRestartTime](/cn.zh-CN/API参考/Logstash/实例管理/EstimatedLogstashRestartTime.md)|调用EstimatedLogstashRestartTime，获取Logstash实例重启的预估时间。|
 |[DeleteLogstash](/cn.zh-CN/API参考/Logstash/实例管理/DeleteLogstash.md)|调用DeleteLogstash，释放指定实例。|
-|集群配置|[ListExtendfiles](/cn.zh-CN/API参考/Logstash/集群配置/ListExtendfiles.md)|调用ListExtendfiles，获取Logstash实例的扩展文件配置。|
-|[UpdateLogstashSettings](/cn.zh-CN/API参考/Logstash/集群配置/UpdateLogstashSettings.md)|调用UpdateLogstashSettings，更新指定Logstash实例的配置。|
+|[CancelLogstashDeletion](/cn.zh-CN/API参考/Logstash/实例管理/CancelLogstashDeletion.md)|调用CancelLogstashDeletion，恢复释放后被冻结的Logstash实例。|
+|集群配置|[UpdateLogstashSettings](/cn.zh-CN/API参考/Logstash/集群配置/UpdateLogstashSettings.md)|调用UpdateLogstashSettings，更新指定Logstash实例的配置。|
+|[ListExtendfiles](/cn.zh-CN/API参考/Logstash/集群配置/ListExtendfiles.md)|调用ListExtendfiles，获取Logstash实例的扩展文件配置。|
+|[UpdateExtendfiles](/cn.zh-CN/API参考/Logstash/集群配置/UpdateExtendfiles.md)|调用UpdateExtendfiles，更新Logstash实例的扩展文件配置。|
 |集群监控|[ListAvailableEsInstanceIds](/cn.zh-CN/API参考/Logstash/集群监控/ListAvailableEsInstanceIds.md)|调用ListAvailableEsInstanceIds，在设置Logstash实例的X-Pack监控时，获取可用的Elasticsearch实例列表（具备X-Pack监控能力）。|
 |[ValidateConnection](/cn.zh-CN/API参考/Logstash/集群监控/ValidateConnection.md)|调用ValidateConnection，在Logstash实例的监控报警配置中，验证提供X-Pack监控的Elasticsearch实例的联通性。|
 |[UpdateXpackMonitorConfig](/cn.zh-CN/API参考/Logstash/集群监控/UpdateXpackMonitorConfig.md)|调用UpdateXpackMonitorConfig，更新Logstash实例的X-Pack监控报警配置。|
@@ -131,10 +141,29 @@
 
 |API|描述|
 |---|--|
+|[CreateCollector](/cn.zh-CN/API参考/Beats/CreateCollector.md)|调用CreateCollector，创建采集器。|
+|[DescribeCollector](/cn.zh-CN/API参考/Beats/DescribeCollector.md)|调用DescribeCollector，获取采集器实例的详细信息。|
 |[ReinstallCollector](/cn.zh-CN/API参考/Beats/ReinstallCollector.md)|调用ReinstallCollector，重试安装在创建时没有安装成功的采集器。|
 |[ListCollectors](/cn.zh-CN/API参考/Beats/ListCollectors.md)|调用ListCollectors，获取采集器列表信息。|
+|[ListDefaultCollectorConfigurations](/cn.zh-CN/API参考/Beats/ListDefaultCollectorConfigurations.md)|调用ListDefaultCollectorConfigurations，获取采集器的默认配置文件。|
 |[UpdateCollectorName](/cn.zh-CN/API参考/Beats/UpdateCollectorName.md)|调用UpdateCollectorName，修改采集器名称。|
+|[UpdateCollector](/cn.zh-CN/API参考/Beats/UpdateCollector.md)|调用UpdateCollector，更新采集器实例信息。|
 |[StartCollector](/cn.zh-CN/API参考/Beats/StartCollector.md)|调用StartCollector，启动采集器。|
+|[RestartCollector](/cn.zh-CN/API参考/Beats/RestartCollector.md)|调用RestartCollector，重启采集器。|
 |[StopCollector](/cn.zh-CN/API参考/Beats/StopCollector.md)|调用StopCollector，停止运行中的采集器。|
 |[DeleteCollector](/cn.zh-CN/API参考/Beats/DeleteCollector.md)|调用DeleteCollector，删除采集器。|
+|[ListEcsInstances](/cn.zh-CN/API参考/Beats/基于ECS部署/ListEcsInstances.md)|调用ListEcsInstances，获取ECS机器列表。|
+|[ModifyDeployMachine](/cn.zh-CN/API参考/Beats/基于ECS部署/ModifyDeployMachine.md)|调用ModifyDeployMachine，更新采集器安装的ECS机器。|
+|[ListNodes](/cn.zh-CN/API参考/Beats/基于ECS部署/ListNodes.md)|调用ListNodes，查看安装采集器的ECS机器的状态。|
+|[ListAckClusters](/cn.zh-CN/API参考/Beats/基于ACK部署/ListAckClusters.md)|调用ListAckClusters，获取容器服务Kubernetes版ACK（Container Service for Kubernetes）集群列表。|
+|[ListAckNamespaces](/cn.zh-CN/API参考/Beats/基于ACK部署/ListAckNamespaces.md)|调用ListAckNamespaces，查看指定容器服务Kubernetes版ACK集群的所有命名空间。|
+|[DescribeAckOperator](/cn.zh-CN/API参考/Beats/基于ACK部署/DescribeAckOperator.md)|调用DescribeAckOperator，查看指定容器服务Kubernetes版ACK集群上安装的Elasticsearch Operator信息。|
+|[InstallAckOperator](/cn.zh-CN/API参考/Beats/基于ACK部署/InstallAckOperator.md)|调用InstallAckOperator，在指定容器服务Kubernetes版ACK集群上安装Elasticsearch Operator。|
+
+## 访问控制
+
+|API|描述|
+|---|--|
+|[InitializeOperationRole](/cn.zh-CN/API参考/访问控制/InitializeOperationRole.md)|调用InitializeOperationRole，创建服务关联角色。|
+|[ValidateSlrPermission](/cn.zh-CN/API参考/访问控制/ValidateSlrPermission.md)|调用ValidateSlrPermission，验证是否已经创建服务关联角色。|
 
