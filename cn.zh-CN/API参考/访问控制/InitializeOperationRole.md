@@ -2,7 +2,7 @@
 
 调用InitializeOperationRole，创建服务关联角色。
 
-**说明：** 在您通过采集器采集不同数据源的日志，或执行集群弹性扩缩容任务时，需要先授权创建服务关联角色。详细信息，请参见[Elasticsearch服务关联角色](~~172624~~)。
+**说明：** 通过采集器采集不同数据源的日志，或执行集群弹性扩缩容任务（是适用于中国站）时，需要先授权创建服务关联角色。
 
 ## 调试
 
@@ -46,7 +46,7 @@ RequestBody中还需填入以下参数，用来指定待创建的服务关联角
 
 |AliyunServiceRoleForElasticsearchCollector
 
-|服务关联角色名称。可选值：AliyunServiceRoleForElasticsearchOps（执行集群弹性扩缩容任务角色）、AliyunServiceRoleForElasticsearchCollector（创建和管理Beats采集器）。 |
+|服务关联角色名称。可选值： AliyunServiceRoleForElasticsearchOps（执行集群弹性扩缩容任务角色，只适用于中国站）、AliyunServiceRoleForElasticsearchCollector（创建和管理Beats采集器）。 |
 
 ## 返回数据
 
