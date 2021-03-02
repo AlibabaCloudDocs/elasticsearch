@@ -1,8 +1,8 @@
 # InitializeOperationRole
 
-Call InitializeOperationRole to create a service linked role.
+Call the InitializeOperationRole to create a service linked role.
 
-**Note:** When you use a collector to collect logs from different data sources or perform cluster auto scaling tasks, you must first create service linked roles. For more information, see [Overview of the Elasticsearch service linked role](~~172624~~).
+**Note:** When using a collector to collect logs from different data sources or performing elastic cluster scaling tasks \(for the China site\), you must first grant permissions to create service linked roles.
 
 ## Debugging
 
@@ -12,10 +12,10 @@ Call InitializeOperationRole to create a service linked role.
 
 This operation uses only common request headers. For more information, see Common parameters.
 
-## Request syntax
+## Request structure
 
 ```
-POST /openapi/user/slr HTTP/1.1
+POST /openapi/user/slr HTTP/1.1 
 ```
 
 ## Request parameters
@@ -46,16 +46,16 @@ Set the following parameters in RequestBody to specify the name of the service-l
 
 |AliyunServiceRoleForElasticsearchCollector
 
-|The name of the service linked role. Valid values: AliyunServiceRoleForElasticsearchOps \(the role that performs the elastic scaling task of the cluster\) and AliyunServiceRoleForElasticsearchCollector \(creates and manages Beats collectors\). |
+|The name of the service linked role. Valid values: AliyunServiceRoleForElasticsearchOps \(the role used to perform the task of elastic scaling of the cluster, only applicable to the China site\) and AliyunServiceRoleForElasticsearchCollector \(creating and managing Beats collectors\). |
 
 ## Response parameters
 
 |Parameter|Type|Example|Description|
 |---------|----|-------|-----------|
 |RequestId|String|29101430-4797-4D1D-96C3-9FCBCCA8F845|The ID of the request. |
-|Result|Boolean|true|Indicates whether SQL audit was disabled for the DRDS database. Supported:
+|Result|Boolean|true|Indicates whether SQL audit was disabled for the DRDS database. Valid values:
 
--   true: creation succeed
+-   true: The object is created.
 -   false: creation failed |
 
 ## Examples
@@ -72,14 +72,14 @@ common request header
 
 Sample success responses
 
-`XML`format
+`XML` format
 
 ```
 <Result>true</Result>
 <RequestId>29101430-4797-4D1D-96C3-9FCBCCA8F845</RequestId>
 ```
 
-`JSON`Syntax
+`JSON` format
 
 ```
 {
