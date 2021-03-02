@@ -1,8 +1,8 @@
 # ValidateSlrPermission
 
-Call ValidateSlrPermission to verify that the service linked role has been created.
+Call the ValidateSlrPermission to verify that the service linked role has been created.
 
-**Note:** When you use the collector to collect logs from different data sources, you must first grant permissions to create [Service-linked roles](~~172624~~). You can call this operation to verify that it has been created.
+**Note:** Before you use the collector tool to collect logs from different data sources, you must be authorized to create service linked roles. You can call this operation to verify that it has been created.
 
 ## Debugging
 
@@ -12,10 +12,10 @@ Call ValidateSlrPermission to verify that the service linked role has been creat
 
 This operation uses only common request headers. For more information, see Common parameters.
 
-## Request syntax
+## Request structure
 
 ```
-GET /openapi/user/servicerolepermission HTTP/1.1
+GET /openapi/user/servicerolepermission HTTP/1.1  
 ```
 
 ## Request parameters
@@ -24,7 +24,6 @@ GET /openapi/user/servicerolepermission HTTP/1.1
 |---------|----|--------|--------|-------|-----------|
 |rolename|String|Query|Yes|AliyunServiceRoleForElasticsearchCollector|The name of the service linked role. Valid values:
 
--   AliyunServiceRoleForElasticsearchOps: perform a cluster elastic scaling task
 -   AliyunServiceRoleForElasticsearchCollector: create and manage Beats collectors |
 |ClientToken|String|Query|No|5A2CFF0E-5718-45B5-9D4D-70B3FF\*\*\*\*|This parameter is used to ensure the idempotence of the request. You can use the client to generate the value, but you must ensure that it is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. |
 
@@ -33,7 +32,7 @@ GET /openapi/user/servicerolepermission HTTP/1.1
 |Parameter|Type|Example|Description|
 |---------|----|-------|-----------|
 |RequestId|String|BC4ED7DD-8C84-49B5-8A95-456F82E44D13|The ID of the request. |
-|Result|Boolean|true|Indicates whether the service linked role was created. Supported:
+|Result|Boolean|true|Indicates whether the service linked role was created. Valid values:
 
 -   true: Created
 -   false: not created |
@@ -56,7 +55,7 @@ Sample success responses
 <RequestId>2C77A9B5-6B2A-42D7-9DBB-0166A0D40483</RequestId>
 ```
 
-`JSON` Syntax
+`JSON` format
 
 ```
 {
