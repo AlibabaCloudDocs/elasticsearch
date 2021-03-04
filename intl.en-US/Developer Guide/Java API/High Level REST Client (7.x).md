@@ -4,23 +4,19 @@ This topic describes how to call Elasticsearch Java API operations. Java High Le
 
 ## Preparations
 
--   Install a JDK. The JDK version must be 1.8 or later.
-
-    For more information, see [Install the JDK](/intl.en-US/Best Practices/Migrate and synchronize MySQL data/RDS synchronization/Use Canal to synchronize data to an Alibaba Cloud Elasticsearch cluster.md).
-
 -   Create an Alibaba Cloud Elasticsearch V7.4.0 cluster. Make sure that the cluster version is later than or the same as the version of Java High Level REST Client you use.
 
-    For more information, see [Create an Elasticsearch cluster](/intl.en-US/Quick Start/Step 1: Create a cluster/Create an Elasticsearch cluster.md).
+    For more information, see [Create an Alibaba Cloud Elasticsearch cluster](/intl.en-US/Elasticsearch Instances Management/Manage clusters/Create an Alibaba Cloud Elasticsearch cluster.md).
 
     **Note:** Java High Level REST Client is forward compatible. For example, Java High Level REST Client 7.4.0 can communicate with Elasticsearch clusters of V7.4.0 or later. To ensure that you can use the features of the latest client, we recommend that the version of Java High Level REST Client you use is the same as that of your cluster.
 
 -   Enable the Auto Indexing feature for the Elasticsearch cluster.
 
-    For more information, see [Enable auto indexing](/intl.en-US/Quick Start/Step 2 (optional): Configure a cluster.md).
+    For more information, see [Enable the Auto Indexing feature](/intl.en-US/Elasticsearch Instances Management/Step 2: (Optional) Configure a cluster.md).
 
     If the Auto Indexing feature is not enabled, the following error is reported.
 
-    ![Error](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/en-US/5487649951/p97345.png)
+    ![Error](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/5487649951/p97345.png)
 
 -   Configure a whitelist for the Elasticsearch cluster to ensure normal communication among networks.
     -   If the server that runs Java code is located in an Internet environment, you can access the Elasticsearch cluster by using its public endpoint. Before you access the cluster, you must enable the Public Network Access feature for the cluster and add the public IP address of the server to the Internet whitelist of the cluster. For more information, see [Configure a whitelist to access an Elasticsearch cluster over the Internet or a VPC](/intl.en-US/Elasticsearch Instances Management/Security/Configure a whitelist to access an Elasticsearch cluster over the Internet or a VPC.md).
@@ -30,6 +26,7 @@ This topic describes how to call Elasticsearch Java API operations. Java High Le
         -   If you are using a public network, add the IP address of the jump server that controls outbound traffic of the public network to the whitelist.
         -   You can also add 0.0.0.0/0 to the whitelist to allow requests from all IPv4 addresses. If you make this configuration, all public IP addresses can be used to access the Elasticsearch cluster. This poses security risks. We recommend that you evaluate the risks before you make this configuration.
     -   If the server that runs Java code is located in the same Virtual Private Cloud \(VPC\) as the Elasticsearch cluster, you can access the cluster by using its internal endpoint. Before you access the cluster, make sure that the internal IP address of the server is added to the VPC whitelist of the cluster. By default, 0.0.0.0/0 is added to the whitelist.
+-   Install a JDK. The JDK version must be 1.8 or later.
 -   Create a Java Maven project and add the following [Project Object Model \(POM\) dependencies](#section_zns_56a_i8r) to the pom.xml file of the Java project.
 
 ## POM dependencies
@@ -128,7 +125,7 @@ public class RestClientTest74 {
             DeleteRequest request = new DeleteRequest("{index_name}", "_doc", "{doc_id}");
             DeleteResponse deleteResponse = highClient.delete(request, COMMON_OPTIONS);
 
-            System.out.println("Delete document successfully! \n" + deleteResponse.toString() + "\n" + deleteResponse.status());
+            System.out.println("Delete document successfully! \n" + deleteResponse.toString());
 
             highClient.close();
 
