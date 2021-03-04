@@ -61,8 +61,7 @@ RequestBody中还需填入以下参数，用来指定将实例迁移到的资源
 |sourceType|String|ORIGIN|来源类型，支持：
 
  -   OSS：OSS开放存储（需要确保OSS存储空间为公共可读）
--   ORIGIN：开源Elasticsearch
--   UPLOAD：上传的文件 |
+-   ORIGIN：保留之前已经上传的词典 |
 |type|String|MAIN|词典类型，支持：
 
  -   STOP：停用词
@@ -113,7 +112,7 @@ RequestBody中还需填入以下参数，用来指定将实例迁移到的资源
 
  -   OSS：OSS开放存储（需要确保OSS存储空间为公共可读）
 -   ORIGIN：保留之前已经上传的词典 |
-|type|String|STOP|词典类型，取值：
+|type|String|STOP|词典类型，支持：
 
  -   STOP：停用词
 -   MAIN：主词典
