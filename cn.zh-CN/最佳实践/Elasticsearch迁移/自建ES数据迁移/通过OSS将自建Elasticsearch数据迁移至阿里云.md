@@ -8,7 +8,7 @@ keyword: [OSS迁移自建es数据, es数据迁移]
 
 通过OSS将自建Elasticsearch数据迁移至阿里云Elasticsearch，适用于自建Elasticsearch数据量比较大的场景，简单流程如下。
 
-![操作流程](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/zh-CN/9202659951/p113376.png)
+![操作流程](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/9202659951/p113376.png)
 
 ## 操作流程
 
@@ -16,27 +16,27 @@ keyword: [OSS迁移自建es数据, es数据迁移]
 
     完成搭建自建Elasticsearch集群、创建OSS Bucket、创建阿里云Elasticsearch集群。
 
-2.  [步骤一：安装elasticsearch-repository-oss插件](#section_nx5_kz4_1xs)
+2.  [安装elasticsearch-repository-oss插件](#section_nx5_kz4_1xs)
 
     在自建Elasticsearch各节点中安装elasticsearch-repository-oss插件，插件安装后才可在自建Elasticsearch中创建OSS仓库。
 
-3.  [步骤二：在自建Elasticsearch集群中创建仓库](#section_ftm_9c8_55t)
+3.  [在自建Elasticsearch集群中创建仓库](#section_ftm_9c8_55t)
 
     使用snapshot API在自建Elasticsearch中创建快照备份仓库。
 
-4.  [步骤三：为指定索引创建快照](#section_euo_abh_8w0)
+4.  [为指定索引创建快照](#section_euo_abh_8w0)
 
     为需要迁移的索引创建快照，并将快照备份到已创建的仓库中。
 
-5.  [步骤四：在阿里云Elasticsearch上创建相同仓库](#section_rr1_qrd_wxk)
+5.  [在阿里云Elasticsearch上创建相同仓库](#section_rr1_qrd_wxk)
 
     在阿里云Elasticsearch的Kibana控制台中，使用snapshot API创建一个与自建Elasticsearch相同的快照备份仓库。
 
-6.  [步骤五：在阿里云Elasticsearch上恢复快照](#section_q2f_ayf_3kk)
+6.  [在阿里云Elasticsearch上恢复快照](#section_q2f_ayf_3kk)
 
     将仓库中已备份的自建Elasticsearch的快照恢复到阿里云Elasticsearch中，完成数据迁移。
 
-7.  [步骤六：查看快照恢复结果](#section_9h6_0ur_tln)
+7.  [查看快照恢复结果](#section_9h6_0ur_tln)
 
     快照恢复后，查看恢复的索引和索引数据。
 
@@ -51,20 +51,20 @@ keyword: [OSS迁移自建es数据, es数据迁移]
 
 2.  开通OSS服务，并创建与自建Elasticsearch所在ECS相同区域的Bucket。
 
-    具体操作步骤请参见[开通OSS服务](/cn.zh-CN/快速入门/开通OSS服务.md)和[创建存储空间](/cn.zh-CN/快速入门/创建存储空间.md)。
+    具体操作步骤请参见[开通OSS服务](/cn.zh-CN/控制台用户指南/开通OSS服务.md)和[创建存储空间](/cn.zh-CN/快速入门/控制台快速入门/创建存储空间.md)。
 
     **说明：** 请创建标准存储类型的OSS Bucket，不支持归档存储类型。
 
 3.  创建目标阿里云Elasticsearch实例，所选区域与您创建的Bucket相同。
 
-    具体操作步骤请参见[创建阿里云Elasticsearch实例](/cn.zh-CN/快速入门/步骤一：创建实例/创建阿里云Elasticsearch实例.md)。
+    具体操作步骤请参见[t134282.md\#](/cn.zh-CN/Elasticsearch/实例管理/创建阿里云Elasticsearch实例.md)。
 
 
-## 步骤一：安装elasticsearch-repository-oss插件
+## 安装elasticsearch-repository-oss插件
 
 1.  连接自建Elasticsearch集群所在的ECS。
 
-    **说明：** 连接ECS的方式请参见[连接Linux实例](/cn.zh-CN/实例/连接实例/连接Linux实例/通过VNC远程连接登录Linux实例.md)。
+    **说明：** 连接ECS的方式请参见[连接Linux实例](/cn.zh-CN/实例/连接实例/使用VNC连接实例/通过密码认证登录Linux实例.md)。
 
 2.  下载elasticsearch-repository-oss插件。
 
@@ -94,7 +94,7 @@ keyword: [OSS迁移自建es数据, es数据迁移]
     ```
 
 
-## 步骤二：在自建Elasticsearch集群中创建仓库
+## 在自建Elasticsearch集群中创建仓库
 
 连接自建Elasticsearch所在的ECS，执行如下命令创建仓库。
 
@@ -114,7 +114,7 @@ curl -H "Content-Type: application/json" -XPUT localhost:9200/_snapshot/es_backu
 
 创建成功后，返回`"acknowledge":true`。
 
-## 步骤三：为指定索引创建快照
+## 为指定索引创建快照
 
 在自建Elasticsearch中创建一个快照，用来备份您需要迁移的索引数据。创建快照时，默认会备份所有打开的索引。如果您不想备份系统索引，例如以`.kibana`、`.security`、`.monitoring`等开头的索引，可在创建快照时指定需要备份的索引。
 
@@ -129,11 +129,11 @@ curl -H "Content-Type: application/json" -XPUT localhost:9200/_snapshot/es_backu
 
 `index1`和`index2`为您需要备份的索引名称。快照创建成功后，返回`"accepted" : true`。
 
-## 步骤四：在阿里云Elasticsearch上创建相同仓库
+## 在阿里云Elasticsearch上创建相同仓库
 
 1.  登录目标阿里云Elasticsearch的Kibana控制台。
 
-    具体操作步骤请参见[登录Kibana控制台](/cn.zh-CN/ES实例/可视化控制/Kibana/登录Kibana控制台.md)。
+    具体操作步骤请参见[登录Kibana控制台](/cn.zh-CN/Elasticsearch/可视化控制/Kibana/登录Kibana控制台.md)。
 
 2.  在左侧导航栏，单击**Dev Tools**。
 
@@ -154,9 +154,9 @@ curl -H "Content-Type: application/json" -XPUT localhost:9200/_snapshot/es_backu
     ```
 
 
-## 步骤五：在阿里云Elasticsearch上恢复快照
+## 在阿里云Elasticsearch上恢复快照
 
-参见[步骤四：在阿里云Elasticsearch上创建相同仓库](#section_rr1_qrd_wxk)，在Kibana控制台上执行以下命令，恢复快照中的所有索引（除过`.`开头的系统索引）。
+参见[在阿里云Elasticsearch上创建相同仓库](#section_rr1_qrd_wxk)，在Kibana控制台上执行以下命令，恢复快照中的所有索引（除过`.`开头的系统索引）。
 
 ```
 POST _snapshot/es_backup/snapshot_1/_restore
@@ -176,11 +176,11 @@ POST _snapshot/es_backup/snapshot_1/_restore
 }
 ```
 
-**说明：** 更多快照和恢复命令请参见[快照备份与恢复命令](/cn.zh-CN/ES实例/数据备份/快照备份与恢复命令.md)。
+**说明：** 更多快照和恢复命令请参见[手动备份与恢复](/cn.zh-CN/Elasticsearch/数据备份/手动备份与恢复.md)。
 
-## 步骤六：查看快照恢复结果
+## 查看快照恢复结果
 
-参见[步骤四：在阿里云Elasticsearch上创建相同仓库](#section_rr1_qrd_wxk)，在Kibana控制台上执行以下命令，查看恢复结果。
+参见[在阿里云Elasticsearch上创建相同仓库](#section_rr1_qrd_wxk)，在Kibana控制台上执行以下命令，查看恢复结果。
 
 -   查看恢复的索引
 
@@ -188,7 +188,7 @@ POST _snapshot/es_backup/snapshot_1/_restore
     GET /_cat/indices?v
     ```
 
-    ![查看恢复成功的索引](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/zh-CN/9202659951/p113311.png)
+    ![查看恢复成功的索引](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/9202659951/p113311.png)
 
 -   查看恢复的索引数据
 
