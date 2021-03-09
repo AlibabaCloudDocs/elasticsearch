@@ -1,6 +1,6 @@
 # Use a client to access an Alibaba Cloud Elasticsearch cluster
 
-This topic describes how to use a PHP, Python, or Java client to access an Alibaba Cloud Elasticsearch cluster. It also provides sample code and usage notes of each type of client.
+This topic describes how to use a PHP, Python,Java or Go client to access an Alibaba Cloud Elasticsearch cluster. It also provides sample code and usage notes of each type of client.
 
 ## Preparations
 
@@ -12,11 +12,11 @@ Before you use a client to access an Alibaba Cloud Elasticsearch cluster, make s
 
 -   Create an Alibaba Cloud Elasticsearch cluster.
 
-    For more information, see [Create an Alibaba Cloud Elasticsearch cluster](/intl.en-US/Elasticsearch Instances Management/Quick Start/Step 1: Create a cluster/Create an Alibaba Cloud Elasticsearch cluster.md).
+    For more information, see [Create an Alibaba Cloud Elasticsearch cluster](/intl.en-US/Elasticsearch Instances Management/Manage clusters/Create an Alibaba Cloud Elasticsearch cluster.md).
 
 -   Enable the Auto Indexing feature for the Elasticsearch cluster.
 
-    For more information, see [Enable the Auto Indexing feature](/intl.en-US/Elasticsearch Instances Management/Quick Start/Step 2: (Optional) Configure a cluster.md).
+    For more information, see [Enable the Auto Indexing feature](/intl.en-US/Elasticsearch Instances Management/Step 2: (Optional) Configure a cluster.md).
 
 -   Configure a whitelist for the Elasticsearch cluster to ensure normal communication among networks.
     -   If the server that runs code is located in an Internet environment, you can access the Elasticsearch cluster by using its public endpoint. Before you access the cluster, you must enable the Public Network Access feature for the cluster and add the public IP address of the server to the Internet whitelist of the cluster. For more information, see [Configure a whitelist to access an Elasticsearch cluster over the Internet or a VPC](/intl.en-US/Elasticsearch Instances Management/Security/Configure a whitelist to access an Elasticsearch cluster over the Internet or a VPC.md).
@@ -100,7 +100,7 @@ from elasticsearch import Elasticsearch, RequestsHttpConnection
 import certifi
 es = Elasticsearch(
     ['<HOST>'],
-    http_auth=('username', 'password'),
+    http_auth=('<USERNAME>', '<PASSWORD>'),
     port=9200,
     use_ssl=False
 )
@@ -112,8 +112,8 @@ print(res['_source'])
 |Parameter|Description|
 |---------|-----------|
 |<HOST\>|The internal or public endpoint of your Elasticsearch cluster. You can obtain the endpoint from the [Basic Information](/intl.en-US/Elasticsearch Instances Management/Manage clusters/View the basic information of a cluster.md) page of the cluster.|
-|username|The username of your Elasticsearch cluster. The default username is elastic.|
-|password|The password of your Elasticsearch cluster. The password of the elastic account is specified when you create the cluster. If you forget the password, you can reset it. For more information about the procedure and precautions for resetting the password, see [Reset the access password for an Elasticsearch cluster](/intl.en-US/Elasticsearch Instances Management/Security/Reset the access password for an Elasticsearch cluster.md).|
+|<USERNAME\>|The username of your Elasticsearch cluster. The default username is elastic.|
+|<PASSWORD\>|The password of your Elasticsearch cluster. The password of the elastic account is specified when you create the cluster. If you forget the password, you can reset it. For more information about the procedure and precautions for resetting the password, see [Reset the access password for an Elasticsearch cluster](/intl.en-US/Elasticsearch Instances Management/Security/Reset the access password for an Elasticsearch cluster.md).|
 
 ## Java client
 
