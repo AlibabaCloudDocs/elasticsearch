@@ -16,27 +16,27 @@ keyword: [OSS迁移自建es数据, es数据迁移]
 
     完成搭建自建Elasticsearch集群、创建OSS Bucket、创建阿里云Elasticsearch集群。
 
-2.  [安装elasticsearch-repository-oss插件](#section_nx5_kz4_1xs)
+2.  [步骤一：安装elasticsearch-repository-oss插件](#section_nx5_kz4_1xs)
 
     在自建Elasticsearch各节点中安装elasticsearch-repository-oss插件，插件安装后才可在自建Elasticsearch中创建OSS仓库。
 
-3.  [在自建Elasticsearch集群中创建仓库](#section_ftm_9c8_55t)
+3.  [步骤二：在自建Elasticsearch集群中创建仓库](#section_ftm_9c8_55t)
 
     使用snapshot API在自建Elasticsearch中创建快照备份仓库。
 
-4.  [为指定索引创建快照](#section_euo_abh_8w0)
+4.  [步骤三：为指定索引创建快照](#section_euo_abh_8w0)
 
     为需要迁移的索引创建快照，并将快照备份到已创建的仓库中。
 
-5.  [在阿里云Elasticsearch上创建相同仓库](#section_rr1_qrd_wxk)
+5.  [步骤四：在阿里云Elasticsearch上创建相同仓库](#section_rr1_qrd_wxk)
 
     在阿里云Elasticsearch的Kibana控制台中，使用snapshot API创建一个与自建Elasticsearch相同的快照备份仓库。
 
-6.  [在阿里云Elasticsearch上恢复快照](#section_q2f_ayf_3kk)
+6.  [步骤五：在阿里云Elasticsearch上恢复快照](#section_q2f_ayf_3kk)
 
     将仓库中已备份的自建Elasticsearch的快照恢复到阿里云Elasticsearch中，完成数据迁移。
 
-7.  [查看快照恢复结果](#section_9h6_0ur_tln)
+7.  [步骤六：查看快照恢复结果](#section_9h6_0ur_tln)
 
     快照恢复后，查看恢复的索引和索引数据。
 
@@ -60,7 +60,7 @@ keyword: [OSS迁移自建es数据, es数据迁移]
     具体操作步骤请参见[t134282.md\#](/cn.zh-CN/Elasticsearch/实例管理/创建阿里云Elasticsearch实例.md)。
 
 
-## 安装elasticsearch-repository-oss插件
+## 步骤一：安装elasticsearch-repository-oss插件
 
 1.  连接自建Elasticsearch集群所在的ECS。
 
@@ -94,7 +94,7 @@ keyword: [OSS迁移自建es数据, es数据迁移]
     ```
 
 
-## 在自建Elasticsearch集群中创建仓库
+## 步骤二：在自建Elasticsearch集群中创建仓库
 
 连接自建Elasticsearch所在的ECS，执行如下命令创建仓库。
 
@@ -114,7 +114,7 @@ curl -H "Content-Type: application/json" -XPUT localhost:9200/_snapshot/es_backu
 
 创建成功后，返回`"acknowledge":true`。
 
-## 为指定索引创建快照
+## 步骤三：为指定索引创建快照
 
 在自建Elasticsearch中创建一个快照，用来备份您需要迁移的索引数据。创建快照时，默认会备份所有打开的索引。如果您不想备份系统索引，例如以`.kibana`、`.security`、`.monitoring`等开头的索引，可在创建快照时指定需要备份的索引。
 
@@ -129,7 +129,7 @@ curl -H "Content-Type: application/json" -XPUT localhost:9200/_snapshot/es_backu
 
 `index1`和`index2`为您需要备份的索引名称。快照创建成功后，返回`"accepted" : true`。
 
-## 在阿里云Elasticsearch上创建相同仓库
+## 步骤四：在阿里云Elasticsearch上创建相同仓库
 
 1.  登录目标阿里云Elasticsearch的Kibana控制台。
 
@@ -154,9 +154,9 @@ curl -H "Content-Type: application/json" -XPUT localhost:9200/_snapshot/es_backu
     ```
 
 
-## 在阿里云Elasticsearch上恢复快照
+## 步骤五：在阿里云Elasticsearch上恢复快照
 
-参见[在阿里云Elasticsearch上创建相同仓库](#section_rr1_qrd_wxk)，在Kibana控制台上执行以下命令，恢复快照中的所有索引（除过`.`开头的系统索引）。
+参见[步骤四：在阿里云Elasticsearch上创建相同仓库](#section_rr1_qrd_wxk)，在Kibana控制台上执行以下命令，恢复快照中的所有索引（除过`.`开头的系统索引）。
 
 ```
 POST _snapshot/es_backup/snapshot_1/_restore
@@ -178,9 +178,9 @@ POST _snapshot/es_backup/snapshot_1/_restore
 
 **说明：** 更多快照和恢复命令请参见[手动备份与恢复](/cn.zh-CN/Elasticsearch/数据备份/手动备份与恢复.md)。
 
-## 查看快照恢复结果
+## 步骤六：查看快照恢复结果
 
-参见[在阿里云Elasticsearch上创建相同仓库](#section_rr1_qrd_wxk)，在Kibana控制台上执行以下命令，查看恢复结果。
+参见[步骤四：在阿里云Elasticsearch上创建相同仓库](#section_rr1_qrd_wxk)，在Kibana控制台上执行以下命令，查看恢复结果。
 
 -   查看恢复的索引
 
