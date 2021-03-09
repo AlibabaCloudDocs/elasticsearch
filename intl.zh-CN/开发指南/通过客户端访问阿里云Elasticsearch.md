@@ -1,6 +1,6 @@
 # 通过客户端访问阿里云Elasticsearch
 
-本文介绍使用PHP、Python和Java客户端访问阿里云Elasticsearch的方法，并提供了示例代码和注意事项供您参考。
+本文介绍使用PHP、Python、Java和Go语言访问阿里云Elasticsearch的方法，并提供了示例代码和注意事项供您参考。
 
 ## 准备工作
 
@@ -12,14 +12,14 @@
 
 -   创建阿里云Elasticsearch实例。
 
-    具体操作步骤请参见[创建阿里云Elasticsearch实例](/intl.zh-CN/Elasticsearch/快速入门/步骤一：创建实例/创建阿里云Elasticsearch实例.md)。
+    具体操作步骤请参见[t134282.md\#](/intl.zh-CN/Elasticsearch/管理实例/创建阿里云Elasticsearch实例.md)。
 
 -   开启阿里云Elasticsearch实例的自动创建索引功能。
 
-    具体操作步骤请参见[开启自动创建索引](/intl.zh-CN/Elasticsearch/快速入门/步骤二：配置实例（可选）.md)。
+    具体操作步骤请参见[开启自动创建索引](/intl.zh-CN/Elasticsearch/快速访问与配置.md)。
 
 -   配置阿里云Elasticsearch实例的白名单，确保网络互通。
-    -   如果运行代码的服务器在公网环境下，可通过阿里云Elasticsearch实例的公网地址进行连通。连通前，需要开启阿里云Elasticsearch实例的公网地址，并修改公网地址访问白名单，将服务器的公网IP地址加入白名单中。具体操作步骤请参见[配置ES公网或私网访问白名单](/intl.zh-CN/Elasticsearch/安全配置/配置ES公网或私网访问白名单.md)。
+    -   如果运行代码的服务器在公网环境下，可通过阿里云Elasticsearch实例的公网地址进行连通。连通前，需要开启阿里云Elasticsearch实例的公网地址，并修改公网地址访问白名单，将服务器的公网IP地址加入白名单中。具体操作步骤请参见[配置Elasticsearch公网或私网访问白名单](/intl.zh-CN/Elasticsearch/安全配置/配置ES公网或私网访问白名单.md)。
 
         **说明：**
 
@@ -100,7 +100,7 @@ from elasticsearch import Elasticsearch, RequestsHttpConnection
 import certifi
 es = Elasticsearch(
     ['<HOST>'],
-    http_auth=('username', 'password'),
+    http_auth=('<USERNAME>', '<PASSWORD>'),
     port=9200,
     use_ssl=False
 )
@@ -112,8 +112,8 @@ print(res['_source'])
 |参数|说明|
 |--|--|
 |<HOST\>|阿里云Elasticsearch实例[基本信息](/intl.zh-CN/Elasticsearch/管理实例/查看实例的基本信息.md)页面中的内网或外网地址。|
-|username|访问阿里云Elasticsearch实例的用户名，默认为elastic。|
-|password|访问阿里云Elasticsearch实例的密码。elastic用户的密码在创建实例时设定，如果忘记可进行重置，重置密码的注意事项和操作步骤请参见[重置实例访问密码](/intl.zh-CN/Elasticsearch/安全配置/重置实例访问密码.md)。|
+|<USERNAME\>|访问阿里云Elasticsearch实例的用户名，默认为elastic。|
+|<PASSWORD\>|访问阿里云Elasticsearch实例的密码。elastic用户的密码在创建实例时设定，如果忘记可进行重置，重置密码的注意事项和操作步骤请参见[重置实例访问密码](/intl.zh-CN/Elasticsearch/安全配置/重置实例访问密码.md)。|
 
 ## Java语言
 
@@ -168,7 +168,7 @@ func main() {
 
 |参数|说明|
 |--|--|
-|<1\> ：url|阿里云Elasticsearch的访问域名，可在实例的[基本信息](/intl.zh-CN/Elasticsearch/管理实例/查看实例的基本信息.md)页面获取。|
+|<1\>：url|阿里云Elasticsearch的访问域名，可在实例的[基本信息](/intl.zh-CN/Elasticsearch/管理实例/查看实例的基本信息.md)页面获取。|
 |<2\>：username|阿里云Elasticsearch的访问账号，默认为elastic。|
 |<3\>：password|阿里云Elasticsearch的访问密码。elastic用户的密码在创建实例时设定，如果忘记可进行重置，重置密码的注意事项和操作步骤请参见[重置实例访问密码](/intl.zh-CN/Elasticsearch/安全配置/重置实例访问密码.md)。|
 |<4\>：sniff|必须设置为false，防止二次探测，导致连接失败。|
