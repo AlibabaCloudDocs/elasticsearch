@@ -2,11 +2,11 @@
 
 Grafana是一款跨平台的开源的度量分析和可视化工具，主要用于大规模指标数据的可视化展示。本文介绍如何配置Grafana公网地址访问白名单、获取Grafana的用户名和密码以及查看Grafana监控大屏。
 
--   创建阿里云Elasticsearch实例，版本为6.7.0，且内核版本为1.2.0及以上。
+-   创建阿里云Elasticsearch实例，版本为6.7.0且内核版本为1.2.0及以上，或版本为7.10.0。
 
-    创建实例的具体操作，请参见[创建阿里云Elasticsearch实例](/cn.zh-CN/快速入门/步骤一：创建实例/创建阿里云Elasticsearch实例.md)。
+    创建实例的具体操作，请参见[t134282.md\#](/cn.zh-CN/Elasticsearch/实例管理/创建阿里云Elasticsearch实例.md)。
 
-    如果内核版本低于1.2.0，可升级内核版本。具体操作，请参见[升级版本](/cn.zh-CN/ES实例/升级版本/升级版本.md)。
+    如果内核版本低于1.2.0，可升级内核版本。具体操作，请参见[升级版本](/cn.zh-CN/Elasticsearch/版本升级/升级版本.md)。
 
 -   熟悉Grafana监控大屏的使用方法。更多信息，请参见[Grafana Dashboard](https://grafana.com/docs/grafana/latest/features/dashboard/dashboards/)。
 -   开通高级监控报警服务。
