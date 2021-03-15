@@ -6,10 +6,10 @@ keyword: [es 物理复制, es apack]
 
 apack插件是阿里云Elasticsearch团队自研的插件，支持物理复制和向量检索功能，本文仅介绍物理复制功能。物理复制功能适用于索引有副本、写入数据量大、对数据写入后可见性延迟要求不高的场景，例如日志场景、时序分析场景等，可以大幅度降低CPU开销，提升写入性能。
 
--   创建阿里云Elasticsearch实例，版本为6.7.0，内核版本为1.2.0及以上。创建实例的方法，请参见[t134282.md\#](/intl.zh-CN/Elasticsearch/管理实例/创建阿里云Elasticsearch实例.md)。
+-   创建阿里云Elasticsearch实例，版本为6.7.0且内核版本为1.2.0及以上，或7.10.0。本文以阿里云Elasticsearch 6.7.0为例介绍。创建实例的方法，请参见[t134282.md\#](/intl.zh-CN/Elasticsearch/管理实例/创建阿里云Elasticsearch实例.md)。
 -   安装apack插件。
 
-    目前仅6.7.0版本的阿里云Elasticsearch实例支持apack插件。当实例的内核版本为1.2.0以下时，需[升级内核版本](/intl.zh-CN/Elasticsearch/版本升级/升级版本.md)后使用该插件；当实例的内核版本为1.2.0及以上时，系统默认已安装apack插件，不可卸载。您可在[插件配置](/intl.zh-CN/Elasticsearch/插件配置/插件配置概述.md)页面查看。
+    目前仅6.7.0和7.10.0版本的阿里云Elasticsearch实例支持apack插件。当6.7.0实例的内核版本为1.2.0以下时，需[升级内核版本](/intl.zh-CN/Elasticsearch/版本升级/升级版本.md)后使用该插件；当实例的内核版本为1.2.0及以上时，系统默认已安装apack插件，不可卸载。您可在[插件配置](/intl.zh-CN/Elasticsearch/插件配置/插件配置概述.md)页面查看。
 
     **说明：** apack插件安装后，您既可以使用物理复制功能，也可以使用向量检索功能。本文仅介绍物理复制功能的使用方法，向量检索功能的使用方法请参见[使用向量检索插件（aliyun-knn）]()。
 
