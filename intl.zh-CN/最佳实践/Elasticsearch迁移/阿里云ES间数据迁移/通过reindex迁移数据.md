@@ -9,6 +9,8 @@
 -   2020年10月及之后创建的实例，暂不支持Watcher报警和LDAP认证功能。
 -   2020年10月及之后创建的实例，不支持与10月之前创建的实例进行跨集群Reindex、跨集群搜索、跨集群复制等相关操作。如果需要使用跨集群操作，需要确保实例创建在同一网络架构下。
 
+**说明：** 阿里云Elasticsearch在华北3（张家口）、海外地域的网络架构调整时间在2020年10月之前，如果需要使用跨集群操作，请[提交工单](https://workorder-intl.console.aliyun.com/console.htm)联系技术支持同学校验网络架构是否可以使用。
+
 ## 前提条件
 
 -   准备两个阿里云Elasticsearch集群，一个为本地集群，一个为远程集群。
@@ -122,12 +124,12 @@ reindex的应用场景如下：
 
     |类别|参数|说明|
     |--|--|--|
-    |source|host|远程集群的访问地址，必须包含支持协议、域名和端口信息，例如https://otherhost:9200。    -   对于单可用区实例，host格式为http://<实例的域名\>:9200。
+    |source|host|远程集群的访问地址，必须包含支持协议、域名和端口信息，例如https://otherhost:9200。     -   对于单可用区实例，host格式为http://<实例的域名\>:9200。
 
 **说明：** 实例的域名可在基本信息页面获取。详细信息，请参见[查看实例的基本信息](/intl.zh-CN/Elasticsearch/管理实例/查看实例的基本信息.md)。
 
     -   对于多可用区实例，host格式为http://<实例中任意数据节点的IP地址\>:9200。 |
-    |username|可选参数，如果您所请求的远程Elasticsearch服务需要使用Basic Authentication，请在请求中一并提供此参数信息。阿里云Elasticsearch实例的默认用户名为elastic。**说明：**
+    |username|可选参数，如果您所请求的远程Elasticsearch服务需要使用Basic Authentication，请在请求中一并提供此参数信息。阿里云Elasticsearch实例的默认用户名为elastic。 **说明：**
 
     -   为确保安全性，通过Basic Authentication鉴权时建议使用HTTPS协议，否则密码信息将以文本形式进行传输。
     -   对于阿里云Elasticsearch实例，需要开启HTTPS协议后，才可在host中使用HTTPS协议。 |
