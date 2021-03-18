@@ -8,13 +8,18 @@ keyword: [x-pack watcher, es监控报警服务]
 
 ## 注意事项
 
-因阿里云Elasticsearch网络架构调整，2020年10月起创建的实例暂时不支持Watcher、LDAP认证、跨集群Reindex、跨集群搜索、实例网络互通功能，待后期功能上线后开放，请耐心等待。
+由于阿里云Elasticsearch网络架构调整，对创建的实例有以下影响：
+
+-   2020年10月及之后创建的实例，暂不支持Watcher报警和LDAP认证功能。
+-   2020年10月及之后创建的实例，不支持与10月之前创建的实例进行跨集群Reindex、跨集群搜索、跨集群复制等相关操作。如果需要使用跨集群操作，需要确保实例创建在同一网络架构下。
+
+**说明：** 阿里云Elasticsearch在华北3（张家口）、海外地域的网络架构调整时间在2020年10月之前，如果需要使用跨集群操作，请[提交工单](https://workorder-intl.console.aliyun.com/console.htm)联系技术支持同学校验网络架构是否可以使用。
 
 ## 前提条件
 
 -   创建单可用区的阿里云Elasticsearch实例。
 
-    具体操作，请参见[创建阿里云Elasticsearch实例](/intl.zh-CN/Elasticsearch/快速入门/步骤一：创建实例/创建阿里云Elasticsearch实例.md)。
+    具体操作，请参见[t134282.md\#](/intl.zh-CN/Elasticsearch/管理实例/创建阿里云Elasticsearch实例.md)。
 
     **说明：** X-Pack Watcher功能仅支持单可用区的Elasticsearch实例，不支持多可用区实例。
 
@@ -72,7 +77,7 @@ X-Pack Watcher功能主要由Trigger、Input、Condition和Actions组成：
         |**优先级**|保持默认。|
         |**协议类型**|选择**自定义TCP**。|
         |**端口范围**|填写您常用的端口（配置Nginx时需要用到，本文以8080为例）。|
-        |**授权对象**|添加您购买的阿里云Elasticsearch实例所有节点的IP地址。 **说明：** 参见[查看节点的基本信息](/intl.zh-CN/Elasticsearch/管理实例/查看可视化节点信息.md)，获取Elasticsearch实例中所有节点的IP地址。 |
+        |**授权对象**|添加您购买的阿里云Elasticsearch实例所有节点的IP地址。 **说明：** 参见[查看节点的基本信息](/intl.zh-CN/Elasticsearch/管理实例/查看集群状态和节点信息.md)，获取Elasticsearch实例中所有节点的IP地址。 |
         |**描述**|输入对规则的描述。|
 
     6.  单击**保存**。
