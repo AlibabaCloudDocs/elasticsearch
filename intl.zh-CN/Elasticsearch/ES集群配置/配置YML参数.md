@@ -8,7 +8,12 @@ keyword: [es yml配置, 自动创建索引, 删除索引指定名称, Auditlog�
 
 ## 注意事项
 
-因阿里云Elasticsearch网络架构调整，2020年10月起创建的实例暂时不支持Watcher、LDAP认证、跨集群Reindex、跨集群搜索、实例网络互通功能，待后期功能上线后开放，请耐心等待。
+由于阿里云Elasticsearch网络架构调整，对创建的实例有以下影响：
+
+-   2020年10月及之后创建的实例，暂不支持Watcher报警和LDAP认证功能。
+-   2020年10月及之后创建的实例，不支持与10月之前创建的实例进行跨集群Reindex、跨集群搜索、跨集群复制等相关操作。如果需要使用跨集群操作，需要确保实例创建在同一网络架构下。
+
+**说明：** 阿里云Elasticsearch在华北3（张家口）、海外地域的网络架构调整时间在2020年10月之前，如果需要使用跨集群操作，请[提交工单](https://workorder-intl.console.aliyun.com/console.htm)联系技术支持同学校验网络架构是否可以使用。
 
 ## 修改配置
 
@@ -16,7 +21,7 @@ keyword: [es yml配置, 自动创建索引, 删除索引指定名称, Auditlog�
 
 2.  在左侧导航栏，单击**Elasticsearch实例**。
 
-3.  在顶部菜单栏处，选择资源组和地域，然后在**实例列表**中单击目标实例ID。
+3.  在顶部菜单栏处，选择资源组和地域，然后在**Elasticsearch实例**中单击目标实例ID。
 
 4.  在左侧导航栏，单击**ES集群配置**。
 
@@ -30,7 +35,7 @@ keyword: [es yml配置, 自动创建索引, 删除索引指定名称, Auditlog�
     |--|--|
     |**自动创建索引**|当Elasticsearch实例接收到新文档后，如果没有对应索引，是否允许系统自动新建索引。自动创建的索引可能不符合您的预期，不建议开启。 对应的YML文件的配置项为action.auto\_create\_index，默认为false。 |
     |**删除索引指定名称**|在删除索引时是否需要明确指定索引名称。如果选择**删除或关闭时索引名称支持通配符**，则可以使用通配符进行批量删除索引。索引删除后不可恢复，请谨慎使用此配置。 对应的YML文件的配置项为action.destructive\_requires\_name，默认为true。 |
-    |**Auditlog索引**|开启后，系统会记录Elasticsearch实例对应的增、删、改、查等操作产生的审计日志，该日志信息会占用您的磁盘空间，同时也会影响性能，不建议开启，请谨慎使用此配置。 更多参数说明，请参见[配置Auditlog](#section_51s_io4_0lq)。**说明：** 阿里云Elasticsearch 7.4.0版本的实例暂不支持配置该参数。
+    |**Auditlog索引**|开启后，系统会记录Elasticsearch实例对应的增、删、改、查等操作产生的审计日志，该日志信息会占用您的磁盘空间，同时也会影响性能，不建议开启，请谨慎使用此配置。 更多参数说明，请参见[配置Auditlog](#section_51s_io4_0lq)。**说明：** Elasticsearch 7.0及以上版本暂不支持配置该参数。
 
 对应的YML文件的配置项为xpack.security.audit.enabled，默认为false。 |
     |**开启Watcher**|开启后，可使用X-Pack的Watcher功能。请注意定时清理.watcher-history\*索引，避免占用大量磁盘空间。 对应的YML文件的配置项为xpack.watcher.enabled，默认为false。 |
@@ -46,6 +51,9 @@ keyword: [es yml配置, 自动创建索引, 删除索引指定名称, Auditlog�
 reindex.remote.whitelist
 
     -   [配置Auditlog](#section_51s_io4_0lq)
+
+**说明：** Elasticsearch 7.0及以上版本不支持配置Auditlog。
+
         -   xpack.security.audit.enabled
         -   xpack.security.audit.index.bulk\_size
         -   xpack.security.audit.index.flush\_interval
