@@ -8,13 +8,13 @@ This topic describes how to configure X-Pack Watcher for Alibaba Cloud Elasticse
 
 ## Precautions
 
-Due to the adjustment made to the Alibaba Cloud Elasticsearch network architecture, clusters created after October 2020 do not support some features. These features include X-Pack Watcher, LDAP authentication, cross-cluster reindexing, cross-cluster searches, and cluster interconnection. The features will be available soon.
+Due to the adjustment made to the Alibaba Cloud Elasticsearch network architecture, clusters created after October 2020 do not support the X-Pack Watcher and LDAP authentication features. In addition, you cannot reindex, search for, or replicate data between a cluster created before October 2020 and a cluster created after October 2020. You can perform the operations only between clusters created before October 2020 or between clusters created after October 2020. These features will be available soon.
 
 ## Prerequisites
 
 -   A single-zone Alibaba Cloud Elasticsearch cluster is created.
 
-    For more information, see [Create an Alibaba Cloud Elasticsearch cluster](/intl.en-US/Elasticsearch Instances Management/Quick Start/Step 1: Create a cluster/Create an Alibaba Cloud Elasticsearch cluster.md).
+    For more information, see [Create an Alibaba Cloud Elasticsearch cluster](/intl.en-US/Elasticsearch Instances Management/Manage clusters/Create an Alibaba Cloud Elasticsearch cluster.md).
 
     **Note:** X-Pack Watcher is available only for single-zone Elasticsearch clusters.
 
@@ -47,7 +47,7 @@ X-Pack Watcher allows you to create watches. A watch consists of a trigger, an i
 
 -   Actions
 
-    Determines the actions that a watch will perform when the specified condition is met. The webhook action is used in this topic.
+    Determines the actions that a watch performs if the specified condition is met. The webhook action is used in this topic.
 
 
 ## Procedure
@@ -72,7 +72,7 @@ X-Pack Watcher allows you to create watches. A watch consists of a trigger, an i
         |**Priority**|Retain the default value.|
         |**Protocol Type**|Select **Custom TCP**.|
         |**Port Range**|Set this parameter to your frequently used port. This parameter is required for NGINX configurations. In this example, port 8080 is used.|
-        |**Authorization Object**|Enter the IP addresses of all nodes in your Elasticsearch cluster. **Note:** For more information about how to query the IP addresses of the nodes, see [View node information](/intl.en-US/Elasticsearch Instances Management/Manage clusters/View node information.md). |
+        |**Authorization Object**|Enter the IP addresses of all nodes in your Elasticsearch cluster. **Note:** For more information about how to query the IP addresses of the nodes, see [View the basic information of nodes](/intl.en-US/Elasticsearch Instances Management/Manage clusters/View the cluster status and node information.md). |
         |**Description**|The description of the rule.|
 
     6.  Click **OK**.
@@ -107,7 +107,7 @@ X-Pack Watcher allows you to create watches. A watch consists of a trigger, an i
               # access_log off;
             }
             location / {
-              proxy_pass <Webhook address of the DingTalk Chatbot>;
+              proxy_pass <Webhook address of the DingTalk chatbot>;
             }
             location ~ .*\.(js|css)?$
             {
@@ -118,9 +118,9 @@ X-Pack Watcher allows you to create watches. A watch consists of a trigger, an i
           }
         ```
 
-        <Webhook address of the DingTalk Chatbot\>: Replace it with the webhook address of the DingTalk Chatbot that is used to receive alert notifications.
+        <Webhook address of the DingTalk chatbot\>: Replace it with the webhook address of the DingTalk chatbot that is used to receive alert notifications.
 
-        **Note:** To query the webhook address of the DingTalk Chatbot, create an alert group in DingTalk. In the DingTalk group, click the More icon in the upper-right corner, Group Assistant, and then Add Robot. In the ChatBot dialog box, click Custom to add a Chatbot that is accessed by using a webhook. You can then view the webhook address of the DingTalk Chatbot. For more information, see [Obtain the webhook address of a DingTalk Chatbot](https://ding-doc.dingtalk.com/doc#/serverapi2/qf2nxq).
+        **Note:** To query the webhook address of the DingTalk chatbot, create an alert group in DingTalk. In the DingTalk group, click the Group Settings icon in the upper-right corner, Group Assistant, and then Add Robot. In the ChatBot dialog box, click Custom to add a chatbot that is accessed by using a webhook. You can then view the webhook address of the DingTalk chatbot. For more information, see [Obtain the webhook address of a DingTalk chatbot](https://ding-doc.dingtalk.com/doc#/serverapi2/qf2nxq).
 
     3.  Reload the NGINX configuration file and restart NGINX.
 
@@ -184,9 +184,9 @@ X-Pack Watcher allows you to create watches. A watch consists of a trigger, an i
 
         **Note:**
 
-        -   `url` specified in `actions` must contain the private IP address of your ECS instance that resides in the same region and VPC as your Elasticsearch cluster. You must also create a security group rule for the ECS instance. Otherwise, the instance cannot connect to the Elasticsearch cluster.
-        -   If error `No handler found for uri [/_xpack/watcher/watch/log_error_watch_2] and method [PUT]` is returned when you run the preceding command, X-Pack Watcher is disabled for your Elasticsearch cluster. In this case, enable X-Pack Watcher and run the command again. For more information, see [Configure the YML file](/intl.en-US/Elasticsearch Instances Management/Elasticsearch cluster configuration/Configure the YML file.md).
-        -   When you create a DingTalk Chatbot, you must configure security settings. The body parameter in the preceding code needs to be configured based on the security settings. For more information, see [Configure security settings](https://ding-doc.dingtalk.com/doc#/serverapi2/qf2nxq). In this topic, **Security Settings** is set to **Custom Keywords** and the error keyword is specified. In this case, the DingTalk Chatbot sends alert notifications when the content field in the body parameter contains error.
+        -   `url` specified in `actions` must contain the private IP address of your ECS instance that resides in the same region and VPC as your Elasticsearch cluster. You must also create a security group rule for the ECS instance. Otherwise, the instance cannot be used to access the Elasticsearch cluster.
+        -   If the error `No handler found for uri [/_xpack/watcher/watch/log_error_watch_2] and method [PUT]` is returned after you run the preceding command, X-Pack Watcher is disabled for your Elasticsearch cluster. In this case, enable X-Pack Watcher and run the command again. For more information, see [Configure the YML file](/intl.en-US/Elasticsearch Instances Management/Elasticsearch cluster configuration/Configure the YML file.md).
+        -   When you create a DingTalk chatbot, you must configure security settings. The body parameter in the preceding code needs to be configured based on the security settings. For more information, see [Configure security settings](https://ding-doc.dingtalk.com/doc#/serverapi2/qf2nxq). In this topic, **Security Settings** is set to **Custom Keywords** and the error keyword is specified. In this case, the DingTalk chatbot sends alert notifications when the content field in the body parameter contains error.
         If you no longer require this watch, run the following command to delete the watch:
 
         ```
