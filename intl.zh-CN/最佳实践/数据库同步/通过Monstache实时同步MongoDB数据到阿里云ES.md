@@ -47,13 +47,13 @@ keyword: [Monstache实时数据同步, MongoDB与ES数据同步]
 
 1.  创建阿里云ES实例，并开启实例的自动创建索引功能。
 
-    具体操作步骤请参见[创建阿里云Elasticsearch实例](/intl.zh-CN/快速入门/步骤一：创建实例/创建阿里云Elasticsearch实例.md)和[开启自动创建索引](/intl.zh-CN/快速入门/步骤二：配置实例（可选）.md)。本文使用的实例版本为通用商业版6.7.0。
+    具体操作步骤请参见[t134282.md\#](/intl.zh-CN/Elasticsearch/管理实例/创建阿里云Elasticsearch实例.md)和[开启自动创建索引](/intl.zh-CN/Elasticsearch/快速访问与配置.md)。本文使用的实例版本为通用商业版6.7.0。
 
 2.  创建阿里云MongoDB实例，并准备测试数据。
 
-    具体操作步骤请参见[MongoDB快速入门](/intl.zh-CN/副本集快速入门/创建副本集实例.md)。本文以4.2版本的副本集MongoDB实例为例，部分数据如下。
+    具体操作步骤请参见[MongoDB快速入门](/intl.zh-CN/快速入门/创建实例/创建副本集实例.md)。本文以4.2版本的副本集MongoDB实例为例，部分数据如下。
 
-    ![测试数据](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/zh-CN/1602659951/p128772.png)
+    ![测试数据](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/1602659951/p128772.png)
 
     **说明：** MongoDB实例必须是副本集或分片集架构，不支持单节点架构。
 
@@ -252,13 +252,13 @@ keyword: [Monstache实时数据同步, MongoDB与ES数据同步]
 
     |参数|说明|
     |--|--|
-    |mongo-url|MongoDB实例的主节点访问地址。可在实例的基本信息页面获取，获取前需配置MongoDB实例的白名单，即在白名单中添加安装Monstache的ECS实例的内网IP地址，详情请参见[设置白名单](/intl.zh-CN/分片集群快速入门/设置白名单.md)。|
-    |elasticsearch-urls|阿里云ES实例的访问地址，格式为`http://<阿里云ES实例的内网地址>:9200`。阿里云ES实例的内网地址可在实例的基本信息页面获取，详情请参见[查看实例的基本信息](/intl.zh-CN/实例管理/管理实例/查看实例的基本信息.md)。|
+    |mongo-url|MongoDB实例的主节点访问地址。可在实例的基本信息页面获取，获取前需配置MongoDB实例的白名单，即在白名单中添加安装Monstache的ECS实例的内网IP地址，详情请参见[设置白名单]()。|
+    |elasticsearch-urls|阿里云ES实例的访问地址，格式为`http://<阿里云ES实例的内网地址>:9200`。阿里云ES实例的内网地址可在实例的基本信息页面获取，详情请参见[查看实例的基本信息](/intl.zh-CN/Elasticsearch/管理实例/查看实例的基本信息.md)。|
     |direct-read-namespaces|指定待同步的集合，详情请参见[direct-read-namespaces](https://rwynn.github.io/monstache-site/config/#direct-read-namespaces)。本文同步的数据集为mydb数据库下的hotmovies和col集合。|
     |change-stream-namespaces|如果要使用MongoDB变更流功能，需要指定此参数。启用此参数后，oplog追踪会被设置为无效，详情请参见[change-stream-namespaces](https://rwynn.github.io/monstache-site/config/#change-stream-namespaces)。|
     |namespace-regex|通过正则表达式指定需要监听的集合。此设置可以用来监控符合正则表达式的集合中数据的变化。|
     |elasticsearch-user|访问阿里云ES实例的用户名，默认为elastic。 **说明：** 实际业务中不建议使用elastic用户，这样会降低系统安全性。建议使用自建用户，并给予自建用户分配相应的角色和权限，详情请参见[创建角色](/intl.zh-CN/访问控制/Kibana角色管理/创建角色.md)和[创建用户](/intl.zh-CN/访问控制/Kibana角色管理/创建用户.md)。 |
-    |elasticsearch-password|对应用户的密码。elastic用户的密码在创建实例时指定，如果忘记可进行重置，重置密码的注意事项和操作步骤请参见[重置实例访问密码](/intl.zh-CN/实例管理/安全配置/重置实例访问密码.md)。|
+    |elasticsearch-password|对应用户的密码。elastic用户的密码在创建实例时指定，如果忘记可进行重置，重置密码的注意事项和操作步骤请参见[重置实例访问密码](/intl.zh-CN/Elasticsearch/安全配置/重置实例访问密码.md)。|
     |elasticsearch-max-conns|定义连接ES的线程数。默认为4，即使用4个Go线程同时将数据同步到ES。|
     |dropped-collections|默认为true，表示当删除MongoDB集合时，会同时删除ES中对应的索引。|
     |dropped-databases|默认为true，表示当删除MongoDB数据库时，会同时删除ES中对应的索引。|
@@ -285,8 +285,8 @@ keyword: [Monstache实时数据同步, MongoDB与ES数据同步]
 
     **说明：**
 
-    -   登录DMS控制台的方法请参见[通过DMS连接MongoDB副本集实例](/intl.zh-CN/副本集快速入门/连接实例/通过DMS连接MongoDB副本集实例.md)。
-    -   登录Kibana控制台的方法请参见[登录Kibana控制台](/intl.zh-CN/实例管理/可视化控制/Kibana/登录Kibana控制台.md)。
+    -   登录DMS控制台的方法请参见[通过DMS连接MongoDB副本集实例](/intl.zh-CN/快速入门/连接实例/通过DMS连接MongoDB副本集实例.md)。
+    -   登录Kibana控制台的方法请参见[登录Kibana控制台](/intl.zh-CN/Elasticsearch/可视化控制/Kibana/登录Kibana控制台.md)。
     -   MongoDB
 
         ```
@@ -349,7 +349,7 @@ keyword: [Monstache实时数据同步, MongoDB与ES数据同步]
         }
         ```
 
-        ![插入数据](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/zh-CN/1602659951/p128730.png)
+        ![插入数据](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/1602659951/p128730.png)
 
 3.  在MongoDB数据库中更新数据，查看阿里云ES实例中对应的数据是否会同步更新。
 
@@ -372,7 +372,7 @@ keyword: [Monstache实时数据同步, MongoDB与ES数据同步]
         }
         ```
 
-        ![更新数据返回结果](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/zh-CN/1602659951/p128722.png)
+        ![更新数据返回结果](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/1602659951/p128722.png)
 
 4.  在MongoDB数据库中删除数据，查看阿里云ES实例中对应的数据是否会同步删除。
 
@@ -402,18 +402,18 @@ keyword: [Monstache实时数据同步, MongoDB与ES数据同步]
         }
         ```
 
-        ![删除数据返回结果](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/zh-CN/1602659951/p128733.png)
+        ![删除数据返回结果](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/1602659951/p128733.png)
 
 
 ## 步骤四：通过Kibana分析并展示数据
 
 1.  登录目标阿里云ES实例的Kibana控制台。
 
-    具体操作步骤请参见[登录Kibana控制台](/intl.zh-CN/实例管理/可视化控制/Kibana/登录Kibana控制台.md)。
+    具体操作步骤请参见[登录Kibana控制台](/intl.zh-CN/Elasticsearch/可视化控制/Kibana/登录Kibana控制台.md)。
 
 2.  创建索引模式。
 
-    ![创建索引模式](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/zh-CN/1602659951/p128741.png)
+    ![创建索引模式](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/1602659951/p128741.png)
 
     1.  在左侧导航栏，单击**Management**。
 
@@ -437,18 +437,24 @@ keyword: [Monstache实时数据同步, MongoDB与ES数据同步]
 
     3.  在**New Visualization**对话框中，单击**Pie**。
 
-        ![创建Pie图](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/zh-CN/1602659951/p128759.png)
+        ![创建Pie图](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/1602659951/p128759.png)
 
     4.  单击**hotmovies**索引模式。
 
-        ![单击索引模式](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/zh-CN/1602659951/p128766.png)
+        ![单击索引模式](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/1602659951/p128766.png)
 
     5.  按照下图配置**Metrics**和**Buckets**。
 
-        ![Pie图配置](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/zh-CN/2602659951/p128764.png)
+        ![Pie图配置](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/2602659951/p128764.png)
 
-    6.  单击![运行图标](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/zh-CN/2602659951/p128763.png)图标，应用配置，查看数据展示结果。
+    6.  单击![运行图标](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/2602659951/p128763.png)图标，应用配置，查看数据展示结果。
 
-        ![Pie图展示结果](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/zh-CN/2602659951/p128765.png)
+        ![Pie图展示结果](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/2602659951/p128765.png)
 
+
+## 常见问题
+
+问题：阿里云ES实例开启高可用、高并发功能后，数据有丢失现象，要如何排查？
+
+解决方案：查看阿里云ES集群的整体情况是否正常，如果阿里云ES集群状态正常，则需要排查Monstache服务的问题，详情请参见[Monstache官网](https://rwynn.github.io/monstache-site/)；如果阿里云ES集群状态异常，则需要排查阿里云ES集群的问题，其中阿里云ES集群的常见问题及解决方案，详情请参见[热点文章](/intl.zh-CN/.md)，同时降低并发数，观察是否正常。如果您的问题仍未解决，可以[提交工单](https://workorder-intl.console.aliyun.com/console.htm)咨询。
 
