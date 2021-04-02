@@ -24,11 +24,11 @@ GET /openapi/instances/[InstanceId]/search-log HTTP/1.1
 |query|String|Query|是|host:172.16.\*\*.\*\* AND content:netty|要查询的关键词。 |
 |type|String|Query|是|INSTANCELOG|日志类型。可选值：
 
- -   **INSTANCELOG**：主日志
--   **SEARCHSLOW**：searching慢日志
--   **INDEXINGSLOW**：indexing慢日志
--   **JMVLOG**：GC日志
--   **ES\_SEARCH\_ACCESS\_LOG**：ES访问日志 |
+ -   INSTANCELOG：主日志
+-   SEARCHSLOW：searching慢日志
+-   INDEXINGSLOW：indexing慢日志
+-   JMVLOG：GC日志
+-   ES\_SEARCH\_ACCESS\_LOG：ES访问日志 |
 |beginTime|Long|Query|否|1531910852074|日志开始时间戳，单位：毫秒。 |
 |endTime|Long|Query|否|1531910852074|日志结束时间戳，单位：毫秒。 |
 |page|Integer|Query|否|1|插件列表的页码。起始值：1，默认值：1。 |
@@ -42,7 +42,8 @@ GET /openapi/instances/[InstanceId]/search-log HTTP/1.1
 |X-Total-Count|Integer|1000|实例总记录数。 |
 |RequestId|String|7F40EAA1-6F1D-4DD9-8DB8-C5F00C4E\*\*\*\*|请求ID。 |
 |Result|Array of Result| |请求返回的日志列表。 |
-|content|String|\[GC \(Allocation Failure\) 2018-07-19T17:24:20.682+0800: 7516.513: \[ParNew: 6604768K-\>81121K\(7341504K\), 0.0760606 secs\] 7226662K-\>703015K\(31813056K\), 0.0762507 secs\] \[Times: user=0.52 sys=0.00, real=0.07 secs\]|日志详细内容。 |
+|content|String|\[GC \(Allocation Failure\) 2018-07-19T17:24:20.682+0800: 7516.513: \[ParNew: 6604768K-\>81121K\(7341504K\), 0.0760606 secs\] 7226662K-\>703015K\(31813056K\), 0.0762507 secs\] \[Times: user=0.52 sys=0.00, real=0.07 secs\]|日志详细内容。已迁移至contentCollection字段中。 |
+|contentCollection|Map|\{"level": "info", "host": "192.168.\*\*.\*\*", "time": "2019-03-18T08:16:12.741Z","content": "\[o.e.c.r.a.AllocationService\] \[MnNASM\_\] Cluster health status changed from \[YELLOW\] to \[GREEN\] \(reason: \[shards started \[\[my\_index\]\[3\]\] ...\]\)."\}|日志详细信息。不同的日志类型，返回不同的内容字段。 |
 |host|String|192.168.\*\*.\*\*|生成日志的节点的IP地址。 |
 |instanceId|String|es-cn-n6w1o1x0w001c\*\*\*\*|实例ID。 |
 |level|String|info|日志等级。取值包括：
@@ -51,10 +52,12 @@ GET /openapi/instances/[InstanceId]/search-log HTTP/1.1
 -   info：信息日志
 -   error：错误日志
 -   trace：跟踪日志
--   debug：调试日志 |
+-   debug：调试日志
+
+ level信息已迁移至contentCollection字段中。 |
 |timestamp|Long|1531985112420|日志生成的时间戳，单位为ms。 |
 
-Result中还包含以下参数。
+Result.contentCollection中包含以下参数。
 
 |名称
 
@@ -71,13 +74,34 @@ Result中还包含以下参数。
 |2020-07-21T11:12:53.057Z
 
 |日志产生的时间。 |
+|content
+
+|String
+
+|\[o.e.c.r.a.AllocationService\] \[MnNASM\_\] Cluster health status changed from \[YELLOW\] to \[GREEN\] \(reason: \[shards started \[\[my\_index\]\[3\]\] ...\]\).
+
+|日志详细内容。 |
+|host
+
+|String
+
+|192.168.**.**
+
+|生成日志的节点IP。 |
+|level
+
+|String
+
+|warn
+
+|日志等级。取值包括： warn（警告日志）、info（信息日志）、error（错误日志）、trace（跟踪日志）、debug（调试日志）。 |
 
 ## 示例
 
 请求示例
 
 ```
-GET /openapi/instances/es-cn-n6w1o1x0w001c****/search-log?type=INSTANCELOG&query=host:172.16.**.** AND content:netty&beginTime=1531910852074&endTime=1531910852074&page=1&size=20 HTTP/1.1
+GET /openapi/instances/es-cn-n6w1o1x0w001c****/search-log?type=INSTANCELOG&query=host:172.16.\*\*.\*\* AND content:netty&beginTime=1531910852074&endTime=1531910852074&page=1&size=20 HTTP/1.1
 公共请求头
 ```
 
