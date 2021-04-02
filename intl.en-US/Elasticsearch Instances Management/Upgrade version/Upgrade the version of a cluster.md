@@ -11,7 +11,7 @@ Alibaba Cloud Elasticsearch allows you to upgrade the version or kernel of your 
     |Type|Limit|
     |----|-----|
     |5.5.3 to 5.6.16|None.|
-    |5.6.16 to 6.3.2|This type of version upgrade is controlled based on a whitelist. If you want to perform such an upgrade, [submit a ticket](https://workorder-intl.console.aliyun.com/console.htm) for consultation.|
+    |5.6.16 to 6.3.2|None.|
     |6.3.2 to 6.7.0|None.|
 
 -   A precheck is performed for the version upgrade.
