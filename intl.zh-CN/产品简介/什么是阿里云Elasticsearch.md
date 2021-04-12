@@ -1,36 +1,63 @@
-# 什么是阿里云Elasticsearch {#test .concept}
+# 什么是阿里云Elasticsearch
 
-Elasticsearch简称ES，是一个基于Lucene的实时分布式的搜索与分析引擎，是遵从Apache开源条款的一款开源产品，是当前主流的企业级搜索引擎。它提供了一个分布式服务，可以使您快速的近乎于准实时的存储、查询和分析超大数据集，通常被用来当做构建复杂查询特性和需求强大应用的基础引擎或技术。
+开源Elasticsearch是一个基于Lucene的实时分布式的搜索与分析引擎，是遵从Apache开源条款的一款开源产品，是当前主流的企业级搜索引擎。作为一款基于RESTful API的分布式服务，Elasticsearch可以快速地、近乎于准实时地存储、查询和分析超大数据集，通常被用来作为构建复杂查询特性和需求强大应用的基础引擎或技术。
 
-阿里云Elasticsearch提供Elasticsearch 5.5.3 with Commercial Feature、6.3.2 with Commercial Feature、6.7.0 with Commercial Feature及商业插件X-pack服务，致力于数据分析、数据搜索等场景服务。在开源Elasticsearch的基础上提供企业级权限管控、安全监控告警、自动报表生成等功能。
+阿里云Elasticsearch是基于[开源Elasticsearch](https://www.elastic.co/cn/elasticsearch/features)构建的全托管Elasticsearch云服务，在100%兼容开源功能的同时，支持开箱即用、按需付费。不仅提供云上开箱即用的Elasticsearch、Logstash、Kibana、Beats在内的Elastic Stack生态组件，还与Elastic官方合作提供免费X-Pack（白金版高级特性）商业插件，集成了安全、SQL、机器学习、告警、监控等高级特性，被广泛应用于实时日志分析处理、信息检索、以及数据的多维查询和统计分析等场景。
 
-X-Pack是Elasticsearch的一个商业版扩展包，将安全，警告，监视，图形和报告功能捆绑在一个易于安装的软件包中。X-Pack被集成在Kibana中，为用户提供授权认证、角色权限管控、实时监控、可视化报表、机器学习等能力。
+## 产品介绍
 
-## 使用场景 {#section_ph2_h0k_nqt .section}
+阿里云Elasticsearch致力于打造基于开源生态的、低成本、场景化的云上Elasticsearch解决方案，源于开源，又不止于开源。基于云上超强的计算和存储能力，以及在集群安全和运维领域长期积累的技术经验，阿里云Elasticsearch不仅支持集群一键部署、弹性伸缩、智能运维和各类内核引擎优化，还提供了迁移、容灾、备份和监控等全套解决方案。
 
-阿里云Elasticsearch可以被用在如下几个场景中：
+您可以基于阿里云Elasticserch强大的分析检索能力，以及高安全、高性能、高可用的服务，简化集群部署管理工作、降低集群资源与运维成本、提升数据安全可靠性、打通上下游数据链路、优化读写性能效果等。基于这些优化，您可以快速构建日志分析、异常监控、企业搜索和大数据分析等各业务应用，聚焦于业务应用本身，实现业务价值。
 
--   当您运营一个提供客户检索商品的在线电子商城的时候，可以使用ES来存储整个商品的目录和库存，并且为客户提供检索和自动推荐功能。
--   收集交易数据，存储数据并做趋势、统计、概要或异常分析。这种情况下，可以使用Logstash来收集、聚合和解析数据，并且存储到Elasticsearch。一旦数据进入Elasticsearch，您可以通过检索、聚合来掌握您感兴趣的信息。
--   价格预警平台，为价格敏感客户提供匹配其需求（主要是价格方面）的商品。
--   在报表分析/BI领域，可以使用ES的聚合功能完成针对大数据量的复杂分析。
+## 产品组件
 
-## 特点及优势 {#section_znf_rbf_zgb .section}
+在阿里云Elastic Stack产品生态下，Elasticsearch作为实时分布式搜索和分析引擎，Kibana实现灵活的可视化分析，Beats从各个机器和系统采集数据，Logstash采集、转换、优化和输出数据。通过各个组件的结合，阿里云Elasticsearch可被广泛应用于实时日志处理、全文搜索和数据分析等领域。
 
--   分布式的实时文件存储，每个字段都被索引并可被搜索。
--   分布式的实时分析搜索引擎。
--   商业版X-pack插件，提供企业级权限管控、实时系统监控等强大服务。
--   可弹性扩展到上百台服务器规模，处理PB级结构化或非结构化数据。
--   支持IK analyzer插件。
--   Elastic官方技术支持团队7\*24小时技术支持。
+-   [X-Pack](https://www.elastic.co/guide/en/elasticsearch/reference/7.10/setup-xpack.html)
 
-## 预置插件 {#section_b15_sbf_zgb .section}
+    X-Pack是Elasticsearch的一个商业版扩展包，包含安全Security、警告 Altering、监控Monitoring、图形Graph和报告Reporting、机器学习 MachineLearning等多种高级功能。创建阿里云Elasticsearch集群时，系统会默认将X-Pack作为插件集成在Kibana中，为您免费提供授权认证、角色权限管控、实时监控、可视化报表、机器学习等能力，实现更便捷的Elasticsearch运维管理和应用开发。
 
-阿里云Elasticsearch预置插件如下（包含但不完全包含）：
+-   [Beats数据采集中心](/intl.zh-CN/Beats/安装采集器.md)
 
--   IK Analyzer：IK Analyzer是一个开源的，基于java语言开发的中文分词工具包。是开源社区中处理中分分词非常热门的插件。
--   pinyin Analyzer：拼音分词器。
--   Smart Chinese Analysis Plugin：lucene默认的中文分词器。
--   ICU Analysis plugin：lucene自带的ICU分词，ICU是一套稳定、成熟、功能强大、轻便易用和跨平台支持Unicode 的开发包。
--   Mapper Attachments Type plugin：附件类型插件，通过tika库将各种类型格式解析成字符串。
+    Beats是轻量级的数据采集工具，集合了多种单一用途的数据采集器。它们从成百上千或成千上万台机器和系统向Logstash或Elasticsearch发送数据。
+
+    阿里云Elasticsearch的Beats采集中心支持Filebeat、Metricbeat、Auditbeat和Heartbeat。支持在云服务器ECS（Elastic Compute Service）和容器服务Kubernetes版ACK（Container Service for Kubernetes）集群中一键部署采集器，可视化采集与配置日志文件、网络数据、容器指标等多种类型数据，并集中管理多个采集器。
+
+-   [Logstash](/intl.zh-CN/Logstash/什么是阿里云Logstash.md)
+
+    Logstash作为服务器端的数据处理管道，通过输入、过滤和输出插件，动态地从多个来源采集数据，并加工和转换任何类型的事件，最终将数据存储到所选择的位置。
+
+    阿里云提供全托管的Logstash Service，100%兼容开源。支持一键部署、可视化配置和集中管理数据管道，提供多种插件实现与OSS、Maxcompute等云产品的连通。
+
+-   [Kibana](/intl.zh-CN/Elasticsearch/可视化控制/Kibana/登录Kibana控制台.md)
+
+    Kibana是灵活的数据分析和可视化工具，支持多用户登录。在Kibana中，您可以搜索和查看Elasticsearch索引中的数据，并进行交互。创建阿里云Elasticsearch集群时，系统会自动部署独立的Kibana节点，您可以根据业务需求，灵活使用图表、表格、地图等，呈现多元化的数据分析报表和大盘。
+
+
+## 相关服务
+
+-   [AliES内核引擎及插件](/intl.zh-CN/AliES内核/内核版本发布记录.md)
+
+    阿里云Elasticsearch在完全兼容开源Elasticsearch内核的所有特性基础上，在监控指标多样化、线程池、熔断策略优化、查询与写入性能优化等诸多方面，深度定制了AliES内核引擎。同时提供多种自研插件，提升集群稳定性、增强性能、优化成本并丰富监控运维功能。
+
+-   [Eyou智能诊断系统](/intl.zh-CN/Elasticsearch/运维/智能运维/智能运维系统概述.md)
+
+    阿里云Elasticsearch的智能运维系统EYou，提供集群、节点、索引等二十余个诊断项的健康检测功能。能够全面观测并记录集群的运行状况，自动归纳集群诊断结果。同时帮助您探测集群潜在风险，在集群异常状态下，快速提供关键信息和合理的优化建议，让集群运维更便捷。
+
+
+## 相关文档
+
+-   产品优势
+    -   [阿里云Elasticsearch与自建集群对比]()
+    -   [高可用性](/intl.zh-CN/产品简介/产品优势/高可用性.md)
+    -   [高安全性](/intl.zh-CN/产品简介/产品优势/高安全性.md)
+    -   [高性能](/intl.zh-CN/产品简介/产品优势/高性能.md)
+-   购买
+    -   [购买阿里云Elasticsearch实例](/intl.zh-CN/Elasticsearch/快速入门/步骤一：创建实例/创建实例.md)
+    -   [购买阿里云Logstash实例](/intl.zh-CN/Logstash/快速入门/步骤一：创建实例/创建阿里云Logstash实例.md)
+-   快速入门
+    -   [Elasticsearch快速入门](/intl.zh-CN/Elasticsearch/快速开始.md)
+    -   [Logstash快速入门](/intl.zh-CN/Logstash/快速入门/入门概述.md)
+    -   [Beats采集器快速入门](/intl.zh-CN/Beats/安装采集器.md)
 
