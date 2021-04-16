@@ -16,7 +16,7 @@ keyword: [logstash-input-datahub插件, logstash读取datahub数据]
 
 -   开通DataHub产品，并完成创建项目、创建Topic和导入数据。
 
-    详细信息，请参见DataHub官方文档的[用户指南](https://help.aliyun.com/document_detail/158789.html)章节。
+    详细信息，请参见DataHub官方文档的[用户指南](https://help.aliyun.com/document_detail/158788.html?spm=a2c4g.11186623.3.3.defb160bb0Qbv8)章节。
 
 
 ## 使用logstash-input-datahub插件
