@@ -65,7 +65,5 @@ For more information, see [Breaking changes in 7.0](https://www.elastic.co/guide
 
 ## Create an Elasticsearch cluster
 
--   [t134282.md\#](/intl.en-US/Elasticsearch Instances Management/Manage clusters/Create an Alibaba Cloud Elasticsearch cluster.md)
--   [Buy page parameters]()
--   [Buy page parameters \(Advanced Edition\)]()
+-   [Create an Alibaba Cloud Elasticsearch cluster](/intl.en-US/Elasticsearch Instances Management/Manage clusters/Create an Alibaba Cloud Elasticsearch cluster.md)
 
