@@ -45,7 +45,7 @@ Enter the following parameters in RequestBody to specify the resource group to w
 
 |rg-acfm2h5vbzd\*\*\*\*
 
-|The ID of the resource group. Available at [Resource Groups](https://resourcemanager.console.aliyun.com/resource-groups)Get on page. |
+|The ID of the resource group. Available at [Resource Groups](https://resourcemanager.console.aliyun.com/resource-groups) Get on page. |
 
 ## Response parameters
 
