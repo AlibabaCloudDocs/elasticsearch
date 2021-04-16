@@ -31,7 +31,7 @@ Alibaba Cloud Elasticsearch offers two editions of clusters: Standard Edition an
 
 ## Capabilities and advanced commercial features provided by the open source Elastic Stack ecosystem
 
-Alibaba Cloud Elasticsearch clusters of the Standard Edition support the following open source Elasticsearch features. For more information about the features, see [Elastic Stack features](https://www.elastic.co/cn/elastic-stack/features#-------). Due to the rapid iteration of open source Elasticsearch versions, the features supported by each version are constantly updated. For more information about the features supported by each version, see [Version comparisons]().
+Alibaba Cloud Elasticsearch clusters of the Standard Edition support the following open source Elasticsearch features. For more information about the features, see [Elastic Stack features](https://www.elastic.co/cn/elastic-stack/features#-------). Due to the rapid iteration of open source Elasticsearch versions, the features supported by each version are constantly updated. For more information about the features supported by each version, see [Version comparisons](/intl.en-US/Product Introduction/Product edition/Overview.md).
 
 |Category|Subcategory|Feature|
 |--------|-----------|-------|
@@ -174,7 +174,6 @@ Alibaba Cloud Elasticsearch clusters of the Standard Edition support the followi
 ## Create an Elasticsearch cluster
 
 -   [Create a cluster](/intl.en-US/Elasticsearch Instances Management/Quick Start/Step 1: Create a cluster/Create a cluster.md)
--   [Buy page parameters]()
 
 ## Get started with the Standard Edition
 
