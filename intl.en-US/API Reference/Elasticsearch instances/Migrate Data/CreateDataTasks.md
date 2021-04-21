@@ -312,5 +312,5 @@ Sample success responses
 
 ## Error codes
 
-Go to the [Error Center](https://error-center.alibabacloud.com/status/product/elasticsearch)See more error codes.
+Go to the [Error Center](https://error-center.alibabacloud.com/status/product/elasticsearch) See more error codes.
 
