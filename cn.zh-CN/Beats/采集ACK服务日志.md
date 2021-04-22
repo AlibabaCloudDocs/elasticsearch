@@ -4,11 +4,11 @@ keyword: [Filebeat采集ACK服务日志, Filebeat采集K8S日志]
 
 # 采集ACK服务日志
 
-阿里云Filebeat支持采集容器服务Kubernetes版ACK（Container Service for Kubernetes）日志，并将采集的日志输出到阿里云Elasticsearch中，进行分析展示。本文介绍如何配置ACK服务日志采集。
+阿里云Filebeat支持采集容器服务Kubernetes版ACK（Container Service for Kubernetes）日志，并将采集的日志输出到阿里云Elasticsearch中，进行分析展示。本文介绍ACK服务日志采集的配置步骤和采集器容器的说明。
 
 -   创建阿里云Elasticsearch实例。
 
-    具体操作，请参见[创建实例](/cn.zh-CN/Elasticsearch/实例管理/创建实例.md)[创建阿里云Elasticsearch实例](t134282.md#)。
+    具体操作，请参见[创建实例]()[创建阿里云Elasticsearch实例](t134282.md#)。
 
 -   自定义自动创建索引。
 
@@ -20,11 +20,11 @@ keyword: [Filebeat采集ACK服务日志, Filebeat采集K8S日志]
 
 -   RAM用户进行相关操作时，需要为该用户授予Beats操作权限和ACK操作权限。
 
-    详细信息，请参见[创建自定义权限策略](/cn.zh-CN/访问控制/创建自定义权限策略.md)和[配置子账号RBAC权限](/cn.zh-CN/Kubernetes集群用户指南/授权管理/配置子账号RBAC权限.md)。
+    详细信息，请参见[创建自定义权限策略](/cn.zh-CN/访问控制/创建自定义权限策略.md)和[配置RAM用户RBAC权限](/cn.zh-CN/Kubernetes集群用户指南/授权/配置RAM用户RBAC权限.md)。
 
 -   创建ACK集群，并运行Pod服务。本文以Nginx容器为例。
 
-    具体操作，请参见[创建Kubernetes托管版集群](/cn.zh-CN/Kubernetes集群用户指南/集群管理/创建集群/创建Kubernetes托管版集群.md)。
+    具体操作，请参见[创建Kubernetes托管版集群](/cn.zh-CN/Kubernetes集群用户指南/集群/创建集群/创建Kubernetes托管版集群.md)。
 
 
 ## 操作步骤
@@ -71,7 +71,7 @@ keyword: [Filebeat采集ACK服务日志, Filebeat采集K8S日志]
         |**Pod Label**|添加Pod标签。添加多个标签时，多个标签之间为逻辑与关系。**说明：** 删除Pod标签时，需要至少存在两个标签。 |
         |**容器名称**|指定完整的容器名称。不填时，Filebeat会采集命名空间下符合Pod标签的所有容器。|
 
-        **说明：** 获取Pod相关信息（命名空间、标签、名称）的具体操作，请参见[查看容器组（Pod）](/cn.zh-CN/Kubernetes集群用户指南/应用管理/查看容器组（Pod）.md)。
+        **说明：** 获取Pod相关信息（命名空间、标签、名称）的具体操作，请参见[管理容器组（Pod）](/cn.zh-CN/Kubernetes集群用户指南/应用/工作负载/管理容器组（Pod）.md)。
 
     4.  单击**下一步**。
 
@@ -118,10 +118,29 @@ keyword: [Filebeat采集ACK服务日志, Filebeat采集K8S日志]
 
     启动后，您可在采集器列表中查看对应的采集器。启动成功后，您还可以完成以下操作。
 
+    **说明：** ACK集群将默认在logging名称的空间下完成采集器资源部署。
+
     |操作|说明|
     |--|--|
     |**配置预览**|可查看采集器Output、ACK目标集群及采集任务名称等信息，不支持修改这些信息。|
     |**修改详情配置**|可修改采集目标、日志采集配置和索引存储管理策略。|
     |**更多**|可启动、停止、重启、删除采集任务，并支持查看Dashboard和Helm状态。|
 
+
+## 采集器容器
+
+[通过kubectl 访问ACK集群](https://help.aliyun.com/document_detail/86494.htm?spm=a2c4g.11186623.2.12.6f0c245ctuVj4Z#task-ubf-lhg-vdb)，查看logging空间下采集器资源。
+
+```
+kubectl get pods  -n logging
+```
+
+![fig01](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/9810128161/p262295.png)
+
+|pod name|说明|示例|
+|--------|--|--|
+|实例名称-binding-序列号|索引管理容器，例如：定时删除老数据。|ct-cn-ew8qx563gu4ng4ot6-binding-7e245-1617347400-c\*\*\*\*|
+|实例名称-policy-序列号|索引生命周期滚动更新策略。|ct-cn-ew8qx563gu4ng4ot6-policy-696b7-hot-rollover-1g-16173v\*\*\*\*|
+|实例名称-序列号|Filebeat容器。|ct-cn-ew8qx563gu4ng4ot6-q\*\*\*\*|
+|es-operator-序列号|创建的ES-operator容器。|es-operator-cb63cc9a6302e4e90aeb2f79adf358b19-56fcd754db-b\*\*\*\*|
 
