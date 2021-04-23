@@ -152,7 +152,7 @@
     **说明：**
 
     -   `kms_encrypted_password`和`kms_encryption_context`参数要求provider插件版本在1.57.1及以上；`zone_count`参数要求provider插件版本在1.44.0及以上。
-    -   如果需要购买除数据节点外的其他属性节点，请参见[createInstance](https://help.aliyun.com/document_detail/148782.html?spm=a2c4g.11186623.6.850.b6902ef8FOE0eV)参数开启其他节点属性。例如：购买多可用区专有主节点，脚本中需要加入`advancedDedicateMaster="true"`。
+    -   如果需要购买除数据节点外的其他属性节点，请参见[createInstance](/cn.zh-CN/API参考/Elasticsearch/实例管理/createInstance.md)参数开启其他节点属性。例如：购买多可用区专有主节点，脚本中需要加入`advancedDedicateMaster="true"`。
 3.  执行`terraform plan`命令，查看将会执行的操作。
 
     执行成功后，返回如下结果。
