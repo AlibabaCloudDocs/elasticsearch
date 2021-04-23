@@ -8,7 +8,7 @@ keyword: [Filebeat采集ACK服务日志, Filebeat采集K8S日志]
 
 -   创建阿里云Elasticsearch实例。
 
-    具体操作，请参见[创建实例](/intl.zh-CN/Elasticsearch/快速入门/步骤一：创建实例/创建实例.md)[创建阿里云Elasticsearch实例](t134282.md#)。
+    具体操作，请参见[创建实例](/intl.zh-CN/Elasticsearch/快速入门/步骤一：创建实例/创建实例.md)或者[创建阿里云Elasticsearch实例](/intl.zh-CN/Elasticsearch/管理实例/创建阿里云Elasticsearch实例.md)。
 
 -   自定义自动创建索引。
 
@@ -129,13 +129,15 @@ keyword: [Filebeat采集ACK服务日志, Filebeat采集K8S日志]
 
 ## 采集器容器
 
-[通过kubectl 访问ACK集群](https://help.aliyun.com/document_detail/86494.htm?spm=a2c4g.11186623.2.12.6f0c245ctuVj4Z#task-ubf-lhg-vdb)，查看logging空间下采集器资源。
+[通过kubectl连接Kubernetes集群](https://www.alibabacloud.com/help/zh/doc-detail/86378.html?spm=a2c5t.11065259.1996646101.searchclickresult.7c71694b9cyhQH)，查看logging空间下采集器资源。
 
 ```
 kubectl get pods  -n logging
 ```
 
 ![fig01](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/9810128161/p262295.png)
+
+**警告：** logging名称空间下已经部署的资源禁止删除或做其他操作，否则会影响系统的正常使用。
 
 |pod name|说明|示例|
 |--------|--|--|
