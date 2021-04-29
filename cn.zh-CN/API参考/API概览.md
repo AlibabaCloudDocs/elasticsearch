@@ -108,7 +108,7 @@
 |[DescribeLogstash](/cn.zh-CN/API参考/Logstash/实例管理/DescribeLogstash.md)|调用DescribeLogstash，查询指定实例的详细信息。|
 |[UpdateLogstash](/cn.zh-CN/API参考/Logstash/实例管理/UpdateLogstash.md)|调用UpdateLogstash，修改指定实例的部分信息，例如节点数、配额、名称、硬盘大小等。|
 |[RenewLogstash](/cn.zh-CN/API参考/Logstash/实例管理/RenewLogstash.md)|调用RenewLogstash，为实例续费。|
-|[RestartLogstash](/cn.zh-CN/API参考/Logstash/实例管理/RestartLogstash.md)|调用RestartLogstash，重启指定实例。重启后，实例会进入生效中（activing）状态。|
+|[RestartLogstash](/cn.zh-CN/API参考/Logstash/实例管理/RestartLogstash.md)|调用RestartLogstash，重启指定实例。重启后，实例会进入生效中（activating）状态。|
 |[UpdateLogstashDescription](/cn.zh-CN/API参考/Logstash/实例管理/UpdateLogstashDescription.md)|调用UpdateLogstashDescription，修改指定Logstash实例的名称。|
 |[UpdateLogstashChargeType](/cn.zh-CN/API参考/Logstash/实例管理/UpdateLogstashChargeType.md)|调用UpdateLogstashChargeType，将按量付费的阿里云Logstash实例转换为包年包月实例。|
 |[EstimatedLogstashRestartTime](/cn.zh-CN/API参考/Logstash/实例管理/EstimatedLogstashRestartTime.md)|调用EstimatedLogstashRestartTime，获取Logstash实例重启的预估时间。|
