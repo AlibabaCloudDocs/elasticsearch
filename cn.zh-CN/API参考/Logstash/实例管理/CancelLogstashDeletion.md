@@ -44,13 +44,6 @@ POST /openapi/logstashes/ls-cn-m7r1vsi2****/actions/cancel-deletion HTTP/1.1
 
 正常返回示例
 
-`XML`格式
-
-```
-<Result>true</Result>
-<RequestId>23EBF56B-2DC0-4507-8BE5-B87395DB0FEB</RequestId>
-```
-
 `JSON`格式
 
 ```
