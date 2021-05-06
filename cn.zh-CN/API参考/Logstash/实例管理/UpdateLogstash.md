@@ -17,15 +17,15 @@
 ## 请求语法
 
 ```
-PATCH|PUT /openapi/logstashes/[InstanceId] HTTPS|HTTP
+PUT /openapi/logstashes/[InstanceId] HTTP/1.1
 ```
 
 ## 请求参数
 
-|名称|类型|是否必选|示例值|描述|
-|--|--|----|---|--|
-|InstanceId|String|是|ls-cn-n6w1o5jq\*\*\*\*|实例ID。 |
-|clientToken|String|否|5A2CFF0E-5718-45B5-9D4D-70B3FF\*\*\*\*|用于保证请求的幂等性。由客户端生成该参数值，要保证在不同请求间唯一，最大不超过64个ASCII字符。 |
+|名称|类型|位置|是否必选|示例值|描述|
+|--|--|--|----|---|--|
+|InstanceId|String|Path|是|ls-cn-n6w1o5jq\*\*\*\*|实例ID。 |
+|clientToken|String|Query|否|5A2CFF0E-5718-45B5-9D4D-70B3FF\*\*\*\*|用于保证请求的幂等性。由客户端生成该参数值，要保证在不同请求间唯一，最大不超过64个ASCII字符。 |
 
 ## RequestBody
 
@@ -181,61 +181,7 @@ PATCH /openapi/logstashes/ls-cn-n6w1o5jq**** HTTP/1.1
 
 正常返回示例
 
-`XML` 格式
-
-```
-<Result>
-    <instanceId>ls-cn-n6w1o5jq****</instanceId>
-    <version>6.7.0_with_X-Pack</version>
-    <description>test</description>
-    <nodeAmount>1</nodeAmount>
-    <paymentType>postpaid</paymentType>
-    <status>active</status>
-    <enablePublic>false</enablePublic>
-    <nodeSpec>
-        <spec>elasticsearch.sn1ne.large</spec>
-        <disk>40</disk>
-        <diskType>cloud_ssd</diskType>
-    </nodeSpec>
-    <networkConfig>
-        <vpcId>vpc-bp16k1dvzxtmagcva****</vpcId>
-        <vswitchId>vsw-bp1k4ec6s7sjdbudw****</vswitchId>
-        <vsArea>cn-hangzhou-i</vsArea>
-        <type>vpc</type>
-    </networkConfig>
-    <createdAt>2020-05-27T01:30:15.947Z</createdAt>
-    <updatedAt>2020-05-27T01:40:51.333Z</updatedAt>
-    <commodityCode>elasticsearch_logstash_post</commodityCode>
-    <endTime>4746268800000</endTime>
-    <resourceGroupId>rg-acfm2h5vbzd****</resourceGroupId>
-    <zoneCount>1</zoneCount>
-    <protocol>HTTP</protocol>
-    <zoneInfos>
-        <zoneId>cn-hangzhou-i</zoneId>
-        <status>NORMAL</status>
-    </zoneInfos>
-    <instanceType>logstash</instanceType>
-    <inited>true</inited>
-    <config>
-        <xpack.monitoring.elasticsearch.username>elastic</xpack.monitoring.elasticsearch.username>
-        <xpack.monitoring.enabled>true</xpack.monitoring.enabled>
-        <slowlog.threshold.debug>500ms</slowlog.threshold.debug>
-        <xpack.monitoring.elasticsearch.password>Elasti****</xpack.monitoring.elasticsearch.password>
-        <xpack.monitoring.elasticsearch.hosts>["http://es-cn-n6w1o1x0w001c****.elasticsearch.aliyuncs.com:9200"]</xpack.monitoring.elasticsearch.hosts>
-        <slowlog.threshold.warn>2s</slowlog.threshold.warn>
-        <slowlog.threshold.info>1s</slowlog.threshold.info>
-        <slowlog.threshold.trace>100ms</slowlog.threshold.trace>
-    </config>
-    <endpointList>
-        <host>172.16.**.**</host>
-        <port>9600</port>
-        <zoneId>cn-hangzhou-i</zoneId>
-    </endpointList>
-</Result>
-<RequestId>FBD56B2B-367F-470D-90D0-C3120832****</RequestId>
-```
-
-`JSON` 格式
+`JSON`格式
 
 ```
 {
