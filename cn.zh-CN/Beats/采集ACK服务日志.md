@@ -33,11 +33,15 @@ keyword: [Filebeat采集ACK服务日志, Filebeat采集K8S日志]
 
 2.  在顶部菜单栏处，选择地域。然后在左侧导航栏，单击**Beats数据采集中心**。
 
-    **说明：** 首次进入**Beats数据采集中心**，需要根据页面提示进行授权确认。
+3.  首次进入**Beats数据采集中心**页面，单击**确认**，授权创建服务关联角色。
 
-3.  在**创建采集器**区域，将鼠标移至**Filebeat**上，单击**ACK日志**。
+    ![Beats授权服务关联角色](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/1292959161/p268158.png)
 
-4.  在**选择目标ES集群**配置向导中，配置采集器信息。完成后，单击**下一步**。
+    **说明：** Beats采集不同数据源数据时，依赖于服务关联角色以及角色规则。使用过程中请勿删除服务关联角色，否则使用会受到影响。详情参考[Elasticsearch服务关联角色](/cn.zh-CN/访问控制/Elasticsearch服务关联角色.md)。
+
+4.  在**创建采集器**区域，将鼠标移至**Filebeat**上，单击**ACK日志**。
+
+5.  在**选择目标ES集群**配置向导中，配置采集器信息。完成后，单击**下一步**。
 
     ![选择目标ES集群](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/4241651161/p231821.png)
 
@@ -50,7 +54,7 @@ keyword: [Filebeat采集ACK服务日志, Filebeat采集K8S日志]
     |**启用Monitoring**|用来监控Filebeat的相关指标。**采集器Output**选择**Elasticsearch**，Monitor默认使用和**采集器Output**相同的阿里云Elasticsearch实例。|
     |**启用Kibana Dashboard**|用来配置默认的Kibana Dashboard。由于阿里云Kibana配置在专有网络内，因此需要在Kibana配置页面开通Kibana私网访问功能。具体操作，请参见[配置Kibana公网或私网访问白名单](/cn.zh-CN/Elasticsearch/可视化控制/Kibana/配置Kibana公网或私网访问白名单.md)。|
 
-5.  在**设置采集目标**配置向导中，配置采集目标信息。
+6.  在**设置采集目标**配置向导中，配置采集目标信息。
 
     1.  选择**ACK目标集群**。
 
@@ -75,7 +79,7 @@ keyword: [Filebeat采集ACK服务日志, Filebeat采集K8S日志]
 
     4.  单击**下一步**。
 
-6.  在**日志采集配置**配置向导中，单击**+添加日志采集配置**，配置日志采集信息（支持多个）。完成后，单击**下一步**。
+7.  在**日志采集配置**配置向导中，单击**+添加日志采集配置**，配置日志采集信息（支持多个）。完成后，单击**下一步**。
 
     ![日志采集配置](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/6638651161/p232001.png)
 
@@ -98,7 +102,7 @@ keyword: [Filebeat采集ACK服务日志, Filebeat采集K8S日志]
     -   如果通用模板无法满足需求，建议您参见[FileBeat Docker input](https://www.elastic.co/guide/en/beats/filebeat/6.8/filebeat-input-docker.html#fields-under-root-docker)修改。
     -   一个采集器配置仅支持一个Docker输出。如果需要使用多个配置，请单击**添加日志采集配置**。 |
 
-7.  在**索引存储管理**配置向导中，根据需求开启并配置索引存储管理功能。
+8.  在**索引存储管理**配置向导中，根据需求开启并配置索引存储管理功能。
 
     开启索引存储管理后，单击**+添加索引管理策略**，按照以下说明配置策略（支持多个）。
 
@@ -114,7 +118,7 @@ keyword: [Filebeat采集ACK服务日志, Filebeat采集K8S日志]
     -   开启滚动更新，Filebeat会将数据写入名称为<日志名称\>-<日期\>-<序号\>的索引下，例如log-web-2021.01.22-000001。
     -   不开启滚动更新，Filebeat会将数据写入名称为filebeat-<日志名称\>-<日期\>的索引下。 |
 
-8.  单击**启动**。
+9.  单击**启动**。
 
     启动后，您可在采集器列表中查看对应的采集器。启动成功后，您还可以完成以下操作。
 
