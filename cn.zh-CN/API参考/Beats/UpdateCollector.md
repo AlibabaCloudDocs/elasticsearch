@@ -13,7 +13,7 @@
 ## 请求语法
 
 ```
-PATCH|PUT /openapi/collectors/[ResId] HTTPS|HTTP
+PUT /openapi/collectors/[ResId] HTTP/1.1
 ```
 
 ## 请求参数
@@ -435,52 +435,6 @@ PUT /openapi/collectors/ct-cn-77uqof2s7rg5c**** HTTP/1.1
 ```
 
 正常返回示例
-
-`XML`格式
-
-```
-<RequestId>5FFD9ED4-C2EC-4E89-B22B-1ACB6FE1D***</RequestId>
-<Result>
-    <configs>
-        <fileName>filebeat.yml</fileName>
-        <content>filebeat.inputs:xxx</content>
-    </configs>
-    <dryRun>false</dryRun>
-    <resType>fileBeat</resType>
-    <ownerId>16852099488*****</ownerId>
-    <resId>ct-cn-0v3xj86085dvq****</resId>
-    <collectorPaths>/var/log</collectorPaths>
-    <gmtUpdateTime>2020-06-20T07:26:47.000+0000</gmtUpdateTime>
-    <extendConfigs>
-        <enableMonitoring>true</enableMonitoring>
-        <groupId>default_ct-cn-5i2l75bz4776****</groupId>
-        <instanceType>elasticsearch</instanceType>
-        <type>ECSInstanceId</type>
-        <userName>elastic</userName>
-        <configType>collectorDeployMachine</configType>
-        <protocol>HTTP</protocol>
-        <instanceId>es-cn-nif1z89fz003i****</instanceId>
-        <host>es-cn-n6w1o1x0w001c****-kibana.internal.elasticsearch.aliyuncs.com:5601</host>
-        <kibanaHost>https://es-cn-nif1z89fz003i****.kibana.elasticsearch.aliyuncs.com:5601</kibanaHost>
-        <totalPodsCount>10</totalPodsCount>
-        <successPodsCount>8</successPodsCount>
-    </extendConfigs>
-    <extendConfigs>
-        <machines>
-            <agentStatus>heartOk</agentStatus>
-            <instanceId>i-bp13y63575oypr9d****</instanceId>
-        </machines>
-    </extendConfigs>
-    <extendConfigs>
-        <hosts>es-cn-n6w1o1x*****.elasticsearch.aliyuncs.com:9200</hosts>
-    </extendConfigs>
-    <resVersion>6.8.5_with_community</resVersion>
-    <vpcId>vpc-bp16k1dvzxtma*****</vpcId>
-    <name>ct-test</name>
-    <gmtCreatedTime>2020-06-20T07:26:47.000+0000</gmtCreatedTime>
-    <status>active</status>
-</Result>
-```
 
 `JSON`格式
 
