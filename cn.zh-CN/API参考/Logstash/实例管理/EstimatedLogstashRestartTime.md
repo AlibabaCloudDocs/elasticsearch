@@ -13,15 +13,15 @@
 ## 请求语法
 
 ```
-POST /openapi/logstashes/[InstanceId]/estimated-time/restart-time HTTPS|HTTP
+POST /openapi/logstashes/[InstanceId]/estimated-time/restart-time HTTP/1.1
 ```
 
 ## 请求参数
 
-|名称|类型|是否必选|示例值|描述|
-|--|--|----|---|--|
-|InstanceId|String|是|ls-cn-oew1qbgl\*\*\*\*|实例ID。 |
-|force|Boolean|否|false|是否是强制重启。默认：false。 |
+|名称|类型|位置|是否必选|示例值|描述|
+|--|--|--|----|---|--|
+|InstanceId|String|Path|是|ls-cn-oew1qbgl\*\*\*\*|实例ID。 |
+|force|Boolean|Query|否|false|是否是强制重启。默认：false。 |
 
 ## RequestBody
 
@@ -123,17 +123,7 @@ POST /openapi/logstashes/ls-cn-oew1qbgl****/estimated-time/restart-time/restart-
 
 正常返回示例
 
-`XML` 格式
-
-```
-<Result>
-    <unit>second</unit>
-    <value>600</value>
-</Result>
-<RequestId>623E4A4C-199E-4A71-8096-842831A4****</RequestId>
-```
-
-`JSON` 格式
+`JSON`格式
 
 ```
 {
