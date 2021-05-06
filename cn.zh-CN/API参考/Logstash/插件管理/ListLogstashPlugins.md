@@ -77,36 +77,6 @@ GET /openapi/logstashes/ls-cn-oew1qbgl****/plugins?name=logstash-filter-clone&pa
 
 正常返回示例
 
-`XML`格式
-
-```
-<Result>
-    <name>logstash-filter-clone</name>
-    <state>INSTALLED</state>
-    <source>SYSTEM</source>
-    <description>The clone filter is for duplicating events. A clone will be created for each type in the clone list.</description>
-    <specificationUrl>https://www.elastic.co/guide/en/logstash/6.7/plugins-filters-clone.html</specificationUrl>
-</Result>
-<Result>
-    <name>logstash-filter-csv</name>
-    <state>INSTALLED</state>
-    <source>SYSTEM</source>
-    <description>The CSV filter takes an event field containing CSV data, parses it, and stores it as individual fields (can optionally specify the names). This filter can also parse data with any separator, not just commas.</description>
-    <specificationUrl>https://www.elastic.co/guide/en/logstash/6.7/plugins-filters-csv.html</specificationUrl>
-</Result>
-<Result>
-    <name>logstash-filter-date</name>
-    <state>INSTALLED</state>
-    <source>SYSTEM</source>
-    <description>The date filter is used for parsing dates from fields, and then using that date or timestamp as the logstash timestamp for the event.</description>
-    <specificationUrl>https://www.elastic.co/guide/en/logstash/6.7/plugins-filters-date.html</specificationUrl>
-</Result>
-<RequestId>40C0570B-AB40-48BA-8CAE-66EA230A****</RequestId>
-<Headers>
-    <X-Total-Count>131</X-Total-Count>
-</Headers>
-```
-
 `JSON`格式
 
 ```
