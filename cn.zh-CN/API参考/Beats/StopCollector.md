@@ -13,15 +13,15 @@
 ## 请求语法
 
 ```
-POST /openapi/collectors/[ResId]/actions/stop HTTPS|HTTP
+POST /openapi/collectors/[ResId]/actions/stop HTTP/1.1
 ```
 
 ## 请求参数
 
-|名称|类型|是否必选|示例值|描述|
-|--|--|----|---|--|
-|ResId|String|是|ct-cn-77uqof2s7rg5c\*\*\*\*|采集器ID。 |
-|ClientToken|String|否|5A2CFF0E-5718-45B5-9D4D-70B3FF\*\*\*\*|用于保证请求的幂等性。由客户端生成该参数值，要保证在不同请求间唯一，最大不超过64个ASCII字符。 |
+|名称|类型|位置|是否必选|示例值|描述|
+|--|--|--|----|---|--|
+|ResId|String|Path|是|ct-cn-77uqof2s7rg5c\*\*\*\*|采集器ID。 |
+|ClientToken|String|Query|否|5A2CFF0E-5718-45B5-9D4D-70B3FF\*\*\*\*|用于保证请求的幂等性。由客户端生成该参数值，要保证在不同请求间唯一，最大不超过64个ASCII字符。 |
 
 ## 返回数据
 
@@ -41,14 +41,7 @@ POST /openapi/collectors/ct-cn-77uqof2s7rg5c****/actions/stop HTTP/1.1
 
 正常返回示例
 
-`XML` 格式
-
-```
-<Result>true</Result>
-<RequestId>7A29449F-A241-4A5D-92B5-B1ABA4F5****</RequestId>
-```
-
-`JSON` 格式
+`JSON`格式
 
 ```
 {
