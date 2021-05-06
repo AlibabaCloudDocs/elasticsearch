@@ -13,15 +13,15 @@
 ## 请求语法
 
 ```
-POST /openapi/logstashes/[InstanceId]/actions/resume HTTPS|HTTP
+POST /openapi/logstashes/[InstanceId]/actions/resume HTTP/1.1
 ```
 
 ## 请求参数
 
-|名称|类型|是否必选|示例值|描述|
-|--|--|----|---|--|
-|InstanceId|String|是|ls-cn-4591f1y6\*\*\*\*|实例ID。 |
-|clientToken|String|否|5A2CFF0E-5718-45B5-9D4D-70B3FF\*\*\*\*|用于保证请求的幂等性。由客户端生成该参数值，要保证在不同请求间唯一，最大不超过64个ASCII字符。 |
+|名称|类型|位置|是否必选|示例值|描述|
+|--|--|--|----|---|--|
+|InstanceId|String|Path|是|ls-cn-4591f1y6\*\*\*\*|实例ID。 |
+|clientToken|String|Query|否|5A2CFF0E-5718-45B5-9D4D-70B3FF\*\*\*\*|用于保证请求的幂等性。由客户端生成该参数值，要保证在不同请求间唯一，最大不超过64个ASCII字符。 |
 
 ## 返回数据
 
@@ -46,14 +46,7 @@ POST /openapi/logstashes/ls-cn-4591f1y6****/actions/resume HTTP/1.1
 
 正常返回示例
 
-`XML` 格式
-
-```
-<Result>true</Result>
-<RequestId>0FA05123-745C-42FD-A69B-AFF48EF9****</RequestId>
-```
-
-`JSON` 格式
+`JSON`格式
 
 ```
 {
