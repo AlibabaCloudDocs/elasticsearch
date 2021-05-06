@@ -72,13 +72,6 @@ common request header
 
 Sample success responses
 
-`XML` format
-
-```
-<Result>true</Result>
-<RequestId>29101430-4797-4D1D-96C3-9FCBCCA8F845</RequestId>
-```
-
 `JSON` format
 
 ```
