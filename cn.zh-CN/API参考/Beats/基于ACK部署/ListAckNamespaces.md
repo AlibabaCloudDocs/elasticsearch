@@ -71,39 +71,6 @@ GET /openapi/ack-clusters/c79acd3fbf462423fb6450e513bb6****/namespaces HTTP/1.1
 
 正常返回示例
 
-`XML`格式
-
-```
-<Result>
-    <namespace>arms-prom</namespace>
-    <status>Active</status>
-</Result>
-<Result>
-    <namespace>default</namespace>
-    <status>Active</status>
-</Result>
-<Result>
-    <namespace>kube-node-lease</namespace>
-    <status>Active</status>
-</Result>
-<Result>
-    <namespace>kube-public</namespace>
-    <status>Active</status>
-</Result>
-<Result>
-    <namespace>kube-system</namespace>
-    <status>Active</status>
-</Result>
-<Result>
-    <namespace>logging</namespace>
-    <status>Active</status>
-</Result>
-<RequestId>95789100-A329-473B-9D14-9E0B7DB4BD5A</RequestId>
-<Headers>
-    <X-Total-Count>6</X-Total-Count>
-</Headers>
-```
-
 `JSON`格式
 
 ```
