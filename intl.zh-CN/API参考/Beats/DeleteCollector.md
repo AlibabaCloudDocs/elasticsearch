@@ -13,15 +13,15 @@
 ## 请求语法
 
 ```
-DELETE /openapi/collectors/[ResId] HTTPS|HTTP
+DELETE /openapi/collectors/[ResId] HTTP/1.1
 ```
 
 ## 请求参数
 
-|名称|类型|是否必选|示例值|描述|
-|--|--|----|---|--|
-|ResId|String|是|ct-cn-92z1h38882dal\*\*\*\*|采集器ID。 |
-|ClientToken|String|否|5A2CFF0E-5718-45B5-9D4D-70B3FF\*\*\*\*|用于保证请求的幂等性。由客户端生成该参数值，要保证在不同请求间唯一，最大不超过64个ASCII字符。 |
+|名称|类型|位置|是否必选|示例值|描述|
+|--|--|--|----|---|--|
+|ResId|String|Path|是|ct-cn-92z1h38882dal\*\*\*\*|采集器ID。 |
+|ClientToken|String|Query|否|5A2CFF0E-5718-45B5-9D4D-70B3FF\*\*\*\*|用于保证请求的幂等性。由客户端生成该参数值，要保证在不同请求间唯一，最大不超过64个ASCII字符。 |
 
 ## 返回数据
 
@@ -44,14 +44,7 @@ DELETE /openapi/collectors/ct-cn-77uqof2s7rg5c**** HTTP/1.1
 
 正常返回示例
 
-`XML` 格式
-
-```
-<Result>true</Result>
-<RequestId>1A8571CF-8591-485B-AE44-131C49DC****</RequestId>
-```
-
-`JSON` 格式
+`JSON`格式
 
 ```
 {
