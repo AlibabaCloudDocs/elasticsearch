@@ -13,14 +13,14 @@
 ## 请求语法
 
 ```
-GET /openapi/logstashes/[InstanceId]/extendfiles HTTPS|HTTP
+GET /openapi/logstashes/[InstanceId]/extendfiles HTTP/1.1
 ```
 
 ## 请求参数
 
-|名称|类型|是否必选|示例值|描述|
-|--|--|----|---|--|
-|InstanceId|String|是|ls-cn-oew1qbgl\*\*\*\*|Logstash实例ID。 |
+|名称|类型|位置|是否必选|示例值|描述|
+|--|--|--|----|---|--|
+|InstanceId|String|Path|是|ls-cn-oew1qbgl\*\*\*\*|Logstash实例ID。 |
 
 ## 返回数据
 
@@ -44,19 +44,7 @@ GET /openapi/logstashes/ls-cn-oew1qbgl****/extendfiles HTTP/1.1
 
 正常返回示例
 
-`XML` 格式
-
-```
-<Result>
-    <name>mysql-connector-java-5.1.35.jar</name>
-    <fileSize>968668</fileSize>
-    <sourceType>ORIGIN</sourceType>
-    <filePath>/ssd/1/share/ls-cn-oew1qbgl****/logstash/current/config/custom/mysql-connector-java-5.1.35.jar</filePath>
-</Result>
-<RequestId>741099F7-F490-4679-A52E-38601EE7****</RequestId>
-```
-
-`JSON` 格式
+`JSON`格式
 
 ```
 {
