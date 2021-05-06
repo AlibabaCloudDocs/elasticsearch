@@ -50,64 +50,6 @@ DELETE /openapi/logstashes/ls-cn-n6w1o5jq****?deleteType=protective HTTP/1.1
 
 正常返回示例
 
-`XML`格式
-
-```
-<Result>
-    <instanceId>ls-cn-m7r1vsi2****</instanceId>
-    <version>7.4.0_with_X-Pack</version>
-    <description>ls-cn-m7r1vsi2****</description>
-    <nodeAmount>1</nodeAmount>
-    <paymentType>postpaid</paymentType>
-    <status>inactive</status>
-    <enablePublic>false</enablePublic>
-    <nodeSpec>
-        <spec>elasticsearch.sn1ne.large</spec>
-        <disk>20</disk>
-        <diskType>cloud_ssd</diskType>
-    </nodeSpec>
-    <networkConfig>
-        <vpcId>vpc-uf6gbyjqof623050q****</vpcId>
-        <vswitchId>vsw-uf6thgrj0ei9zmo9n****</vswitchId>
-        <vsArea>cn-shanghai-g</vsArea>
-        <type>vpc</type>
-    </networkConfig>
-    <createdAt>2020-10-22T12:54:34.485Z</createdAt>
-    <updatedAt>2021-02-01T02:59:39.177Z</updatedAt>
-    <commodityCode>elasticsearch_logstash_post</commodityCode>
-    <extendConfigs>
-        <configType>deleteProtection</configType>
-        <deleteTime>1612234779084</deleteTime>
-    </extendConfigs>
-    <endTime>4759056000000</endTime>
-    <resourceGroupId>rg-acfm2h5vbzd****</resourceGroupId>
-    <zoneCount>1</zoneCount>
-    <protocol>HTTP</protocol>
-    <zoneInfos>
-        <zoneId>cn-shanghai-g</zoneId>
-        <status>NORMAL</status>
-    </zoneInfos>
-    <instanceType>logstash</instanceType>
-    <inited>true</inited>
-    <tags>
-        <tagKey>acs:rm:rgId</tagKey>
-        <tagValue>rg-acfm2h5vbzd****</tagValue>
-    </tags>
-    <config>
-        <slowlog.threshold.warn>2s</slowlog.threshold.warn>
-        <slowlog.threshold.info>1s</slowlog.threshold.info>
-        <slowlog.threshold.debug>500ms</slowlog.threshold.debug>
-        <slowlog.threshold.trace>100ms</slowlog.threshold.trace>
-    </config>
-    <endpointList>
-        <host>172.16.xx.xx</host>
-        <port>9600</port>
-        <zoneId>cn-shanghai-g</zoneId>
-    </endpointList>
-</Result>
-<RequestId>9E3C8216-DDDE-4EE3-81DF-168135E074E1</RequestId>
-```
-
 `JSON`格式
 
 ```
