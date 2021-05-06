@@ -10,11 +10,11 @@ keyword: 安装采集器
 
 -   创建阿里云Elasticsearch实例或Logstash实例。
 
-    具体操作，请参见[创建阿里云Elasticsearch实例](/cn.zh-CN/Elasticsearch/快速入门/步骤一：创建实例/创建阿里云Elasticsearch实例.md)和[创建阿里云Logstash实例](/cn.zh-CN/Logstash/快速入门/步骤一：创建实例/创建阿里云Logstash实例.md)。
+    具体操作，请参见[创建阿里云Elasticsearch实例](/cn.zh-CN/Elasticsearch/实例管理/创建阿里云Elasticsearch实例.md)和[创建阿里云Logstash实例](/cn.zh-CN/Logstash/快速入门/步骤一：创建实例/创建阿里云Logstash实例.md)。
 
 -   开启Elasticsearch实例的自动创建索引功能。
 
-    出于安全考虑，阿里云Elasticsearch默认不允许**自动创建索引**。但Beats采集ECS服务日志时，需要依赖该功能，因此如果**采集器Output**选择为**Elasticsearch**，需要开启**自动创建索引**功能。具体操作，请参见[开启自动创建索引](/cn.zh-CN/Elasticsearch/快速入门/步骤二：配置实例（可选）.md)。
+    出于安全考虑，阿里云Elasticsearch默认不允许**自动创建索引**。但Beats采集ECS服务日志时，需要依赖该功能，因此如果**采集器Output**选择为**Elasticsearch**，需要开启**自动创建索引**功能。具体操作，请参见[t1605396.md\#](/cn.zh-CN/Elasticsearch/快速访问与配置.md)。
 
 -   创建ECS实例，且该ECS实例与Elasticsearch实例或Logstash实例处于同一专有网络下。
 
@@ -24,7 +24,7 @@ keyword: 安装采集器
 
 -   在目标ECS实例上安装云助手和Docker服务。
 
-    具体操作，请参见[安装云助手客户端](/cn.zh-CN/运维与监控/云助手/配置云助手客户端/安装云助手客户端.md)、[部署并使用Docker（Alibaba Cloud Linux 2）](/cn.zh-CN/建站教程/搭建应用/部署并使用Docker/部署并使用Docker（Alibaba Cloud Linux 2）.md)。
+    具体操作，请参见[安装云助手客户端](/cn.zh-CN/运维与监控/云助手/配置云助手客户端/安装云助手客户端.md)和[部署并使用Docker（Alibaba Cloud Linux 2）](/cn.zh-CN/建站教程/搭建应用/部署并使用Docker/部署并使用Docker（Alibaba Cloud Linux 2）.md)。
 
 
 ## 操作步骤
@@ -33,9 +33,13 @@ keyword: 安装采集器
 
 2.  在顶部菜单栏处，选择地域。然后在左侧导航栏，单击**Beats数据采集中心**。
 
-    **说明：** 首次进入**Beats数据采集中心**，需要根据页面提示进行授权确认。
+3.  首次进入**Beats数据采集中心**页面，单击**确认**，授权创建服务关联角色。
 
-3.  配置并启动ECS服务日志采集。
+    ![Beats授权服务关联角色](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/1292959161/p268158.png)
+
+    **说明：** Beats采集不同数据源数据时，依赖于服务关联角色以及角色规则。使用过程中请勿删除服务关联角色，否则使用会受到影响。详情参考[Elasticsearch服务关联角色](/cn.zh-CN/访问控制/Elasticsearch服务关联角色.md)。
+
+4.  配置并启动ECS服务日志采集。
 
     1.  在**创建采集器**区域，将鼠标移至**Filebeat**上，单击**ECS日志**。
 
@@ -60,21 +64,35 @@ keyword: 安装采集器
 
         **说明：** 指定**采集器Output**后，不需要再在**采集器YML配置**中单独设置Output，否则会提示ECS采集器安装错误。
 
-    3.  在**采集器安装**配置向导中，选择需要操作的ECS实例。
+    3.  首次进入**采集器安装**配置向导页面，单击**前往授权**。在**云资源访问授权**页面，单击**同意授权**。
+
+        在采集器安装配置向导页面，前往授权为对应的Elasticsearch实例授权访问ECS。
+
+        ![授予对应实例访问ECS的权限](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/3899959161/p269086.png)
+
+        在云资源访问授权页面，同意授权。
+
+        ![云资源访问授权](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/8108149161/p268283.png)
+
+        **说明：**
+
+        -   授权服务由访问控制（RAM）提供，确认授权后，系统将会为您自动创建**AliyunElasticsearchAccessingOOSRole**和**AliyunOOSAccessingECS4ESRole**系统角色，以上两个系统角色的默认系统策略分别是**AliyunElasticsearchAccessingOOSRolePolicy**和**AliyunOOSAccessingECS4ESRolePolicy**，使用过程中请勿删除系统角色和默认系统策略。
+        -   如果RAM控制台授权的默认策略或系统角色被删除，可通过[云资源访问授权](https://ram.console.aliyun.com/role/authorize?request=%7B%22ReturnUrl%22%3A%22https%3A%2F%2Felasticsearch.console.aliyun.com%22%2C%22Services%22%3A%5B%7B%22Service%22%3A%22Elasticsearch%22%2C%22Roles%22%3A%5B%7B%22RoleName%22%3A%22AliyunElasticsearchAccessingOOSRole%22%2C%22TemplateId%22%3A%22OOSRole%22%7D%5D%7D%2C%7B%22Service%22%3A%22OOS%22%2C%22Roles%22%3A%5B%7B%22RoleName%22%3A%22AliyunOOSAccessingECS4ESRole%22%2C%22TemplateId%22%3A%22AccessingECS4ESRole%22%7D%5D%7D%5D%7D)进行快捷授权。
+    4.  在**采集器安装**配置向导中，选择需要操作的ECS实例。
 
         ![采集器安装](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/8242387951/p76673.png)
 
         **说明：** 采集器安装实例列表中会显示当前账号下，所有和**采集器Output**所选的Elasticsearch实例或Logstash实例处于同一个专有网络下的ECS，并且只有已经安装云助手及Docker服务的ECS才能安装采集器。
 
-    4.  单击**启动**。
+    5.  单击**启动**。
 
-    5.  在**启动成功**对话框中，单击**前往采集中心查看**。在采集器列表中，查看创建成功的采集器。
+    6.  在**启动成功**对话框中，单击**前往采集中心查看**。在采集器列表中，查看创建成功的采集器。
 
         等待**采集器状态**变为**已生效**，说明采集器创建成功。**已生效**中的两个数字分别表示安装成功的ECS数和目标ECS数，如果ECS实例生效成功，则两边数字相等。
 
         ![已生效采集器状态](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/9242387951/p76692.png)
 
-4.  查看运行实例。
+5.  查看运行实例。
 
     采集器创建成功后，您可以查看运行实例，判断采集器是否安装成功，并根据提示处理异常情况。
 
@@ -88,13 +106,13 @@ keyword: 安装采集器
 
     3.  单击**添加安装实例**，可继续添加需要安装同样配置和类型的采集器的ECS。
 
-5.  查看Monitoring或Dashboard。
+6.  查看Monitoring或Dashboard。
 
     如果您在创建采集器时勾选了**启用Monitoring**或**启用Kibana Dashboard**，那么Beats启动后，可以在对应Elasticsearch实例的Kibana中查看Monitor信息或Dashboard图表。
 
     1.  在**采集器管理**区域，单击对应采集器右侧**操作**列下的**更多** \> **查看Dashboard**。
 
-    2.  在Kibana控制台登录页面，输入用户名和密码，单击登录。
+    2.  在Kibana控制台登录页面，输入用户名和密码，单击**登录**。
 
     3.  在左侧导航栏，单击**Dashboard**，再单击对应指标，查看该指标的Dashboard图表。
 
@@ -104,4 +122,8 @@ keyword: 安装采集器
 
         ![查看Monitoring信息](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/9242387951/p76700.png)
 
+
+## 常见问题
+
+阿里云Beats配置过程中遇到的问题，请参见[基于ECS安装云Beat失败的原因及排查方法](https://help.aliyun.com/document_detail/179410.htm?spm=a2c4g.11186623.2.18.374a6d40TUEvpJ#task-1938266)。
 
