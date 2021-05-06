@@ -13,14 +13,14 @@
 ## 请求语法
 
 ```
-GET /openapi/logstashes/[InstanceId]/xpack-monitor-config HTTPS|HTTP
+GET /openapi/logstashes/[InstanceId]/xpack-monitor-config HTTP/1.1
 ```
 
 ## 请求参数
 
-|名称|类型|是否必选|示例值|描述|
-|--|--|----|---|--|
-|InstanceId|String|是|ls-cn-oew1qbgl\*\*\*\*|Logstash实例ID。 |
+|名称|类型|位置|是否必选|示例值|描述|
+|--|--|--|----|---|--|
+|InstanceId|String|Path|是|ls-cn-oew1qbgl\*\*\*\*|Logstash实例ID。 |
 
 ## 返回数据
 
@@ -48,19 +48,7 @@ GET /openapi/logstashes/ls-cn-oew1qbgl****/xpack-monitor-config HTTP/1.1
 
 正常返回示例
 
-`XML` 格式
-
-```
-<Result>
-    <esInstanceId>es-cn-n6w1o1x0w001c****</esInstanceId>
-    <endpoints>http://es-cn-n6w1o1x0w001c****.elasticsearch.aliyuncs.com:9200</endpoints>
-    <userName>elastic</userName>
-    <enable>true</enable>
-</Result>
-<RequestId>9EC7377A-60D7-4AB2-ADE3-983E1D0D****</RequestId>
-```
-
-`JSON` 格式
+`JSON`格式
 
 ```
 {
