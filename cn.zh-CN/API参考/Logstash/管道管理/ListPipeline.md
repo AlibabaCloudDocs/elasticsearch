@@ -49,33 +49,6 @@ GET /openapi/logstashes/ls-cn-oew1qbgl****/pipelines?pipelineId=test HTTP/1.1
 
 正常返回示例
 
-`XML`格式
-
-```
-<Result>
-    <pipelineId>datahub_test</pipelineId>
-    <pipelineStatus>RUNNING</pipelineStatus>
-    <gmtCreatedTime>2020-09-09T02:21:28.844Z</gmtCreatedTime>
-    <gmtUpdateTime>2020-09-09T06:09:43.796Z</gmtUpdateTime>
-</Result>
-<Result>
-    <pipelineId>test</pipelineId>
-    <pipelineStatus>NOT_DEPLOYED</pipelineStatus>
-    <gmtCreatedTime>2020-09-16T06:35:30.139Z</gmtCreatedTime>
-    <gmtUpdateTime>2020-09-16T07:06:24.759Z</gmtUpdateTime>
-</Result>
-<Result>
-    <pipelineId>test_1</pipelineId>
-    <pipelineStatus>NOT_DEPLOYED</pipelineStatus>
-    <gmtCreatedTime>2020-09-16T06:33:05.290Z</gmtCreatedTime>
-    <gmtUpdateTime>2020-09-16T06:33:05.290Z</gmtUpdateTime>
-</Result>
-<RequestId>AA6771E2-4007-4F1F-ADCB-16DAABB9****</RequestId>
-<Headers>
-    <X-Total-Count>3</X-Total-Count>
-</Headers>
-```
-
 `JSON`格式
 
 ```
