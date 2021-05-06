@@ -13,7 +13,7 @@
 ## 请求语法
 
 ```
-POST /openapi/collectors/[ResId]/actions/restart HTTPS|HTTP
+POST /openapi/collectors/[ResId]/actions/restart HTTP/1.1
 ```
 
 ## 请求参数
@@ -43,13 +43,6 @@ POST /openapi/collectors/ct-cn-tfv81t7vs8608****/actions/restart HTTP/1.1
 ```
 
 正常返回示例
-
-`XML`格式
-
-```
-<Result>true</Result>
-<RequestId>84B4038A-AF38-4BF4-9FAD-EA92A4FFF00A</RequestId>
-```
 
 `JSON`格式
 
