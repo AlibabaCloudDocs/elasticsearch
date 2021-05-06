@@ -55,27 +55,6 @@ GET /openapi/beats/default-configurations?resVersion=6.8.5_with_community&resTyp
 
 正常返回示例
 
-`XML`格式
-
-```
-<Result>
-    <fileName>fields.yml</fileName>
-    <content>- key: log
-  title: Log file content
-  description: &gt;
-    Contains log file lines.
-  fields:
- ......</content>
-</Result>
-<Result>
-    <fileName>filebeat.yml</fileName>
-    <content>###################### Filebeat Configuration Example #########################
-
-# This file is an example configuration file ......</content>
-</Result>
-<RequestId>8BAE3C32-8E4A-47D6-B4B0-95B5DE643BF5</RequestId>
-```
-
 `JSON`格式
 
 ```
