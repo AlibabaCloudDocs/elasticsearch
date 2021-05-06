@@ -163,15 +163,6 @@ https://elasticsearch.cn-hangzhou.aliyuncs.com/openapi/logstashes
 
 正常返回示例
 
-`XML`格式
-
-```
-<Result>
-    <instanceId>ls-cn-7g1umu96oit2e****</instanceId>
-</Result>
-<RequestId>2E6C4DA1-F8E4-4C64-8F07-6D03D6D7553D</RequestId>
-```
-
 `JSON`格式
 
 ```
