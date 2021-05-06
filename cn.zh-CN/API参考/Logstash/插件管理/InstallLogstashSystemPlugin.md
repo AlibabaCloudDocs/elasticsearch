@@ -17,15 +17,15 @@
 ## 请求语法
 
 ```
-POST /openapi/logstashes/[InstanceId]/plugins/system/actions/install HTTPS|HTTP
+POST /openapi/logstashes/[InstanceId]/plugins/system/actions/install HTTP/1.1
 ```
 
 ## 请求参数
 
-|名称|类型|是否必选|示例值|描述|
-|--|--|----|---|--|
-|InstanceId|String|是|ls-cn-oew1qbgl\*\*\*\*|实例ID。 |
-|clientToken|String|否|5A2CFF0E-5718-45B5-9D4D-70B3FF\*\*\*\*|用于保证请求的幂等性。由客户端生成该参数值，要保证在不同请求间唯一，最大不超过64个ASCII字符。 |
+|名称|类型|位置|是否必选|示例值|描述|
+|--|--|--|----|---|--|
+|InstanceId|String|Path|是|ls-cn-oew1qbgl\*\*\*\*|实例ID。 |
+|clientToken|String|Query|否|5A2CFF0E-5718-45B5-9D4D-70B3FF\*\*\*\*|用于保证请求的幂等性。由客户端生成该参数值，要保证在不同请求间唯一，最大不超过64个ASCII字符。 |
 
 ## RequestBody
 
@@ -67,16 +67,7 @@ POST /openapi/logstashes/ls-cn-oew1qbgl****/plugins/system/actions/install HTTP/
 
 正常返回示例
 
-`XML` 格式
-
-```
-<Result>logstash-input-datahub</Result>
-<Result>logstash-input-maxcompute</Result>
-<RequestId>93DE9165-49A9-455E-AD7E-64B6694F****</RequestId>
-<Headers/>
-```
-
-`JSON` 格式
+`JSON`格式
 
 ```
 {
