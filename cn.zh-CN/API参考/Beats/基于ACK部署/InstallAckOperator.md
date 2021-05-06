@@ -32,7 +32,7 @@ POST /openapi/ack-clusters/[ClusterId]/operator HTTP/1.1
 |RequestId|String|EFA88951-7A6F-4A8E-AB8F-2BB7132BA751|请求ID。 |
 |Result|Boolean|true|返回结果。支持：
 
--   true：安装成功
+ -   true：安装成功
 -   false：安装失败 |
 
 ## 示例
@@ -46,19 +46,12 @@ POST /openapi/ack-clusters/c79acd3fbf462423fb6450e513bb6****/operator HTTP/1.1
 
 正常返回示例
 
-`XML`格式
-
-```
-<Result>true</Result>
-<RequestId>EFA88951-7A6F-4A8E-AB8F-2BB7132BA751</RequestId>
-```
-
 `JSON`格式
 
 ```
 {
-    "Result": true,
-    "RequestId": "EFA88951-7A6F-4A8E-AB8F-2BB7132BA751"
+	"Result": true,
+	"RequestId": "EFA88951-7A6F-4A8E-AB8F-2BB7132BA751"
 }
 ```
 
