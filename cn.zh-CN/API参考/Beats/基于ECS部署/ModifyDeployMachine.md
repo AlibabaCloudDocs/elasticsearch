@@ -101,13 +101,6 @@ POST /openapi/collectors/ct-cn-xb1i7q79u65nk****/actions/modify-deploy-machines 
 
 正常返回示例
 
-`XML`格式
-
-```
-<Result>true</Result>
-<RequestId>C37CE536-6C0F-4778-9B59-6D94C7F7EB63</RequestId>
-```
-
 `JSON`格式
 
 ```
