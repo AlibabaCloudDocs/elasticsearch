@@ -86,17 +86,6 @@ PUT /openapi/logstashes/ls-cn-oew1qbgl****/extendfiles HTTP/1.1 common request h
 
 Sample success responses
 
-`XML` format
-
-```
-<Result>
-    <name>mysql-connector-java-5.1.35.jar</name>
-    <fileSize>968668</fileSize>
-    <sourceType>ORIGIN</sourceType>
-</Result>
-<RequestId>27F32ECF-0527-43BF-A116-D6260D1240BE</RequestId> 
-```
-
 `JSON` format
 
 ```
