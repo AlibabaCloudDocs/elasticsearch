@@ -13,16 +13,16 @@
 ## 请求语法
 
 ```
-PUT /openapi/logstashes/[InstanceId]/pipelines HTTPS|HTTP
+PUT /openapi/logstashes/[InstanceId]/pipelines HTTP/1.1
 ```
 
 ## 请求参数
 
-|名称|类型|是否必选|示例值|描述|
-|--|--|----|---|--|
-|clientToken|String|是|5A2CFF0E-5718-45B5-9D4D-70B3FF\*\*\*\*|用于保证请求的幂等性。由客户端生成该参数值，要保证在不同请求间唯一，最大不超过64个ASCII字符。 |
-|InstanceId|String|是|ls-cn-oew1qbgl\*\*\*\*|Logstash实例ID。 |
-|trigger|Boolean|否|false|是否立即部署。 |
+|名称|类型|位置|是否必选|示例值|描述|
+|--|--|--|----|---|--|
+|InstanceId|String|Path|是|ls-cn-oew1qbgl\*\*\*\*|Logstash实例ID。 |
+|trigger|Boolean|Query|否|false|是否立即部署。 |
+|clientToken|String|Query|否|5A2CFF0E-5718-45B5-9D4D-70B3FF\*\*\*\*|用于保证请求的幂等性。由客户端生成该参数值，要保证在不同请求间唯一，最大不超过64个ASCII字符。 |
 
 ## RequestBody
 
@@ -178,14 +178,7 @@ PUT /openapi/logstashes/ls-cn-oew1qbgl****/pipelines?clientToken=5A2CFF0E-5718-4
 
 正常返回示例
 
-`XML` 格式
-
-```
-<Result>true</Result>
-<RequestId>734F9DEC-74AC-4D6E-B97F-FFDAA90B****</RequestId>
-```
-
-`JSON` 格式
+`JSON`格式
 
 ```
 {
