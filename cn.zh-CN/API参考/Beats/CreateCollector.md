@@ -13,7 +13,7 @@
 ## 请求语法
 
 ```
-POST /openapi/collectors HTTPS|HTTP
+POST /openapi/collectors HTTP/1.1
 ```
 
 ## 请求参数
@@ -337,15 +337,6 @@ POST /openapi/collectors HTTP/1.1
 ```
 
 正常返回示例
-
-`XML`格式
-
-```
-<Result>
-    <resId>ct-cn-4135is2tj194p****</resId>
-</Result>
-<RequestId>8466BDFB-C513-4B8D-B4E3-5AB256AB****</RequestId>
-```
 
 `JSON`格式
 
