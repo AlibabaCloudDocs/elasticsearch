@@ -13,7 +13,7 @@
 ## 请求语法
 
 ```
-GET /openapi/logstashes/[InstanceId] HTTPS|HTTP
+GET /openapi/logstashes/[InstanceId] HTTP/1.1
 ```
 
 ## 请求参数
@@ -80,62 +80,7 @@ GET /openapi/logstashes/ls-cn-s9dsk3k4k**** HTTP/1.1
 
 正常返回示例
 
-`XML` 格式
-
-```
-<Result>
-    <instanceId>ls-cn-m7r1o6cl****</instanceId>
-    <version>6.7.0_with_X-Pack</version>
-    <description>ls-cn-abc</description>
-    <nodeAmount>2</nodeAmount>
-    <paymentType>postpaid</paymentType>
-    <status>active</status>
-    <enablePublic>false</enablePublic>
-    <nodeSpec>
-        <spec>elasticsearch.sn1ne.large</spec>
-        <disk>20</disk>
-        <diskType>cloud_ssd</diskType>
-    </nodeSpec>
-    <networkConfig>
-        <vpcId>vpc-bp16k1dvzxtmagcva****</vpcId>
-        <vswitchId>vsw-bp1k4ec6s7sjdbudw****</vswitchId>
-        <vsArea>cn-hangzhou-i</vsArea>
-        <type>vpc</type>
-    </networkConfig>
-    <createdAt>2020-05-27T11:53:43.104Z</createdAt>
-    <updatedAt>2020-05-27T11:53:43.104Z</updatedAt>
-    <commodityCode>elasticsearch_logstash_post</commodityCode>
-    <endTime>4746268800000</endTime>
-    <resourceGroupId>rg-acfm2h5vbzd****</resourceGroupId>
-    <zoneCount>1</zoneCount>
-    <protocol>HTTP</protocol>
-    <zoneInfos>
-        <zoneId>cn-hangzhou-i</zoneId>
-        <status>NORMAL</status>
-    </zoneInfos>
-    <instanceType>logstash</instanceType>
-    <inited>true</inited>
-    <config>
-        <slowlog.threshold.warn>2s</slowlog.threshold.warn>
-        <slowlog.threshold.info>1s</slowlog.threshold.info>
-        <slowlog.threshold.debug>500ms</slowlog.threshold.debug>
-        <slowlog.threshold.trace>100ms</slowlog.threshold.trace>
-    </config>
-    <endpointList>
-        <host>172.16.**.**</host>
-        <port>9600</port>
-        <zoneId>cn-hangzhou-i</zoneId>
-    </endpointList>
-    <endpointList>
-        <host>172.16.**.**</host>
-        <port>9600</port>
-        <zoneId>cn-hangzhou-i</zoneId>
-    </endpointList>
-</Result>
-<RequestId>C9334241-4837-46C2-B24B-9BDC517318DE</RequestId>
-```
-
-`JSON` 格式
+`JSON`格式
 
 ```
 {
