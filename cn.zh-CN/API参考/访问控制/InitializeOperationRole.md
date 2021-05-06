@@ -72,13 +72,6 @@ POST /openapi/user/slr HTTP/1.1
 
 正常返回示例
 
-`XML`格式
-
-```
-<Result>true</Result>
-<RequestId>29101430-4797-4D1D-96C3-9FCBCCA8F845</RequestId>
-```
-
 `JSON`格式
 
 ```
