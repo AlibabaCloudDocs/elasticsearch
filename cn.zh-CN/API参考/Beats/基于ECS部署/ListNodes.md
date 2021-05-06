@@ -78,35 +78,6 @@ GET /openapi/collectors/ct-cn-l871nd0u73c45****/nodes HTTP/1.1
 
 正常返回示例
 
-`XML`格式
-
-```
-<Result>
-    <ecsInstanceId>i-bp13y63575oypr9d****</ecsInstanceId>
-    <ecsInstanceName>zl-test02-keepit</ecsInstanceName>
-    <status>running</status>
-    <ipAddress>
-        <host>47.111.xx.xx</host>
-        <ipType>public</ipType>
-    </ipAddress>
-    <ipAddress>
-        <host>10.8.xx.xx</host>
-        <ipType>private</ipType>
-    </ipAddress>
-    <tags>
-        <tagKey>a</tagKey>
-        <tagValue>b</tagValue>
-    </tags>
-    <agentStatus>failed</agentStatus>
-    <osType>linux</osType>
-    <cloudAssistantStatus>true</cloudAssistantStatus>
-</Result>
-<RequestId>E1FD7642-7C40-4FF2-9C0F-21F1A1746F70</RequestId>
-<Headers>
-    <X-Total-Count>1</X-Total-Count>
-</Headers>
-```
-
 `JSON`格式
 
 ```
