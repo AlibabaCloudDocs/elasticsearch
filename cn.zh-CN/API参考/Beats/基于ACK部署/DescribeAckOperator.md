@@ -49,16 +49,6 @@ GET /openapi/ack-clusters/c79acd3fbf462423fb6450e513bb6****/operator HTTP/1.1
 
 正常返回示例
 
-`XML`格式
-
-```
-<Result>
-    <version>1</version>
-    <status>deployed</status>
-</Result>
-<RequestId>6615EE8D-FD9D-4FD3-997E-6FEA5B8D82ED</RequestId>
-```
-
 `JSON`格式
 
 ```
