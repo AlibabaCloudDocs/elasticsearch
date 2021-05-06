@@ -88,26 +88,6 @@ GET /openapi/logstashes/ls-cn-v0h1kzca****/search-log?type=LOGSTASH_INSTANCE_LOG
 
 正常返回示例
 
-`XML`格式
-
-```
-<Result>
-    <timestamp>1595408280506</timestamp>
-    <host>10.7.**.**</host>
-    <contentCollection>
-        <level>info</level>
-        <host>10.7.**.**</host>
-        <time>2020-07-22T16:58:00.506Z</time>
-        <content>[logstash.outputs.fileextend] Opening file {:path=&gt;"/ssd/1/ls-cn-v0h1kzca****/logstash/logs/debug/test"}</content>
-    </contentCollection>
-    <instanceId>ls-cn-v0h1kzca****</instanceId>
-</Result>
-<RequestId>DADBEFD2-570D-48EE-ABE4-0E3017D8****</RequestId>
-<Headers>
-    <X-Total-Count>1</X-Total-Count>
-</Headers>
-```
-
 `JSON`格式
 
 ```
