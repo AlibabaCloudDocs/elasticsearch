@@ -13,16 +13,16 @@
 ## 请求语法
 
 ```
-DELETE /openapi/logstashes/[InstanceId]/pipelines HTTPS|HTTP
+DELETE /openapi/logstashes/[InstanceId]/pipelines HTTP/1.1
 ```
 
 ## 请求参数
 
-|名称|类型|是否必选|示例值|描述|
-|--|--|----|---|--|
-|InstanceId|String|是|ls-cn-oew1qbgl\*\*\*\*|Logstash实例ID。 |
-|ClientToken|String|否|5A2CFF0E-5718-45B5-9D4D-70B3FF\*\*\*\*|用于保证请求的幂等性。由客户端生成该参数值，要保证在不同请求间唯一，最大不超过64个ASCII字符。 |
-|pipelineIds|String|否|pipeline-test|管道ID。 |
+|名称|类型|位置|是否必选|示例值|描述|
+|--|--|--|----|---|--|
+|InstanceId|String|Path|是|ls-cn-oew1qbgl\*\*\*\*|Logstash实例ID。 |
+|ClientToken|String|Query|否|5A2CFF0E-5718-45B5-9D4D-70B3FF\*\*\*\*|用于保证请求的幂等性。由客户端生成该参数值，要保证在不同请求间唯一，最大不超过64个ASCII字符。 |
+|pipelineIds|String|Query|否|pipeline-test|管道ID。 |
 
 ## 返回数据
 
@@ -45,14 +45,7 @@ DELETE /openapi/logstashes/ls-cn-oew1qbgl****/pipelines?pipelineIds=pipeline-tes
 
 正常返回示例
 
-`XML` 格式
-
-```
-<Result>true</Result>
-<RequestId>61A12DC0-CD30-46A2-A3CE-653EA0CA****</RequestId>
-```
-
-`JSON` 格式
+`JSON`格式
 
 ```
 {
