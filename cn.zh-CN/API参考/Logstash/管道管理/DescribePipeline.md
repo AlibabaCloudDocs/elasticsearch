@@ -13,15 +13,15 @@
 ## 请求语法
 
 ```
-GET /openapi/logstashes/[InstanceId]/pipelines/[PipelineId] HTTPS|HTTP
+GET /openapi/logstashes/[InstanceId]/pipelines/[PipelineId] HTTP/1.1
 ```
 
 ## 请求参数
 
-|名称|类型|是否必选|示例值|描述|
-|--|--|----|---|--|
-|InstanceId|String|是|ls-cn-oew1qbgl\*\*\*\*|Logstash实例ID。 |
-|PipelineId|String|是|pipeline\_test|管道ID。 |
+|名称|类型|位置|是否必选|示例值|描述|
+|--|--|--|----|---|--|
+|InstanceId|String|Path|是|ls-cn-oew1qbgl\*\*\*\*|Logstash实例ID。 |
+|PipelineId|String|Path|是|pipeline\_test|管道ID。 |
 
 ## 返回数据
 
@@ -53,34 +53,7 @@ GET /openapi/logstashes/ls-cn-oew1qbgl****/pipelines/pipeline_test HTTP/1.1
 
 正常返回示例
 
-`XML` 格式
-
-```
-<Result>
-    <pipelineId>test</pipelineId>
-    <config>input {
-
-}
-filter {
-
-}
-output {
-
-}</config>
-    <workers>2</workers>
-    <batchSize>100</batchSize>
-    <batchDelay>60</batchDelay>
-    <queueType>MEMORY</queueType>
-    <pipelineStatus>NOT_DEPLOYED</pipelineStatus>
-    <queueMaxBytes>1024</queueMaxBytes>
-    <queueCheckPointWrites>1024</queueCheckPointWrites>
-    <gmtCreatedTime>2020-09-16T06:35:30.139Z</gmtCreatedTime>
-    <gmtUpdateTime>2020-09-16T07:06:24.759Z</gmtUpdateTime>
-</Result>
-<RequestId>49AEA9F3-B946-4102-8BD7-92E71C86****</RequestId>
-```
-
-`JSON` 格式
+`JSON`格式
 
 ```
 {
@@ -99,12 +72,6 @@ output {
 	},
 	"RequestId": "49AEA9F3-B946-4102-8BD7-92E71C86****"
 }
-```
-
-返回示例补充说明
-
-```
-未配置的管道参数将使用系统默认值，不会在返回结果中显示。
 ```
 
 ## 错误码
