@@ -48,19 +48,12 @@ GET /openapi/user/servicerolepermission?rolename=AliyunServiceRoleForElasticsear
 
 正常返回示例
 
-`XML`格式
-
-```
-<Result>true</Result>
-<RequestId>2C77A9B5-6B2A-42D7-9DBB-0166A0D40483</RequestId>
-```
-
 `JSON`格式
 
 ```
 {
-  "Result": true,
-  "RequestId": "2C77A9B5-6B2A-42D7-9DBB-0166A0D40483"
+    "Result": true,
+    "RequestId": "2C77A9B5-6B2A-42D7-9DBB-0166A0D40483"
 }
 ```
 
