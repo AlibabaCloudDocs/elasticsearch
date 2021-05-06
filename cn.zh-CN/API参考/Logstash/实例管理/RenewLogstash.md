@@ -13,15 +13,15 @@
 ## 请求语法
 
 ```
-POST /openapi/logstashes/[InstanceId]/actions/renew HTTPS|HTTP
+POST /openapi/logstashes/[InstanceId]/actions/renew HTTP/1.1
 ```
 
 ## 请求参数
 
-|名称|类型|是否必选|示例值|描述|
-|--|--|----|---|--|
-|InstanceId|String|是|ls-cn-n6w1o5jq\*\*\*\*|实例ID。 |
-|clientToken|String|否|5A2CFF0E-5718-45B5-9D4D-70B3FF\*\*\*\*|用于保证请求的幂等性。由客户端生成该参数值，要保证在不同请求间唯一，最大不超过64个ASCII字符。 |
+|名称|类型|位置|是否必选|示例值|描述|
+|--|--|--|----|---|--|
+|InstanceId|String|Path|是|ls-cn-n6w1o5jq\*\*\*\*|实例ID。 |
+|clientToken|String|Query|否|5A2CFF0E-5718-45B5-9D4D-70B3FF\*\*\*\*|用于保证请求的幂等性。由客户端生成该参数值，要保证在不同请求间唯一，最大不超过64个ASCII字符。 |
 
 ## RequestBody
 
@@ -96,14 +96,7 @@ POST /openapi/logstashes/ls-cn-n6w1o5jq****/actions/renew HTTP/1.1
 
 正常返回示例
 
-`XML` 格式
-
-```
-<Result>true</Result>
-<RequestId>3760F67B-691D-4663-B4E5-6783554****</RequestId>
-```
-
-`JSON` 格式
+`JSON`格式
 
 ```
 {
