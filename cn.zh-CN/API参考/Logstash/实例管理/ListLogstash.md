@@ -198,54 +198,6 @@ GET /openapi/logstashes?description=abc&page=1&size=10
 
 正常返回示例
 
-`XML`格式
-
-```
-<Result>
-    <instanceId>ls-cn-n6w1o5jq****</instanceId>
-    <version>6.7.0_with_X-Pack</version>
-    <description>test</description>
-    <nodeAmount>1</nodeAmount>
-    <paymentType>postpaid</paymentType>
-    <status>active</status>
-    <enablePublic>false</enablePublic>
-    <nodeSpec>
-        <spec>elasticsearch.sn1ne.large</spec>
-        <disk>20</disk>
-        <diskType>cloud_ssd</diskType>
-    </nodeSpec>
-    <networkConfig>
-        <vpcId>vpc-bp16k1dvzxtmagcva****</vpcId>
-        <vswitchId>vsw-bp1k4ec6s7sjdbudw****</vswitchId>
-        <vsArea>cn-hangzhou-i</vsArea>
-        <type>vpc</type>
-    </networkConfig>
-    <createdAt>2020-05-27T01:30:15.947Z</createdAt>
-    <updatedAt>2020-05-27T01:40:51.333Z</updatedAt>
-    <commodityCode>elasticsearch_logstash_post</commodityCode>
-    <endTime>4746268800000</endTime>
-    <resourceGroupId>rg-acfm2h5vbzd****</resourceGroupId>
-    <zoneCount>1</zoneCount>
-    <protocol>HTTP</protocol>
-    <zoneInfos>
-        <zoneId>cn-hangzhou-i</zoneId>
-        <status>NORMAL</status>
-    </zoneInfos>
-    <instanceType>logstash</instanceType>
-    <inited>true</inited>
-    <config/>
-    <endpointList>
-        <host>172.16.**.**</host>
-        <port>9600</port>
-        <zoneId>cn-hangzhou-i</zoneId>
-    </endpointList>
-</Result>
-<RequestId>918C05D8-4689-4A79-B6D5-D2500991****</RequestId>
-<Headers>
-    <X-Total-Count>1</X-Total-Count>
-</Headers>
-```
-
 `JSON`格式
 
 ```
