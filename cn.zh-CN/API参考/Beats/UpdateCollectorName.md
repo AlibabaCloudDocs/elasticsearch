@@ -125,58 +125,6 @@ POST /openapi/collectors/ct-cn-77uqof2s7rg5c****/actions/rename HTTP/1.1
 
 正常返回示例
 
-`XML`格式
-
-```
-<Result>
-    <gmtCreatedTime>2021-01-14T08:54:42.000+0000</gmtCreatedTime>
-    <gmtUpdateTime>2021-01-18T03:59:20.140+0000</gmtUpdateTime>
-    <name>API_test</name>
-    <resId>ct-cn-tfv81t7vs8608****</resId>
-    <resVersion>6.8.5_with_community</resVersion>
-    <vpcId>vpc-bp12nu14urf0upaf4****</vpcId>
-    <resType>fileBeat</resType>
-    <ownerId>168520994880****</ownerId>
-    <collectorPaths>/opt/test/logs/</collectorPaths>
-    <configs>
-        <fileName>fields.yml</fileName>
-        <content>- key: log
-  title: Log file content
-  description: &gt;
-    Contains log file lines.
-  fields:
- ......</content>
-    </configs>
-    <configs>
-        <fileName>filebeat.yml</fileName>
-        <content>###################### Filebeat Configuration Example #########################
-
-# This file is an example configuration file ......</content>
-    </configs>
-    <status>active</status>
-    <extendConfigs>
-        <configType>collectorTargetInstance</configType>
-        <instanceId>es-cn-nif201ihd0012****</instanceId>
-        <instanceType>elasticsearch</instanceType>
-        <hosts>es-cn-nif201ihd0012****.elasticsearch.aliyuncs.com:9200</hosts>
-        <protocol>HTTP</protocol>
-        <userName>elastic</userName>
-        <enableMonitoring>false</enableMonitoring>
-    </extendConfigs>
-    <extendConfigs>
-        <configType>collectorDeployMachine</configType>
-        <type>ECSInstanceId</type>
-        <machines>
-            <instanceId>i-bp11u91xgubypcuz****</instanceId>
-            <agentStatus>heartOk</agentStatus>
-        </machines>
-        <groupId>default_ct-cn-tfv81t7vs8608****</groupId>
-    </extendConfigs>
-    <dryRun>false</dryRun>
-</Result>
-<RequestId>9B2BD604-3B93-4F66-91F0-43B4D2D268FF</RequestId>
-```
-
 `JSON`格式
 
 ```
