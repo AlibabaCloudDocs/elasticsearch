@@ -13,7 +13,7 @@
 ## 请求语法
 
 ```
-GET /openapi/collectors/[ResId] HTTPS|HTTP
+GET /openapi/collectors/[ResId] HTTP/1.1
 ```
 
 ## 请求参数
@@ -121,57 +121,6 @@ GET /openapi/collectors/ct-cn-6z8b5eblvi706**** HTTP/1.1
 ```
 
 正常返回示例
-
-`XML`格式
-
-```
-<name>filebeats</name>
-<resVersion>6.8.5_with_community</resVersion>
-<resId>ct-cn-6fy17c8z99c7i****</resId>
-<resType>fileBeat</resType>
-<ownerId>168520994880****</ownerId>
-<status>active</status>
-<vpcId>vpc-bp16k1dvzxtmagcva****</vpcId>
-<dryRun>false</dryRun>
-<gmtCreatedTime>2020-11-05T12:42:47.000+0000</gmtCreatedTime>
-<gmtUpdateTime>2020-11-06T05:13:10.000+0000</gmtUpdateTime>
-<collectorPaths>/var/log/*.log</collectorPaths>
-<configs>
-    <fileName>/conf/filebeat.yml</fileName>
-    <content>fileBeat.inputs:xxx</content>
-</configs>
-<extendConfigs>
-    <instanceId>es-cn-n6w1o1x0w001c****</instanceId>
-    <configType>collectorElasticsearchForKibana</configType>
-    <host>es-cn-n6w1o1x0w001c****-kibana.internal.elasticsearch.aliyuncs.com:5601</host>
-    <kibanaHost>https://es-cn-n6w1o1x0w001c****.kibana.elasticsearch.aliyuncs.com:5601</kibanaHost>
-    <userName>elastic</userName>
-    <protocol>HTTPS</protocol>
-</extendConfigs>
-<extendConfigs>
-    <instanceId>es-cn-n6w1o1x0w001c****</instanceId>
-    <instanceType>elasticsearch</instanceType>
-    <configType>collectorTargetInstance</configType>
-    <hosts>es-cn-n6w1o1x0w001c****.elasticsearch.aliyuncs.com:9200</hosts>
-    <hosts>es-cn-nif1z89fz003i****.elasticsearch.aliyuncs.com:9200</hosts>
-    <userName>elastic</userName>
-    <protocol>HTTPS</protocol>
-    <enableMonitoring>true</enableMonitoring>
-</extendConfigs>
-<extendConfigs>
-    <machines>
-        <instanceId>es-cn-n6w1o1x0w001c****</instanceId>
-        <agentStatus>heartOk</agentStatus>
-    </machines>
-    <machines>
-        <instanceId>es-cn-nif1z89fz003i****</instanceId>
-        <agentStatus>heartOk</agentStatus>
-    </machines>
-    <type>ECSInstanceId</type>
-    <configType>collectorDeployMachine</configType>
-    <groupId>default_ct-cn-6fy17c8z99c7i****</groupId>
-</extendConfigs>
-```
 
 `JSON`格式
 
