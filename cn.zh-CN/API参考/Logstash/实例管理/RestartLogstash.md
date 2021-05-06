@@ -13,16 +13,16 @@
 ## 请求语法
 
 ```
-POST /openapi/logstashes/[InstanceId]/actions/restart HTTPS|HTTP
+POST /openapi/logstashes/[InstanceId]/actions/restart HTTP/1.1
 ```
 
 ## 请求参数
 
-|名称|类型|是否必选|示例值|描述|
-|--|--|----|---|--|
-|InstanceId|String|是|ls-cn-v0h1kzca\*\*\*\*|实例ID。 |
-|force|Boolean|否|true|是否强制重启。true表示强制，false表示不强制。 |
-|clientToken|String|否|5A2CFF0E-5718-45B5-9D4D-70B3FF\*\*\*\*|用于保证请求的幂等性。由客户端生成该参数值，要保证在不同请求间唯一，最大不超过64个ASCII字符。 |
+|名称|类型|位置|是否必选|示例值|描述|
+|--|--|--|----|---|--|
+|InstanceId|String|Path|是|ls-cn-v0h1kzca\*\*\*\*|实例ID。 |
+|force|Boolean|Query|否|true|是否强制重启。true表示强制，false表示不强制。 |
+|clientToken|String|Query|否|5A2CFF0E-5718-45B5-9D4D-70B3FF\*\*\*\*|用于保证请求的幂等性。由客户端生成该参数值，要保证在不同请求间唯一，最大不超过64个ASCII字符。 |
 
 ## 返回数据
 
@@ -43,57 +43,7 @@ POST /openapi/logstashes/ls-cn-v0h1kzca****/actions/restart HTTP/1.1
 
 正常返回示例
 
-`XML` 格式
-
-```
-<Result>
-    <instanceId>ls-cn-v0h1kzca****</instanceId>
-    <version>7.4.0_with_X-Pack</version>
-    <description>es-74-keepit</description>
-    <nodeAmount>1</nodeAmount>
-    <paymentType>prepaid</paymentType>
-    <status>active</status>
-    <enablePublic>false</enablePublic>
-    <nodeSpec>
-        <spec>elasticsearch.sn1ne.large</spec>
-        <disk>20</disk>
-        <diskType>cloud_ssd</diskType>
-    </nodeSpec>
-    <networkConfig>
-        <vpcId>vpc-bp12nu14urf0upaf4****</vpcId>
-        <vswitchId>vsw-bp131d5ag0vjd5ja3****</vswitchId>
-        <vsArea>cn-hangzhou-h</vsArea>
-        <type>vpc</type>
-    </networkConfig>
-    <createdAt>2020-03-26T09:23:06.575Z</createdAt>
-    <updatedAt>2020-05-12T11:06:14.132Z</updatedAt>
-    <commodityCode>elasticsearch_logstash_pre</commodityCode>
-    <endTime>1619884800000</endTime>
-    <resourceGroupId>rg-acfm2h5vbzd****</resourceGroupId>
-    <zoneCount>1</zoneCount>
-    <protocol>HTTP</protocol>
-    <zoneInfos>
-        <zoneId>cn-hangzhou-h</zoneId>
-        <status>NORMAL</status>
-    </zoneInfos>
-    <instanceType>logstash</instanceType>
-    <inited>true</inited>
-    <config>
-        <slowlog.threshold.warn>2s</slowlog.threshold.warn>
-        <slowlog.threshold.info>1s</slowlog.threshold.info>
-        <slowlog.threshold.debug>500ms</slowlog.threshold.debug>
-        <slowlog.threshold.trace>100ms</slowlog.threshold.trace>
-    </config>
-    <endpointList>
-        <host>10.7.**.**</host>
-        <port>9600</port>
-        <zoneId>cn-hangzhou-h</zoneId>
-    </endpointList>
-</Result>
-<RequestId>831AD23B-175F-47F1-8314-AFBB9947****</RequestId>
-```
-
-`JSON` 格式
+`JSON`格式
 
 ```
 {
