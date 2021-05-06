@@ -17,15 +17,15 @@
 ## 请求语法
 
 ```
-PATCH|POST /openapi/logstashes/[InstanceId]/instance-settings HTTPS|HTTP
+PATCH|POST /openapi/logstashes/[InstanceId]/instance-settings HTTP/1.1
 ```
 
 ## 请求参数
 
-|名称|类型|是否必选|示例值|描述|
-|--|--|----|---|--|
-|InstanceId|String|是|ls-cn-oew1qbgl\*\*\*\*|实例ID。 |
-|clientToken|String|否|5A2CFF0E-5718-45B5-9D4D-70B3FF\*\*\*\*|用于保证请求的幂等性。由客户端生成该参数值，要保证在不同请求间唯一，最大不超过64个ASCII字符。 |
+|名称|类型|位置|是否必选|示例值|描述|
+|--|--|--|----|---|--|
+|InstanceId|String|Path|是|ls-cn-oew1qbgl\*\*\*\*|实例ID。 |
+|clientToken|String|Query|否|5A2CFF0E-5718-45B5-9D4D-70B3FF\*\*\*\*|用于保证请求的幂等性。由客户端生成该参数值，要保证在不同请求间唯一，最大不超过64个ASCII字符。 |
 
 ## 返回数据
 
@@ -46,52 +46,7 @@ PATCH /openapi/logstashes/ls-cn-oew1qbgl****/instance-settings HTTP/1.1
 
 正常返回示例
 
-`XML` 格式
-
-```
-<Result>
-    <instanceId>ls-cn-oew1qbgl****</instanceId>
-    <version>6.7.0_with_X-Pack</version>
-    <description>test</description>
-    <nodeAmount>1</nodeAmount>
-    <paymentType>postpaid</paymentType>
-    <status>active</status>
-    <enablePublic>false</enablePublic>
-    <nodeSpec>
-        <spec>elasticsearch.sn1ne.large</spec>
-        <disk>20</disk>
-        <diskType>cloud_ssd</diskType>
-    </nodeSpec>
-    <networkConfig>
-        <vpcId>vpc-bp16k1dvzxtmagcva****</vpcId>
-        <vswitchId>vsw-bp1k4ec6s7sjdbudw****</vswitchId>
-        <vsArea>cn-hangzhou-i</vsArea>
-        <type>vpc</type>
-    </networkConfig>
-    <createdAt>2020-07-08T03:15:27.218Z</createdAt>
-    <updatedAt>2020-07-08T03:26:01.931Z</updatedAt>
-    <commodityCode>elasticsearch_logstash_post</commodityCode>
-    <endTime>4749897600000</endTime>
-    <resourceGroupId>rg-acfm2h5vbzd****</resourceGroupId>
-    <zoneCount>1</zoneCount>
-    <protocol>HTTP</protocol>
-    <zoneInfos>
-        <zoneId>cn-hangzhou-i</zoneId>
-        <status>NORMAL</status>
-    </zoneInfos>
-    <instanceType>logstash</instanceType>
-    <inited>true</inited>
-    <config/>
-    <endpointList>
-        <host>172.16.**.**</host>
-        <port>9600</port>
-        <zoneId>cn-hangzhou-i</zoneId>
-    </endpointList>
-</Result>
-<RequestId>629D3748-5DB5-495F-BCAA-6EA240DA****</RequestId>
-```
-
-`JSON` 格式
+`JSON`格式
 
 ```
 {
