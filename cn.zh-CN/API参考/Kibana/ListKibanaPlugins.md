@@ -49,35 +49,6 @@ GET /openapi/instances/es-cn-oew1q8bev0002****/kibana-plugins?page=1&size=10 HTT
 
 正常返回示例
 
-`XML`格式
-
-```
-<Result>
-    <name>bsearch_label</name>
-    <state>UNINSTALLED</state>
-    <source>SYSTEM</source>
-    <description>Mark data in a visual way to complete the query tasks quickly and easily.</description>
-    <specificationUrl>https://xxx.html</specificationUrl>
-</Result>
-<Result>
-    <name>bsearch_querybuilder</name>
-    <state>UNINSTALLED</state>
-    <source>SYSTEM</source>
-    <description>Customize DSL statements to query data.</description>
-    <specificationUrl>https://xxx.html</specificationUrl>
-</Result>
-<Result>
-    <name>network_vis</name>
-    <state>UNINSTALLED</state>
-    <source>SYSTEM</source>
-    <description>This is a plugin developed for Kibana that displays a network node that link two fields that have been previously selected.</description>
-</Result>
-<RequestId>11234B4A-34CE-473B-8E61-AD95702E****</RequestId>
-<Headers>
-    <X-Total-Count>3</X-Total-Count>
-</Headers>
-```
-
 `JSON`格式
 
 ```
