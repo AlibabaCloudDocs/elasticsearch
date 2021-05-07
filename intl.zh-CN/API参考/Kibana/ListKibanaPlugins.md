@@ -13,16 +13,16 @@
 ## 请求语法
 
 ```
-GET /openapi/instances/[InstanceId]/kibana-plugins HTTPS|HTTP
+GET /openapi/instances/[InstanceId]/kibana-plugins HTTP/1.1
 ```
 
 ## 请求参数
 
-|名称|类型|是否必选|示例值|描述|
-|--|--|----|---|--|
-|InstanceId|String|是|es-cn-oew1q8bev0002\*\*\*\*|实例ID。 |
-|page|String|否|1|实例列表的页码。起始值：1，默认值：1。 |
-|size|Integer|否|10|分页查询时设置的每页条数。最大值：50，默认值：20。 |
+|名称|类型|位置|是否必选|示例值|描述|
+|--|--|--|----|---|--|
+|InstanceId|String|Path|是|es-cn-oew1q8bev0002\*\*\*\*|实例ID。 |
+|page|String|Query|否|1|实例列表的页码。默认值：1。 |
+|size|Integer|Query|否|10|分页查询时设置的每页条数。 |
 
 ## 返回数据
 
@@ -49,36 +49,7 @@ GET /openapi/instances/es-cn-oew1q8bev0002****/kibana-plugins?page=1&size=10 HTT
 
 正常返回示例
 
-`XML` 格式
-
-```
-<Result>
-    <name>bsearch_label</name>
-    <state>UNINSTALLED</state>
-    <source>SYSTEM</source>
-    <description>Mark data in a visual way to complete the query tasks quickly and easily.</description>
-    <specificationUrl>https://xxx.html</specificationUrl>
-</Result>
-<Result>
-    <name>bsearch_querybuilder</name>
-    <state>UNINSTALLED</state>
-    <source>SYSTEM</source>
-    <description>Customize DSL statements to query data.</description>
-    <specificationUrl>https://xxx.html</specificationUrl>
-</Result>
-<Result>
-    <name>network_vis</name>
-    <state>UNINSTALLED</state>
-    <source>SYSTEM</source>
-    <description>This is a plugin developed for Kibana that displays a network node that link two fields that have been previously selected.</description>
-</Result>
-<RequestId>11234B4A-34CE-473B-8E61-AD95702E****</RequestId>
-<Headers>
-    <X-Total-Count>3</X-Total-Count>
-</Headers>
-```
-
-`JSON` 格式
+`JSON`格式
 
 ```
 {
