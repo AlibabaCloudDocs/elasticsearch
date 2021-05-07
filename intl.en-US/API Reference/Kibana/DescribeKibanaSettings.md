@@ -43,19 +43,6 @@ Common request header
 
 Sample success responses
 
-`XML` format
-
-```
-<Result>
-    <map.includeElasticMapsService>false</map.includeElasticMapsService>
-    <server.ssl.cert>/home/admin/packages/kibana/config/cert/client.crt</server.ssl.cert>
-    <server.ssl.enabled>true</server.ssl.enabled>
-    <server.ssl.key>/home/admin/packages/kibana/config/cert/client.key</server.ssl.key>
-    <xpack.reporting.capture.browser.chromium.disableSandbox>true</xpack.reporting.capture.browser.chromium.disableSandbox>
-</Result>
-<RequestId>131834B6-AE89-45D4-878B-D2F46A8C****</RequestId>
-```
-
 `JSON` format
 
 ```
