@@ -35,11 +35,11 @@ ES-Hadoop的原理是将Elasticsearch作为MR、Spark或Hive等数据处理引�
 
 1.  创建阿里云Elasticsearch实例。
 
-    本文使用6.7.0版本的实例，具体操作步骤请参见[创建阿里云Elasticsearch实例](/cn.zh-CN/快速入门/步骤一：创建实例/创建阿里云Elasticsearch实例.md)。
+    本文使用6.7.0版本的实例，具体操作步骤请参见[t134282.md\#](/cn.zh-CN/Elasticsearch/实例管理/创建阿里云Elasticsearch实例.md)。
 
 2.  关闭实例的自动创建索引功能，并提前创建索引和Mapping。
 
-    开启自动创建索引功能后，可能会导致Elasticsearch自动创建的索引类型和您预期的类型不一致。比如您定义了一个字段age，为INT类型，开启自动创建索引后，可能将其索引成了LONG类型，因此建议手动创建索引。本文使用的索引和Mapping如下。
+    开启自动创建索引功能后，可能会导致Elasticsearch自动创建的索引类型和您预期的类型不一致。例如您定义了一个字段age，为INT类型，开启自动创建索引后，可能将其索引成了LONG类型，因此建议手动创建索引。本文使用的索引和Mapping如下。
 
     ```
     PUT company
@@ -82,7 +82,7 @@ ES-Hadoop的原理是将Elasticsearch作为MR、Spark或Hive等数据处理引�
     **说明：** Elasticsearch实例的私网访问白名单默认为0.0.0.0/0，您可在安全配置页面查看，如果未使用默认配置，您还需要在白名单中加入EMR集群的内网IP地址：
 
     -   请参见[查看集群列表与详情](/cn.zh-CN/集群管理/集群配置/查看集群列表与详情.md)，获取EMR集群的内网IP地址。
-    -   请参见[配置ES公网或私网访问白名单](/cn.zh-CN/ES实例/安全配置/配置ES公网或私网访问白名单.md)，配置Elasticsearch实例的VPC私网访问白名单。
+    -   请参见[配置Elasticsearch公网或私网访问白名单](/cn.zh-CN/Elasticsearch/安全配置/配置Elasticsearch公网或私网访问白名单.md)，配置Elasticsearch实例的VPC私网访问白名单。
 
 ## 步骤一：上传ES-Hadoop JAR包至HDFS
 
@@ -92,7 +92,7 @@ ES-Hadoop的原理是将Elasticsearch作为MR、Spark或Hive等数据处理引�
 
 2.  登录[E-MapReduce控制台](https://emr.console.aliyun.com/)，获取Master节点的IP地址，并通过SSH登录对应的ECS机器。
 
-    具体操作步骤请参见[使用SSH连接主节点](/cn.zh-CN/集群管理/集群配置/连接集群/使用SSH连接主节点.md)。
+    具体操作步骤请参见[使用SSH连接主节点](/cn.zh-CN/集群管理/集群配置/使用SSH连接主节点.md)。
 
 3.  将已下载的elasticsearch-hadoop-6.7.0.zip上传至Master节点，并解压获得elasticsearch-hadoop-hive-6.7.0.jar。
 
@@ -143,9 +143,9 @@ ES-Hadoop的原理是将Elasticsearch作为MR、Spark或Hive等数据处理引�
 
     |参数|默认值|说明|
     |--|---|--|
-    |es.nodes|localhost|指定阿里云Elasticsearch实例的访问地址，建议使用内网地址，可在实例的基本信息页面查看，详情请参见[查看实例的基本信息](/cn.zh-CN/ES实例/实例管理/查看实例的基本信息.md)。|
+    |es.nodes|localhost|指定阿里云Elasticsearch实例的访问地址，建议使用内网地址，可在实例的基本信息页面查看，详情请参见[查看实例的基本信息](/cn.zh-CN/Elasticsearch/实例管理/查看实例的基本信息.md)。|
     |es.port|9200|Elasticsearch实例的访问端口号。|
-    |es.net.http.auth.user|elastic|Elasticsearch实例的访问用户名。**说明：** 如果程序中指定elastic账号访问Elasticsearch服务，后续在修改elastic账号对应密码后需要一些时间来生效，在密码生效期间会影响服务访问，因此不建议通过elastic来访问。建议在Kibana控制台中创建一个符合预期的Role角色用户进行访问，详情请参见[创建角色](/cn.zh-CN/ES访问控制/Kibana角色管理/创建角色.md)和[创建用户](/cn.zh-CN/ES访问控制/Kibana角色管理/创建用户.md)。 |
+    |es.net.http.auth.user|elastic|Elasticsearch实例的访问用户名。**说明：** 如果程序中指定elastic账号访问Elasticsearch服务，后续在修改elastic账号对应密码后需要一些时间来生效，在密码生效期间会影响服务访问，因此不建议通过elastic来访问。建议在Kibana控制台中创建一个符合预期的Role角色用户进行访问，详情请参见[创建角色](/cn.zh-CN/访问控制/Kibana角色管理/创建角色.md)和[创建用户](/cn.zh-CN/访问控制/Kibana角色管理/创建用户.md)。 |
     |es.net.http.auth.pass|/|Elasticsearch实例的访问密码。|
     |es.nodes.wan.only|false|开启Elasticsearch集群在云上使用虚拟IP进行连接，是否进行节点嗅探：    -   true：设置
     -   false：不设置 |
@@ -190,7 +190,7 @@ ES-Hadoop的原理是将Elasticsearch作为MR、Spark或Hive等数据处理引�
 
 3.  运行成功后，登录Elasticsearch实例的Kibana控制台，查看company索引数据。
 
-    登录Kibana控制台的具体操作步骤，请参见[登录Kibana控制台](/cn.zh-CN/ES实例/可视化控制/Kibana/登录Kibana控制台.md)。您可以在Kibana控制台中，执行以下命令查看company索引数据。
+    登录Kibana控制台的具体操作步骤，请参见[登录Kibana控制台](/cn.zh-CN/Elasticsearch/可视化控制/Kibana/登录Kibana控制台.md)。您可以在Kibana控制台中，执行以下命令查看company索引数据。
 
     ```
     GET company/_search
