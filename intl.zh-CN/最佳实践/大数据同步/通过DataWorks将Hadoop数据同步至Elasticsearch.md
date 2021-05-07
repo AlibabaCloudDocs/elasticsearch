@@ -42,7 +42,7 @@
     -   **挂载公网**：开启
 2.  创建阿里云Elasticsearch实例，并开启实例的自动创建索引功能。
 
-    具体操作，请参见[创建阿里云Elasticsearch实例](/intl.zh-CN/Elasticsearch/快速入门/步骤一：创建实例/创建阿里云Elasticsearch实例.md)和[开启自动创建索引](/intl.zh-CN/Elasticsearch/快速入门/步骤二：配置实例（可选）.md)。创建实例时，请选择与E-MapReduce集群相同的区域、可用区以及专有网络。本文使用的阿里云Elasticsearch版本为通用商业版6.7.0。
+    具体操作，请参见[t134282.md\#](/intl.zh-CN/Elasticsearch/管理实例/创建阿里云Elasticsearch实例.md)和[开启自动创建索引](/intl.zh-CN/Elasticsearch/快速访问与配置.md)。创建实例时，请选择与E-MapReduce集群相同的区域、可用区以及专有网络。本文使用的阿里云Elasticsearch版本为通用商业版6.7.0。
 
 3.  创建DataWorks工作空间。
 
@@ -181,9 +181,9 @@
 
     |参数|说明|
     |--|--|
-    |**Endpoint**|阿里云Elasticsearch的访问地址，格式为：`http://<实例的内网或公网地址>:9200`。实例的内网或公网地址可在基本信息页面获取，详情请参见[查看实例的基本信息](/intl.zh-CN/Elasticsearch/管理实例/查看实例的基本信息.md)。**说明：** 如果您使用的是公网地址，需要将独享资源组的EIP地址添加到阿里云Elasticsearch的公网地址访问白名单中，详情请参见[配置ES公网或私网访问白名单](/intl.zh-CN/Elasticsearch/安全配置/配置ES公网或私网访问白名单.md)和[添加独享数据集成资源组的白名单]()。 |
+    |**Endpoint**|阿里云Elasticsearch的访问地址，格式为：`http://<实例的内网或公网地址>:9200`。实例的内网或公网地址可在基本信息页面获取，详细信息，请参见[查看实例的基本信息](/intl.zh-CN/Elasticsearch/管理实例/查看实例的基本信息.md)。**说明：** 如果您使用的是公网地址，需要将独享资源组的EIP地址添加到阿里云Elasticsearch的公网地址访问白名单中，详情请参见[配置Elasticsearch公网或私网访问白名单](/intl.zh-CN/Elasticsearch/安全配置/配置ES公网或私网访问白名单.md)和[获取资源组的IP地址与网段：独享数据集成资源组]()。 |
     |**用户名**|访问阿里云Elasticsearch实例的用户名，默认为elastic。|
-    |**密码**|对应用户的密码。elastic用户的密码在创建实例时设定，如果忘记可重置，重置密码的注意事项和操作步骤请参见[重置实例访问密码](/intl.zh-CN/Elasticsearch/安全配置/重置实例访问密码.md)。|
+    |**密码**|对应用户的密码。elastic用户的密码在创建实例时设定，如果忘记可重置，重置密码的注意事项和操作步骤，请参见[重置实例访问密码](/intl.zh-CN/Elasticsearch/安全配置/重置实例访问密码.md)。|
 
     **说明：** 其他未提及的参数请自定义输入。
 
@@ -325,7 +325,7 @@
 
     |配置|说明|
     |--|--|
-    |`setting`|用来配置同步中的一些丢包和最大并发等参数。其中`errorLimit`的`record`字段值默认为0，请将其修改为大一些的数值，比如10。|
+    |`setting`|用来配置同步中的一些丢包和最大并发等参数。其中`errorLimit`的`record`字段值默认为0，请将其修改为大一些的数值，例如10。|
     |`Reader`|用来配置HDFS Reader。`path`为数据在Hadoop集群中存放的位置，您可以在登录Master节点后，使用`hdfs dfs -ls /user/hive/warehouse/hive_esdoc_good_sale`命令确认。对于分区表，您可以不指定分区，DataWorks数据同步会自动递归到分区路径。详细信息，请参见[HDFS Reader]()。|
     |`Writer`|用来配置Elasticsearch Writer。详细信息，请参见[Elasticsearch Writer]()。     -   `index`：索引名称。
     -   `indexType`：索引类型，7.0及以上版本的Elasticsearch必须使用`_doc`。 |
@@ -336,7 +336,7 @@
 
     **说明：**
 
-    -   在提交任务前，必须配置任务调度**依赖的上游节点**，详情请参见[依赖关系]()。
+    -   在提交任务前，必须配置任务调度**依赖的上游节点**，详情请参见[配置调度依赖]()。
     -   如果您希望对任务进行周期性调度，需要配置任务的**时间属性**，包括任务的具体执行时间、调度周期、生效周期、重跑属性等。
     -   周期任务将于配置任务开始的第二天00:00，按照您的配置规则生效执行。
 7.  配置执行同步任务所使用的资源组。
