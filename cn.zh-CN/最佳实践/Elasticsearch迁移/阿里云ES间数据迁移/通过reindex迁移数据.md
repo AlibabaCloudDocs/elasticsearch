@@ -124,12 +124,12 @@ reindex的应用场景如下：
 
     |类别|参数|说明|
     |--|--|--|
-    |source|host|远程集群的访问地址，必须包含支持协议、域名和端口信息，例如https://otherhost:9200。     -   对于单可用区实例，host格式为http://<实例的域名\>:9200。
+    |source|host|远程集群的访问地址，必须包含支持协议、域名和端口信息，例如https://otherhost:9200。    -   对于单可用区实例，host格式为http://<实例的域名\>:9200。
 
 **说明：** 实例的域名可在基本信息页面获取。详细信息，请参见[查看实例的基本信息](/cn.zh-CN/Elasticsearch/实例管理/查看实例的基本信息.md)。
 
     -   对于多可用区实例，host格式为http://<实例中任意数据节点的IP地址\>:9200。 |
-    |username|可选参数，如果您所请求的远程Elasticsearch服务需要使用Basic Authentication，请在请求中一并提供此参数信息。阿里云Elasticsearch实例的默认用户名为elastic。 **说明：**
+    |username|可选参数，如果您所请求的远程Elasticsearch服务需要使用Basic Authentication，请在请求中一并提供此参数信息。阿里云Elasticsearch实例的默认用户名为elastic。**说明：**
 
     -   为确保安全性，通过Basic Authentication鉴权时建议使用HTTPS协议，否则密码信息将以文本形式进行传输。
     -   对于阿里云Elasticsearch实例，需要开启HTTPS协议后，才可在host中使用HTTPS协议。 |
@@ -187,8 +187,8 @@ reindex的应用场景如下：
 
 |可用区类型|reindex白名单配置|host参数配置|
 |-----|------------|--------|
-|单可用区|阿里云Elasticsearch的域名:9200|https://阿里云Elasticsearch实例的域名:9200|
-|多可用区|实例中所有数据节点的IP地址与端口的组合|https://阿里云Elasticsearch实例中任意数据节点的IP地址:9200|
+|单可用区|阿里云Elasticsearch的域名：9200|https://阿里云Elasticsearch实例的域名：9200|
+|多可用区|实例中所有数据节点的IP地址与端口的组合|https://阿里云Elasticsearch实例中任意数据节点的IP地址：9200|
 
 ## 更多信息
 
