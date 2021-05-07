@@ -48,14 +48,6 @@ Common request parameters
 
 Sample success responses
 
-`XML` format
-
-```
-<Result>bsearch_querybuilder</Result>
-<RequestId>D528727E-F512-4EE6-B46F-B9270D4E****</RequestId>
-<Headers/>
-```
-
 `JSON` format
 
 ```
