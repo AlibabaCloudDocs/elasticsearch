@@ -33,7 +33,7 @@ keyword: MySQL数据同步到阿里云es
 
 1.  创建一个数据库。
 
-    您可以选择使用阿里云的RDS数据库，也可以在本地服务器上自建数据库。本教程以RDS MySQL数据库为例，使用JOIN获取两张表数据，同步数据到阿里云Elasticsearch中，表字段及数据如下所示。具体操作步骤请参见[创建RDS MySQL实例](/intl.zh-CN/RDS MySQL 数据库/快速入门/创建RDS MySQL实例.md)。
+    您可以选择使用阿里云的RDS数据库，也可以在本地服务器上自建数据库。本教程以RDS MySQL数据库为例，使用JOIN获取两张表数据，同步数据到阿里云Elasticsearch中，表字段及数据如下所示。具体操作，请参见[创建RDS MySQL实例](/intl.zh-CN/RDS MySQL 数据库/快速入门/创建RDS MySQL实例.md)。
 
     ![表一](../images/p40085.png "表一")
 
@@ -41,11 +41,11 @@ keyword: MySQL数据同步到阿里云es
 
 2.  创建DataWorks工作空间。
 
-    具体操作步骤请参见[创建工作空间]()。工作空间所在地域需要与RDS MySQL一致。
+    具体操作，请参见[创建工作空间]()。工作空间所在地域需要与RDS MySQL一致。
 
 3.  创建阿里云Elasticsearch实例，并开启实例的自动创建索引功能。
 
-    创建实例时，所选专有网络需要与RDS MySQL保持一致，具体操作步骤请参见[创建阿里云Elasticsearch实例](/intl.zh-CN/快速入门/步骤一：创建实例/创建阿里云Elasticsearch实例.md)和[开启自动创建索引](/intl.zh-CN/快速入门/步骤二：配置实例（可选）.md)。
+    创建实例时，所选专有网络需要与RDS MySQL保持一致。具体操作，请参见[创建阿里云Elasticsearch实例](/intl.zh-CN/Elasticsearch/管理实例/创建阿里云Elasticsearch实例.md)和[配置YML参数](/intl.zh-CN/Elasticsearch/ES集群配置/配置YML参数.md)。
 
 
 ## 步骤一：购买并创建独享资源组
@@ -64,13 +64,13 @@ keyword: MySQL数据同步到阿里云es
 
     ![创建独享资源组](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/3034659951/p134902.png)
 
-5.  单击已创建的独享资源组右侧的**专有网络绑定**，参见[绑定专有网络]()，为该独享资源组绑定专有网络。
+5.  单击已创建的独享资源组右侧的**专有网络绑定**，参见[网络配置]()，为该独享资源组绑定专有网络。
 
     独享资源部署在DataWorks托管的专有网络中。DataWorks需要与MySQL和Elasticsearch实例的专有网络连通才能同步数据。而MySQL和Elasticsearch实例在同一专有网络下，因此在绑定专有网络时，选择Elasticsearch实例所在**专有网络**和**交换机**即可。
 
     ![绑定专有网络](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/4034659951/p134914.png)
 
-6.  单击已创建的独享资源组右侧的**修改归属工作空间**，参见[修改归属工作空间]()，为该独享资源组绑定目标工作空间。
+6.  单击已创建的独享资源组右侧的**修改归属工作空间**，参见[绑定归属工作空间]()，为该独享资源组绑定目标工作空间。
 
     ![绑定工作空间](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/4034659951/p139131.png)
 
@@ -91,9 +91,9 @@ keyword: MySQL数据同步到阿里云es
 
     ![填写数据源信息](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/7402659951/p40090.png)
 
-    **数据源类型**：本教程以**阿里云实例模式**为例，您也可以选择**连接串模式**。各配置项的详细说明请参见[配置MySQL数据源]()。
+    **数据源类型**：本教程以**阿里云实例模式**为例，您也可以选择**连接串模式**。各配置项的详细说明，请参见[t1695546.md\#]()。
 
-    **说明：** 如果您选择的是**连接串模式**，可以通过RDS MySQL的公网地址配置**JDBC URL**，但需要将独享资源组的EIP地址添加到MySQL的白名单中，详情请参见[设置RDS MySQL白名单](/intl.zh-CN/RDS MySQL 数据库/快速入门/设置白名单.md)和[添加独享数据集成资源组的白名单]()。
+    **说明：** 如果您选择的是**连接串模式**，可以通过RDS MySQL的公网地址配置**JDBC URL**，但需要将独享资源组的EIP地址添加到MySQL的白名单中。详细信息，请参见[设置RDS MySQL白名单](/intl.zh-CN/RDS MySQL 数据库/快速入门/设置白名单/设置IP白名单.md)和[获取资源组的IP地址与网段：独享数据集成资源组]()。
 
     配置完成后，可与独享资源组进行连通性测试。**连通状态**显示为**可连通**时，表示连通成功。
 
@@ -107,9 +107,9 @@ keyword: MySQL数据同步到阿里云es
 
     |参数|说明|
     |--|--|
-    |**Endpoint**|阿里云Elasticsearch的访问地址，格式为：`http://<实例的内网或公网地址>:9200`。实例的内网或公网地址可在基本信息页面获取，详情请参见[查看实例的基本信息](/intl.zh-CN/实例管理/管理实例/查看实例的基本信息.md)。**说明：** 如果您使用的是公网地址，需要将独享资源组的EIP地址添加到阿里云Elasticsearch的公网地址访问白名单中，详情请参见[配置ES公网或私网访问白名单](/intl.zh-CN/实例管理/安全配置/配置ES公网或私网访问白名单.md)和[添加独享数据集成资源组的白名单]()。 |
+    |**Endpoint**|阿里云Elasticsearch的访问地址，格式为：`http://<实例的内网或公网地址>:9200`。实例的内网或公网地址可在基本信息页面获取，详细信息，请参见[查看实例的基本信息](/intl.zh-CN/Elasticsearch/管理实例/查看实例的基本信息.md)。**说明：** 如果您使用的是公网地址，需要将独享资源组的EIP地址添加到阿里云Elasticsearch的公网地址访问白名单中，详情请参见[配置Elasticsearch公网或私网访问白名单](/intl.zh-CN/Elasticsearch/安全配置/配置ES公网或私网访问白名单.md)和[获取资源组的IP地址与网段：独享数据集成资源组]()。 |
     |**用户名**|访问阿里云Elasticsearch实例的用户名，默认为elastic。|
-    |**密码**|对应用户的密码。elastic用户的密码在创建实例时设定，如果忘记可重置，重置密码的注意事项和操作步骤请参见[重置实例访问密码](/intl.zh-CN/实例管理/安全配置/重置实例访问密码.md)。|
+    |**密码**|对应用户的密码。elastic用户的密码在创建实例时设定，如果忘记可重置，重置密码的注意事项和操作步骤，请参见[重置实例访问密码](/intl.zh-CN/Elasticsearch/安全配置/重置实例访问密码.md)。|
 
     **说明：** 其他未提及的参数请自定义输入。
 
@@ -241,7 +241,7 @@ keyword: MySQL数据同步到阿里云es
 
     |配置|说明|
     |--|--|
-    |`setting`|用来配置同步中的一些丢包和最大并发等参数。其中`errorLimit`的`record`字段值默认为0，请将其修改为大一些的数值，比如10。|
+    |`setting`|用来配置同步中的一些丢包和最大并发等参数。其中`errorLimit`的`record`字段值默认为0，请将其修改为大一些的数值，例如10。|
     |`Reader`|用来配置MySQL Reader，使用`querysql`自定义筛选SQL。当您配置`querysql`时，MySQL Reader会直接忽略`table`、`column`、`where`和`splitPk`条件的配置。`datasource`通过`querysql`解析出用户名和密码等信息，详情请参见[MySQL Reader]()。|
     |`Writer`|用来配置Elasticsearch Writer，详情请参见[Elasticsearch Writer]()。     -   `index`：索引名称。
     -   `indexType`：索引类型，7.0及以上版本的Elasticsearch必须使用`_doc`。 |
@@ -252,7 +252,7 @@ keyword: MySQL数据同步到阿里云es
 
     **说明：**
 
-    -   在提交任务前，必须配置任务调度**依赖的上游节点**，详情请参见[依赖关系]()。
+    -   在提交任务前，必须配置任务调度**依赖的上游节点**，详情请参见[配置调度依赖]()。
     -   如果您希望对任务进行周期性调度，需要配置任务的**时间属性**，包括任务的具体执行时间、调度周期、生效周期、重跑属性等。
     -   周期任务将于配置任务开始的第二天00:00，按照您的配置规则生效执行。
 7.  配置执行同步任务所使用的资源组。
@@ -284,7 +284,7 @@ keyword: MySQL数据同步到阿里云es
 
 1.  登录目标阿里云Elasticsearch实例的Kibana控制台。
 
-    具体操作步骤请参见[登录Kibana控制台](/intl.zh-CN/实例管理/可视化控制/Kibana/登录Kibana控制台.md)。
+    具体操作，请参见[登录Kibana控制台](/intl.zh-CN/Elasticsearch/可视化控制/Kibana/登录Kibana控制台.md)。
 
 2.  在左侧导航栏，单击**Dev Tools**（开发工具）。
 
