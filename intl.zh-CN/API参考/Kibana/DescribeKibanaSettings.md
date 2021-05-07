@@ -13,14 +13,14 @@
 ## 请求语法
 
 ```
-GET /openapi/instances/[InstanceId]/kibana-settings HTTPS|HTTP
+GET /openapi/instances/[InstanceId]/kibana-settings HTTP/1.1
 ```
 
 ## 请求参数
 
-|名称|类型|是否必选|示例值|描述|
-|--|--|----|---|--|
-|InstanceId|String|是|es-cn-n6w1o1x0w001c\*\*\*\*|实例ID。 |
+|名称|类型|位置|是否必选|示例值|描述|
+|--|--|--|----|---|--|
+|InstanceId|String|Path|是|es-cn-n6w1o1x0w001c\*\*\*\*|实例ID。 |
 
 ## 返回数据
 
@@ -43,20 +43,7 @@ GET /openapi/instances/es-cn-n6w1o1x0w001c****/kibana-settings HTTP/1.1
 
 正常返回示例
 
-`XML` 格式
-
-```
-<Result>
-    <map.includeElasticMapsService>false</map.includeElasticMapsService>
-    <server.ssl.cert>/home/admin/packages/kibana/config/cert/client.crt</server.ssl.cert>
-    <server.ssl.enabled>true</server.ssl.enabled>
-    <server.ssl.key>/home/admin/packages/kibana/config/cert/client.key</server.ssl.key>
-    <xpack.reporting.capture.browser.chromium.disableSandbox>true</xpack.reporting.capture.browser.chromium.disableSandbox>
-</Result>
-<RequestId>131834B6-AE89-45D4-878B-D2F46A8C****</RequestId>
-```
-
-`JSON` 格式
+`JSON`格式
 
 ```
 {
