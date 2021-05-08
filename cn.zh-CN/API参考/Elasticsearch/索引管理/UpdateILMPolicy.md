@@ -301,13 +301,6 @@ PUT /openapi/instances/es-cn-nif24adwc0082w2ka****/ilm-policies/my-policy HTTP/1
 
 正常返回示例
 
-`XML`格式
-
-```
-<RequestId>F99407AB-2FA9-489E-A259-40CF6DCC****</RequestId>
-<Result>my-policy</Result>
-```
-
 `JSON`格式
 
 ```
