@@ -53,24 +53,6 @@ GET /openapi/instances/es-cn-nif24adwc0082****/index-templates?indexTemplate=my-
 
 正常返回示例
 
-`XML`格式
-
-```
-<RequestId>F99407AB-2FA9-489E-A259-40CF6DCC****</RequestId>
-<Result>
-    <indexTemplate>my-template</indexTemplate>
-    <indexPatterns>console-*</indexPatterns>
-    <dataStream>true</dataStream>
-    <priority>100</priority>
-    <ilmPolicy>my_ilm_policy</ilmPolicy>
-    <template>
-        <settings>{"index.number_of_shards":"1"}</settings>
-        <mappings>{"properties":{"created_at":{"format":"EEE MMM dd HH:mm:ss Z yyyy","type":"date"},"host_name":{"type":"keyword"}}}</mappings>
-        <aliases>{"mydata":{}}</aliases>
-    </template>
-</Result>
-```
-
 `JSON`格式
 
 ```
