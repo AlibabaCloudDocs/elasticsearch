@@ -1,10 +1,10 @@
 # Modify the index lifecycle configurations of a cluster
 
-After you enable the scenario-based configuration feature, you can use the related template to modify the index lifecycle configurations of a cluster. You can only modify the index lifecycle configurations of Elasticsearch clusters of V6.7.0 or later of the Advanced Edition. This topic describes the parameters related to the index lifecycle configurations of a cluster.
+If you purchase warm nodes and enable the scenario-based configuration feature for your cluster, you can dynamically modify the index lifecycle configurations of the cluster. You can modify index lifecycle configurations only for clusters of V6.7.0 or later, regardless of whether the clusters are Standard or Advanced Edition clusters. This topic describes the parameters related to the index lifecycle configurations of a cluster.
 
 For more information about how to modify the index lifecycle configurations of a cluster, see [Use a scenario-based template to modify the configurations of a cluster](/intl.en-US/Elasticsearch Instances Management/Elasticsearch cluster configuration/Perform scenario-based configuration/Use a scenario-based template to modify the configurations of a cluster.md). The following table describes the related parameters.
 
-**Note:** The policy defined in the default index lifecycle template is named aliyun\_default\_ilm\_policy. This policy is already applied to aliyun\_default\_index\_template.
+**Note:** The policy defined in the default index lifecycle template is named aliyun\_default\_ilm\_policy. This policy has been applied to the default index template aliyun\_default\_index\_template.
 
 |Parameter|Description|
 |---------|-----------|
