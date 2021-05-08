@@ -13,14 +13,14 @@
 ## 请求语法
 
 ```
-GET /openapi/instances/[InstanceId]/connected-clusters HTTPS|HTTP
+GET /openapi/instances/[InstanceId]/connected-clusters HTTP/1.1
 ```
 
 ## 请求参数
 
-|名称|类型|是否必选|示例值|描述|
-|--|--|----|---|--|
-|InstanceId|String|是|es-cn-0pp1jxvcl000z\*\*\*\*|当前实例ID。 |
+|名称|类型|位置|是否必选|示例值|描述|
+|--|--|--|----|---|--|
+|InstanceId|String|Path|是|es-cn-0pp1jxvcl000z\*\*\*\*|当前实例ID。 |
 
 ## 返回数据
 
@@ -43,17 +43,7 @@ GET /openapi/instances/es-cn-0pp1jxvcl000z****/connected-clusters HTTP/1.1
 
 正常返回示例
 
-`XML` 格式
-
-```
-<Result>
-    <instanceId>es-cn-09k1rocex0006****</instanceId>
-    <networkType>vpc</networkType>
-</Result>
-<RequestId>8D6EE77E-D56E-4E88-A8EE-407B77FB****</RequestId>
-```
-
-`JSON` 格式
+`JSON`格式
 
 ```
 {
