@@ -152,13 +152,6 @@ POST /openapi/instances/es-cn-n6w24n9u900am****/index-templates HTTP/1.1
 
 正常返回示例
 
-`XML`格式
-
-```
-<RequestId>F99407AB-2FA9-489E-A259-40CF6DCC****</RequestId>
-<Result>index-template</Result>
-```
-
 `JSON`格式
 
 ```
