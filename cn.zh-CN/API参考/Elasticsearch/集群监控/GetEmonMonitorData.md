@@ -13,7 +13,7 @@
 ## 请求语法
 
 ```
-POST /openapi/emon/projects/[ProjectId]/metrics/query HTTPS|HTTP
+POST /openapi/emon/projects/[ProjectId]/metrics/query HTTP/1.1
 ```
 
 ## 请求参数
@@ -207,29 +207,7 @@ POST /openapi/emon/projects/es-185320276651****/metrics/query HTTP/1.1
 
 正常返回示例
 
-`XML` 格式
-
-```
-<Success>true</Success>
-<Code>200</Code>
-<Message/>
-<RequestId>2D184B55-FA51-43F7-A1EF-E68A0545****</RequestId>
-<Result>
-    <dps>
-        <1583469212>10</1583469212>
-    </dps>
-    <integrity>1</integrity>
-    <messageWatermark>1583469212345</messageWatermark>
-    <metric>elasticbuild.elasticsearch.source.total_doc_count</metric>
-    <summary>10</summary>
-    <tags>
-        <taskName>et-testtsk</taskName>
-        <userId>123456</userId>
-    </tags>
-</Result>
-```
-
-`JSON` 格式
+`JSON`格式
 
 ```
 {
