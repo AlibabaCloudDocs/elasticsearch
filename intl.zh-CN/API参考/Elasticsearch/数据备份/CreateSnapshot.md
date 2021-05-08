@@ -13,15 +13,15 @@
 ## 请求语法
 
 ```
-POST /openapi/instances/[InstanceId]/snapshots HTTPS|HTTP
+POST /openapi/instances/[InstanceId]/snapshots HTTP/1.1
 ```
 
 ## 请求参数
 
-|名称|类型|是否必选|示例值|描述|
-|--|--|----|---|--|
-|ClientToken|String|是|5A2CFF0E-5718-45B5-9D4D-70B3FF\*\*\*\*|用于保证请求的幂等性。由客户端生成该参数值，要保证在不同请求间唯一，最大不超过64个ASCII字符。 |
-|InstanceId|String|是|es-cn-nif1q9o8r0008\*\*\*\*|实例ID。 |
+|名称|类型|位置|是否必选|示例值|描述|
+|--|--|--|----|---|--|
+|ClientToken|String|Query|是|5A2CFF0E-5718-45B5-9D4D-70B3FF\*\*\*\*|用于保证请求的幂等性。由客户端生成该参数值，要保证在不同请求间唯一，最大不超过64个ASCII字符。 |
+|InstanceId|String|Path|是|es-cn-nif1q9o8r0008\*\*\*\*|实例ID。 |
 
 ## 返回数据
 
@@ -44,14 +44,7 @@ POST /openapi/instances/es-cn-oew1oxiro000f****/snapshots?ClientToken=5A2CFF0E-5
 
 正常返回示例
 
-`XML` 格式
-
-```
-<Result>true</Result>
-<RequestId>8EA34ABE-8015-4190-9B57-B3079AB2****</RequestId>
-```
-
-`JSON` 格式
+`JSON`格式
 
 ```
 {
