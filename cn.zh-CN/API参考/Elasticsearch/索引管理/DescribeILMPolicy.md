@@ -235,50 +235,6 @@ GET /openapi/instances/es-cn-nif24adwc0082****/ilm-policies/policy-1 HTTP/1.1
 
 正常返回示例
 
-`XML`格式
-
-```
-<RequestId>FF44681E-FD41-4FDE-B8DF-295DCDD6****</RequestId>
-<Result>
-    <name>policy-1</name>
-    <phases>
-        <cold>
-            <minAge>30d</minAge>
-            <actions>
-                <allocate>
-                    <numberOfReplicas>1</numberOfReplicas>
-                    <require>
-                        <boxType>warm</boxType>
-                    </require>
-                </allocate>
-                <setPriority>
-                    <priority>100</priority>
-                </setPriority>
-            </actions>
-        </cold>
-        <hot>
-            <minAge>0s</minAge>
-            <actions>
-                <rollover>
-                    <maxAge>30d</maxAge>
-                    <maxDocs>10000</maxDocs>
-                    <maxSize>50gb</maxSize>
-                </rollover>
-                <setPriority>
-                    <priority>1000</priority>
-                </setPriority>
-            </actions>
-        </hot>
-        <delete>
-            <minAge>30d</minAge>
-            <actions>
-                <delete/>
-            </actions>
-        </delete>
-    </phases>
-</Result>
-```
-
 `JSON`格式
 
 ```
