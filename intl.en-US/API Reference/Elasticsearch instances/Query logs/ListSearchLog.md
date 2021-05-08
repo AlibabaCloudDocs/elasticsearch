@@ -83,37 +83,6 @@ Common request header
 
 Sample success responses
 
-`XML` format
-
-```
-<Result>
-    <timestamp>1552868172741</timestamp>
-    <host>192.168. **.**</host>
-    <contentCollection>
-        <level>info</level>
-        <host>192.168. **.**</host>
-        <time>2019-03-18T08:16:12.741Z</time>
-        <content>[o.e.c.r.a.AllocationService] [MnNASM_] Cluster health status changed from [YELLOW] to [GREEN] (reason: [shards started [[my_index][3]] ...]).</content>
-    </contentCollection>
-    <instanceId>es-cn-n6w1o1x0w001c****</instanceId>
-</Result>
-<Result>
-    <timestamp>1552838205462</timestamp>
-    <host>192.168. **.**</host>
-    <contentCollection>
-        <level>info</level>
-        <host>192.168. **.**</host>
-        <time>2019-03-17T23:56:45.462Z</time>
-        <content>[o.e.c.r.a.AllocationService] [v4p9o7A] Cluster health status changed from [GREEN] to [YELLOW] (reason: [{MnNASM_}{MnNASM_OSR-2YgySSc****}{EvJHPrAOS_u8J3-6qZ****}{192.168. **. **}{192.168. **.**:9300}{ml.max_open_jobs=10, ml.enabled=true} transport disconnected]).</content>
-    </contentCollection>
-    <instanceId>es-cn-n6w1o1x0w001c****</instanceId>
-</Result>
-<RequestId>121753D9-744A-4203-9EC4-F29E628A****</RequestId>
-<Headers>
-    <X-Total-Count>2</X-Total-Count>
-</Headers>
-```
-
 `JSON` format
 
 ```
