@@ -118,7 +118,6 @@
       password             = "es_password"
       version              = "6.7_with_X-Pack"
       master_node_spec     = "elasticsearch.sn2ne.large"
-      description          = "zl-terraform"
       zone_count           = "1"
     }
     ```
@@ -127,7 +126,6 @@
 
     |参数|是否必选|描述|
     |--|----|--|
-    |`description`|否|实例名称，长度为0~30个字符，以大小字母，数字或中文开头，可包含下划线（\_）或短划线（-）。|
     |`instance_charge_type`|否|计费模式。可选值：`PrePaid`、`PostPaid`（默认）。|
     |`period`|否|购买时长（单位：月），当`instance_charge_type`为`PrePaid`时有效。可选值：1~9、12、24、36，默认是1个月。|
     |`data_node_amount`|是|ES集群的数据节点的个数。可选值：2~50之间。|
@@ -174,7 +172,6 @@
           + data_node_disk_size  = 20
           + data_node_disk_type  = "cloud_ssd"
           + data_node_spec       = "elasticsearch.sn2ne.large"
-          + description          = "zl-terraform"
           + domain               = (known after apply)
           + id                   = (known after apply)
           + instance_charge_type = "PostPaid"
@@ -239,7 +236,6 @@
       password             = "es_password"
       version              = "6.7_with_X-Pack"
       master_node_spec     = "elasticsearch.sn2ne.large"
-      description          = "zl-terraform"
       zone_count           = "1"
     }
     ```
@@ -299,7 +295,6 @@ resource "alicloud_elasticsearch_instance" "instance" {
     data_node_disk_size  = 20
     data_node_disk_type  = "cloud_ssd"
     data_node_spec       = "elasticsearch.sn2ne.large"
-    description          = "zl-terraform"
     domain               = "es-cn-dssf9op81lz4q****.elasticsearch.aliyuncs.com"
     id                   = "es-cn-dssf9op81lz4q****"
     instance_charge_type = "PostPaid"
@@ -323,7 +318,6 @@ resource "alicloud_elasticsearch_instance" "test" {
     data_node_disk_size  = 51
     data_node_disk_type  = "cloud_ssd"
     data_node_spec       = "elasticsearch.r5.large"
-    description          = "zl-es-cn"
     domain               = "es-cn-0pp1f1y5g000h****.elasticsearch.aliyuncs.com"
     id                   = "es-cn-0pp1f1y5g000h****"
     instance_charge_type = "PostPaid"
@@ -364,7 +358,6 @@ Terraform will perform the following actions:
       - data_node_disk_size  = 20 -> null
       - data_node_disk_type  = "cloud_ssd" -> null
       - data_node_spec       = "elasticsearch.sn2ne.large" -> null
-      - description          = "zl-terraform" -> null
       - domain               = "es-cn-v3x49h5397fau****.elasticsearch.aliyuncs.com" -> null
       - id                   = "es-cn-v3x49h5397fau****" -> null
       - instance_charge_type = "PostPaid" -> null
