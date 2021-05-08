@@ -6,21 +6,21 @@ This topic describes how to call Elasticsearch Java API operations. Java High Le
 
 -   Install a JDK. The JDK version must be 1.8 or later.
 
-    For more information, see [Install the JDK](/intl.en-US/Best Practices/Migrate and synchronize MySQL data/RDS synchronization/Use Canal to synchronize data to an Alibaba Cloud Elasticsearch cluster.md).
+    For more information, see [Install the JDK](/intl.en-US/Best Practices/Migrate and synchronize MySQL data/RDS synchronization/Use Canal to synchronize MySQL data to Alibaba Cloud Elasticsearch.md).
 
 -   Create an Alibaba Cloud Elasticsearch V6.3.2 cluster. Make sure that the cluster version is later than or the same as the version of Java High Level REST Client you use.
 
-    For more information, see [Create an Elasticsearch cluster](/intl.en-US/Quick Start/Step 1: Create a cluster/Create an Elasticsearch cluster.md).
+    For more information, see [Create an Alibaba Cloud Elasticsearch cluster](/intl.en-US/Elasticsearch Instances Management/Manage clusters/Create an Alibaba Cloud Elasticsearch cluster.md).
 
     **Note:** Java High Level REST Client is forward compatible. For example, Java High Level REST Client 6.3.2 can communicate with Elasticsearch clusters of V6.3.2 or later. To ensure that you can use the features of the latest client, we recommend that the version of Java High Level REST Client you use is the same as that of your cluster.
 
 -   Enable the Auto Indexing feature for the Elasticsearch cluster.
 
-    For more information, see [Enable auto indexing](/intl.en-US/Quick Start/Step 2 (optional): Configure a cluster.md).
+    For more information, see [t1605396.md\#section\_pcn\_1xy\_1l2](/intl.en-US/Elasticsearch Instances Management/Step 2: (Optional) Configure a cluster.md).
 
     If the Auto Indexing feature is not enabled, the following error is reported.
 
-    ![Error](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/en-US/5487649951/p97345.png)
+    ![Error](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/5487649951/p97345.png)
 
 -   Configure a whitelist for the Elasticsearch cluster to ensure normal communication among networks.
     -   If the server that runs Java code is located in an Internet environment, you can access the Elasticsearch cluster by using its public endpoint. Before you access the cluster, you must enable the Public Network Access feature for the cluster and add the public IP address of the server to the Internet whitelist of the cluster. For more information, see [Configure a whitelist to access an Elasticsearch cluster over the Internet or a VPC](/intl.en-US/Elasticsearch Instances Management/Security/Configure a whitelist to access an Elasticsearch cluster over the Internet or a VPC.md).
