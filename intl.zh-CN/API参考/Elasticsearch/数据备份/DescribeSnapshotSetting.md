@@ -13,14 +13,14 @@
 ## 请求语法
 
 ```
-GET /openapi/instances/[InstanceId]/snapshot-setting HTTPS|HTTP
+GET /openapi/instances/[InstanceId]/snapshot-setting HTTP/1.1
 ```
 
 ## 请求参数
 
-|名称|类型|是否必选|示例值|描述|
-|--|--|----|---|--|
-|InstanceId|String|是|es-cn-0pp1jxvcl000z\*\*\*\*|实例ID。 |
+|名称|类型|位置|是否必选|示例值|描述|
+|--|--|--|----|---|--|
+|InstanceId|String|Path|是|es-cn-0pp1jxvcl000z\*\*\*\*|实例ID。 |
 
 ## 返回数据
 
@@ -42,17 +42,7 @@ GET /openapi/instances/es-cn-0pp1jxvcl000z****/snapshot-setting HTTP/1.1
 
 正常返回示例
 
-`XML` 格式
-
-```
-<RequestId>B2A05BB2-7B66-4D0F-BEDE-5033AFFE****</RequestId>
-<Result>
-    <Enable>true</Enable>
-    <QuartzRegex>0 0 01 ? * * *</QuartzRegex>
-</Result>
-```
-
-`JSON` 格式
+`JSON`格式
 
 ```
 {
