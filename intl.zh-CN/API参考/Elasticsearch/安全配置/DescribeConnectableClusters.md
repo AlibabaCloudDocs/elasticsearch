@@ -13,15 +13,15 @@
 ## 请求语法
 
 ```
-GET /openapi/instances/[InstanceId]/connectable-clusters HTTPS|HTTP
+GET /openapi/instances/[InstanceId]/connectable-clusters HTTP/1.1
 ```
 
 ## 请求参数
 
-|名称|类型|是否必选|示例值|描述|
-|--|--|----|---|--|
-|InstanceId|String|是|es-cn-n6w1o1x0w001c\*\*\*\*|当前实例ID。 |
-|alreadySetItems|Boolean|否|true|是否返回已经互通的实例。ture为默认值，表示返回的实例列表中包括已经互通的实例；false表示不包括。 |
+|名称|类型|位置|是否必选|示例值|描述|
+|--|--|--|----|---|--|
+|InstanceId|String|Path|是|es-cn-n6w1o1x0w001c\*\*\*\*|当前实例ID。 |
+|alreadySetItems|Boolean|Query|否|true|是否返回已经互通的实例。ture为默认值，表示返回的实例列表中包括已经互通的实例；false表示不包括。 |
 
 ## 返回数据
 
@@ -42,17 +42,7 @@ GET /openapi/instances/es-cn-n6w1o1x0w001c****/connectable-clusters HTTP/1.1
 
 正常返回示例
 
-`XML` 格式
-
-```
-<Result>
-    <instanceId>es-cn-09k1rgid9000g****</instanceId>
-    <networkType>vpc</networkType>
-</Result>
-<RequestId>506B7495-0887-4F05-BC76-5AE7AC1D****</RequestId>
-```
-
-`JSON` 格式
+`JSON`格式
 
 ```
 {
