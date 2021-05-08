@@ -13,16 +13,16 @@
 ## 请求语法
 
 ```
-GET /openapi/diagnosis/instances/[InstanceId]/reports/[ReportId] HTTPS|HTTP
+GET /openapi/diagnosis/instances/[InstanceId]/reports/[ReportId] HTTP/1.1
 ```
 
 ## 请求参数
 
-|名称|类型|是否必选|示例值|描述|
-|--|--|----|---|--|
-|InstanceId|String|是|es-cn-mp91kzb8m0009\*\*\*\*|实例ID。 |
-|ReportId|String|是|scheduled\_\_2020-09-15T00:40:00|报告ID。可通过[ListDiagnoseReportIds](~~183774~~) API获取。 |
-|lang|String|否|en|生成智能诊断报告的语言，支持多种语言，默认为en。 |
+|名称|类型|位置|是否必选|示例值|描述|
+|--|--|--|----|---|--|
+|InstanceId|String|Path|是|es-cn-mp91kzb8m0009\*\*\*\*|实例ID。 |
+|ReportId|String|Path|是|scheduled\_\_2020-09-15T00:40:00|报告ID。可通过[ListDiagnoseReportIds](~~183774~~) API获取。 |
+|lang|String|Query|否|en|生成智能诊断报告的语言，支持多种语言，默认为en。 |
 
 ## 返回数据
 
@@ -57,59 +57,7 @@ GET /openapi/diagnosis/instances/es-cn-09k1rocex0006****/reports/scheduled__2020
 
 正常返回示例
 
-`XML` 格式
-
-```
-<Result>
-    <reportId>scheduled__2020-09-15T02:40:00</reportId>
-    <instanceId>es-cn-09k1rocex0006****</instanceId>
-    <state>SUCCESS</state>
-    <trigger>INNER</trigger>
-    <health>YELLOW</health>
-    <createTime>1600108800000</createTime>
-    <diagnoseItems>
-        <item>IndexReplicaDiagnostic</item>
-        <health>YELLOW</health>
-        <detail>
-            <name>Number of Replica Shards</name>
-            <desc>Check whether the number of replica shards is optimal and easy to maintain.
-Replica shards can increase the index data reliability and improve the QPS if the resources are sufficient. However, too many replica shards may consume large amounts of disk space and memory. This reduces the performance of write operations.</desc>
-            <type>CONSOLE_API</type>
-            <suggest>You can call the following function in the Elasticsearch API: 
-PUT ${index}/_settings
-{
-    "settings": {
-        "index.number_of_replicas": "${num}"
-    }
-} 
-Set the index and num parameters to the actual values.</suggest>
-            <result>You may need to adjust the numbers of replica shards of some indices as follows: 
-[geoname08 : 0 -&gt; 1][geoname09 : 0 -&gt; 1][geonametest01 : 0 -&gt; 1]</result>
-        </detail>
-    </diagnoseItems>
-    <diagnoseItems>
-        <item>IndexShardsDiagnostic</item>
-        <health>YELLOW</health>
-        <detail>
-            <name>Number and Sizes of Shards in Each Index</name>
-            <desc>Check whether the number and sizes of shards in each index are optimal.
-A small number of shards may degrade the read and write performance of an index. A large number of shards consume a lot of system resources and degrade the read and write performance of an index.</desc>
-            <type>ES_API</type>
-            <suggest>We recommend the following solution: 
-hotmovies [size &lt; 1 GB] [7 -&gt; 1, 3]
-geoname08 [2 GB] [5 -&gt; 1, 3]
-geoname09 [3 GB] [5 -&gt; 1, 3]
-geonametest01 [2 GB] [5 -&gt; 1, 3]
- 
-This solution applies to the current index sizes. Adjust the number of shards based on the future indices and nodes.</suggest>
-            <result>You may need to adjust the number of shards in some indices.</result>
-        </detail>
-    </diagnoseItems>
-</Result>
-<RequestId>7BABD728-1584-432C-A300-25BEBDFC****</RequestId>
-```
-
-`JSON` 格式
+`JSON`格式
 
 ```
 {
