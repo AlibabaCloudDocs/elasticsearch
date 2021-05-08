@@ -37,8 +37,6 @@ keyword: 安装采集器
 
     ![Beats授权服务关联角色](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/1292959161/p268158.png)
 
-    **说明：** Beats采集不同数据源数据时，依赖于服务关联角色以及角色规则。使用过程中请勿删除服务关联角色，否则使用会受到影响。详情参考[Elasticsearch服务关联角色]()。
-
 4.  配置并启动ECS服务日志采集。
 
     1.  在**创建采集器**区域，将鼠标移至**Filebeat**上，单击**ECS日志**。
