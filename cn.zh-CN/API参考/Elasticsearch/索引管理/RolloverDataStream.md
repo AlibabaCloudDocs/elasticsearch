@@ -45,13 +45,6 @@ POST /openapi/instances/es-cn-nif24adwc0082****/data-streams/ds-001/rollover HTT
 
 正常返回示例
 
-`XML`格式
-
-```
-<RequestId>F99407AB-2FA9-489E-A259-40CF6DCC****</RequestId>
-<Result>true</Result>
-```
-
 `JSON`格式
 
 ```
