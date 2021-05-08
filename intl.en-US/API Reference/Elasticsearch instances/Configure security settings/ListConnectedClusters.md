@@ -43,16 +43,6 @@ Common request header
 
 Sample success responses
 
-`XML` format
-
-```
-<Result>
-    <instanceId>es-cn-09k1rocex0006****</instanceId>
-    <networkType>vpc</networkType>
-</Result>
-<RequestId>8D6EE77E-D56E-4E88-A8EE-407B77FB****</RequestId>
-```
-
 `JSON` format
 
 ```
