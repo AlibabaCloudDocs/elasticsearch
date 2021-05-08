@@ -48,16 +48,6 @@ GET /openapi/diagnosis/instances/es-cn-09k1rocex0006****/report-ids?startTime=16
 
 正常返回示例
 
-`XML`格式
-
-```
-<Result>scheduled__2020-09-15T00:40:00</Result>
-<RequestId>B5F822C5-03E9-4899-8D80-2B35515A****</RequestId>
-<Headers>
-    <X-Total-Count>1</X-Total-Count>
-</Headers>
-```
-
 `JSON`格式
 
 ```
