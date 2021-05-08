@@ -43,20 +43,6 @@ Common request header
 
 Sample success responses
 
-`XML` format
-
-```
-<Result>
-    <instanceId>es-cn-6ja1ro4jt000c****</instanceId>
-    <repoPath>es-cn-6ja1ro4jt000c****</repoPath>
-</Result>
-<Result>
-    <instanceId>es-cn-oew1rgiev0009****</instanceId>
-    <repoPath>es-cn-oew1rgiev0009****</repoPath>
-</Result>
-<RequestId>335D2540-BB16-447F-8AD4-39B7A0AE****</RequestId>
-```
-
 `JSON` format
 
 ```
