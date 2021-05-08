@@ -83,13 +83,6 @@ POST /openapi/instances/es-cn-n6w1o1x0w001c****/snapshot-repos HTTP/1.1
 
 Sample success responses
 
-`XML` format
-
-```
-<Result>true</Result>
-<RequestId>D21379E3-A54E-4C86-A64C-3717365F****</RequestId>
-```
-
 `JSON` format
 
 ```
