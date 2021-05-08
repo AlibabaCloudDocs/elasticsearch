@@ -13,14 +13,14 @@
 ## 请求语法
 
 ```
-POST /openapi/instances/[InstanceId]/snapshot-repos HTTPS|HTTP
+POST /openapi/instances/[InstanceId]/snapshot-repos HTTP/1.1
 ```
 
 ## 请求参数
 
-|名称|类型|是否必选|示例值|描述|
-|--|--|----|---|--|
-|InstanceId|String|是|es-cn-n6w1o1x0w001c\*\*\*\*|需要设置跨集群OSS仓库的实例ID。 |
+|名称|类型|位置|是否必选|示例值|描述|
+|--|--|--|----|---|--|
+|InstanceId|String|Path|是|es-cn-n6w1o1x0w001c\*\*\*\*|需要设置跨集群OSS仓库的实例ID。 |
 
 ## RequestBody
 
@@ -83,14 +83,7 @@ POST /openapi/instances/es-cn-n6w1o1x0w001c****/snapshot-repos HTTP/1.1
 
 正常返回示例
 
-`XML` 格式
-
-```
-<Result>true</Result>
-<RequestId>D21379E3-A54E-4C86-A64C-3717365F****</RequestId>
-```
-
-`JSON` 格式
+`JSON`格式
 
 ```
 {
