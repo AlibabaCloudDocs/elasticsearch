@@ -37,8 +37,6 @@ keyword: [Filebeat采集ACK服务日志, Filebeat采集K8S日志]
 
     ![Beats授权服务关联角色](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/1292959161/p268158.png)
 
-    **说明：** Beats采集不同数据源数据时，依赖于服务关联角色以及角色规则。使用过程中请勿删除服务关联角色，否则使用会受到影响。详情参考[Elasticsearch服务关联角色]()。
-
 4.  在**创建采集器**区域，将鼠标移至**Filebeat**上，单击**ACK日志**。
 
 5.  在**选择目标ES集群**配置向导中，配置采集器信息。完成后，单击**下一步**。
