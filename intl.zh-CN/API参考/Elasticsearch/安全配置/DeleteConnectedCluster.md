@@ -13,16 +13,16 @@
 ## 请求语法
 
 ```
-DELETE /openapi/instances/[InstanceId]/connected-clusters HTTPS|HTTP
+DELETE /openapi/instances/[InstanceId]/connected-clusters HTTP/1.1
 ```
 
 ## 请求参数
 
-|名称|类型|是否必选|示例值|描述|
-|--|--|----|---|--|
-|connectedInstanceId|String|是|es-cn-09k1rgid9000g\*\*\*\*|已进行网络互通的远程实例ID。 |
-|InstanceId|String|是|es-cn-n6w1o1x0w001c\*\*\*\*|当前实例ID。 |
-|clientToken|String|否|5A2CFF0E-5718-45B5-9D4D-70B3FF\*\*\*\*|用于保证请求的幂等性。由客户端生成该参数值，要保证在不同请求间唯一，最大不超过64个ASCII字符。 |
+|名称|类型|位置|是否必选|示例值|描述|
+|--|--|--|----|---|--|
+|connectedInstanceId|String|Query|是|es-cn-09k1rgid9000g\*\*\*\*|已进行网络互通的远程实例ID。 |
+|InstanceId|String|Path|是|es-cn-n6w1o1x0w001c\*\*\*\*|当前实例ID。 |
+|clientToken|String|Query|否|5A2CFF0E-5718-45B5-9D4D-70B3FF\*\*\*\*|用于保证请求的幂等性。由客户端生成该参数值，要保证在不同请求间唯一，最大不超过64个ASCII字符。 |
 
 ## 返回数据
 
@@ -45,14 +45,7 @@ DELETE /openapi/instances/es-cn-n6w1o1x0w001c****/connected-clusters?connectedIn
 
 正常返回示例
 
-`XML` 格式
-
-```
-<Result>true</Result>
-<RequestId>4EA9579E-12E6-420B-9518-575FFC76****</RequestId>
-```
-
-`JSON` 格式
+`JSON`格式
 
 ```
 {
