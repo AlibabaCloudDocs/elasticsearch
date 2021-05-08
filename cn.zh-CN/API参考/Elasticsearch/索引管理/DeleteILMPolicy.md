@@ -46,13 +46,6 @@ DELETE /openapi/instances/es-cn-nif24adwc0082****/ilm-policies/slm-history-ilm-p
 
 正常返回示例
 
-`XML`格式
-
-```
-<RequestId>694FDC20-0FDD-47C4-B921-BFF902FA****</RequestId>
-<Result>true</Result>
-```
-
 `JSON`格式
 
 ```
