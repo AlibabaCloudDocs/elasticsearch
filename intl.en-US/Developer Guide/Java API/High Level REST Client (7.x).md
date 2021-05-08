@@ -12,7 +12,7 @@ This topic describes how to call Elasticsearch Java API operations. Java High Le
 
 -   Enable the Auto Indexing feature for the Elasticsearch cluster.
 
-    For more information, see [Enable the Auto Indexing feature](/intl.en-US/Elasticsearch Instances Management/Step 2: (Optional) Configure a cluster.md).
+    For more information, see [t1605396.md\#section\_pcn\_1xy\_1l2](/intl.en-US/Elasticsearch Instances Management/Step 2: (Optional) Configure a cluster.md).
 
     If the Auto Indexing feature is not enabled, the following error is reported.
 
