@@ -19,22 +19,22 @@ keyword: Transport Client访问es
 
 -   创建阿里云Elasticsearch实例，版本为5.5.3。
 
-    创建方法请参见[创建阿里云Elasticsearch实例](/cn.zh-CN/快速入门/步骤一：创建实例/创建阿里云Elasticsearch实例.md)。
+    创建方法请参见[t134282.md\#](/cn.zh-CN/Elasticsearch/实例管理/创建阿里云Elasticsearch实例.md)。
 
 -   开启阿里云Elasticsearch实例的自动创建索引功能。
 
-    具体操作步骤请参见[开启自动创建索引](/cn.zh-CN/快速入门/步骤二：配置实例（可选）.md)。
+    具体操作步骤请参见[开启自动创建索引](/cn.zh-CN/Elasticsearch/快速访问与配置.md)。
 
     如果未开启会提示如下报错。
 
     ![报错](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/8769559951/p97345.png)
 
 -   配置阿里云Elasticsearch实例的白名单，确保网络互通。
-    -   如果运行Java代码的服务器在公网环境下，可通过阿里云Elasticsearch实例的公网地址进行连通。连通前，需要开启阿里云Elasticsearch实例的公网地址，并修改公网地址访问白名单，将服务器的公网IP地址加入白名单中。具体操作步骤请参见[配置ES公网或私网访问白名单](/cn.zh-CN/ES实例/安全配置/配置ES公网或私网访问白名单.md)。
+    -   如果运行Java代码的服务器在公网环境下，可通过阿里云Elasticsearch实例的公网地址进行连通。连通前，需要开启阿里云Elasticsearch实例的公网地址，并修改公网地址访问白名单，将服务器的公网IP地址加入白名单中。具体操作步骤请参见[配置Elasticsearch公网或私网访问白名单](/cn.zh-CN/Elasticsearch/安全配置/配置Elasticsearch公网或私网访问白名单.md)。
 
         **说明：**
 
-        -   如果您使用的是WIFI、宽带等网络，需要将公网出口的跳板机IP地址配置进去。建议您通过[淘宝IP地址库](http://ip.taobao.com/ipSearch)查询。
+        -   如果您使用的是WIFI、宽带等网络，需要将公网出口的跳板机IP地址配置进去。建议您通过[淘宝IP地址库](http://myip.ipip.net/)查询。
         -   您也可以将白名单配置为0.0.0.0/0，允许所有IPv4地址访问阿里云Elasticsearch实例。此配置会导致实例完全暴露在公网中，增加安全风险，配置前请确认您是否可以接受这个风险。
     -   如果运行Java代码的服务器与阿里云Elasticsearch实例在同一专有网络VPC（Virtual Private Cloud）中，可通过阿里云Elasticsearch实例的内网地址进行连通。连通前，需要确保VPC私网访问白名单（默认为0.0.0.0/0）中已添加了服务器的内网IP地址。
 -   创建Java Maven工程，并将下文的[pom依赖](#section_53p_is5_80a)添加到Java工程的pom.xml文件中。
@@ -133,7 +133,7 @@ public class TransportClientDemo {
 
 |参数|描述|
 |--|--|
-|`cluster.name`|阿里云Elasticsearch实例的ID，可在实例的基本信息页面获取，获取方法请参见[查看实例的基本信息](/cn.zh-CN/ES实例/实例管理/查看实例的基本信息.md)。|
+|`cluster.name`|阿里云Elasticsearch实例的ID，可在实例的基本信息页面获取，获取方法请参见[查看实例的基本信息](/cn.zh-CN/Elasticsearch/实例管理/查看实例的基本信息.md)。|
 |`client.transport.sniff`|嗅探，请设置为false。|
 |`xpack.security.user`|阿里云Elasticsearch实例的用户名和密码。|
 |`InetAddress.getByName()`|请在此方法的参数中指定访问阿里云Elasticsearch实例的域名及端口号。 **说明：** 域名不能加http。 |
