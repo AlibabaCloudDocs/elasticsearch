@@ -55,24 +55,6 @@ GET /openapi/instances/es-cn-n6w24n9u900am****/index-templates/data-stream-defau
 
 正常返回示例
 
-`XML`格式
-
-```
-<RequestId>25DB38F8-82E4-4D16-82BB-FF077C7F****</RequestId>
-<Result>
-    <ilmPolicy>cube_default_ilm_policy</ilmPolicy>
-    <dataStream>true</dataStream>
-    <indexTemplate>data-stream-default</indexTemplate>
-    <priority>0</priority>
-    <indexPatterns>ds-*</indexPatterns>
-    <template>
-        <settings>{\"index.refresh_interval\":\"1s\"}</settings>
-        <mappings>{\"properties\":{\"created_at\":{\"format\":\"EEE MMM dd HH:mm:ss Z yyyy\",\"type\":\"date\"},\"host_name\":{\"type\":\"keyword\"}}}</mappings>
-        <aliases>{\"mydata\":{}}</aliases>
-    </template>
-</Result>
-```
-
 `JSON`格式
 
 ```
