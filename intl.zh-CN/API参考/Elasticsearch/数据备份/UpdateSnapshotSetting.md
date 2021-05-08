@@ -13,14 +13,14 @@
 ## 请求语法
 
 ```
-POST|PUT /openapi/instances/[InstanceId]/snapshot-setting HTTPS|HTTP
+POST|PUT /openapi/instances/[InstanceId]/snapshot-setting HTTP/1.1
 ```
 
 ## 请求参数
 
-|名称|类型|是否必选|示例值|描述|
-|--|--|----|---|--|
-|InstanceId|String|是|es-cn-oew1rgiev0009\*\*\*\*|实例ID。 |
+|名称|类型|位置|是否必选|示例值|描述|
+|--|--|--|----|---|--|
+|InstanceId|String|Path|是|es-cn-oew1rgiev0009\*\*\*\*|实例ID。 |
 
 ## RequestBody
 
@@ -90,17 +90,7 @@ POST /openapi/instances/es-cn-oew1rgiev0009****/snapshot-setting HTTP/1.1
 
 正常返回示例
 
-`XML` 格式
-
-```
-<Result>
-    <quartzRegex>0 0 01 ? * * *</quartzRegex>
-    <enable>true</enable>
-</Result>
-<RequestId>77C0C894-77E3-4711-88E1-495216FA****</RequestId>
-```
-
-`JSON` 格式
+`JSON`格式
 
 ```
 {
