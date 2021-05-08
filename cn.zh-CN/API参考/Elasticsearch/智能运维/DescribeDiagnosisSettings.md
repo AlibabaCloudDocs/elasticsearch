@@ -13,15 +13,15 @@
 ## 请求语法
 
 ```
-GET /openapi/diagnosis/instances/[InstanceId]/settings HTTPS|HTTP
+GET /openapi/diagnosis/instances/[InstanceId]/settings HTTP/1.1
 ```
 
 ## 请求参数
 
-|名称|类型|是否必选|示例值|描述|
-|--|--|----|---|--|
-|InstanceId|String|是|es-cn-68n1n8b7f000a\*\*\*\*|实例ID。 |
-|lang|String|否|en|设置返回结果的语言，默认为en。 |
+|名称|类型|位置|是否必选|示例值|描述|
+|--|--|--|----|---|--|
+|InstanceId|String|Path|是|es-cn-68n1n8b7f000a\*\*\*\*|实例ID。 |
+|lang|String|Query|否|en|设置返回结果的语言，默认为en。 |
 
 ## 返回数据
 
@@ -43,17 +43,7 @@ GET /openapi/diagnosis/instances/es-cn-45914gy290009****/settings HTTP/1.1
 
 正常返回示例
 
-`XML` 格式
-
-```
-<Result>
-    <scene>Business Search</scene>
-    <updateTime>1561969800000</updateTime>
-</Result>
-<RequestId>592414F7-652B-4360-91AB-85C53B32****</RequestId>
-```
-
-`JSON` 格式
+`JSON`格式
 
 ```
 {
