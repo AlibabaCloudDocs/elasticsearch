@@ -13,16 +13,16 @@
 ## 请求语法
 
 ```
-PUT /openapi/diagnosis/instances/[InstanceId]/settings HTTPS|HTTP
+PUT /openapi/diagnosis/instances/[InstanceId]/settings HTTP/1.1
 ```
 
 ## 请求参数
 
-|名称|类型|是否必选|示例值|描述|
-|--|--|----|---|--|
-|InstanceId|String|是|es-cn-45914gy290009\*\*\*\*|实例ID。 |
-|ClientToken|String|否|5A2CFF0E-5718-45B5-9D4D-70B3FF\*\*\*\*|用于保证请求的幂等性。由客户端生成该参数值，要保证在不同请求间唯一，最大不超过64个ASCII字符。 |
-|lang|String|否|en|返回结果的语言，默认为en。 |
+|名称|类型|位置|是否必选|示例值|描述|
+|--|--|--|----|---|--|
+|InstanceId|String|Path|是|es-cn-45914gy290009\*\*\*\*|实例ID。 |
+|ClientToken|String|Query|否|5A2CFF0E-5718-45B5-9D4D-70B3FF\*\*\*\*|用于保证请求的幂等性。由客户端生成该参数值，要保证在不同请求间唯一，最大不超过64个ASCII字符。 |
+|lang|String|Query|否|en|返回结果的语言，默认为en。 |
 
 ## RequestBody
 
@@ -82,14 +82,7 @@ PUT /openapi/diagnosis/instances/es-cn-45914gy290009****/settings HTTP/1.1
 
 正常返回示例
 
-`XML` 格式
-
-```
-<Result>true</Result>
-<RequestId>5B03F520-E884-4F7B-931D-63766054****</RequestId>
-```
-
-`JSON` 格式
+`JSON`格式
 
 ```
 {
