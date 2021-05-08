@@ -13,7 +13,7 @@
 ## 请求语法
 
 ```
-POST /openapi/instances/[InstanceId]/actions/network-trigger HTTPS|HTTP
+POST /openapi/instances/[InstanceId]/actions/network-trigger HTTP/1.1
 ```
 
 ## 请求参数
@@ -53,14 +53,7 @@ POST /openapi/instances/es-cn-n6w1o1x0w001c****/actions/network-trigger HTTP/1.1
 
 正常返回示例
 
-`XML` 格式
-
-```
-<Result>true</Result>
-<RequestId>5A5D8E74-565C-43DC-B031-29289F****</RequestId>
-```
-
-`JSON` 格式
+`JSON`格式
 
 ```
 {
