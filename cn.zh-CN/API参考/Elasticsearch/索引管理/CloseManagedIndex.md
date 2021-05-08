@@ -45,13 +45,6 @@ POST /openapi/instances/es-cn-m7r24d27d007q****/indices/test-index1/close-manage
 
 正常返回示例
 
-`XML`格式
-
-```
-<RequestId>F99407AB-2FA9-489E-A259-40CF6DCC****</RequestId>
-<Result>true</Result>
-```
-
 `JSON`格式
 
 ```
