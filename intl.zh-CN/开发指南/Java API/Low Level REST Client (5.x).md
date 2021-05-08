@@ -15,18 +15,18 @@
 
 -   创建阿里云Elasticsearch实例，版本为5.5.3。
 
-    创建方法请参见[创建阿里云Elasticsearch实例](/intl.zh-CN/快速入门/步骤一：创建实例/创建阿里云Elasticsearch实例.md)。
+    创建方法请参见[t134282.md\#](/intl.zh-CN/Elasticsearch/管理实例/创建阿里云Elasticsearch实例.md)。
 
 -   开启阿里云Elasticsearch实例的自动创建索引功能。
 
-    具体操作步骤请参见[开启自动创建索引](/intl.zh-CN/快速入门/步骤二：配置实例（可选）.md)。
+    具体操作步骤请参见[开启自动创建索引](/intl.zh-CN/Elasticsearch/快速访问与配置.md)。
 
     如果未开启会提示如下报错。
 
     ![报错](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/8769559951/p97345.png)
 
 -   配置阿里云Elasticsearch实例的白名单，确保网络互通。
-    -   如果运行Java代码的服务器在公网环境下，可通过阿里云Elasticsearch实例的公网地址进行连通。连通前，需要开启阿里云Elasticsearch实例的公网地址，并修改公网地址访问白名单，将服务器的公网IP地址加入白名单中。具体操作步骤请参见[配置ES公网或私网访问白名单](/intl.zh-CN/实例管理/安全配置/配置ES公网或私网访问白名单.md)。
+    -   如果运行Java代码的服务器在公网环境下，可通过阿里云Elasticsearch实例的公网地址进行连通。连通前，需要开启阿里云Elasticsearch实例的公网地址，并修改公网地址访问白名单，将服务器的公网IP地址加入白名单中。具体操作步骤请参见[配置Elasticsearch公网或私网访问白名单](/intl.zh-CN/Elasticsearch/安全配置/配置ES公网或私网访问白名单.md)。
 
         **说明：**
 
@@ -114,5 +114,5 @@ public class RestClientTest55 {
 |--|--|
 |`USER NAME`|替换为访问阿里云Elasticsearch实例的用户名。|
 |`PASSWORD`|替换为访问阿里云Elasticsearch实例的密码。|
-|`HOST`|替换为阿里云Elasticsearch实例的内网或外网地址。可在实例的基本信息页面获取，获取方法请参见[查看实例的基本信息](/intl.zh-CN/实例管理/管理实例/查看实例的基本信息.md)。|
+|`HOST`|替换为阿里云Elasticsearch实例的内网或外网地址。可在实例的基本信息页面获取，获取方法请参见[查看实例的基本信息](/intl.zh-CN/Elasticsearch/管理实例/查看实例的基本信息.md)。|
 
