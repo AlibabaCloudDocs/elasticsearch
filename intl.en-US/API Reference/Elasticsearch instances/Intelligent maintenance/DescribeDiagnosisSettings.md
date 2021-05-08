@@ -43,16 +43,6 @@ Common request header
 
 Sample success responses
 
-`XML` format
-
-```
-<Result>
-    <scene>Business Search</scene>
-    <updateTime>1561969800000</updateTime>
-</Result>
-<RequestId>592414F7-652B-4360-91AB-85C53B32****</RequestId>
-```
-
 `JSON` format
 
 ```
