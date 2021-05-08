@@ -90,16 +90,6 @@ Common request parameters
 
 Sample success responses
 
-`XML` format
-
-```
-<Result>
-    <quartzRegex>0 0 01 ? * * *</quartzRegex>
-    <enable>true</enable>
-</Result>
-<RequestId>77C0C894-77E3-4711-88E1-495216FA****</RequestId>
-```
-
 `JSON` format
 
 ```
