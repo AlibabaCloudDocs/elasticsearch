@@ -16,7 +16,7 @@ Before you use a client to access an Alibaba Cloud Elasticsearch cluster, make s
 
 -   Enable the Auto Indexing feature for the Elasticsearch cluster.
 
-    For more information, see [Enable the Auto Indexing feature](/intl.en-US/Elasticsearch Instances Management/Step 2: (Optional) Configure a cluster.md).
+    For more information, see [t1605396.md\#section\_pcn\_1xy\_1l2](/intl.en-US/Elasticsearch Instances Management/Step 2: (Optional) Configure a cluster.md).
 
 -   Configure a whitelist for the Elasticsearch cluster to ensure normal communication among networks.
     -   If the server that runs code is located in an Internet environment, you can access the Elasticsearch cluster by using its public endpoint. Before you access the cluster, you must enable the Public Network Access feature for the cluster and add the public IP address of the server to the Internet whitelist of the cluster. For more information, see [Configure a whitelist to access an Elasticsearch cluster over the Internet or a VPC](/intl.en-US/Elasticsearch Instances Management/Security/Configure a whitelist to access an Elasticsearch cluster over the Internet or a VPC.md).
