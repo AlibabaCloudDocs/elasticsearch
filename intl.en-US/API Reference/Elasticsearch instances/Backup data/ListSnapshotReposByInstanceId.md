@@ -44,18 +44,6 @@ Common request header
 
 Sample success responses
 
-`XML` format
-
-```
-<Result>
-    <instanceId>es-cn-6ja1ro4jt000c****</instanceId>
-    <snapWarehouse>aliyun_snapshot_from_es-cn-6ja1ro4jt000c****</snapWarehouse>
-    <repoPath>es-cn-6ja1ro4jt000c****</repoPath>
-    <status>available</status>
-</Result>
-<RequestId>123BB496-6EEF-41E6-92BB-3F782664****</RequestId>
-```
-
 `JSON` format
 
 ```
