@@ -72,45 +72,6 @@ GET /openapi/instances/es-cn-nif24adwc0082****/data-streams HTTP/1.1
 
 正常返回示例
 
-`XML`格式
-
-```
-<RequestId>F99407AB-2FA9-489E-A259-40CF6DCC****</RequestId>
-<Result>
-    <name>Log1</name>
-    <health>GREEN</health>
-    <indices>
-        <name>my-index-0001</name>
-        <health>green</health>
-        <size>15393899</size>
-        <createTime>2018-07-13T03:58:07.253Z</createTime>
-        <managedStatus>following</managedStatus>
-    </indices>
-    <indices>
-        <name>my-index-0001</name>
-        <health>green</health>
-        <size>14958382</size>
-        <createTime>2018-07-13T03:58:07.253Z</createTime>
-        <managedStatus>closed</managedStatus>
-    </indices>
-    <indices>
-        <name>my-index-0001</name>
-        <health>green</health>
-        <size>34939228</size>
-        <createTime>2018-07-13T03:58:07.253Z</createTime>
-        <managedStatus>closing</managedStatus>
-    </indices>
-    <totalStorageSize>1788239393298</totalStorageSize>
-    <managedStorageSize>1788239393298</managedStorageSize>
-    <indexTemplateName>template1</indexTemplateName>
-    <ilmPolicyName>rollver1</ilmPolicyName>
-</Result>
-<Headers>
-    <X-Managed-Count>100</X-Managed-Count>
-    <X-Managed-StorageSize>143993923932990</X-Managed-StorageSize>
-</Headers>
-```
-
 `JSON`格式
 
 ```
