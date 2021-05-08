@@ -16,7 +16,7 @@ keyword: [logstash-output-datahub插件, logstash批量传送数据到datahub]
 
 -   开通DataHub产品，并完成创建项目和创建Topic。
 
-    详细信息，请参见DataHub官方文档的[用户指南](https://help.aliyun.com/document_detail/158788.html?spm=a2c4g.11186623.3.3.defb160bb0Qbv8)章节。
+    详细信息，请参见DataHub官方文档的[用户指南](https://help.aliyun.com/document_detail/158790.html?spm=a2c4g.11186623.6.558.2001a8cbPy7kRt)章节。
 
 -   准备输入数据源。
 
