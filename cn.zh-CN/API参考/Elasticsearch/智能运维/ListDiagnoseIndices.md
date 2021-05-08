@@ -41,16 +41,6 @@ GET /openapi/diagnosis/instances/es-cn-n6w1o1x0w001c****/indices HTTP/1.1
 
 正常返回示例
 
-`XML`格式
-
-```
-<Result>my_index_aliws</Result>
-<Result>aliyun-index-test</Result>
-<Result>filebeat-6.7.0-2020.11.15</Result>
-<Result>filebeat-6.7.0-2020.12.27</Result>
-<RequestId>F05ED12E-140A-4ACB-B059-3A508A69F2E1</RequestId>
-```
-
 `JSON`格式
 
 ```
