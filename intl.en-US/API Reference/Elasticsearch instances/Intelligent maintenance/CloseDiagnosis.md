@@ -44,13 +44,6 @@ POST /openapi/diagnosis/instances/es-cn-s9dsk3k4k****/actions/close-diagnosis HT
 
 Sample success responses
 
-`XML` format
-
-```
-<Result>true</Result>
-<RequestId>290ED7FB-4AA0-4F9B-86DC-95FEB016****</RequestId>
-```
-
 `JSON` format
 
 ```
