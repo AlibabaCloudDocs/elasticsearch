@@ -46,13 +46,6 @@ DELETE /openapi/instances/es-cn-nif24adwc0082****/index-templates/index-name HTT
 
 正常返回示例
 
-`XML`格式
-
-```
-<RequestId>A0761F7E-0B50-46B9-8CAA-EBB3A420****</RequestId>
-<Result>true</Result>
-```
-
 `JSON`格式
 
 ```
