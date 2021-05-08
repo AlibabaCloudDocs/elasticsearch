@@ -120,18 +120,6 @@ POST /openapi/diagnosis/instances/es-cn-n6w1o1x0w001c****/actions/diagnose HTTP/
 
 正常返回示例
 
-`XML`格式
-
-```
-<Result>
-    <reportId>trigger__2020-10-19T16:49:56</reportId>
-    <instanceId>es-cn-n6w1o1x0w001c****</instanceId>
-    <state>RUNNING</state>
-    <createTime>0</createTime>
-</Result>
-<RequestId>1EE5BB1E-7ECE-4CFE-A05A-7F1EE2C4****</RequestId>
-```
-
 `JSON`格式
 
 ```
