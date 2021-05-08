@@ -48,16 +48,6 @@ Common request header
 
 Sample success responses
 
-`XML` format
-
-```
-<Result>scheduled__2020-09-15T00:40:00</Result>
-<RequestId>B5F822C5-03E9-4899-8D80-2B35515A****</RequestId>
-<Headers>
-    <X-Total-Count>1</X-Total-Count>
-</Headers>
-```
-
 `JSON` format
 
 ```
