@@ -42,16 +42,6 @@ Common request header
 
 Sample success responses
 
-`XML` format
-
-```
-<RequestId>B2A05BB2-7B66-4D0F-BEDE-5033AFFE****</RequestId>
-<Result>
-    <Enable>true</Enable>
-    <QuartzRegex>0 0 01 ? * * *</QuartzRegex>
-</Result>
-```
-
 `JSON` format
 
 ```
