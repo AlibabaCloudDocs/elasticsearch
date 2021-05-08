@@ -42,16 +42,6 @@ GET /openapi/instances/es-cn-n6w1o1x0w001c****/connectable-clusters HTTP/1.1
 
 Sample success responses
 
-`XML` format
-
-```
-<Result>
-    <instanceId>es-cn-09k1rgid9000g****</instanceId>
-    <networkType>vpc</networkType>
-</Result>
-<RequestId>506B7495-0887-4F05-BC76-5AE7AC1D****</RequestId>
-```
-
 `JSON` format
 
 ```
