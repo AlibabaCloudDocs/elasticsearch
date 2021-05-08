@@ -57,58 +57,6 @@ Common request header
 
 Sample success responses
 
-`XML` format
-
-```
-<Result>
-    <reportId>scheduled__2020-09-15T02:40:00</reportId>
-    <instanceId>es-cn-09k1rocex0006****</instanceId>
-    <state>SUCCESS</state>
-    <trigger>INNER</trigger>
-    <health>YELLOW</health>
-    <createTime>1600108800000</createTime>
-    <diagnoseItems>
-        <item>IndexReplicaDiagnostic</item>
-        <health>YELLOW</health>
-        <detail>
-            <name>Number of Replica Shards</name>
-            <desc>Check whether the number of replica shards is optimal and easy to maintain.
-Replica shards can increase the index data reliability and improve the QPS if the resources are sufficient. However, too many replica shards may consume large amounts of disk space and memory. This reduces the performance of write operations.</desc>
-            <type>CONSOLE_API</type>
-            <suggest>You can call the following function in the Elasticsearch API: 
-PUT ${index}/_settings
-{
-    "settings": {
-        "index.number_of_replicas": "${num}"
-    }
-} 
-Set the index and num parameters to the actual values.</suggest>
-            <result>You may need to adjust the numbers of replica shards of some indices as follows: 
-[geoname08 : 0 -> 1][geoname09 : 0 -> 1][geonametest01 : 0 -> 1]</result>
-        </detail>
-    </diagnoseItems>
-    <diagnoseItems>
-        <item>IndexShardsDiagnostic</item>
-        <health>YELLOW</health>
-        <detail>
-            <name>Number and Sizes of Shards in Each Index</name>
-            <desc>Check whether the number and sizes of shards in each index are optimal.
-A small number of shards may degrade the read and write performance of an index. A large number of shards consume a lot of system resources and degrade the read and write performance of an index.</desc>
-            <type>ES_API</type>
-            <suggest>We recommend the following solution: 
-hotmovies [size < 1 GB] [7 -> 1, 3]
-geoname08 [2 GB] [5 -> 1, 3]
-geoname09 [3 GB] [5 -> 1, 3]
-geonametest01 [2 GB] [5 -> 1, 3]
- 
-This solution applies to the current index sizes. Adjust the number of shards based on the future indices and nodes.</suggest>
-            <result>You may need to adjust the number of shards in some indices.</result>
-        </detail>
-    </diagnoseItems>
-</Result>
-<RequestId>7BABD728-1584-432C-A300-25BEBDFC****</RequestId>
-```
-
 `JSON` format
 
 ```
