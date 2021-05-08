@@ -13,15 +13,15 @@
 ## 请求语法
 
 ```
-GET /openapi/instances/[InstanceId]/alternative-snapshot-repos HTTPS|HTTP
+GET /openapi/instances/[InstanceId]/alternative-snapshot-repos HTTP/1.1
 ```
 
 ## 请求参数
 
-|名称|类型|是否必选|示例值|描述|
-|--|--|----|---|--|
-|InstanceId|String|是|es-cn-0pp1jxvcl000z\*\*\*\*|实例ID。 |
-|alreadySetItems|Boolean|否|true|是否返回已添加的OSS引用仓库。true为默认值，表示返回；false表示不返回。 |
+|名称|类型|位置|是否必选|示例值|描述|
+|--|--|--|----|---|--|
+|InstanceId|String|Path|是|es-cn-0pp1jxvcl000z\*\*\*\*|实例ID。 |
+|alreadySetItems|Boolean|Query|否|true|是否返回已添加的OSS引用仓库。true为默认值，表示返回；false表示不返回。 |
 
 ## 返回数据
 
@@ -43,21 +43,7 @@ GET /openapi/instances/es-cn-0pp1jxvcl000z****/alternative-snapshot-repos HTTP/1
 
 正常返回示例
 
-`XML` 格式
-
-```
-<Result>
-    <instanceId>es-cn-6ja1ro4jt000c****</instanceId>
-    <repoPath>es-cn-6ja1ro4jt000c****</repoPath>
-</Result>
-<Result>
-    <instanceId>es-cn-oew1rgiev0009****</instanceId>
-    <repoPath>es-cn-oew1rgiev0009****</repoPath>
-</Result>
-<RequestId>335D2540-BB16-447F-8AD4-39B7A0AE****</RequestId>
-```
-
-`JSON` 格式
+`JSON`格式
 
 ```
 {
