@@ -44,13 +44,6 @@ POST /openapi/diagnosis/instances/es-cn-n6w1o1x0w001c****/actions/open-diagnosis
 
 Sample success responses
 
-`XML` format
-
-```
-<Result>true</Result>
-<RequestId>37F0EC9E-B81A-43D9-B583-9D5A8DEC****</RequestId>
-```
-
 `JSON` format
 
 ```
