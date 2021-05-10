@@ -121,7 +121,3 @@ keyword: 安装采集器
         ![查看Monitoring信息](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/9242387951/p76700.png)
 
 
-## 常见问题
-
-阿里云Beats配置过程中遇到的问题，请参见[基于ECS安装云Beat失败的原因及排查方法](https://help.aliyun.com/document_detail/179410.htm?spm=a2c4g.11186623.2.18.374a6d40TUEvpJ#task-1938266)。
-
