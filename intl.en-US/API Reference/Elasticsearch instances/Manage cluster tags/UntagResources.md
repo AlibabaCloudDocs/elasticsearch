@@ -46,7 +46,7 @@ DELETE /openapi/tags HTTPS|HTTP
 |RequestId|String|F99407AB-2FA9-489E-A259-40CF6D\*\*\*\*\*\*|The ID of the request. |
 |Result|Boolean|true|Return results:
 
- -   true: deleted
+-   true: deleted
 -   false: Failed |
 
 ## Examples
@@ -59,13 +59,6 @@ Common request header
 ```
 
 Sample success responses
-
-`XML` format
-
-```
-<Result>true</Result>
-<RequestId>3D8795D9-8FF5-46B2-86E6-E3B40*******</RequestId>
-```
 
 `JSON` format
 
