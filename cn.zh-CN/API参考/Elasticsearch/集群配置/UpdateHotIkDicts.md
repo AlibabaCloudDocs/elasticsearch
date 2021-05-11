@@ -198,30 +198,6 @@ PUT /openapi/instances/es-cn-oew1q8bev0002****/ik-hot-dict HTTP/1.1
 
 正常返回示例
 
-`XML`格式
-
-```
-<Result>
-    <name>deploy_0.dic</name>
-    <fileSize>220</fileSize>
-    <sourceType>OSS</sourceType>
-    <type>MAIN</type>
-</Result>
-<Result>
-    <name>SYSTEM_MAIN.dic</name>
-    <fileSize>2782602</fileSize>
-    <sourceType>OSS</sourceType>
-    <type>MAIN</type>
-</Result>
-<Result>
-    <name>SYSTEM_STOPWORD.dic</name>
-    <fileSize>132</fileSize>
-    <sourceType>OSS</sourceType>
-    <type>STOP</type>
-</Result>
-<RequestId>E1F6991B-1F77-47EA-9666-593F11E3****</RequestId>
-```
-
 `JSON`格式
 
 ```
