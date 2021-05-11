@@ -55,45 +55,6 @@ Common request header
 
 Sample success responses
 
-`XML` format
-
-```
-<Result>
-    <nodeType>WORKER_WARM</nodeType>
-    <host>172.16.xx.xx</host>
-    <port>9200</port>
-    <zoneId>cn-hangzhou-i</zoneId>
-    <heapPercent>70.8%</heapPercent>
-    <cpuPercent>4.1%</cpuPercent>
-    <loadOneM>0.09</loadOneM>
-    <diskUsedPercent>2.0%</diskUsedPercent>
-    <health>GREEN</health>
-</Result>
-<Result>
-    <nodeType>WORKER_WARM</nodeType>
-    <host>172.16.xx.xx</host>
-    <port>9200</port>
-    <zoneId>cn-hangzhou-i</zoneId>
-    <heapPercent>45.0%</heapPercent>
-    <cpuPercent>3.3%</cpuPercent>
-    <loadOneM>0.00</loadOneM>
-    <diskUsedPercent>3.0%</diskUsedPercent>
-    <health>GREEN</health>
-</Result>
-<Result>
-    <nodeType>WORKER</nodeType>
-    <host>172.16.xx.xx</host>
-    <port>9200</port>
-    <zoneId>cn-hangzhou-i</zoneId>
-    <heapPercent>53.4%</heapPercent>
-    <cpuPercent>3.7%</cpuPercent>
-    <loadOneM>0.02</loadOneM>
-    <diskUsedPercent>1.0%</diskUsedPercent>
-    <health>GREEN</health>
-</Result>
-<RequestId>76387A8A-5ED9-43B4-AC90-76146209****</RequestId>
-```
-
 `JSON` format
 
 ```
