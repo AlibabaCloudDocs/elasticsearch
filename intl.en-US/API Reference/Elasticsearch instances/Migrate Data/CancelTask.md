@@ -44,13 +44,6 @@ POST /openapi/instances/es-cn-nif1q9o8r0008****/actions/cancel-task? taskType=Mi
 
 Sample success responses
 
-`XML` format
-
-```
-<Result>true</Result>
-<RequestId>C82758DD-282F-4D48-934F-92170A33****</RequestId>
-```
-
 `JSON` format
 
 ```
