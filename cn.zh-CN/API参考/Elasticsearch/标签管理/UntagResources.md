@@ -21,17 +21,17 @@
 ## 请求语法
 
 ```
-DELETE /openapi/tags HTTPS|HTTP
+DELETE /openapi/tags HTTP/1.1
 ```
 
 ## 请求参数
 
-|名称|类型|是否必选|示例值|描述|
-|--|--|----|---|--|
-|ResourceIds|String|是|\["es-cn-09k1rocex0006\*\*\*\*","es-cn-oew1rgiev0009\*\*\*\*"\]|要删除的资源列表。 |
-|ResourceType|String|是|INSTANCE|资源类型。固定为**INSTANCE**。 |
-|TagKeys|String|否|\["tagKey1","tagKey2"\]|要删除的标签列表，最多包含20个子项。 |
-|All|Boolean|否|false|是否全部删除，默认为**false**。仅当**TagKeys**为空时有效。 |
+|名称|类型|位置|是否必选|示例值|描述|
+|--|--|--|----|---|--|
+|ResourceIds|String|Query|是|\["es-cn-09k1rocex0006\*\*\*\*","es-cn-oew1rgiev0009\*\*\*\*"\]|要删除的资源列表。 |
+|ResourceType|String|Query|是|INSTANCE|资源类型。固定为**INSTANCE**。 |
+|TagKeys|String|Query|否|\["tagKey1","tagKey2"\]|要删除的标签列表，最多包含20个子项。 |
+|All|Boolean|Query|否|false|是否全部删除，默认为**false**。仅当**TagKeys**为空时有效。 |
 
 -   当TagKeys为空，且**All = true**时，调用该接口会删除资源下所有的资源标签关系。对于没有标签的资源，不处理接口，并返回成功。
 -   当传入**TagKeys**为空，同时**All = false**时，不处理接口，并返回成功。
@@ -60,14 +60,7 @@ DELETE /openapi/tags?ResourceType=INSTANCE&ResourceIds=%5B%22es-cn-09k1rocex0006
 
 正常返回示例
 
-`XML` 格式
-
-```
-<Result>true</Result>
-<RequestId>3D8795D9-8FF5-46B2-86E6-E3B40*******</RequestId>
-```
-
-`JSON` 格式
+`JSON`格式
 
 ```
 {
