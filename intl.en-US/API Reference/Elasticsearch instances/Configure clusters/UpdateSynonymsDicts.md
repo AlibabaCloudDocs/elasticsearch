@@ -1,6 +1,6 @@
 # UpdateSynonymsDicts
 
-Call the UpdateSynonymsDicts operation to update the synonym dictionary of an Alibaba Cloud Elasticsearch instance.
+Call the UpdateSynonymsDicts to update the Synonym Dictionary of the Elasticsearch instance.
 
 Note the following when calling this interface:
 
@@ -11,14 +11,14 @@ Note the following when calling this interface:
 
 [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=elasticsearch&api=UpdateSynonymsDicts&type=ROA&version=2017-06-13)
 
-## Request header
+## Request headers
 
-This operation uses only common request headers. For more information, see Common parameters.
+This operation uses only common request parameters, and does not involve special request headers. For more information, see the topic about common parameters.
 
 ## Request syntax
 
 ```
-PUT /openapi/instances/[InstanceId]/synonymsDict HTTP/1.1 
+PUT /openapi/instances/[InstanceId]/synonymsDict HTTP/1.1
 ```
 
 ## Request parameters
@@ -50,7 +50,7 @@ Enter the following parameters in RequestBody.
 
 |dic\_0.txt
 
-|The name of the uploaded Dictionary File. The file must be in the TXT type. |
+|The name of the dictionary file you uploaded, must be a TXT file. |
 |ossObject
 
 |Array
@@ -103,7 +103,7 @@ If an uploaded dictionary is not configured with an ORIGIN, it is deleted by the
 
 **Note:** └ indicates a child parameter.
 
-Example:
+Examples:
 
 ```
 [
@@ -114,14 +114,19 @@ Example:
             "key":"user_dict/dict_0.dic"
         },
         "sourceType":"OSS",
-        "type":"SYNONYMS"
+        "type":"MAIN"
+    },
+    {
+        "name":"SYSTEM_MAIN.txt",
+        "type":"MAIN",
+        "sourceType":"ORIGIN"
     },
     {
         "name":"SYSTEM_STOPWORD.txt",
-        "sourceType":"ORIGIN",
-        "type":"SYNONYMS"
+        "type":"STOP",
+        "sourceType":"ORIGIN"
     }
-]
+]          
 ```
 
 ## Response parameters
@@ -143,7 +148,7 @@ Example:
 Sample requests
 
 ```
-PUT /openapi/instances/es-cn-nif1q9o8r0008 **** /synonymdict HTTP/1.1 
+PUT /openapi/instances/es-cn-nif1q9o8r0008****/synonymsDict HTTP/1.1
 common request header
 [
     {
@@ -160,36 +165,12 @@ common request header
         "sourceType":"ORIGIN",
         "type":"SYNONYMS"
     }
-]  
+]
 ```
 
 Sample success responses
 
-`XML` format
-
-```
-<Result>
-    <name>deploy_0.txt</name>
-    <fileSize>220</fileSize>
-    <sourceType>OSS</sourceType>
-    <type>SYNONYMS</type>
-</Result>
-<Result>
-    <name>SYSTEM_MAIN.txt</name>
-    <fileSize>2782602</fileSize>
-    <sourceType>ORIGIN</sourceType>
-    <type>SYNONYMS</type>
-</Result>
-<Result>
-    <name>SYSTEM_STOPWORD.txt</name>
-    <fileSize>132</fileSize>
-    <sourceType>ORIGIN</sourceType>
-    <type>SYNONYMS</type>
-</Result>
-<RequestId>1F7FE662-CCD8-474F-BA9B-A7E0792E****</RequestId>
-```
-
-`JSON` Syntax
+`JSON` format
 
 ```
 {
@@ -218,7 +199,7 @@ Sample success responses
 }
 ```
 
-## Error codes
+## Error code
 
 For a list of error codes, visit the [API Error Center](https://error-center.alibabacloud.com/status/product/elasticsearch).
 
