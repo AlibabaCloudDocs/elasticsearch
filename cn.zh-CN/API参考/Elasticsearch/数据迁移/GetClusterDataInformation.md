@@ -13,7 +13,7 @@
 ## 请求语法
 
 ```
-POST /openapi/cluster/data-information HTTPS|HTTP
+POST /openapi/cluster/data-information HTTP/1.1
 ```
 
 ## 请求参数
@@ -216,30 +216,7 @@ POST /openapi/cluster/data-information HTTP/1.1
 
 正常返回示例
 
-`XML` 格式
-
-```
-<Result>
-    <connectable>true</connectable>
-    <metaInfo>
-        <indices>index1</indices>
-        <indices>index2</indices>
-        <indices>index3</indices>
-        <typeName>index1-type</typeName>
-        <settings>{
-  "index": {
-    "replication": {
-}.....}}</settings>
-        <mapping>{"_doc":{"properties":{"user":{"properties":{"last":{"type":"text",...}}}}}}</mapping>
-        <fields>id</fields>
-        <fields>name</fields>
-        <fields>_id</fields>
-    </metaInfo>
-</Result>
-<RequestId>29AEFBA7-DD86-4B05-87A2-43F22C85****</RequestId>
-```
-
-`JSON` 格式
+`JSON`格式
 
 ```
 {
