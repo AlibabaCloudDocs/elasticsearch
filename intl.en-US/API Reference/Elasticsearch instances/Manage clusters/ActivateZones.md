@@ -51,13 +51,6 @@ common request parameters
 
 Sample success responses
 
-`XML` format
-
-```
-<Result>true</Result>
-<RequestId>5A5D8E74-565C-43DC-B031-29289FA****</RequestId>
-```
-
 `JSON` Format
 
 ```
@@ -73,5 +66,5 @@ Sample success responses
 |--------|----------|-------------|-----------|
 |400|InstanceNotFound|The instanceId provided does not exist.|The error message returned because the instance cannot be found. Check the status of the instance.|
 
-For a list of error codes,  visit the [API Error Center](https://error-center.alibabacloud.com/status/product/elasticsearch).
+For a list of error codes, visit the [API Error Center](https://error-center.alibabacloud.com/status/product/elasticsearch).
 
