@@ -196,40 +196,6 @@ common request header
 
 Sample success responses
 
-`XML` format
-
-```
-<Result>
-    <name>deploy_0.dic</name>
-    <ossObject>
-        <bucketName>search-cloud-test-cn-****</bucketName>
-        <key>user_dict/dict_0.dic</key>
-    </ossObject>
-    <sourceType>OSS</sourceType>
-    <type>MAIN</type>
-</Result>
-<Result>
-    <name>deploy_2.dic</name>
-    <ossObject>
-        <bucketName>search-cloud-test-cn-****</bucketName>
-        <key>user_dict/dict_2.dic</key>
-    </ossObject>
-    <sourceType>OSS</sourceType>
-    <type>STOP</type>
-</Result>
-<Result>
-    <name>SYSTEM_MAIN.dic</name>
-    <sourceType>ORIGIN</sourceType>
-    <type>MAIN</type>
-</Result>
-<Result>
-    <name>SYSTEM_STOPWORD.dic</name>
-    <sourceType>ORIGIN</sourceType>
-    <type>STOP</type>
-</Result>
-<RequestId>E1F6991B-1F77-47EA-9666-593F11E3****</RequestId>
-```
-
 `JSON`Syntax
 
 ```
