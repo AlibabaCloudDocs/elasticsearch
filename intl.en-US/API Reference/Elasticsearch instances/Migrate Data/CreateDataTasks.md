@@ -294,14 +294,6 @@ Sample requests
 
 Sample success responses
 
-`XML`format
-
-```
-
-     <RequestId>5FFD9ED4-C2EC-4E89-B22B-1ACB6FE1****</RequestId> <Result> <sourceCluster> <password>xxxxxx</password> <endpoint>http://10.20.xx.xx:9200</endpoint> <vpcId>vpc-2ze55voww95g82gak****</vpcId> <vpcInstancePort>9200</vpcInstancePort> <index>index_001</index> <type>index_001</type> <vpcInstanceId>es-cn-oew1oxiro000f****-worker</vpcInstanceId> <dataSourceType>elasticsearch</dataSourceType> <username>elastic</username> </sourceCluster> <sinkCluster> <routing>cluster_name</routing> <settings>{\n \"index\": {\n \"replication\": {\n \"type\": .....}</settings> <password>xxxxx</password> <mapping>{\"doc\":{\"properties\":{\"interval_ms\":{\"type\":\"long\"},....}</mapping> <vpcInstancePort>9200</vpcInstancePort> <vpcId>vpc-2ze55voww95g82gak****</vpcId> <index>index_001</index> <type>index_001</type> <vpcInstanceId>es-cn-oew1oxiro000f****-worker</vpcInstanceId> <dataSourceType>elasticsearch</dataSourceType> <username>elastic</username> </sinkCluster> </Result> 
-   
-```
-
 `JSON`Format
 
 ```
