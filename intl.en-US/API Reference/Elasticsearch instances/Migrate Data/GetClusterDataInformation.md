@@ -216,29 +216,6 @@ Common request parameters
 
 Sample success responses
 
-`XML` format
-
-```
-<Result>
-    <connectable>true</connectable>
-    <metaInfo>
-        <indices>index1</indices>
-        <indices>index2</indices>
-        <indices>index3</indices>
-        <typeName>index1-type</typeName>
-        <settings>{
-  "index": {
-    "replication": {
-}.....}}</settings>
-        <mapping>{"_doc":{"properties":{"user":{"properties":{"last":{"type":"text",...}}}}}}</mapping>
-        <fields>id</fields>
-        <fields>name</fields>
-        <fields>_id</fields>
-    </metaInfo>
-</Result>
-<RequestId>29AEFBA7-DD86-4B05-87A2-43F22C85****</RequestId>
-```
-
 `JSON` format
 
 ```
