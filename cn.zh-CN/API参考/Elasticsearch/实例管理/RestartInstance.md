@@ -15,16 +15,16 @@
 ## 请求语法
 
 ```
-POST /openapi/instances/[InstanceId]/actions/restart HTTPS|HTTP
+POST /openapi/instances/[InstanceId]/actions/restart HTTP/1.1
 ```
 
 ## 请求参数
 
-|名称|类型|是否必选|示例值|描述|
-|--|--|----|---|--|
-|InstanceId|String|是|es-cn-nif1q8auz0003\*\*\*\*|实例ID。 |
-|force|Boolean|否|false|是否忽略集群状态，强制重启。 |
-|clientToken|String|否|5A2CFF0E-5718-45B5-9D4D-70B3FF\*\*\*\*|用于保证请求的幂等性。由客户端生成该参数值，要保证在不同请求间唯一，最大不值过64个ASCII字符。 |
+|名称|类型|位置|是否必选|示例值|描述|
+|--|--|--|----|---|--|
+|InstanceId|String|Path|是|es-cn-nif1q8auz0003\*\*\*\*|实例ID。 |
+|force|Boolean|Query|否|false|是否忽略集群状态，强制重启。 |
+|clientToken|String|Query|否|5A2CFF0E-5718-45B5-9D4D-70B3FF\*\*\*\*|用于保证请求的幂等性。由客户端生成该参数值，要保证在不同请求间唯一，最大不值过64个ASCII字符。 |
 
 ## RequestBody
 
@@ -159,7 +159,7 @@ RequestBody中还需填入以下参数，用来指定重启参数信息。
 |nodeAmount|Integer|2|实例的数据节点数量。 |
 |nodeSpec|Struct| |数据节点配置信息。 |
 |disk|Integer|50|节点的存储空间大小，单位为GB。 |
-|diskType|String|cloud\_ssd|节点的存储类型。支持：cloud\_ssd（SSD云盘）、cloud\_efficiency（高效云盘）。 |
+|diskType|String|cloud\_ssd|节点的存储类型。 |
 |spec|String|elasticsearch.n4.small|节点规格。 |
 |paymentType|String|postpaid|实例的付费方式。
 
@@ -204,104 +204,7 @@ POST /openapi/instances/es-cn-nif1q8auz0003****/actions/restart HTTP/1.1
 
 正常返回示例
 
-`XML` 格式
-
-```
-<Result>
-    <instanceId>es-cn-nif1q8auz0003****</instanceId>
-    <version>7.4.0_with_X-Pack</version>
-    <description>es-cn-nif1q8auz0003****</description>
-    <nodeAmount>3</nodeAmount>
-    <paymentType>prepaid</paymentType>
-    <status>active</status>
-    <privateNetworkIpWhiteList>0.0.0.0/0</privateNetworkIpWhiteList>
-    <enablePublic>false</enablePublic>
-    <nodeSpec>
-        <spec>elasticsearch.n4.small</spec>
-        <disk>20</disk>
-        <diskType>cloud_ssd</diskType>
-        <diskEncryption>false</diskEncryption>
-    </nodeSpec>
-    <networkConfig>
-        <vpcId>vpc-bp16k1dvzxtmagcva****</vpcId>
-        <vswitchId>vsw-bp1k4ec6s7sjdbudw****</vswitchId>
-        <vsArea>cn-hangzhou-i</vsArea>
-        <type>vpc</type>
-    </networkConfig>
-    <createdAt>2020-07-06T10:18:48.662Z</createdAt>
-    <updatedAt>2020-07-06T10:18:48.662Z</updatedAt>
-    <commodityCode>elasticsearchpre</commodityCode>
-    <extendConfigs>
-        <configType>usageScenario</configType>
-        <value>general</value>
-    </extendConfigs>
-    <extendConfigs>
-        <configType>maintainTime</configType>
-        <maintainStartTime>02:00Z</maintainStartTime>
-        <maintainEndTime>06:00Z</maintainEndTime>
-    </extendConfigs>
-    <endTime>1596729600000</endTime>
-    <vpcInstanceId>es-cn-nif1q8auz0003****-worker</vpcInstanceId>
-    <resourceGroupId>rg-acfm2h5vbzd****</resourceGroupId>
-    <zoneCount>1</zoneCount>
-    <protocol>HTTP</protocol>
-    <zoneInfos>
-        <zoneId>cn-hangzhou-i</zoneId>
-        <status>NORMAL</status>
-    </zoneInfos>
-    <instanceType>elasticsearch</instanceType>
-    <inited>true</inited>
-    <domain>es-cn-nif1q8auz0003****.elasticsearch.aliyuncs.com</domain>
-    <port>9200</port>
-    <esVersion>7.4.0_with_X-Pack</esVersion>
-    <esConfig>
-        <action.destructive_requires_name>true</action.destructive_requires_name>
-        <xpack.watcher.enabled>false</xpack.watcher.enabled>
-        <action.auto_create_index>+.*,-*</action.auto_create_index>
-    </esConfig>
-    <esIPWhitelist>0.0.0.0/0</esIPWhitelist>
-    <kibanaIPWhitelist>0.0.0.0/0</kibanaIPWhitelist>
-    <kibanaIPWhitelist>::/0</kibanaIPWhitelist>
-    <kibanaDomain>es-cn-nif1q8auz0003****.kibana.elasticsearch.aliyuncs.com</kibanaDomain>
-    <kibanaPort>5601</kibanaPort>
-    <haveKibana>true</haveKibana>
-    <instanceCategory>x-pack</instanceCategory>
-    <dedicateMaster>false</dedicateMaster>
-    <advancedDedicateMaster>false</advancedDedicateMaster>
-    <masterConfiguration/>
-    <haveClientNode>false</haveClientNode>
-    <warmNode>false</warmNode>
-    <warmNodeConfiguration/>
-    <clientNodeConfiguration/>
-    <kibanaConfiguration>
-        <spec>elasticsearch.n4.small</spec>
-        <amount>1</amount>
-        <disk>0</disk>
-    </kibanaConfiguration>
-    <dictList>
-        <name>SYSTEM_MAIN.dic</name>
-        <fileSize>2782602</fileSize>
-        <sourceType>ORIGIN</sourceType>
-        <type>MAIN</type>
-    </dictList>
-    <dictList>
-        <name>SYSTEM_STOPWORD.dic</name>
-        <fileSize>132</fileSize>
-        <sourceType>ORIGIN</sourceType>
-        <type>STOP</type>
-    </dictList>
-    <haveGrafana>false</haveGrafana>
-    <haveCerebro>false</haveCerebro>
-    <enableKibanaPublicNetwork>true</enableKibanaPublicNetwork>
-    <enableKibanaPrivateNetwork>false</enableKibanaPrivateNetwork>
-    <advancedSetting>
-        <gcName>CMS</gcName>
-    </advancedSetting>
-</Result>
-<RequestId>BB58A51D-CE72-49F9-AF08-F57F3C8A****</RequestId>
-```
-
-`JSON` 格式
+`JSON`格式
 
 ```
 {
