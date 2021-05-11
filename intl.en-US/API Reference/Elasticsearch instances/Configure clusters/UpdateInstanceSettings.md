@@ -38,7 +38,7 @@ The **esConfig** parameter needs to be filled in the RequestBody to specify the 
         "thread_pool.bulk.queue_size": 500
     }
 }
-
+            
 ```
 
 ## Response parameters
@@ -64,8 +64,6 @@ Common request parameters
 ```
 
 Sample success responses
-
-`XML` format
 
 ```
 <Result>
