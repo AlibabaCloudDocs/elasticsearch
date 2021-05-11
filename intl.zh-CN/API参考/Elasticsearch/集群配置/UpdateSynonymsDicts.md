@@ -168,30 +168,6 @@ PUT /openapi/instances/es-cn-nif1q9o8r0008****/synonymsDict HTTP/1.1
 
 正常返回示例
 
-`XML`格式
-
-```
-<Result>
-    <name>deploy_0.txt</name>
-    <fileSize>220</fileSize>
-    <sourceType>OSS</sourceType>
-    <type>SYNONYMS</type>
-</Result>
-<Result>
-    <name>SYSTEM_MAIN.txt</name>
-    <fileSize>2782602</fileSize>
-    <sourceType>ORIGIN</sourceType>
-    <type>SYNONYMS</type>
-</Result>
-<Result>
-    <name>SYSTEM_STOPWORD.txt</name>
-    <fileSize>132</fileSize>
-    <sourceType>ORIGIN</sourceType>
-    <type>SYNONYMS</type>
-</Result>
-<RequestId>1F7FE662-CCD8-474F-BA9B-A7E0792E****</RequestId>
-```
-
 `JSON`格式
 
 ```
