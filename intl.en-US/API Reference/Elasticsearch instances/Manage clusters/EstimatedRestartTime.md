@@ -1,6 +1,6 @@
 # EstimatedRestartTime
 
-Call EstimatedRestartTime to obtain the estimated duration of the instance restart.
+Call the EstimatedRestartTime to obtain the estimated time for restarting the instance.
 
 ## Debugging
 
@@ -8,7 +8,7 @@ Call EstimatedRestartTime to obtain the estimated duration of the instance resta
 
 ## Request header
 
-This operation uses only common request headers. For more information, see the Common request parameters topic.
+This operation uses common request parameters only. For more information, see Common parameters.
 
 ## Request syntax
 
@@ -21,11 +21,11 @@ POST /openapi/instances/[InstanceId]/estimated-time/restart-time HTTPS|HTTP
 |Parameter|Type|Required|Example|Description|
 |---------|----|--------|-------|-----------|
 |InstanceId|String|Yes|es-cn-n6w1o1x0w001c\*\*\*\*|The ID of the instance. |
-|Force|Boolean|No|false|Whether to force restart. |
+|force|Boolean|No|false|Indicates whether the restart is forced. Default value: false. |
 
 ## RequestBody
 
-You can also enter the following parameters in RequestBody to specify restart parameters.
+You can also configure the following parameters in RequestBody to specify the restart parameters.
 
 |Parameter
 
@@ -41,11 +41,11 @@ You can also enter the following parameters in RequestBody to specify restart pa
 
 |String
 
-|No
+|Yes
 
 |instance
 
-|The restart type. Valid values: instance and node IP. Default value: instance. |
+|The restart type. Valid values: instance \(default value: instance\) and nodeIp \(node restart\). |
 |nodes
 
 |List<String\\\>
@@ -54,7 +54,7 @@ You can also enter the following parameters in RequestBody to specify restart pa
 
 |\["127.0.0.1"\]
 
-|The list of IP addresses for the target node when the node restarts. |
+|Select the IP address list of the target node when the node restarts. |
 |blueGreenDep
 
 |Boolean
@@ -63,16 +63,16 @@ You can also enter the following parameters in RequestBody to specify restart pa
 
 |false
 
-|Specifies whether to perform blue-green upgrade when the node restarts. Default value: false. |
+|Specifies whether to perform a blue-green change when restarting a node. Default value: false. |
 |batch
 
-|Double
+|Integer
 
 |No
 
 |25.0
 
-|The concurrency of forced instance restart. |
+|The concurrency of forced instance restart. Default value: 1/The number of nodes in an instance. |
 |batchUnit
 
 |String
@@ -81,24 +81,24 @@ You can also enter the following parameters in RequestBody to specify restart pa
 
 |percent
 
-|The unit of batch processing. Default value: percent. |
+|batch unit. Default value: percent. |
 
 -   When restartType is set to instance, the blueGreenDep parameter is ignored.
-    -   If the value of the force parameter is true, the value of the batch parameter must be greater than 0 but less than or equal to 100. Otherwise, a RestartBatchValueError error is returned.
-    -   If force is set to false, the default value of batch is 0. If another value is set, a NormalRestartNotSupportBatch error is returned.
+    -   If the value of the force parameter is true, the value of the batch parameter must be greater than 0 but less than or equal to 100. Otherwise, an RestartBatchValueError error occurs.
+    -   If the value of the force parameter is false, the default value of the batch parameter is 0. If you set this parameter to another value, an error NormalRestartNotSupportBatch.
 
--   When restartType is set to nodeIp, the batch parameter is ignored.
-    -   If the nodeIp field is empty, a Parameter error occurs.
-    -   Blue-green restart is performed after a the blueGreenDep parameter is set to true, and normal restart is set to false.
+-   The batch parameter is ignored when the restartType parameter is set to nodeIp.
+    -   If nodeIp is empty, the system prompts a Parameter error.
+    -   If blueGreenDep is set to true, the system restarts for the blue-green change. If the parameter is set to false, the system restarts normally.
 
-Sample request:
+Example:
 
 ```
 
 {
-    "restartType":"instance",
-    "batch":"20.0",
-    "batchUnit":"percent"
+    "restartType":"nodeIp",
+    "nodes": ["172.16.xx.xx"],
+    "blueGreenDep":true
 }
             
 ```
@@ -108,7 +108,7 @@ Sample request:
 |Parameter|Type|Example|Description|
 |---------|----|-------|-----------|
 |RequestId|String|5FFD9ED4-C2EC-4E89-B22B-1ACB6FE1\*\*\*\*|The ID of the request. |
-|Result|Struct| |The return results of the OCR task. |
+|Result|Struct| |The return results. |
 |unit|String|second|The unit. |
 |value|Long|50|Estimated restart time. |
 
@@ -117,26 +117,11 @@ Sample request:
 Sample requests
 
 ```
-POST /openapi/instances/es-cn-n6w1o1x0w001c****/estimated-time/restart-time? Force=true HTTP/1.1
-Common request parameters
-{
-    "restartType":"instance",
-    "batch":"20.0",
-    "batchUnit":"percent"
-}
+POST /openapi/instances/es-cn-n6w1o1x0w001c****/estimated-time/restart-time? force=true HTTP/1.1
+Common request header
 ```
 
 Sample success responses
-
-`XML` format
-
-```
-<Result>
-    <unit>second</unit>
-    <value>4200</value>
-</Result>
-<RequestId>7ACE8751-DD1B-40DB-A253-9080CA58****</RequestId>
-```
 
 `JSON` format
 
