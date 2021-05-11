@@ -43,18 +43,6 @@ common request header
 
 Sample success responses
 
-`XML` format
-
-```
-<Result>
-      <regionId>cn-hangzhou</regionId>
-      <localName>China (Hangzhou)</localName>
-      <regionEndpoint>elasticsearch.cn-hangzhou.aliyuncs.com</regionEndpoint>
-      <consoleEndpoint>https://elasticsearch-cn-hangzhou.console.aliyun.com</consoleEndpoint>
-      <status>available</status>
-</Result>
-```
-
 `JSON` Format
 
 ```
