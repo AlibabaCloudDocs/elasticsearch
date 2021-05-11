@@ -43,56 +43,6 @@ GET /openapi/tags/all-tags?pageSize=20 HTTP/1.1
 
 正常返回示例
 
-`XML`格式
-
-```
-<Result>
-    <TagKey>aa</TagKey>
-    <TagValue>ddd</TagValue>
-</Result>
-<Result>
-    <TagKey>manager</TagKey>
-    <TagValue>all_persion</TagValue>
-</Result>
-<Result>
-    <TagKey>dev</TagKey>
-    <TagValue>leizhang</TagValue>
-</Result>
-<Result>
-    <TagKey>a</TagKey>
-    <TagValue>b</TagValue>
-</Result>
-<Result>
-    <TagKey>zl</TagKey>
-    <TagValue>keept</TagValue>
-</Result>
-<Result>
-    <TagKey>zl</TagKey>
-    <TagValue/>
-</Result>
-<Result>
-    <TagKey>c</TagKey>
-    <TagValue>d</TagValue>
-</Result>
-<Result>
-    <TagKey>tt</TagKey>
-    <TagValue>tt</TagValue>
-</Result>
-<Result>
-    <TagKey>acs:rm:rgId</TagKey>
-    <TagValue>rg-acfm2h5vbzd****</TagValue>
-</Result>
-<Result>
-    <TagKey>acs:rm:rgId</TagKey>
-    <TagValue>rg-aek22gedcbf****</TagValue>
-</Result>
-<Result>
-    <TagKey>estag</TagKey>
-    <TagValue>instance</TagValue>
-</Result>
-<RequestId>5ADCBB89-6596-4AF3-94A5-64E5393A****</RequestId>
-```
-
 `JSON`格式
 
 ```
