@@ -86,13 +86,6 @@ POST /openapi/instances/es-cn-n6w1o1x0w001c****/templates/dynamicSettings HTTP/1
 
 正常返回示例
 
-`XML`格式
-
-```
-<Result>true</Result>
-<RequestId>7716D5C1-1750-4096-98B6-1CE533BA****</RequestId>
-```
-
 `JSON`格式
 
 ```
