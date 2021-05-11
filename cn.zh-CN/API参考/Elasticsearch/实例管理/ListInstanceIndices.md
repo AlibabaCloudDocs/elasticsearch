@@ -62,30 +62,6 @@ GET /openapi/instances/es-cn-n6w24n9u900am****/indices?name=log1&isManaged=true 
 
 正常返回示例
 
-`XML`格式
-
-```
-<RequestId>F99407AB-2FA9-489E-A259-40CF6DCC****</RequestId>
-<Result>
-    <name>test1</name>
-    <health>green</health>
-    <size>4929858933232</size>
-    <createTime>2021-01-11T05:49:41.114Z</createTime>
-    <managedStatus>following</managedStatus>
-</Result>
-<Result>
-    <name>test2</name>
-    <health>yellow</health>
-    <size>49298589</size>
-    <createTime>2021-01-11T05:49:41.114Z</createTime>
-    <managedStatus>closing</managedStatus>
-</Result>
-<Headers>
-    <X-Managed-Count>15</X-Managed-Count>
-    <X-Managed-StorageSize>18093942932</X-Managed-StorageSize>
-</Headers>
-```
-
 `JSON`格式
 
 ```
