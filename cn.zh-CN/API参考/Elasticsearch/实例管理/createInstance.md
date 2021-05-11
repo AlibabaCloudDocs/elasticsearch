@@ -24,7 +24,7 @@
 ## 请求语法
 
 ```
-POST /openapi/instances HTTPS|HTTP
+POST /openapi/instances HTTP/1.1
 ```
 
 ## 请求参数
@@ -590,38 +590,11 @@ RequestBody中还需要填入以下参数，用来指定待创建的实例信息
 ```
 POST /openapi/instances HTTP/1.1
 公共请求头
-{
-    "paymentType": "postpaid",
-    "nodeAmount": "3",
-    "instanceCategory": "x-pack",
-    "esAdminPassword": "es_password",
-    "esVersion": "6.7_with_X-Pack",
-    "nodeSpec": {
-        "spec": "elasticsearch.sn2ne.xlarge",
-        "disk": "20",
-        "diskType": "cloud_ssd"     
-    },
-    "networkConfig": {
-        "type": "vpc",
-        "vpcId": "vpc-bp16k1dvzxtmagcva****",
-        "vsArea": "cn-hangzhou-i",
-        "vswitchId": "vsw-bp1k4ec6s7sjdbudw****"
-    }
-}
 ```
 
 正常返回示例
 
-`XML` 格式
-
-```
-<Result>
-    <instanceId>es-cn-t57p81n7ai89v****</instanceId>
-</Result>
-<RequestId>838D9D11-8EEF-46D8-BF0D-BC8FC2B0****</RequestId>
-```
-
-`JSON` 格式
+`JSON`格式
 
 ```
 {
