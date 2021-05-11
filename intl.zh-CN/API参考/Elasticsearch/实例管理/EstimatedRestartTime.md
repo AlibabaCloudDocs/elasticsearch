@@ -13,15 +13,15 @@
 ## 请求语法
 
 ```
-POST /openapi/instances/[InstanceId]/estimated-time/restart-time HTTPS|HTTP
+POST /openapi/instances/[InstanceId]/estimated-time/restart-time HTTP/1.1
 ```
 
 ## 请求参数
 
-|名称|类型|是否必选|示例值|描述|
-|--|--|----|---|--|
-|InstanceId|String|是|es-cn-n6w1o1x0w001c\*\*\*\*|实例ID。 |
-|Force|Boolean|否|false|是否是强制重启。 |
+|名称|类型|位置|是否必选|示例值|描述|
+|--|--|--|----|---|--|
+|InstanceId|String|Path|是|es-cn-n6w1o1x0w001c\*\*\*\*|实例ID。 |
+|force|Boolean|Query|否|false|是否是强制重启。默认：false。 |
 
 ## RequestBody
 
@@ -41,7 +41,7 @@ RequestBody中还可以填入以下参数，用来指定重启参数信息。
 
 |String
 
-|否
+|是
 
 |instance
 
@@ -66,13 +66,13 @@ RequestBody中还可以填入以下参数，用来指定重启参数信息。
 |节点重启时，是否进行蓝绿变更，默认为false。 |
 |batch
 
-|Double
+|Integer
 
 |否
 
 |25.0
 
-|实例强制重启的并发度。 |
+|实例强制重启的并发度。默认：1/实例总节点数。 |
 |batchUnit
 
 |String
@@ -81,7 +81,7 @@ RequestBody中还可以填入以下参数，用来指定重启参数信息。
 
 |percent
 
-|batch单位，默认为percent。 |
+|batch单位。默认：percent。 |
 
 -   restartType为instance时，忽略blueGreenDep参数。
     -   force为true，batch必须大于0，小于等于100，否则系统会提示RestartBatchValueError的报错。
@@ -96,9 +96,9 @@ RequestBody中还可以填入以下参数，用来指定重启参数信息。
 ```
 
 {
-    "restartType":"instance",
-    "batch":"20.0",
-    "batchUnit":"percent"
+    "restartType":"nodeIp",
+    "nodes": ["172.16.xx.xx"],
+    "blueGreenDep":true
 }
 
 ```
@@ -117,28 +117,13 @@ RequestBody中还可以填入以下参数，用来指定重启参数信息。
 请求示例
 
 ```
-POST /openapi/instances/es-cn-n6w1o1x0w001c****/estimated-time/restart-time?Force=true HTTP/1.1
+POST /openapi/instances/es-cn-n6w1o1x0w001c****/estimated-time/restart-time?force=true HTTP/1.1
 公共请求头
-{
-    "restartType":"instance",
-    "batch":"20.0",
-    "batchUnit":"percent"
-}
 ```
 
 正常返回示例
 
-`XML` 格式
-
-```
-<Result>
-    <unit>second</unit>
-    <value>4200</value>
-</Result>
-<RequestId>7ACE8751-DD1B-40DB-A253-9080CA58****</RequestId>
-```
-
-`JSON` 格式
+`JSON`格式
 
 ```
 {
