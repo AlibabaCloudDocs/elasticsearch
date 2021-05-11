@@ -13,7 +13,7 @@ https://elasticsearch.cn-hangzhou.aliyuncs.com/openapi/tags
 ## 请求语法
 
 ```
-POST /openapi/tags HTTPS|HTTP
+POST /openapi/tags HTTP/1.1
 ```
 
 ## 请求参数
@@ -112,14 +112,7 @@ POST /openapi/tags HTTP/1.1
 
 正常返回示例
 
-`XML` 格式
-
-```
-<Result>true</Result>
-<RequestId>27627E6B-E26A-406F-B6E1-0247882C****</RequestId>
-```
-
-`JSON` 格式
+`JSON`格式
 
 ```
 {
