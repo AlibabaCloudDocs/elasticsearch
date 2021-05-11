@@ -1,11 +1,11 @@
 # UpdateInstance
 
-调用UpdateInstance，变更集群配置（升配或降配）。
+调用UpdateInstance，变更集群配置。
 
 调用该接口时，请注意：
 
 -   当实例状态为生效中（activating）、失效（invalid）和冻结（inactive）时，无法变更配置。
--   每次只能变更一种类型的节点（数据节点、专有主节点、冷数据节点、协调节点、Kibana节点、弹性节点）的配置。更多注意事项，请参见[升配集群](~~96650~~)和[降配集群](~~198887~~)。
+-   每次只能变更一种类型的节点（数据节点、专有主节点、冷数据节点、协调节点、Kibana节点、弹性节点）的配置。更多注意事项，请参见[升配集群](~~96650~~)。
 
 ## 调试
 
@@ -137,109 +137,6 @@ PUT /openapi/instances/es-cn-n6w1ptcb30009**** HTTP/1.1
 ```
 
 正常返回示例
-
-`XML`格式
-
-```
-<Result>
-    <instanceId>es-cn-n6w1ptcb30009****</instanceId>
-    <version>5.5.3_with_X-Pack</version>
-    <description>es-cn-n6w1ptcb30009****</description>
-    <nodeAmount>3</nodeAmount>
-    <paymentType>postpaid</paymentType>
-    <status>active</status>
-    <privateNetworkIpWhiteList>0.0.0.0/0</privateNetworkIpWhiteList>
-    <enablePublic>true</enablePublic>
-    <nodeSpec>
-        <spec>elasticsearch.n4.small</spec>
-        <disk>40</disk>
-        <diskType>cloud_ssd</diskType>
-        <diskEncryption>false</diskEncryption>
-    </nodeSpec>
-    <networkConfig>
-        <vpcId>vpc-bp16k1dvzxtmagcva****</vpcId>
-        <vswitchId>vsw-bp1k4ec6s7sjdbudw****</vswitchId>
-        <vsArea>cn-hangzhou-i</vsArea>
-        <type>vpc</type>
-    </networkConfig>
-    <createdAt>2020-06-28T08:25:52.895Z</createdAt>
-    <updatedAt>2020-06-28T08:25:52.895Z</updatedAt>
-    <commodityCode>elasticsearch</commodityCode>
-    <extendConfigs>
-        <configType>usageScenario</configType>
-        <value>general</value>
-    </extendConfigs>
-    <extendConfigs>
-        <configType>maintainTime</configType>
-        <maintainStartTime>02:00Z</maintainStartTime>
-        <maintainEndTime>06:00Z</maintainEndTime>
-    </extendConfigs>
-    <endTime>4749033600000</endTime>
-    <vpcInstanceId>es-cn-n6w1ptcb30009****-worker</vpcInstanceId>
-    <resourceGroupId>rg-acfm2h5vbzd****</resourceGroupId>
-    <zoneCount>1</zoneCount>
-    <protocol>HTTP</protocol>
-    <zoneInfos>
-        <zoneId>cn-hangzhou-i</zoneId>
-        <status>NORMAL</status>
-    </zoneInfos>
-    <instanceType>elasticsearch</instanceType>
-    <inited>true</inited>
-    <domain>es-cn-n6w1ptcb30009****.elasticsearch.aliyuncs.com</domain>
-    <port>9200</port>
-    <esVersion>5.5.3_with_X-Pack</esVersion>
-    <esConfig>
-        <action.destructive_requires_name>true</action.destructive_requires_name>
-        <xpack.security.audit.outputs>index</xpack.security.audit.outputs>
-        <xpack.watcher.enabled>false</xpack.watcher.enabled>
-        <xpack.security.audit.enabled>false</xpack.security.audit.enabled>
-        <action.auto_create_index>true</action.auto_create_index>
-    </esConfig>
-    <esIPWhitelist>0.0.0.0/0</esIPWhitelist>
-    <kibanaIPWhitelist>0.0.0.0/0</kibanaIPWhitelist>
-    <kibanaIPWhitelist>::/0</kibanaIPWhitelist>
-    <publicIpWhitelist>::1</publicIpWhitelist>
-    <publicIpWhitelist>0.0.0.0/0</publicIpWhitelist>
-    <kibanaDomain>es-cn-n6w1ptcb30009****.kibana.elasticsearch.aliyuncs.com</kibanaDomain>
-    <kibanaPort>5601</kibanaPort>
-    <publicPort>9200</publicPort>
-    <publicDomain>es-cn-n6w1ptcb30009****.public.elasticsearch.aliyuncs.com</publicDomain>
-    <haveKibana>true</haveKibana>
-    <instanceCategory>x-pack</instanceCategory>
-    <dedicateMaster>false</dedicateMaster>
-    <advancedDedicateMaster>false</advancedDedicateMaster>
-    <masterConfiguration/>
-    <haveClientNode>false</haveClientNode>
-    <warmNode>false</warmNode>
-    <warmNodeConfiguration/>
-    <clientNodeConfiguration/>
-    <kibanaConfiguration>
-        <spec>elasticsearch.n4.small</spec>
-        <amount>1</amount>
-        <disk>0</disk>
-    </kibanaConfiguration>
-    <dictList>
-        <name>SYSTEM_MAIN.dic</name>
-        <fileSize>3058510</fileSize>
-        <sourceType>ORIGIN</sourceType>
-        <type>MAIN</type>
-    </dictList>
-    <dictList>
-        <name>SYSTEM_STOPWORD.dic</name>
-        <fileSize>164</fileSize>
-        <sourceType>ORIGIN</sourceType>
-        <type>STOP</type>
-    </dictList>
-    <haveGrafana>false</haveGrafana>
-    <haveCerebro>false</haveCerebro>
-    <enableKibanaPublicNetwork>true</enableKibanaPublicNetwork>
-    <enableKibanaPrivateNetwork>false</enableKibanaPrivateNetwork>
-    <advancedSetting>
-        <gcName>CMS</gcName>
-    </advancedSetting>
-</Result>
-<RequestId>B5246080-9C30-4B6A-8F8A-8C705405****</RequestId>
-```
 
 `JSON`格式
 
