@@ -13,14 +13,14 @@
 ## 请求语法
 
 ```
-GET /openapi/instances/[InstanceId]/templates HTTPS|HTTP
+GET /openapi/instances/[InstanceId]/templates HTTP/1.1
 ```
 
 ## 请求参数
 
-|名称|类型|是否必选|示例值|描述|
-|--|--|----|---|--|
-|InstanceId|String|是|es-cn-n6w1o1x0w001c\*\*\*\*|实例ID。 |
+|名称|类型|位置|是否必选|示例值|描述|
+|--|--|--|----|---|--|
+|InstanceId|String|Path|是|es-cn-n6w1o1x0w001c\*\*\*\*|实例ID。 |
 
 ## 返回数据
 
@@ -47,84 +47,7 @@ GET /openapi/instances/es-cn-n6w1o1x0w001c****/templates HTTP/1.1
 
 正常返回示例
 
-`XML` 格式
-
-```
-<Result>
-    <content/>
-    <templateName>staticSettings</templateName>
-</Result>
-<Result>
-    <content/>
-    <templateName>ilmPolicy</templateName>
-</Result>
-<Result>
-    <content>{
-	"order":-2147483647,
-	"index_patterns":[
-		"*"
-	],
-	"settings":{
-		"index":{
-			"search":{
-				"slowlog":{
-					"level":"info",
-					"threshold":{
-						"fetch":{
-							"warn":"200ms",
-							"trace":"50ms",
-							"debug":"80ms",
-							"info":"100ms"
-						},
-						"query":{
-							"warn":"500ms",
-							"trace":"50ms",
-							"debug":"100ms",
-							"info":"200ms"
-						}
-					}
-				}
-			},
-			"refresh_interval":"10s",
-			"unassigned":{
-				"node_left":{
-					"delayed_timeout":"5m"
-				}
-			},
-			"indexing":{
-				"slowlog":{
-					"level":"info",
-					"threshold":{
-						"index":{
-							"warn":"200ms",
-							"trace":"20ms",
-							"debug":"50ms",
-							"info":"100ms"
-						}
-					},
-					"source":"1000"
-				}
-			},
-			"number_of_shards":"1"
-		}
-	}
-}</content>
-    <templateName>indexTemplate</templateName>
-</Result>
-<Result>
-    <content>{
-	"persistent":{
-		"search":{
-			"max_buckets":"10000"
-		}
-	}
-}</content>
-    <templateName>dynamicSettings</templateName>
-</Result>
-<RequestId>E5C65630-AB52-4DBA-9269-DECCE5E1****</RequestId>
-```
-
-`JSON` 格式
+`JSON`格式
 
 ```
 {
