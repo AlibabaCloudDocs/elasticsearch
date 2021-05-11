@@ -168,18 +168,6 @@ PUT /openapi/instances/es-cn-n6w1o1x0w001c****/aliws-dict HTTP/1.1
 
 正常返回示例
 
-`XML`格式
-
-```
-<Result>
-    <name>aliws_ext_dict.txt</name>
-    <fileSize>6243</fileSize>
-    <sourceType>OSS</sourceType>
-    <type>ALI_WS</type>
-</Result>
-<RequestId>6A185DDB-3E87-448B-8932-8F77E35****</RequestId>
-```
-
 `JSON`格式
 
 ```
