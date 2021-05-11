@@ -24,15 +24,15 @@
 ## 请求语法
 
 ```
-POST /openapi/instances/[InstanceId]/actions/migrate-zones HTTPS|HTTP
+POST /openapi/instances/[InstanceId]/actions/migrate-zones HTTP/1.1
 ```
 
 ## 请求参数
 
-|名称|类型|是否必选|示例值|描述|
-|--|--|----|---|--|
-|dryRun|Boolean|是|false|校验是否可以进行可用区节点迁移。true表示只校验不执行迁移任务；false表示校验通过后即进行迁移任务。 |
-|InstanceId|String|是|es-cn-n6w1o1x0w001c\*\*\*\*|实例ID。 |
+|名称|类型|位置|是否必选|示例值|描述|
+|--|--|--|----|---|--|
+|dryRun|Boolean|Query|是|false|校验是否可以进行可用区节点迁移。true表示只校验不执行迁移任务；false表示校验通过后即进行迁移任务。 |
+|InstanceId|String|Path|是|es-cn-n6w1o1x0w001c\*\*\*\*|实例ID。 |
 
 ## RequestBody
 
@@ -114,14 +114,7 @@ POST /openapi/instances/es-cn-n6w1o1x0w001c****/actions/migrate-zones?dryRun=fal
 
 正常返回示例
 
-`XML` 格式
-
-```
-<Result>true</Result>
-<RequestId>24A77388-9444-49A3-A1CF-F48385E5****</RequestId>
-```
-
-`JSON` 格式
+`JSON`格式
 
 ```
 {
