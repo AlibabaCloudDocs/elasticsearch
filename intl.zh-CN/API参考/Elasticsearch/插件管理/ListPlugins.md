@@ -13,18 +13,18 @@
 ## 请求语法
 
 ```
-GET /openapi/instances/[InstanceId]/plugins HTTPS|HTTP
+GET /openapi/instances/[InstanceId]/plugins HTTP/1.1
 ```
 
 ## 请求参数
 
-|名称|类型|是否必选|示例值|描述|
-|--|--|----|---|--|
-|InstanceId|String|是|es-cn-nif1q9o8r0008\*\*\*\*|实例ID。 |
-|name|String|否|analysis-ik|插件名称。 |
-|page|String|否|1|分页数。 |
-|size|Integer|否|10|每页记录数。 |
-|source|String|否|SYSTEM|插件来源类型。 |
+|名称|类型|位置|是否必选|示例值|描述|
+|--|--|--|----|---|--|
+|InstanceId|String|Path|是|es-cn-nif1q9o8r0008\*\*\*\*|实例ID。 |
+|name|String|Query|否|analysis-ik|插件名称。 |
+|page|String|Query|否|1|分页数。 |
+|size|Integer|Query|否|10|每页记录数。 |
+|source|String|Query|否|SYSTEM|插件来源类型。 |
 
 ## 返回数据
 
@@ -51,123 +51,7 @@ GET /openapi/instances/es-cn-nif1q9o8r0008****/plugins HTTP/1.1
 
 正常返回示例
 
-`XML` 格式
-
-```
-<Result>
-    <name>aliyun-qos</name>
-    <state>INSTALLED</state>
-    <source>SYSTEM</source>
-    <description>Rate limiting and throttling plug-in for Elasticsearch. It limits QPS and bulk request sizes and supports rate limiting and throttling for node-level read and write operations.</description>
-    <specificationUrl>https://xxxx.html</specificationUrl>
-</Result>
-<Result>
-    <name>aliyun-sql</name>
-    <state>INSTALLED</state>
-    <source>SYSTEM</source>
-    <description>SQL plug-in developed by Alibaba Cloud for Elasticsearch. It provides high SQL query capabilities.</description>
-    <specificationUrl>https://xxxx.html</specificationUrl>
-</Result>
-<Result>
-    <name>analysis-aliws</name>
-    <state>UNINSTALLED</state>
-    <source>SYSTEM</source>
-    <description>Aliws analysis plug-in for Elasticsearch. It is integrated with an analyzer and a tokenizer.</description>
-    <specificationUrl>https://xxxx.html</specificationUrl>
-</Result>
-<Result>
-    <name>analysis-icu</name>
-    <state>INSTALLED</state>
-    <source>SYSTEM</source>
-    <description>ICU analysis plug-in for Elasticsearch. It integrates the Lucene ICU module into Elasticsearch and adds ICU analysis components.</description>
-</Result>
-<Result>
-    <name>analysis-ik</name>
-    <state>INSTALLED</state>
-    <source>SYSTEM</source>
-    <description>IK analysis plug-in for Elasticsearch.</description>
-</Result>
-<Result>
-    <name>analysis-kuromoji</name>
-    <state>INSTALLED</state>
-    <source>SYSTEM</source>
-    <description>Japanese (Kuromoji) analysis plug-in for Elasticsearch. It integrates the Lucene Kuromoji analysis module into Elasticsearch.</description>
-</Result>
-<Result>
-    <name>analysis-phonetic</name>
-    <state>INSTALLED</state>
-    <source>SYSTEM</source>
-    <description>Phonetic analysis plug-in for Elasticsearch. It integrates the phonetic token filter into Elasticsearch.</description>
-</Result>
-<Result>
-    <name>analysis-pinyin</name>
-    <state>INSTALLED</state>
-    <source>SYSTEM</source>
-    <description>Pinyin analysis plug-in for Elasticsearch.</description>
-</Result>
-<Result>
-    <name>analysis-smartcn</name>
-    <state>INSTALLED</state>
-    <source>SYSTEM</source>
-    <description>Smart Chinese analysis plug-in for Elasticsearch. It integrates the Lucene Smart Chinese analysis module into Elasticsearch.</description>
-</Result>
-<Result>
-    <name>apack</name>
-    <state>INSTALLED</state>
-    <source>SYSTEM</source>
-    <description>Provides the general physical replication and vector retrieval features. These features improve the write performance of a cluster and enable image search.</description>
-    <specificationUrl>https://xxxx.html</specificationUrl>
-</Result>
-<Result>
-    <name>codec-compression</name>
-    <state>INSTALLED</state>
-    <source>SYSTEM</source>
-    <description>The codec-compression plug-in supports lossless compression algorithms such as Brotli and zstd. This plug-in also provides a high index compression ratio and reduces index storage costs.</description>
-    <specificationUrl>https://xxxx.html</specificationUrl>
-</Result>
-<Result>
-    <name>elasticsearch-repository-oss</name>
-    <state>INSTALLED</state>
-    <source>SYSTEM</source>
-    <description>Alibaba Cloud OSS is supported for storing Elasticsearch snapshots.</description>
-</Result>
-<Result>
-    <name>ingest-attachment</name>
-    <state>INSTALLED</state>
-    <source>SYSTEM</source>
-    <description>Ingest processor for Elasticsearch. It uses Apache Tika to extract content.</description>
-</Result>
-<Result>
-    <name>kmonitor</name>
-    <state>INSTALLED</state>
-    <source>SYSTEM</source>
-    <description>aliyun elasticsearch kmonitor plugin</description>
-</Result>
-<Result>
-    <name>mapper-murmur3</name>
-    <state>INSTALLED</state>
-    <source>SYSTEM</source>
-    <description>Computes the hashes of field values when an index is created and stores the hashes in the index.</description>
-</Result>
-<Result>
-    <name>mapper-size</name>
-    <state>INSTALLED</state>
-    <source>SYSTEM</source>
-    <description>The Mapper Size plug-in allows documents to record their uncompressed size at index time.</description>
-</Result>
-<Result>
-    <name>repository-hdfs</name>
-    <state>INSTALLED</state>
-    <source>SYSTEM</source>
-    <description>The HDFS repository plug-in adds support for Hadoop Distributed File System (HDFS) repositories.</description>
-</Result>
-<RequestId>06280628-C7CB-4818-83EE-8079ACB8****</RequestId>
-<Headers>
-    <X-Total-Count>17</X-Total-Count>
-</Headers>
-```
-
-`JSON` 格式
+`JSON`格式
 
 ```
 {
