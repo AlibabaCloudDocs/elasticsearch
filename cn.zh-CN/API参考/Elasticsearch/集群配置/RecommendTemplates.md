@@ -58,39 +58,6 @@ GET /openapi/instances/es-cn-oew20apwz0007****/recommended-templates?usageScenar
 
 正常返回示例
 
-`XML`格式
-
-```
-<Result>
-    <content/>
-    <templateName>staticSettings</templateName>
-</Result>
-<Result>
-    <content/>
-    <templateName>ilmPolicy</templateName>
-</Result>
-<Result>
-    <content>{
-	"order": -2147483647,
-	"index_patterns": [
-		"*"
-	],
-	"settings": {...}.....}</content>
-    <templateName>indexTemplate</templateName>
-</Result>
-<Result>
-    <content>{
-	"persistent": {
-		"search": {
-			"max_buckets": "10000"
-		}
-	}
-}</content>
-    <templateName>dynamicSettings</templateName>
-</Result>
-<RequestId>66B060CF-7381-49C7-9B89-7757927FDA16</RequestId>
-```
-
 `JSON`格式
 
 ```
