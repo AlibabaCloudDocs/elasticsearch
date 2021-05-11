@@ -13,19 +13,19 @@
 ## 请求语法
 
 ```
-GET /openapi/tags HTTPS|HTTP
+GET /openapi/tags HTTP/1.1
 ```
 
 ## 请求参数
 
-|名称|类型|是否必选|示例值|描述|
-|--|--|----|---|--|
-|ResourceType|String|是|INSTANCE|资源类型定义。 |
-|Page|Integer|否|1|资源关系列表的分页数。 |
-|NextToken|String|否|1d2db86sca4384811e0b5e8707e\*\*\*\*\*\*|下一个查询开始的Token。 |
-|Size|Integer|否|10|分页查询时设置的每页条数。 |
-|ResourceIds|String|否|\["es-cn-aaa","es-cn-bbb"\]|要查询的实例ID列表。 |
-|Tags|String|否|\[\{"key":"env","value","dev"\},\{"key":"dev", "value":"IT"\}\]|要查询的Tags列表，采用JSON字符串的形式，最多包含20个子项。 |
+|名称|类型|位置|是否必选|示例值|描述|
+|--|--|--|----|---|--|
+|ResourceType|String|Query|是|INSTANCE|资源类型定义。 |
+|Page|Integer|Query|否|1|资源关系列表的分页数。 |
+|NextToken|String|Query|否|1d2db86sca4384811e0b5e8707e\*\*\*\*\*\*|下一个查询开始的Token。 |
+|Size|Integer|Query|否|10|分页查询时设置的每页条数。 |
+|ResourceIds|String|Query|否|\["es-cn-aaa","es-cn-bbb"\]|要查询的实例ID列表。 |
+|Tags|String|Query|否|\[\{"key":"env","value","dev"\},\{"key":"dev", "value":"IT"\}\]|要查询的Tags列表，采用JSON字符串的形式，最多包含20个子项。 |
 
 -   您只能在**ResourceIds**和**Tags**参数中，选择一个传入值，否则报错。
 -   您只能查询可见标签，不能查询不可见标签。
@@ -61,21 +61,7 @@ GET /openapi/tags?ResourceType=INSTANCE HTTP/1.1
 
 正常返回示例
 
-`XML` 格式
-
-```
-<RequestId>A5423B74-DBD5-4714-BF28-6725E5BE****</RequestId>
-<TagResources>
-    <TagResource>
-        <ResourceType>ALIYUN::ELASTICSEARCH::INSTANCE</ResourceType>
-        <ResourceId>es-cn-oew1q8bev0002****</ResourceId>
-        <TagKey>env</TagKey>
-        <TagValue>dev</TagValue>
-    </TagResource>
-</TagResources>
-```
-
-`JSON` 格式
+`JSON`格式
 
 ```
 {
