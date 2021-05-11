@@ -13,14 +13,14 @@
 ## 请求语法
 
 ```
-GET /openapi/instances/[InstanceId]/data-task HTTPS|HTTP
+GET /openapi/instances/[InstanceId]/data-task HTTP/1.1
 ```
 
 ## 请求参数
 
-|名称|类型|是否必选|示例值|描述|
-|--|--|----|---|--|
-|InstanceId|String|是|es-cn-oew1oxiro000f\*\*\*\*|实例ID。 |
+|名称|类型|位置|是否必选|示例值|描述|
+|--|--|--|----|---|--|
+|InstanceId|String|Path|是|es-cn-oew1oxiro000f\*\*\*\*|实例ID。 |
 
 ## 返回数据
 
@@ -58,61 +58,7 @@ GET /openapi/instances/es-cn-oew1oxiro000f****/data-task HTTP/1.1
 
 正常返回示例
 
-`XML` 格式
-
-```
-<Result>
-    <taskId>et_cn_mfv1233r47272****</taskId>
-    <sourceCluster>
-        <dataSourceType>elasticsearch</dataSourceType>
-        <endpoint>http://192.168.xx.xx:4101</endpoint>
-        <vpcInstancePort>9200</vpcInstancePort>
-        <vpcId>vpc-2ze55voww95g82gak****</vpcId>
-        <vpcInstanceId>es-cn-09k1rnu3g0002****-worker</vpcInstanceId>
-        <index>product_info</index>
-        <type>products</type>
-    </sourceCluster>
-    <sinkCluster>
-        <dataSourceType>elasticsearch</dataSourceType>
-        <index>product_info01</index>
-        <type>_doc</type>
-        <settings>{
-  "index": {
-    "replication": {
-}.....}}</settings>
-        <mapping>{"_doc":{"properties":{"user":{"properties":{"last":{"type":"text",...}}}}}}</mapping>
-    </sinkCluster>
-    <status>SUCCESS</status>
-    <createTime>2020-08-03 08:36:19</createTime>
-</Result>
-<Result>
-    <taskId>et_cn_vb9g57i4h4eyp****</taskId>
-    <sourceCluster>
-        <dataSourceType>elasticsearch</dataSourceType>
-        <endpoint>http://192.168.xx.xx:4096</endpoint>
-        <vpcInstancePort>9200</vpcInstancePort>
-        <vpcId>vpc-2ze55voww95g82gak****</vpcId>
-        <vpcInstanceId>es-cn-oew1oxiro000f****-worker</vpcInstanceId>
-        <index>my_index</index>
-        <type>_doc</type>
-    </sourceCluster>
-    <sinkCluster>
-        <dataSourceType>elasticsearch</dataSourceType>
-        <index>my_index003</index>
-        <type>_doc</type>
-        <settings>{
-  "index": {
-    "replication": {
-}.....}}</settings>
-        <mapping>{"_doc":{"properties":{"user":{"properties":{"last":{"type":"text",...}}}}}}</mapping>
-    </sinkCluster>
-    <status>SUCCESS</status>
-    <createTime>2020-07-30 06:32:18</createTime>
-</Result>
-<RequestId>8FB71A9A-1ACE-40DA-ADC0-2B3DB44F****</RequestId>
-```
-
-`JSON` 格式
+`JSON`格式
 
 ```
 {
