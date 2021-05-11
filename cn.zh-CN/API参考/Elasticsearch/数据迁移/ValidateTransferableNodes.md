@@ -13,15 +13,15 @@
 ## 请求语法
 
 ```
-POST /openapi/instances/[InstanceId]/validate-transfer-nodes HTTPS|HTTP
+POST /openapi/instances/[InstanceId]/validate-transfer-nodes HTTP/1.1
 ```
 
 ## 请求参数
 
-|名称|类型|是否必选|示例值|描述|
-|--|--|----|---|--|
-|InstanceId|String|是|es-cn-nif1q9o8r0008\*\*\*\*|实例ID。 |
-|nodeType|String|是|WORKER|节点类型。**WORKER**表示热节点，**WORKER\_WARM**表示冷节点。 |
+|名称|类型|位置|是否必选|示例值|描述|
+|--|--|--|----|---|--|
+|InstanceId|String|Path|是|es-cn-nif1q9o8r0008\*\*\*\*|实例ID。 |
+|nodeType|String|Query|是|WORKER|节点类型。**WORKER**表示热节点，**WORKER\_WARM**表示冷节点。 |
 
 ## RequestBody
 
@@ -98,14 +98,7 @@ POST /openapi/instances/es-cn-nif1q9o8r0008****/validate-transfer-nodes?nodeType
 
 正常返回示例
 
-`XML` 格式
-
-```
-<Result>true</Result>
-<RequestId>3760F67B-691D-4663-B4E5-6783554F****</RequestId>
-```
-
-`JSON` 格式
+`JSON`格式
 
 ```
 {
