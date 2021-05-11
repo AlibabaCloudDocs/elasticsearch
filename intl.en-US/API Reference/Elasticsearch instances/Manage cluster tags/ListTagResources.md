@@ -61,20 +61,6 @@ Common request header
 
 Sample success responses
 
-`XML` format
-
-```
-<RequestId>A5423B74-DBD5-4714-BF28-6725E5BE****</RequestId>
-<TagResources>
-    <TagResource>
-        <ResourceType>ALIYUN::ELASTICSEARCH::INSTANCE</ResourceType>
-        <ResourceId>es-cn-oew1q8bev0002****</ResourceId>
-        <TagKey>env</TagKey>
-        <TagValue>dev</TagValue>
-    </TagResource>
-</TagResources>
-```
-
 `JSON` format
 
 ```
