@@ -110,13 +110,6 @@ Common request parameters
 
 Sample success responses
 
-`XML` format
-
-```
-<Result>true</Result>
-<RequestId>C82758DD-282F-4D48-934F-92170A33****</RequestId>
-```
-
 `JSON` format
 
 ```
