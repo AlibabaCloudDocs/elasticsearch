@@ -13,22 +13,25 @@
 ## 请求语法
 
 ```
-POST /openapi/instances/[InstanceId]/actions/resume HTTPS|HTTP
+POST /openapi/instances/[InstanceId]/actions/resume HTTP/1.1
 ```
 
 ## 请求参数
 
-|名称|类型|是否必选|示例值|描述|
-|--|--|----|---|--|
-|InstanceId|String|是|es-cn-n6w1o1x0w001c\*\*\*\*|实例ID。 |
-|clientToken|String|否|5A2CFF0E-5718-45B5-9D4D-70B3FF\*\*\*\*|用于保证请求的幂等性。由客户端生成该参数值，要保证在不同请求间唯一，最大不超过64个ASCII字符。 |
+|名称|类型|位置|是否必选|示例值|描述|
+|--|--|--|----|---|--|
+|InstanceId|String|Path|是|es-cn-n6w1o1x0w001c\*\*\*\*|实例ID。 |
+|clientToken|String|Query|否|5A2CFF0E-5718-45B5-9D4D-70B3FF\*\*\*\*|用于保证请求的幂等性。由客户端生成该参数值，要保证在不同请求间唯一，最大不超过64个ASCII字符。 |
 
 ## 返回数据
 
 |名称|类型|示例值|描述|
 |--|--|---|--|
 |RequestId|String|5FFD9ED4-C2EC-4E89-B22B-1ACB6FE1\*\*\*\*|请求ID。 |
-|Result|Boolean|true|返回结果。 |
+|Result|Boolean|true|返回结果：
+
+ -   true：恢复中断变更成功
+-   false：恢复中断变更失败 |
 
 ## 示例
 
@@ -41,14 +44,7 @@ POST /openapi/instances/es-cn-n6w1o1x0w001c****/actions/resume HTTP/1.1
 
 正常返回示例
 
-`XML` 格式
-
-```
-<Result>true</Result>
-<RequestId>2A83EDC0-EDB0-440D-ABD9-0E912684****</RequestId>
-```
-
-`JSON` 格式
+`JSON`格式
 
 ```
 {
