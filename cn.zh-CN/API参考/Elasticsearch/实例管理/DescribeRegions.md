@@ -13,7 +13,7 @@
 ## 请求语法
 
 ```
-GET /openapi/regions HTTPS|HTTP
+GET /openapi/regions HTTP/1.1
 ```
 
 ## 请求参数
@@ -43,19 +43,7 @@ GET /openapi/regions?RegionId=cn-hangzhou HTTP/1.1
 
 正常返回示例
 
-`XML` 格式
-
-```
-<Result>
-      <regionId>cn-hangzhou</regionId>
-      <localName>China (Hangzhou)</localName>
-      <regionEndpoint>elasticsearch.cn-hangzhou.aliyuncs.com</regionEndpoint>
-      <consoleEndpoint>https://elasticsearch-cn-hangzhou.console.aliyun.com</consoleEndpoint>
-      <status>available</status>
-</Result>
-```
-
-`JSON` 格式
+`JSON`格式
 
 ```
 {
