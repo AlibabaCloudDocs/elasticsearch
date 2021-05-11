@@ -13,16 +13,16 @@
 ## 请求语法
 
 ```
-GET /openapi/instances/[InstanceId]/transferable-nodes HTTPS|HTTP
+GET /openapi/instances/[InstanceId]/transferable-nodes HTTP/1.1
 ```
 
 ## 请求参数
 
-|名称|类型|是否必选|示例值|描述|
-|--|--|----|---|--|
-|count|Integer|是|1|期望获取进行数据迁移节点的数量。 |
-|InstanceId|String|是|es-cn-nif1q9o8r0008\*\*\*\*|实例ID。 |
-|nodeType|String|是|WORKER|需要进行数据迁移的节点类型。**WORKER**表示热节点，**WORKER\_WARM**表示冷节点。 |
+|名称|类型|位置|是否必选|示例值|描述|
+|--|--|--|----|---|--|
+|count|Integer|Query|是|1|期望获取进行数据迁移节点的数量。 |
+|InstanceId|String|Path|是|es-cn-nif1q9o8r0008\*\*\*\*|实例ID。 |
+|nodeType|String|Query|是|WORKER|需要进行数据迁移的节点类型。**WORKER**表示热节点，**WORKER\_WARM**表示冷节点。 |
 
 ## 返回数据
 
@@ -69,19 +69,7 @@ GET /openapi/instances/es-cn-nif1q9o8r0008****/transferable-nodes?nodeType=WORKE
 
 正常返回示例
 
-`XML` 格式
-
-```
-<Result>
-    <nodeType>WORKER</nodeType>
-    <host>192.168.**.**</host>
-    <port>9300</port>
-    <zoneId>cn-hangzhou-b</zoneId>
-</Result>
-<RequestId>3760F67B-691D-4663-B4E5-6783554F****</RequestId>
-```
-
-`JSON` 格式
+`JSON`格式
 
 ```
 {
