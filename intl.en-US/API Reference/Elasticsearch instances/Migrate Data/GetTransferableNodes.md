@@ -69,18 +69,6 @@ Common request header
 
 Sample success responses
 
-`XML` format
-
-```
-<Result>
-    <nodeType>WORKER</nodeType>
-    <host>192.168. **.**</host>
-    <port>9300</port>
-    <zoneId>cn-hangzhou-b</zoneId>
-</Result>
-<RequestId>3760F67B-691D-4663-B4E5-6783554F****</RequestId>
-```
-
 `JSON` format
 
 ```
