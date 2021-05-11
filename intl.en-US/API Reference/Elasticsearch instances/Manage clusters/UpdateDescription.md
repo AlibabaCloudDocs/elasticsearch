@@ -1,6 +1,6 @@
 # UpdateDescription
 
-Call UpdateDescription to update the name of a specified instance.
+Call UpdateDescription, updates the name of the instance.
 
 ## Debugging
 
@@ -8,7 +8,7 @@ Call UpdateDescription to update the name of a specified instance.
 
 ## Request header
 
-This operation uses only common request headers. For more information, see Common parameters.
+This operation uses common request parameters only. For more information, see Common parameters.
 
 ## Request syntax
 
@@ -18,11 +18,22 @@ PATCH|POST /openapi/instances/[InstanceId]/description HTTPS|HTTP
 
 ## Request parameters
 
-|Parameter|Type|Position|Required|Example|Description|
-|---------|----|--------|--------|-------|-----------|
-|InstanceId|String|Path|Yes|es-cn-n6w1ptcb30009\*\*\*\*|The ID of the instance. |
-|clientToken|String|Query|No|5A2CFF0E-5718-45B5-9D4D-70B350\*\*\*\*|This parameter is used to ensure the idempotence of the request. You can use the client to generate the value, but you must ensure that it is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. |
-|description|String|Body|No|aliyunes\_name\_test|Specify the updated instance name. |
+|Parameter|Type|Required|Example|Description|
+|---------|----|--------|-------|-----------|
+|InstanceId|String|Yes|es-cn-n6w1ptcb30009\*\*\*\*|The ID of the instance. |
+|clientToken|String|No|5A2CFF0E-5718-45B5-9D4D-70B350\*\*\*\*|This parameter is used to ensure the idempotence of the request. You can use the client to generate the value, but you must ensure that it is unique among different requests. The token can only contain ASCII characters and cannot exceed 64 characters in length. |
+
+## RequestBody
+
+You must also specify the **description** parameter in RequestBody to specify the updated instance name, as shown in the following example:
+
+```
+
+{
+  "description": "aliyunes_name_test"
+}
+            
+```
 
 ## Response parameters
 
@@ -32,168 +43,23 @@ PATCH|POST /openapi/instances/[InstanceId]/description HTTPS|HTTP
 |Result|Struct| |The return results. |
 |description|String|aliyunes\_test\_name|The new name of the instance. |
 
-**Note:** In the following return example, only the parameters in the returned data list are included in this article. The parameters that are not mentioned are for reference only. For more information about Parameter descriptions, see [ListInstance](~~142230~~) . It is not mandatory for a program to obtain these parameters.
+**Note:** The following response examples only contain the parameters in the list of returned data. These parameters are for reference only. For more information about the parameters, see [ListInstance](~~142230~~). The program cannot forcibly depend on obtaining these parameters.
 
 ## Examples
 
 Sample requests
 
 ```
-PATCH /openapi/instances/es-cn-n6w1ptcb30009****/description?description=aliyunes_name_test HTTP/1.1
+PATCH /openapi/instances/es-cn-n6w1ptcb30009****/description HTTP/1.1
 Common request parameters
+{
+  "description": "aliyunes_name_test"
+}
 ```
 
 Sample success responses
 
-`XML` format
-
-```
-<Result>
-    <instanceId>es-cn-n6w1ptcb30009****</instanceId>
-    <version>5.5.3_with_X-Pack</version>
-    <description>aliyunes_name_test</description>
-    <nodeAmount>3</nodeAmount>
-    <paymentType>postpaid</paymentType>
-    <status>activating</status>
-    <privateNetworkIpWhiteList>0.0.0.0/0</privateNetworkIpWhiteList>
-    <enablePublic>true</enablePublic>
-    <nodeSpec>
-        <spec>elasticsearch.n4.small</spec>
-        <disk>40</disk>
-        <diskType>cloud_ssd</diskType>
-        <diskEncryption>false</diskEncryption>
-    </nodeSpec>
-    <networkConfig>
-        <vpcId>vpc-bp16k1dvzxtmagcva****</vpcId>
-        <vswitchId>vsw-bp1k4ec6s7sjdbudw****</vswitchId>
-        <vsArea>cn-hangzhou-i</vsArea>
-        <type>vpc</type>
-    </networkConfig>
-    <createdAt>2020-06-28T08:25:52.895Z</createdAt>
-    <updatedAt>2020-07-06T09:21:11.615Z</updatedAt>
-    <commodityCode>elasticsearch</commodityCode>
-    <extendConfigs>
-        <configType>usageScenario</configType>
-        <value>general</value>
-    </extendConfigs>
-    <extendConfigs>
-        <configType>maintainTime</configType>
-        <maintainStartTime>02:00Z</maintainStartTime>
-        <maintainEndTime>06:00Z</maintainEndTime>
-    </extendConfigs>
-    <endTime>4749724800000</endTime>
-    <clusterTasks>
-        <type>updating</type>
-        <progress>59.84375</progress>
-        <status>RUNNING</status>
-        <canCancelable>false</canCancelable>
-        <interruptible>true</interruptible>
-        <subTasks>
-            <type>ecs</type>
-            <progress>100</progress>
-            <detail>
-                <totalNodeCount>4</totalNodeCount>
-                <completedNodeCount>4</completedNodeCount>
-            </detail>
-            <status>FINISHED</status>
-            <canCancelable>false</canCancelable>
-            <interruptible>false</interruptible>
-        </subTasks>
-        <subTasks>
-            <type>hippo</type>
-            <progress>100</progress>
-            <detail/>
-            <status>FINISHED</status>
-            <canCancelable>false</canCancelable>
-            <interruptible>false</interruptible>
-        </subTasks>
-        <subTasks>
-            <type>rolling</type>
-            <progress>39.375</progress>
-            <detail>
-                <totalNodeCount>4</totalNodeCount>
-                <completedNodeCount>1</completedNodeCount>
-            </detail>
-            <status>RUNNING</status>
-            <canCancelable>false</canCancelable>
-            <interruptible>false</interruptible>
-        </subTasks>
-        <subTasks>
-            <type>finally</type>
-            <progress>0</progress>
-            <detail/>
-            <status>READY</status>
-            <canCancelable>false</canCancelable>
-            <interruptible>false</interruptible>
-        </subTasks>
-    </clusterTasks>
-    <vpcInstanceId>es-cn-n6w1ptcb30009****-worker</vpcInstanceId>
-    <resourceGroupId>rg-acfm2h5vbzd****</resourceGroupId>
-    <zoneCount>1</zoneCount>
-    <protocol>HTTP</protocol>
-    <zoneInfos>
-        <zoneId>cn-hangzhou-i</zoneId>
-        <status>NORMAL</status>
-    </zoneInfos>
-    <instanceType>elasticsearch</instanceType>
-    <inited>true</inited>
-    <domain>es-cn-n6w1ptcb30009****.elasticsearch.aliyuncs.com</domain>
-    <port>9200</port>
-    <esVersion>5.5.3_with_X-Pack</esVersion>
-    <esConfig>
-        <action.destructive_requires_name>true</action.destructive_requires_name>
-        <xpack.security.audit.outputs>index</xpack.security.audit.outputs>
-        <xpack.watcher.enabled>false</xpack.watcher.enabled>
-        <xpack.security.audit.enabled>false</xpack.security.audit.enabled>
-        <action.auto_create_index>true</action.auto_create_index>
-    </esConfig>
-    <esIPWhitelist>0.0.0.0/0</esIPWhitelist>
-    <kibanaIPWhitelist>0.0.0.0/0</kibanaIPWhitelist>
-    <kibanaIPWhitelist>::/0</kibanaIPWhitelist>
-    <publicIpWhitelist>::1</publicIpWhitelist>
-    <publicIpWhitelist>0.0.0.0/0</publicIpWhitelist>
-    <kibanaDomain>es-cn-n6w1ptcb30009****.kibana.elasticsearch.aliyuncs.com</kibanaDomain>
-    <kibanaPort>5601</kibanaPort>
-    <publicPort>9200</publicPort>
-    <publicDomain>es-cn-n6w1ptcb30009****.public.elasticsearch.aliyuncs.com</publicDomain>
-    <haveKibana>true</haveKibana>
-    <instanceCategory>x-pack</instanceCategory>
-    <dedicateMaster>false</dedicateMaster>
-    <advancedDedicateMaster>false</advancedDedicateMaster>
-    <masterConfiguration/>
-    <haveClientNode>false</haveClientNode>
-    <warmNode>false</warmNode>
-    <warmNodeConfiguration/>
-    <clientNodeConfiguration/>
-    <kibanaConfiguration>
-        <spec>elasticsearch.n4.small</spec>
-        <amount>1</amount>
-        <disk>0</disk>
-    </kibanaConfiguration>
-    <dictList>
-        <name>SYSTEM_MAIN.dic</name>
-        <fileSize>3058510</fileSize>
-        <sourceType>ORIGIN</sourceType>
-        <type>MAIN</type>
-    </dictList>
-    <dictList>
-        <name>SYSTEM_STOPWORD.dic</name>
-        <fileSize>164</fileSize>
-        <sourceType>ORIGIN</sourceType>
-        <type>STOP</type>
-    </dictList>
-    <haveGrafana>false</haveGrafana>
-    <haveCerebro>false</haveCerebro>
-    <enableKibanaPublicNetwork>true</enableKibanaPublicNetwork>
-    <enableKibanaPrivateNetwork>false</enableKibanaPrivateNetwork>
-    <advancedSetting>
-        <gcName>CMS
-    </advancedSetting>
-</Result>
-<RequestId>24A68E4C-94B4-45E4-9068-CB12F33C****</RequestId>
-```
-
-`JSON` Syntax
+`JSON` format
 
 ```
 {
@@ -375,7 +241,7 @@ Sample success responses
 
 |HttpCode|Error code|Error message|Description|
 |--------|----------|-------------|-----------|
-|400|InstanceNotFound|The instanceId provided does not exist.|The error message returned because the instance cannot be found. Check the status of the instance.|
+|400|InstanceNotFound|The instanceId provided does not exist.|The error message returned because the specified instance cannot be found. Check the instance status.|
 
 For a list of error codes, visit the [API Error Center](https://error-center.alibabacloud.com/status/product/elasticsearch).
 
