@@ -44,13 +44,6 @@ POST /openapi/instances/es-cn-z2q1wk6z00007****/actions/cancel-deletion HTTP/1.1
 
 正常返回示例
 
-`XML`格式
-
-```
-<Result>true</Result>
-<RequestId>D682B6B3-B425-46DA-A5FC-5F5C60553622</RequestId>
-```
-
 `JSON`格式
 
 ```
