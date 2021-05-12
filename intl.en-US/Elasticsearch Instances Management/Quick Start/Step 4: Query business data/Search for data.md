@@ -6,7 +6,7 @@ This topic describes how to use Alibaba Cloud Elasticsearch to search for data. 
 
 1.  Log on to the Kibana console of your Elasticsearch cluster.
 
-    For more information, see [Access and configure an Elasticsearch cluster](/intl.en-US/Elasticsearch Instances Management/Quick Start/Access and configure an Elasticsearch cluster.md).
+    For more information, see [Step 3: Step Access and configure an Elasticsearch cluster](/intl.en-US/Elasticsearch Instances Management/Quick Start/Step 3: Step Access and configure an Elasticsearch cluster.md).
 
 2.  In the left-side navigation pane, click **Dev Tools**.
 
