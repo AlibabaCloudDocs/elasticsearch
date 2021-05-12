@@ -12,7 +12,7 @@ If you do not enable auto-renewal, your subscription Elasticsearch cluster will 
 
 ## How do I enable manual renewal for an Elasticsearch cluster?
 
-Manual renewal applies only to subscription Elasticsearch clusters. For more information, see [Manually renew an Elasticsearch cluster](/intl.en-US/Pricing/Elasticsearch cluster renewal/Manually renew an Elasticsearch cluster.md) and [Disable auto renewal](/intl.en-US/Pricing/Elasticsearch cluster renewal/Disable auto renewal.md).
+Manual renewal applies only to subscription Elasticsearch clusters. For more information, see [Manually renew an Elasticsearch cluster](/intl.en-US/Pricing/Manually renew an Elasticsearch cluster.md) and [Disable auto renewal](/intl.en-US/Pricing/Elasticsearch cluster renewal/Disable auto renewal.md).
 
 ## How do I enable auto-renewal for an Elasticsearch cluster?
 
@@ -21,8 +21,4 @@ Auto-renewal applies only to subscription Elasticsearch clusters. For more infor
 ## Is the X-Pack plug-in provided by Alibaba Cloud Elasticsearch free of charge?
 
 Yes. Alibaba Cloud Elasticsearch integrates the X-Pack plug-in.
-
-## What is the pricing of Alibaba Cloud Elasticsearch for local deployment?
-
-Go to the [homepage of Alibaba Cloud Elasticsearch for local deployment](https://www.aliyun.com/activity/bigdata/markets/aliyun/act/espre) and click **Consulting Now**. Then, enter and submit related information. We will contact you within two business days.
 
