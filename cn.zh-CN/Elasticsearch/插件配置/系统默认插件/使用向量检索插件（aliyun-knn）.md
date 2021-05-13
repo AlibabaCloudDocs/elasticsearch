@@ -111,8 +111,8 @@ keyword: [aliyun-knn, 向量检索插件]
 
     |类型|参数|默认值|含义|
     |--|--|---|--|
-    |setting|index.codec|null|是否需要底层构建`proxima` knn索引，可选值如下：    -   null：创建索引的时候，底层不构建`proxima` knn索引，只构建正排索引。 此时，`proxima_vector`类型字段仅支持script检索，不支持hnsw或linear检索。
-    -   proxima：底层构建`proxima` knn索引，支持向量检索。
+    |setting|index.codec|proxima|是否需要底层构建`proxima` knn索引，可选值如下：    -   proxima（推荐）：底层构建`proxima` knn索引，支持向量检索。
+    -   null：创建索引的时候，底层不构建`proxima` knn索引，只构建正排索引。 此时，`proxima_vector`类型字段仅支持script检索，不支持hnsw或linear检索。
 **说明：** 当数据量较大，且对查询延迟要求不高的场景，可以把该项配置去掉或设置为null，可使用script检索（阿里云Elasticsearch版本为6.7.0且apack插件版本大于等于1.2.1或阿里云Elasticsearch版本为7.10.0且apack插件版本大于等于1.4.0才支持）方式进行knn向量查询。 |
     |index.vector.algorithm|hnsw|指定向量检索算法，可选值如下：    -   hnsw：hnsw算法。
     -   linear：linear算法。 |
@@ -302,6 +302,15 @@ keyword: [aliyun-knn, 向量检索插件]
 -   使用时，可通过GET \_cat/plugins?v命令获取apack插件版本。如果apack插件版本不满足要求，可[提交工单](https://selfservice.console.aliyun.com/ticket/createIndex?accounttraceid=f7b76db740fa486baa4b63bd5848fbc1idrb)，由阿里云开发工程帮您升级。
 -   索引`mapping`中通过distance\_method参数指定不同的距离度量函数。
 
+## 熔断参数
+
+|参数|描述|默认值|
+|--|--|---|
+|`indices.breaker.vector.native.indexing.limit`|如果堆外内存使用超过该值，写入操作会被熔断；等待后台构建完成释放内存后，写入恢复正常。出现熔断错误表示当前系统内存消耗已经过高，建议业务上降低写入流量。|70%|
+|`indices.breaker.vector.native.total.limit`|向量索引后台构建最多使用的堆外内存比例。如果实际使用的堆外内存超过了这个比例，可能会发生shard重启的情况。|80%|
+
+**说明：** 向量熔断参数配置属于集群配置，可通过GET \_cluster/settings命令查看，不建议初学者调整熔断值。
+
 ## 高阶参数
 
 |参数|描述|默认值|
@@ -337,15 +346,6 @@ GET test/_search
   }
 }
 ```
-
-## 熔断参数
-
-|参数|描述|默认值|
-|--|--|---|
-|`indices.breaker.vector.native.indexing.limit`|如果堆外内存使用超过该值，写入操作会被熔断；等待后台构建完成释放内存后，写入恢复正常。出现熔断错误表示当前系统内存消耗已经过高，建议业务上降低写入流量。|70%|
-|`indices.breaker.vector.native.total.limit`|向量索引后台构建最多使用的堆外内存比例。如果实际使用的堆外内存超过了这个比例，可能会发生shard重启的情况。|80%|
-
-**说明：** 向量熔断参数配置属于集群配置，可通过GET \_cluster/settings命令查看，不建议初学者调整熔断值。
 
 ## 常见问题
 
