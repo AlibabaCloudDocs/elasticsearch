@@ -55,7 +55,7 @@ For example, the enterprise provides the following wealth management products:
 
 After the state of the cluster changes from Initializing to Active, you can perform the following steps to use Kibana to access the cluster:
 
-**Note:** You can also use a curl command or a client to access the cluster. For more information, see [Access an Elasticsearch cluster](/intl.en-US/Elasticsearch Instances Management/Step 2: (Optional) Configure a cluster.md).
+**Note:** You can also use a curl command or a client to access the cluster. For more information, see [Access an Elasticsearch cluster](/intl.en-US/Elasticsearch Instances Management/Access and configure an Elasticsearch cluster.md).
 
 1.  On the **Elasticsearch Clusters** page, find the newly created cluster and click its ID in the Cluster ID/Name column.
 
@@ -409,8 +409,7 @@ If you no longer require a cluster, you can release the cluster. After the clust
 
 ## What to do next
 
--   Learn how to access and configure an Alibaba Cloud Elasticsearch cluster. For more information, see [Access and configure an Elasticsearch cluster](/intl.en-US/Elasticsearch Instances Management/Step 2: (Optional) Configure a cluster.md).
--   Learn how to migrate third-party Elasticsearch data to Alibaba Cloud Elasticsearch. For more information, see [Select a migration method]().
+-   Learn how to access and configure an Alibaba Cloud Elasticsearch cluster. For more information, see [Access and configure an Elasticsearch cluster](/intl.en-US/Elasticsearch Instances Management/Access and configure an Elasticsearch cluster.md).
 -   Learn how to synchronize data from ApsaraDB RDS for MySQL to Alibaba Cloud Elasticsearch. For more information, see [Select a synchronization method](/intl.en-US/Best Practices/Migrate and synchronize MySQL data/RDS synchronization/Select a synchronization method.md).
 -   Learn frequently asked questions about Alibaba Cloud Elasticsearch. For more information, see [FAQ](/intl.en-US/.md).
 
