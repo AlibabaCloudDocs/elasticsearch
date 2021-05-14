@@ -70,3 +70,12 @@
     -   基于3个数据节点的4核16 GB规格，性能提升了801%。
     -   基于3个数据节点的8核32 GB规格，性能提升了729%。
 
+## 相关文档
+
+-   [查看集群状态和节点信息](/cn.zh-CN/Elasticsearch/实例管理/查看集群状态和节点信息.md)
+-   [数据流管理](/cn.zh-CN/Elasticsearch/索引管理中心/数据流管理.md)
+-   [索引管理](/cn.zh-CN/Elasticsearch/索引管理中心/索引管理.md)
+-   [索引模板管理](/cn.zh-CN/Elasticsearch/索引管理中心/索引模板管理.md)
+-   [Indexing Service系列介绍](/cn.zh-CN/产品简介/产品系列/日志增强版实例介绍/Indexing Service系列介绍.md)
+-   [t2077872.md\#]()
+
