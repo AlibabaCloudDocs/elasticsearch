@@ -62,9 +62,9 @@ keyword: [logstash数据同步, mysql数据同步到es]
 
 1.  登录[阿里云Elasticsearch控制台](https://elasticsearch.console.aliyun.com/#/home)。
 
-2.  在左侧导航栏，单击**Logstash实例**。
+2.  在顶部菜单栏处，选择地域。
 
-3.  在顶部菜单栏处，选择地域，然后在**Logstash实例**中单击目标实例ID。
+3.  在左侧导航栏，单击**Logstash实例**，然后在**Logstash实例**中单击目标实例ID。
 
 4.  在左侧导航栏，单击**管道管理**。
 
@@ -127,11 +127,11 @@ keyword: [logstash数据同步, mysql数据同步到es]
     |jdbc\_paging\_enabled|是否启用分页，默认false。|
     |jdbc\_page\_size|分页大小。|
     |statement|指定SQL语句。|
-    |schedule|指定定时操作，"\* \* \* \* \*"表示每分钟定时同步数据。|
+    |schedule|指定定时操作，"\* \* \* \* \*"表示每分钟定时同步数据。该参数使用的是Rufus版的Cron表达式。|
     |record\_last\_run|是否记录上次执行结果。如果为true，则会把上次执行到的tracking\_column字段的值记录下来，保存到last\_run\_metadata\_path指定的文件中。|
     |last\_run\_metadata\_path|指定最后运行时间文件存放的地址。目前后端开放了/ssd/1/ls-cn-xxxxxxx/logstash/data/路径来保存文件。|
     |clean\_run|是否清除last\_run\_metadata\_path的记录，默认为false。如果为true，那么每次都要从头开始查询所有的数据库记录。|
-    |use\_column\_value|是否需要记录某个column的值。|
+    |use\_column\_value|是否需要记录某个column的值。当该值设置成true时，系统会记录tracking\_column参数所指定的列的最新的值，并在下一次管道执行时通过该列的值来判断需要更新的记录。|
     |tracking\_column\_type|跟踪列的类型，默认是numeric。|
     |tracking\_column|指定跟踪列，该列必须是递增的，一般是MySQL主键。|
 
