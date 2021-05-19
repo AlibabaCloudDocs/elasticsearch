@@ -28,7 +28,7 @@ This operation uses only the common request header. For more information, see Co
 |ecsInstanceName|String|Query|No|test|The ECS instance name. |
 |tags|String|Query|No|\[\{ "tagKey":"a","tagValue":"b"\}\]|The ECS instance tag, which must contain:
 
- -   tagKey: tag key
+-   tagKey: tag key
 -   tagValue: the tag value |
 |vpcId|String|Query|No|vpc-bp16k1dvzxtmagcva\*\*\*\*|The ID of the VPC where the ECS instance is located. |
 
@@ -42,7 +42,7 @@ This operation uses only the common request header. For more information, see Co
 |Result|Array of Result| |The return results. |
 |cloudAssistantStatus|String|true|Cloud Assistant installation status, support:
 
- -   true: Installed
+-   true: Installed
 -   false: not installed |
 |collectors|Array of collectors| |The list of collector information on the ECS instance. |
 |collectorPaths|List|\["/var/log"\]|The acquisition path of Filebeat. |
@@ -51,26 +51,26 @@ This operation uses only the common request header. For more information, see Co
 |fileName|String|fields.yml|The name of the mezzanine file. |
 |dryRun|Boolean|false|Whether to verify and create a collector. Then, you can perform the following operations:
 
- -   true: only check and not create
+-   true: only check and not create
 -   false: Check and create |
 |extendConfigs|Array of extendConfigs| |The extended parameter information. |
 |configType|String|collectorDeployMachine|The type of the configuration. Then, you can perform the following operations:
 
- -   collectorTargetInstance: collector Output
+-   collectorTargetInstance: collector Output
 -   collectorDeployMachine: Deployment Machine of Collector
 -   collector Elasticsearch ForKibana: Elasticsearch instance information that supports Kibana dashboards |
 |enableMonitoring|Boolean|true|Whether to enable Monitoring, when **configType** For **collectorTargetInstance** , and **instanceType** For **elasticsearch** When displayed. Then, you can perform the following operations:
 
- -   true
+-   true
 -   false |
 |groupId|String|default\_ct-cn-5i2l75bz4776\*\*\*\*|machine group ID. When **configType** For **collectorDeployMachine** When displayed. |
 |hosts|List|\["es-cn-n6w1o1x\*\*\*\*\*.elasticsearch.aliyuncs.com:9200"\]|Collector Output specifies the list of access addresses of the instance. When **configType** For **collectorTargetInstance** When displayed. |
 |instanceId|String|es-cn-nif1z89fz003i\*\*\*\*|The instance ID associated with the collector. When **configType** For **collectorTargetInstance** is the instance ID of the collector Output; when **configType** For **collectorDeployMachines** , and **type** For **ACKCluster** is the ACK \(Container Kubernetes\) cluster ID. |
-|instanceType|String|elasticsearch|The instance type specified by the collector Output. Support Elasticsearch 、logstash. When **configType** For **collectorTargetInstance** When displayed. |
+|instanceType|String|elasticsearch|The instance type specified by the collector Output. Support Elasticsearch, logstash. When **configType** For **collectorTargetInstance** When displayed. |
 |machines|Array of machines| |The list of ECS machines deployed by the collector. When **configType** For **collectorDeployMachines** , and **type** For **ECSInstanceId** When displayed. |
 |agentStatus|String|heartOk or failed|The status of each collector on ECS. Then, you can perform the following operations:
 
- -   heartOk: normal heartbeat
+-   heartOk: normal heartbeat
 -   heartLost: abnormal heartbeat
 -   uninstalled: not installed
 -   failed: installation failed |
@@ -78,7 +78,7 @@ This operation uses only the common request header. For more information, see Co
 |protocol|String|HTTP|The transmission protocol needs to be consistent with the access protocol of the instance specified by the collector Output. HTTP and HTTPS are supported. When **configType** For **collectorTargetInstance** When displayed. |
 |type|String|ECSInstanceId|The type of machine deployed by the collector, when **configType** For **collectorDeployMachine** When displayed. Then, you can perform the following operations:
 
- -   ECSInstanceId:ECS
+-   ECSInstanceId:ECS
 -   ACKCluster: Container Kubernetes |
 |userName|String|elastic|Output specifies the user name of the instance. The default name is elastic. When **configType** For **collectorTargetInstance** or **collectorElasticsearchForKibana** When displayed. |
 |gmtCreatedTime|String|2020-06-20T07:26:47.000+0000|The time when the collector was created. |
@@ -90,7 +90,7 @@ This operation uses only the common request header. For more information, see Co
 |resVersion|String|6.8.5\_with\_community|The collector version. When the machine type of the collector is ECS, it is only supported. **6.8.5\_with\_community** . |
 |status|String|activing|The collector status. Then, you can perform the following operations:
 
- -   activating: taking effect
+-   activating: taking effect
 -   active: has taken effect |
 |vpcId|String|vpc-bp16k1dvzxtm\*\*\*\*\*\*|Virtual Private Cloud ID. where the collector is located |
 |ecsInstanceId|String|i-bp14ncqge8wy3l3d\*\*\*\*|The ID of the instance. |
@@ -99,15 +99,15 @@ This operation uses only the common request header. For more information, see Co
 |host|String|172.16.xx.xx|The IP address. |
 |ipType|String|private|The type of the IP address. Then, you can perform the following operations:
 
- -   public: public endpoint
+-   public: public endpoint
 -   private: private address |
 |osType|String|linux|The operating system type of the ECS instance. Then, you can perform the following operations:
 
- -   windows:Windows operating system
+-   windows:Windows operating system
 -   Linux: Linux operating system |
 |status|String|running|The status of the ECS instance. Then, you can perform the following operations:
 
- -   running: The cluster is running.
+-   running: The cluster is running.
 -   starting
 -   stopping: Stopping
 -   stopped: The nodes are stopped. |
