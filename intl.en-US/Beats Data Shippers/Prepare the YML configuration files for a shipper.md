@@ -8,9 +8,9 @@ You can modify and enable the YML configuration of a shipper to complete specifi
 
 ## Prerequisites
 
-An Alibaba Cloud Elasticsearch cluster is created, and the **Auto Indexing** feature is enabled for the cluster. For more information about how to create an Elasticsearch cluster, see [Create an Alibaba Cloud Elasticsearch cluster](/intl.en-US/Quick Start/Step 1: Create a cluster/Create an Alibaba Cloud Elasticsearch cluster.md).
+An Alibaba Cloud Elasticsearch cluster is created, and the **Auto Indexing** feature is enabled for the cluster. For more information about how to create an Elasticsearch cluster, see [Create an Alibaba Cloud Elasticsearch cluster](/intl.en-US/Elasticsearch Instances Management/Manage clusters/Create an Alibaba Cloud Elasticsearch cluster.md).
 
-For security purposes, Alibaba Cloud Elasticsearch disables the **Auto Indexing** feature by default. However, Beats depends on this feature. If you select **Elasticsearch** for **Output** when you install a shipper, you must enable the **Auto Indexing** feature. For more information, see [Enable the Auto Indexing feature](/intl.en-US/Quick Start/Step 2: (Optional) Configure a cluster.md).
+For security purposes, Alibaba Cloud Elasticsearch disables the **Auto Indexing** feature by default. However, Beats depends on this feature. If you select **Elasticsearch** for **Output** when you install a shipper, you must enable the **Auto Indexing** feature. For more information, see [t1605396.md\#section\_pcn\_1xy\_1l2](/intl.en-US/Elasticsearch Instances Management/Access and configure an Elasticsearch cluster.md).
 
 **Note:** Open source Beats provides multiple modules, but Alibaba Cloud Beats does not provide separate configuration for these modules. If you want to use them, you must configure them in the configuration files of different shippers. For example, if you want to enable the system module in a Metricbeat shipper, add the following script to metricbeat.yml:
 
@@ -26,7 +26,7 @@ period: 1s
 
 You can specify `filebeat.inputs` in **filebeat.yml** to determine how to search for or handle input data sources. The following figure shows an example of a simple input configuration.
 
-![Filebeat configuration](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/en-US/9992640951/p76916.png)
+![Filebeat configuration](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/9992640951/p76916.png)
 
 ```
 filebeat.inputs:
@@ -41,7 +41,7 @@ filebeat.inputs:
 
 **Note:**
 
--   If you specify **Output** when you [install a shipper](/intl.en-US/Beats Data Shippers/Install a shipper.md), you do not need to specify it again in **Shipper YML Configuration**. Otherwise, the system prompts a shipper installation error.
+-   If you specify **Output** when you [install a shipper](/intl.en-US/Beats Data Shippers/Collect the logs of an ECS instance.md), you do not need to specify it again in **Shipper YML Configuration**. Otherwise, the system prompts a shipper installation error.
 -   Each input data source starts with a hyphen \(`-`\). You can use multiple hyphens to specify multiple input data sources.
 
 |Parameter|Description|
@@ -57,7 +57,7 @@ For more information, see [Log input](https://www.elastic.co/guide/en/beats/file
 
 Metricbeat delivers system and service statistics in a lightweight manner. You can specify `metricbeat.modules` in **metricbeat.yml** to configure a `module`.
 
-![Metricbeat configuration](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/en-US/6544404061/p76949.png)
+![Metricbeat configuration](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/6544404061/p76949.png)
 
 ```
 metricbeat.modules:
@@ -71,7 +71,7 @@ metricbeat.modules:
   tags: ["tag"]
 ```
 
-**Note:** If you specify **Output** when you [install a shipper](/intl.en-US/Beats Data Shippers/Install a shipper.md), you do not need to specify it again in **Shipper YML Configuration**. Otherwise, the system prompts a shipper installation error.
+**Note:** If you specify **Output** when you [install a shipper](/intl.en-US/Beats Data Shippers/Collect the logs of an ECS instance.md), you do not need to specify it again in **Shipper YML Configuration**. Otherwise, the system prompts a shipper installation error.
 
 |Parameter|Description|
 |---------|-----------|
@@ -93,7 +93,7 @@ You can specify `heartbeat.monitors` in **heartbeat.yml** to specify the service
 
 **Note:** You can configure only the services that you want to monitor for Heartbeat. To ensure the availability of Heartbeat, we recommend that you deploy at least two Elastic Compute Service \(ECS\) instances.
 
-![Heartbeat configuration](https://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/en-US/9992640951/p76955.png)
+![Heartbeat configuration](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/9992640951/p76955.png)
 
 ```
 heartbeat.monitors:
@@ -106,7 +106,7 @@ heartbeat.monitors:
     dc: west
 ```
 
-**Note:** If you specify **Output** when you [install a shipper](/intl.en-US/Beats Data Shippers/Install a shipper.md), you do not need to specify it again in **Shipper YML Configuration**. Otherwise, the system prompts a shipper installation error.
+**Note:** If you specify **Output** when you [install a shipper](/intl.en-US/Beats Data Shippers/Collect the logs of an ECS instance.md), you do not need to specify it again in **Shipper YML Configuration**. Otherwise, the system prompts a shipper installation error.
 
 |Parameter|Description|
 |---------|-----------|
@@ -132,7 +132,7 @@ auditbeat.modules:
 - module: auditd
   audit_rules: |
     -w /etc/passwd -p wa -k identity
-    -a always,exit -F arch=b32 -S open,creat,truncate,ftruncate,openat,open_by_handle_at -F exit=-EPERM -k access
+    -a always,exit -F arch=b32 -S open,create,truncate,ftruncate,openat,open_by_handle_at -F exit=-EPERM -k access
 - module: file_integrity
   paths:
   - /bin
@@ -142,7 +142,7 @@ auditbeat.modules:
   - /etc
 ```
 
-**Note:** If you specify **Output** when you [install a shipper](/intl.en-US/Beats Data Shippers/Install a shipper.md), you do not need to specify it again in **Shipper YML Configuration**. Otherwise, the system prompts a shipper installation error.
+**Note:** If you specify **Output** when you [install a shipper](/intl.en-US/Beats Data Shippers/Collect the logs of an ECS instance.md), you do not need to specify it again in **Shipper YML Configuration**. Otherwise, the system prompts a shipper installation error.
 
 For more information about **auditbeat.yml** configuration, see [Step 2: Configure Auditbeat](https://www.elastic.co/guide/en/beats/auditbeat/6.7/auditbeat-configuration.html) in the open source Auditbeat documentation. For more information about `module` configuration, see [Modules](https://www.elastic.co/guide/en/beats/auditbeat/6.7/auditbeat-modules.html).
 
