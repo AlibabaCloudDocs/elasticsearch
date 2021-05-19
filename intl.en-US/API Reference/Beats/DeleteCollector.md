@@ -32,7 +32,7 @@ This operation uses only the common request header. For more information, see Co
 |RequestId|String|5FFD9ED4-C2EC-4E89-B22B-1ACB6FE1\*\*\*\*|The ID of the request. |
 |Result|Boolean|true|The following result is returned:
 
- -   true: Delete successfully
+-   true: Delete successfully
 -   false: Delete failed |
 
 ## Examples
@@ -57,5 +57,5 @@ Sample success responses
 
 ## Error codes
 
-Visit the [Error Center](https://error-center.alibabacloud.com/status/product/elasticsearch)View more error codes.
+For a list of error codes, visit the [API Error Center](https://error-center.alibabacloud.com/status/product/elasticsearch).
 
