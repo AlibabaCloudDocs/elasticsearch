@@ -133,5 +133,5 @@ Sample success responses
 
 ## Error codes
 
-Visit the [Error Center](https://error-center.alibabacloud.com/status/product/elasticsearch)View more error codes.
+For a list of error codes, visit the [Error Center](https://error-center.alibabacloud.com/status/product/elasticsearch).
 
