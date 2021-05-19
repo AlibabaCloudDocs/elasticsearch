@@ -148,7 +148,7 @@ The following parameters must be filled in the RequestBody to specify the config
 
 |elasticsearch
 
-|The instance type specified by the collector Output. Optional value: Elasticsearch 、logstash. Required when the **configType** is **collectorTargetInstance**. |
+|The instance type specified by the collector Output. Optional value: Elasticsearch , logstash. Required when the **configType** is **collectorTargetInstance**. |
 |└instanceId
 
 |String
@@ -254,16 +254,16 @@ The following parameters must be filled in the RequestBody to specify the config
 -   collectorTargetInstance
     -   ECS
 
-        configType、instanceId、instanceType、hosts、userName、password、protocol、enableMonitoring
+        configType, instanceId, instanceType, hosts, userName, password, protocol, enableMonitoring
 
     -   ACK
 
-        configType、instanceId、instanceType、userName、password、protocol、enableMonitoring
+        configType, instanceId, instanceType, userName, password, protocol, enableMonitoring
 
 -   collectorElasticsearchForKibana
     -   ECS
 
-        configType、instanceId、host、kibanaHost、userName、password、protocol
+        configType, instanceId, host, kibanaHost, userName, password, protocol
 
     -   ACK
 
@@ -272,11 +272,11 @@ The following parameters must be filled in the RequestBody to specify the config
 -   collectorDeployMachine
     -   ECS
 
-        configType、type、machines、groupId
+        configType, type, machines, groupId
 
     -   ACK
 
-        configType、type、instanceId
+        configType, type, instanceId
 
 
 ## Response parameters
