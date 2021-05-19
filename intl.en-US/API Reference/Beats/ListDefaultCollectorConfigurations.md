@@ -24,17 +24,17 @@ This operation uses only the common request header. For more information, see Co
 |---------|----|--------|--------|-------|-----------|
 |resType|String|Query|Yes|fileBeat|The collector type. Valid values:
 
- -   fileBeat
+-   fileBeat
 -   metricBeat
 -   heartBeat
 -   auditBeat |
 |resVersion|String|Query|Yes|6.8.5\_with\_community|The collector version. The type of machine deployed by the collector is different, and the optional version is also different. The specific description is as follows:
 
- -   ECS:6.8.5\_with\_community
+-   ECS:6.8.5\_with\_community
 -   ACK:6.8.13\_with\_community |
 |sourceType|String|Query|No|ECS|Specifies the type of the collector to deploy the machine, and returns all if not. Valid values:
 
- -   ECS:ECS server
+-   ECS:ECS server
 -   ACK: Container Kubernetes cluster |
 
 ## Response parameters
@@ -68,5 +68,5 @@ Sample success responses
 
 ## Error codes
 
-Visit the [Error Center](https://error-center.alibabacloud.com/status/product/elasticsearch)View more error codes.
+For a list of error codes, visit the [API Error Center](https://error-center.alibabacloud.com/status/product/elasticsearch).
 
