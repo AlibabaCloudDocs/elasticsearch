@@ -62,7 +62,7 @@ This operation uses only the common request header. For more information, see Co
 |host|String|es-cn-n6w1o1x0w001c\*\*\*\*-kibana.internal.elasticsearch.aliyuncs.com:5601|The private network access address of Kibana after Kibana Dashboard is enabled. When **configType** For **collectorElasticsearchForKibana** When displayed. |
 |hosts|List|\["es-cn-n6w1o1x\*\*\*\*\*.elasticsearch.aliyuncs.com:9200"\]|Collector Output specifies the list of access addresses of the instance. When **configType** For **collectorTargetInstance** When displayed. |
 |instanceId|String|es-cn-nif1z89fz003i\*\*\*\*|The instance ID associated with the collector. When **configType** For **collectorTargetInstance** is the instance ID of the collector Output; when **configType** For **collectorDeployMachines** , and **type** For **ACKCluster** is the ACK \(Container Kubernetes\) cluster ID. |
-|instanceType|String|elasticsearch|The instance type specified by the collector Output. Support Elasticsearch 、logstash. When **configType** For **collectorTargetInstance** When displayed. |
+|instanceType|String|elasticsearch|The instance type specified by the collector Output. Support Elasticsearch , logstash. When **configType** For **collectorTargetInstance** When displayed. |
 |kibanaHost|String|https://es-cn-nif1z89fz003i\*\*\*\*.kibana.elasticsearch.aliyuncs.com:5601|The Internet access address of Kibana after Kibana Dashboard is enabled. When **configType** For **collectorElasticsearchForKibana** When displayed. |
 |machines|Array of machines| |The list of ECS machines deployed by the collector. When **configType** For **collectorDeployMachines** , and **type** For **ECSInstanceId** When displayed. |
 |agentStatus|String|heartOk|The status of each collector on ECS. Then, you can perform the following operations:
@@ -98,16 +98,16 @@ This operation uses only the common request header. For more information, see Co
 -   collectorTargetInstance
     -   ECS
 
-        configType、instanceId、instanceType、hosts、userName、password、protocol、enableMonitoring
+        configType, instanceId, instanceType, hosts, userName, password, protocol, enableMonitoring
 
     -   ACK
 
-        configType、instanceId、instanceType、userName、password、protocol、enableMonitoring
+        configType, instanceId, instanceType, userName, password, protocol, enableMonitoring
 
 -   collectorElasticsearchForKibana
     -   ECS
 
-        configType、instanceId、host、kibanaHost、userName、password、protocol
+        configType, instanceId, host, kibanaHost, userName, password, protocol
 
     -   ACK
 
@@ -116,11 +116,11 @@ This operation uses only the common request header. For more information, see Co
 -   collectorDeployMachine
     -   ECS
 
-        configType、type、machines、groupId
+        configType, type, machines, groupId
 
     -   ACK
 
-        configType、type、instanceId、totalPodsCount、successPodsCount
+        configType, type, instanceId, totalPodsCount, successPodsCount
 
 
 ## Examples
