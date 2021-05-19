@@ -20,7 +20,7 @@ apack插件是阿里云Elasticsearch团队自研的插件，支持物理复制�
 
 -   测试环境
     -   机器配置：数据节点8核32GB\*5 + 2TB SSD云盘。
-    -   数据集：官方esrally自带的nyc\_taixs（74GB）。
+    -   数据集：官方Rally自带的nyc\_taxis（74GB）。
     -   索引配置：使用默认配置（5个主分片，1个副本分片）。
 -   测试结果
 
