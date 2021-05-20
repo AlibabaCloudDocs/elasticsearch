@@ -10,7 +10,7 @@ The following operations are performed:
 
 -   Evaluate the specifications and storage capacity of your cluster.
 
-    For more information, see[Evaluate specifications and storage capacity]().
+    For more information, see [Evaluate specifications and storage capacity]().
 
 -   Make sure that the specifications of your cluster before and after the upgrade meet the requirements for Elastic Compute Service \(ECS\) instance type changes.
 
