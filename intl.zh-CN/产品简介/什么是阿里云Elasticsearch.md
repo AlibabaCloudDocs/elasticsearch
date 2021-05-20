@@ -18,7 +18,7 @@
 
     X-Pack是Elasticsearch的一个商业版扩展包，包含安全Security、警告 Altering、监控Monitoring、图形Graph和报告Reporting、机器学习 MachineLearning等多种高级功能。创建阿里云Elasticsearch集群时，系统会默认将X-Pack作为插件集成在Kibana中，为您免费提供授权认证、角色权限管控、实时监控、可视化报表、机器学习等能力，实现更便捷的Elasticsearch运维管理和应用开发。
 
--   [Beats数据采集中心](/intl.zh-CN/Beats/安装采集器.md)
+-   [Beats数据采集中心](/intl.zh-CN/Beats/采集ECS服务日志.md)
 
     Beats是轻量级的数据采集工具，集合了多种单一用途的数据采集器。它们从成百上千或成千上万台机器和系统向Logstash或Elasticsearch发送数据。
 
@@ -49,7 +49,7 @@
 ## 相关文档
 
 -   产品优势
-    -   [阿里云Elasticsearch与自建集群对比]()
+    -   [阿里云Elasticsearch与自建集群对比](/intl.zh-CN/产品简介/产品优势/阿里云Elasticsearch与自建集群对比.md)
     -   [高可用性](/intl.zh-CN/产品简介/产品优势/高可用性.md)
     -   [高安全性](/intl.zh-CN/产品简介/产品优势/高安全性.md)
     -   [高性能](/intl.zh-CN/产品简介/产品优势/高性能.md)
@@ -59,5 +59,5 @@
 -   快速入门
     -   [Elasticsearch快速入门](/intl.zh-CN/Elasticsearch/快速开始.md)
     -   [Logstash快速入门](/intl.zh-CN/Logstash/快速入门/入门概述.md)
-    -   [Beats采集器快速入门](/intl.zh-CN/Beats/安装采集器.md)
+    -   [Beats采集器快速入门](/intl.zh-CN/Beats/采集ECS服务日志.md)
 
