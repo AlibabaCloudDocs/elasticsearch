@@ -8,9 +8,13 @@
 
     具体操作，请参见[创建阿里云Logstash实例](/cn.zh-CN/Logstash/快速入门/步骤一：创建实例/创建阿里云Logstash实例.md)。
 
--   创建阿里云Elasticsearch实例，要求与Logstash实例在同一专有网络下，且版本相同。
+-   创建阿里云Elasticsearch实例，要求与Logstash实例在同一专有网络下，且大版本相同。
 
-    具体操作，请参见[t134282.md\#](/cn.zh-CN/Elasticsearch/实例管理/创建阿里云Elasticsearch实例.md)。
+    具体操作，请参见[创建阿里云Elasticsearch实例](/cn.zh-CN/Elasticsearch/实例管理/创建阿里云Elasticsearch实例.md)。
+
+-   您已开通目标Elasticsearch实例的Kibana公网访问。
+
+    具体操作，请参见[配置Kibana公网或私网访问白名单](/cn.zh-CN/Elasticsearch/可视化控制/Kibana/配置Kibana公网或私网访问白名单.md)。
 
 
 1.  登录[阿里云Elasticsearch控制台](https://elasticsearch.console.aliyun.com/#/home)。
