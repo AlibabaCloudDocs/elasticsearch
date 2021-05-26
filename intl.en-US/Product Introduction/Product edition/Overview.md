@@ -6,8 +6,6 @@ Alibaba Cloud Elasticsearch offers two editions: Standard Edition and Advanced E
 
 You can view the edition and version of your cluster on the **Basic Information** page of the cluster in the Elasticsearch console. For more information, see [View the basic information of a cluster](/intl.en-US/Elasticsearch Instances Management/Manage clusters/View the basic information of a cluster.md).
 
-![View the edition and version of a cluster](../images/p176053.png)
-
 ## Edition comparisons
 
 |Item|Standard Edition|Advanced Edition|
@@ -71,7 +69,6 @@ For more information about feature changes, see [Breaking changes in 7.0](https:
 For more information about feature changes, see [Breaking changes in 6.0](https://www.elastic.co/guide/en/elasticsearch/reference/6.8/breaking-changes-6.0.html). |
 |V6.7|Alibaba Cloud Elasticsearch:-   Some features, such as [pruning for time series indexes](/intl.en-US/AliES Kernel/Use the pruning feature for a time series index.md) and [slow query isolation](/intl.en-US/AliES Kernel/Use the slow query isolation feature.md), are introduced based on the AliES kernel to improve query performance.
 -   The [faster-bulk](/intl.en-US/Elasticsearch Instances Management/Plug-ins/Built-in plug-ins/Use the faster-bulk plug-in.md) and [gig](/intl.en-US/Elasticsearch Instances Management/Plug-ins/Built-in plug-ins/Use the gig plug-in.md) plug-ins are provided in addition to the plug-ins provided by open source Elasticsearch. The two plug-ins are used to improve cluster stability.
--   The [one-click index migration]() feature is introduced. This feature allows you to configure only a few settings to migrate your data to the cloud. The feature is easier to use than the reindex API.
 -   The Advanced Monitoring and Alerting service is introduced. This service implements fine-grained monitoring and alerting, such as shard- or segment-level monitoring and alerting.
 -   Upgrades from V6.3.2 to V6.7.0 are supported. For more information, see [Upgrade the version of a cluster](/intl.en-US/Elasticsearch Instances Management/Upgrade version/Upgrade the version of a cluster.md). |
 |5.x|V5.5 and V5.6|Open source Elasticsearch:-   An index can have multiple types, and custom types are supported.
@@ -85,6 +82,4 @@ For more information about feature changes, see [Breaking changes in 5.0](https:
 ## Create an Elasticsearch cluster
 
 -   [t134282.md\#](/intl.en-US/Elasticsearch Instances Management/Manage clusters/Create an Alibaba Cloud Elasticsearch cluster.md)
--   [Buy page parameters]()
--   [Buy page parameters \(Advanced Edition\)]()
 
