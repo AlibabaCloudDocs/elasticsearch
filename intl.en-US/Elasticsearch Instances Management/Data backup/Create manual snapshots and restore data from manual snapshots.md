@@ -4,10 +4,11 @@ keyword: [create manual snapshots for Elasticsearch data, snapshot API, restore 
 
 # Create manual snapshots and restore data from manual snapshots
 
-Alibaba Cloud Elasticsearch provides some commands that are used to create snapshots and restore data. You can use these commands to obtain the status and data of your Elasticsearch cluster, create manual snapshots for the data, and store the snapshots in a shared repository. You can also use the commands to restore data from the snapshots. This topic describes how to create manual snapshots and restore data from the snapshots.
+Alibaba Cloud Elasticsearch provides some commands for you to create manual snapshots for the index data stored on your Elasticsearch cluster, store the snapshots in a shared repository, or restore data from the snapshots. This topic describes how to create manual snapshots and restore data from the snapshots.
 
 ## Precautions
 
+-   Before you use these commands to create manual snapshots for your index data or restore data from the snapshots, make sure that your cluster is in a normal state. Otherwise, the creation of the manual snapshots or the restoration of the data is affected.
 -   Snapshots store only index data. The following information of an Elasticsearch cluster is not stored in snapshots: monitoring data \(such as indexes whose names start with `.monitoring` or `.security_audit`\), metadata, translogs, configurations, software packages, built-in and custom plug-ins, and logs.
 -   You can run all the code provided in this topic in the Kibana console of your Elasticsearch cluster. For more information, see [Log on to the Kibana console](/intl.en-US/Elasticsearch Instances Management/Data visualization/Kibana/Log on to the Kibana console.md).
 
@@ -15,7 +16,7 @@ Alibaba Cloud Elasticsearch provides some commands that are used to create snaps
 
 Object Storage Service \(OSS\) is activated, and an OSS bucket is created.
 
-**Note:** The storage class of the OSS bucket must be Standard. Elasticsearch does not support the Archive storage class. The OSS bucket must reside in the same region as your Elasticsearch cluster.
+**Note:** The storage class of the OSS bucket must be Standard. Elasticsearch does not support the Archive storage class. In addition, the OSS bucket must reside in the same region as your Elasticsearch cluster.
 
 For more information, see [Activate OSS](/intl.en-US/Console User Guide/Sign up for OSS.md) and [Create buckets](/intl.en-US/Quick Start/OSS console/Create buckets.md).
 
@@ -47,10 +48,10 @@ PUT _snapshot/my_backup/
 |access\_key\_id|The AccessKey ID of your account. For more information about how to obtain the AccessKey ID, see [Obtain an AccessKey pair]().|
 |secret\_access\_key|The AccessKey secret of your account. For more information about how to obtain the AccessKey secret, see [Obtain an AccessKey pair]().|
 |bucket|The name of the OSS bucket. For more information about how to obtain the name, see [Create buckets](/intl.en-US/Quick Start/OSS console/Create buckets.md).|
-|compress|Specifies whether to compress the metadata of indexes when you create snapshots. Valid values:-   true: indicates that the system compresses the metadata of indexes when snapshots are created for the indexes.
--   false: indicates that the system does not compress the metadata of indexes when snapshots are created for the indexes. |
+|compress|Specifies whether to compress the metadata of indexes when snapshots are created for them. Valid values:-   true: indicates that the system compresses the metadata of indexes when snapshots are created for them.
+-   false: indicates that the system does not compress the metadata of indexes when snapshots are created for them. |
 |chunk\_size|If you want to upload large volumes of data to the OSS bucket, you can upload the data in multiple parts. In this case, you can use this parameter to set the size of each part. If the size of a part reaches the value of this parameter, the excess data is distributed to another part.|
-|base\_path|The starting location of the repository. The default value is the root directory.|
+|base\_path|The start location of the repository. The default value is the root directory.|
 
 ## Query repository information
 
@@ -84,7 +85,7 @@ PUT _snapshot/my_backup/
     **Note:**
 
     -   A repository stores multiple snapshots. Each snapshot is a copy of all indexes, specified indexes, or a single index in a cluster.
-    -   The first snapshot is a full copy of the data in a cluster. Subsequent snapshots store only incremental data. If you create a subsequent snapshot, the system only adds data to or removes data from the previous snapshot. Therefore, it requires less time to create a subsequent snapshot than the first snapshot.
+    -   The first snapshot is a full copy of the data in a cluster. Subsequent snapshots store only incremental data. If you create a subsequent snapshot, the system only adds data to or removes data from the previous snapshot. Therefore, less time is required to create a subsequent snapshot than the first snapshot.
 -   Create a snapshot for specified indexes
 
     By default, a snapshot contains all the enabled indexes. If Kibana is used when you create a snapshot, you may want to ignore all diagnostic indexes \(the `.kibana` indexes\) because of limited disk space. In this case, you can run the following command to create a snapshot only for specified indexes:
@@ -274,14 +275,14 @@ DELETE _snapshot/my_backup/snapshot_3
 
 **Note:**
 
--   You can delete snapshots only by calling the DELETE API. A snapshot may be associated with the data in other snapshots. If some data in the snapshot that you want to delete is associated with other snapshots, the DELETE API filters the data and deletes only the data not associated with other snapshots.
+-   You can delete snapshots only by calling the DELETE API. A snapshot may be associated with the data in other snapshots. If some data in the snapshot that you want to delete is associated with other snapshots, the DELETE API filters the data and deletes only the data that is not associated with other snapshots.
 -   If you choose to manually delete a snapshot, you may delete the data that is being used by other snapshots. This can cause data loss.
 
 ## Restore indexes from a snapshot
 
-**Note:** Indexes whose names start with `.` are system indexes. We recommend that you do not restore these indexes. If you restore these indexes, you may fail to access the Kibana console.
+**Note:** We recommend that you do not restore system indexes whose names start with a period \(`.`\). If you restore these indexes, you may fail to access the Kibana console.
 
--   Restore all indexes in a specified snapshot to your Elasticsearch cluster
+-   Restore all the indexes in a specified snapshot to your Elasticsearch cluster
 
     ```
     POST _snapshot/my_backup/snapshot_1/_restore
@@ -293,6 +294,13 @@ DELETE _snapshot/my_backup/snapshot_3
         ```
         POST _snapshot/my_backup/snapshot_1/_restore?wait_for_completion=true
         ```
+
+-   Restore all the indexes in a specified snapshot, excluding system indexes whose names start with a period \(`.`\)
+
+    ```
+    POST _snapshot/my_backup/snapshot_1/_restore 
+    {"indices":"*,-.monitoring*,-.security*,-.kibana*","ignore_unavailable":"true"}
+    ```
 
 -   Restore a specific index in a specified snapshot to your Elasticsearch cluster and rename the index
 
@@ -316,7 +324,7 @@ DELETE _snapshot/my_backup/snapshot_3
 
 ## Query restoration information
 
-You can call the \_recovery API to query the information of an index restoration task, such as status and progress.
+You can call the \_recovery API to query the information of an index restoration task, such as the status and progress of the task.
 
 -   Query the restoration information of a specified index
 
@@ -351,7 +359,7 @@ You can call the \_recovery API to query the information of an index restoration
            "target" : {
              "id" : "ryqJ5lO5S4-lSFbGnt****",
              "hostname" : "my.fqdn",
-             "ip" : "10.0. **.**",
+             "ip" : "10.0.**.**",
              "name" : "my_es_node"
            },
            "index" : {
@@ -393,13 +401,13 @@ You can call the \_recovery API to query the information of an index restoration
 
 ## Cancel index restoration
 
-You can delete the index that is being restored to cancel the restoration of the index.
+You can use the DELETE command to delete an index that is being restored to cancel the restoration of the index.
 
 ```
 DELETE /restored_index_3
 ```
 
-If the restored\_index\_3 index is being restored, the preceding command stops the restoration and deletes the data that has been restored to the cluster.
+If the restored\_index\_3 index is being restored, the preceding command stops the restoration and deletes the data that is restored to the cluster.
 
 ## References
 
