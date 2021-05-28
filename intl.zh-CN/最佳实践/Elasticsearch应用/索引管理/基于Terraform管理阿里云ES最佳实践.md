@@ -37,13 +37,13 @@
 
     2.  创建名为Terraform的RAM用户，并为该用户创建AccessKey。
 
-        具体操作方法请参见[创建RAM用户](/intl.zh-CN/用户管理/创建RAM用户.md)。
+        具体操作方法请参见[创建RAM用户](/intl.zh-CN/用户管理/基本操作/创建RAM用户.md)。
 
         **说明：** 请不要使用主账号的AccessKey配置Terraform工具。
 
     3.  为RAM用户授权。
 
-        本示例为用户Terraform授予`AliyunElasticsearchFullAccess`和`AliyunVPCFullAccess`权限，具体操作方法请参见[为RAM用户授权](/intl.zh-CN/用户管理/为RAM用户授权.md)。
+        本示例为用户Terraform授予`AliyunElasticsearchFullAccess`和`AliyunVPCFullAccess`权限，具体操作方法请参见[为RAM用户授权](/intl.zh-CN/用户管理/授权管理/为RAM用户授权.md)。
 
 5.  创建测试目录。
 
@@ -109,6 +109,7 @@
 
     ```
     resource "alicloud_elasticsearch_instance" "instance" {
+      description          = "testInstanceName"
       instance_charge_type = "PostPaid"
       data_node_amount     = "2"
       data_node_spec       = "elasticsearch.sn2ne.large"
@@ -126,6 +127,7 @@
 
     |参数|是否必选|描述|
     |--|----|--|
+    |`description`|否|实例自定义名称的描述。|
     |`instance_charge_type`|否|计费模式。可选值：`PrePaid`、`PostPaid`（默认）。|
     |`period`|否|购买时长（单位：月），当`instance_charge_type`为`PrePaid`时有效。可选值：1~9、12、24、36，默认是1个月。|
     |`data_node_amount`|是|ES集群的数据节点的个数。可选值：2~50之间。|
@@ -168,6 +170,7 @@
     Terraform will perform the following actions:
       # alicloud_elasticsearch_instance.instance will be created
       + resource "alicloud_elasticsearch_instance" "instance" {
+          + description          = "testInstanceName"
           + data_node_amount     = 2
           + data_node_disk_size  = 20
           + data_node_disk_type  = "cloud_ssd"
