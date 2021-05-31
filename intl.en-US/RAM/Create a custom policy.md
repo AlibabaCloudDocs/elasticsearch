@@ -15,22 +15,14 @@ Elasticsearch supports the following system policies:
 
 **Note:**
 
--   You can use the preceding policies to grant the permissions only on Elasticsearch or Logstash clusters to RAM users. The policies do not contain permissions on Cloud Monitor and tags. If you want to grant the permissions on Cloud Monitor or tags, you must create the related custom policies and attach the policies to the RAM users. For more information about how to grant the permissions on Cloud Monitor or tags, see [Policy for an administrator](#section_q2g_cas_kj0).
+-   You can use the preceding policies to grant the permissions only on Elasticsearch or Logstash clusters to RAM users. The policies do not contain permissions on CloudMonitor and tags. If you want to grant the permissions on CloudMonitor or tags, you must create the related custom policies and attach the policies to the RAM users. For more information about how to grant the permissions on CloudMonitor or tags, see [Policy for an administrator](#section_q2g_cas_kj0).
 -   You can use policies to grant permissions only on all the resources that belong to an Alibaba Cloud account. You cannot use the policies to grant permissions on a specific resource group.
-
+-   
 ## Procedure
 
-1.  Log on to the [RAM console](https://ram.console.aliyun.com/) by using an Alibaba Cloud account.
+1.  On the Policies page, click **Create Policy**.
 
-2.  In the left-side navigation pane, click **Policies** under **Permissions**.
-
-3.  On the page that appears, click **Create Policy**.
-
-4.  On the Create Custom Policy page, specify the **Policy Name** and **Note** parameters.
-
-5.  Under **Configuration Mode**, select **Script**.
-
-6.  In the **Policy Document** section, select an existing system policy and modify the policy document.
+2.  In the **Policy Document** section, select an existing system policy and modify the policy document.
 
     ![Policy Document section](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/5750988061/p96968.png)
 
@@ -67,14 +59,14 @@ Elasticsearch supports the following system policies:
 
     For more information about policy examples, see [Policy examples](#section_q2g_cas_kj0).
 
-7.  Click **OK**.
+3.  Click **OK**.
 
 
 ## Policy examples
 
 -   Policy for an administrator
 
-    In this example, all operation permissions on all Elasticsearch clusters are granted to a RAM user of the Alibaba Cloud account whose ID is indicated by <UID\>.
+    In this example, all the operation permissions on all the Elasticsearch clusters are granted to a RAM user of the Alibaba Cloud account whose ID is indicated by <UID\>.
 
     ```
     {
@@ -88,70 +80,41 @@ Elasticsearch supports the following system policies:
             },
             {
                 "Action": [
-                    "elasticsearch:ListInstance",
-                    "elasticsearch:ListSnapshotReposByInstanceId"
-                ],
-                "Effect": "Allow",
-                "Resource": "acs:elasticsearch:cn-hangzhou:<UID\>:instances/*"
-            },
-            {
-                "Action": [
-                    "elasticsearch:ListCollectors"
-                ],
-                "Effect": "Allow",
-                "Resource": [
-                    "acs:elasticsearch:*:*:collectors/*"
-                ]
-            },
-            {
-                "Action": [
-                    "cms:ListProductOfActiveAlert",
-                    "cms:ListAlarm",
-                    "cms:QueryMetricList"
+                    "cms:*"
                 ],
                 "Effect": "Allow",
                 "Resource": "*"
-            },
-            {
-                "Action": [
-                    "elasticsearch:ListTags"
-                ],
-                "Effect": "Allow",
-                "Resource": "acs:elasticsearch:*:*:tags/*"
-            },
-            {
-                "Action": [
-                    "elasticsearch:ListLogstash"
-                ],
-                "Effect": "Allow",
-                "Resource": "acs:elasticsearch:*:<UID\>:logstashes/*"
-            },
-            {
-                "Effect": "Allow",
-                "Action": [
-                    "elasticsearch:DescribeVpcs",
-                    "elasticsearch:DescribeVswitches"
-                ],
-                "Resource": [
-                    "acs:elasticsearch:*:<UID\>:vswitch/*",
-                    "acs:elasticsearch:*:<UID\>:vpc/*"
-                ]
             },
             {
                 "Action": "bss:PayOrder",
                 "Effect": "Allow",
                 "Resource": "*"
+            },
+            {
+                "Action": "ram:CreateServiceLinkedRole",
+                "Resource": "*",
+                "Effect": "Allow",
+                "Condition": {
+                    "StringEquals": {
+                        "ram:ServiceName": [
+                            "collector.elasticsearch.aliyuncs.com",
+                            "ops.elasticsearch.aliyuncs.com"
+                        ]
+                    }
+                }
             }
         ],
         "Version": "1"
     }
     ```
 
+    **Note:**
+
 -   Policy for cluster-specific operation permissions
 
     In this example, the following permissions are granted to a RAM user of the Alibaba Cloud account whose ID is indicated by <UID\>:
 
-    -   [Permissions on Cloud Monitor](/intl.en-US/RAM/Types of resources that can be authorized.md)
+    -   [Permissions on CloudMonitor](/intl.en-US/RAM/Types of resources that can be authorized.md)
     -   Permission to perform all Elasticsearch-related operations on a specific cluster. The operations do not include security-related operations, such as cluster deletion and whitelist configuration for access over the Internet or an internal network.
     -   Permission to view clusters.
     -   Permission to view all the tags that are added to clusters.
@@ -245,7 +208,7 @@ Elasticsearch supports the following system policies:
 ]
 ```
 
-|The permissions on Cloud Monitor. -   `cms:ListProductOfActiveAlert`: the permission to query the services for which Cloud Monitor is activated within the Alibaba Cloud account.
+|The permissions on CloudMonitor.-   `cms:ListProductOfActiveAlert`: the permission to query the services for which CloudMonitor is activated within the Alibaba Cloud account.
 -   `cms:ListAlarm`: the permission to query all or specific alert rules.
 -   `cms:QueryMetricList`: the permission to query the monitoring data of instances or clusters of a specific service within a period. |
 |```
@@ -269,7 +232,7 @@ Elasticsearch supports the following system policies:
 ]
 ```
 
-|All operation permissions on Elasticsearch clusters. After the RAM user is granted the permissions, the RAM user can perform operations on all or specific clusters. **Note:** The permissions specified by `elasticsearch:*` do not include the permissions on advanced monitoring and alerting, Cloud Monitor, and tags. You must separately specify the permissions on advanced monitoring and alerting, Cloud Monitor, and tags. If you do not specify these permissions, the system displays a message that indicates insufficient permissions after you use the RAM user to go to a related page. However, the RAM user can use other authorized features on this page. |
+|All operation permissions on Elasticsearch clusters. After the RAM user is granted the permissions, the RAM user can perform operations on all or specific clusters. **Note:** The permissions specified by `elasticsearch:*` do not include the permissions on advanced monitoring and alerting, CloudMonitor, and tags. You must separately specify the permissions on advanced monitoring and alerting, CloudMonitor, and tags. If you do not specify these permissions, the system displays a message that indicates insufficient permissions after you use the RAM user to go to a related page. However, the RAM user can use other authorized features on this page. |
 |```
 [
   "elasticsearch:ListTags"
@@ -292,7 +255,7 @@ Elasticsearch supports the following system policies:
 ]
 ```
 
-|The permission to query Beats shippers. After the RAM user is granted the permission, the RAM user can view all created Beats shippers in the Elasticsearch console.|
+|The permission to query Beats shippers. After the RAM user is granted the permission, the RAM user can view all the created Beats shippers in the Elasticsearch console.|
 |```
 [
   "elasticsearch:ListLogstash"
@@ -312,7 +275,7 @@ Elasticsearch supports the following system policies:
 -   `elasticsearch:UpdatePublicNetwork`: the permission to modify the whitelist for access to clusters over the Internet.
 -   `elasticsearch:TriggerNetwork`: the permission to enable or disable the Public Network Access or Private Network Access feature for Elasticsearch or Kibana.
 
- **Note:** In the preceding policy, the Effect element is set to Deny for these permissions. This indicates that the RAM user is not allowed to perform the related operations. |
+**Note:** In the preceding policy, the Effect element is set to Deny for these permissions. This indicates that the RAM user is not allowed to perform the related operations. |
 |```
 [
   "elasticsearch:GetEmonProjectList"
