@@ -11,11 +11,16 @@ logstash-input-sls is a built-in input plug-in of Alibaba Cloud Logstash. This p
 ## Features
 
 -   Distributed collaborative consumption: Multiple servers can be configured to consume log data in a Logstore at the same time.
+
+    **Note:** If you want to use multiple Logstash servers to implement distributed collaborative consumption, make sure that only one pipeline with logstash-input-sls installed is deployed on each server. This is because of the limits on the logstash-input-sls plug-in. If multiple pipelines with logstash-input-sls installed are deployed on a single server, duplicated data may exist in the output.
+
 -   High performance: If you use a Java consumer group, the consumption speed of a single-core CPU can reach 20 MB/s.
 -   High reliability: logstash-input-sls saves the consumption progress on servers. If a server is recovered from an exception, it can continue to consume data from the last consumption checkpoint.
 -   Automatic load balancing: Shards are automatically allocated based on the number of consumers in a consumer group. If consumers join or leave the consumer group, logstash-input-sls automatically re-allocates the shards.
 
-## Prerequisites
+## Operation
+
+
 
 -   The logstash-input-sls plug-in is installed.
 
@@ -23,7 +28,7 @@ logstash-input-sls is a built-in input plug-in of Alibaba Cloud Logstash. This p
 
 -   A Log Service project and a Logstore are created. Data is collected.
 
-    For more information, see [Quick start](/intl.en-US/Quick Start/Quick start.md).
+    For more information, see [Quick start](/intl.en-US/.md).
 
 
 ## logstash-input-sls application
@@ -59,7 +64,7 @@ output {
 }
 ```
 
-Make the following assumptions: The Logstore has 10 shards. The data traffic of each shard is 1 MB/s. The processing capacity of each Logstash server is 3 MB/s. Five Logstash servers are allocated. Each server uses the same settings of `consumer_group` and `consumer_name`. `consumer_name_with_ip` is set to `true`.
+Make the following assumptions: The Logstore has 10 shards. The data traffic of each shard is 1 MB/s. The processing capacity of each Logstash server is 3 MB/s. Five Logstash servers are allocated, and one pipeline with logstash-input-sls installed is deployed on each server. Each server uses the same settings of `consumer_group` and `consumer_name`. `consumer_name_with_ip` is set to `true`.
 
 In this case, two shards are allocated to each server, and each shard processes data at 2 MB/s.
 
