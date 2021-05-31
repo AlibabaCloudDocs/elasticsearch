@@ -12,8 +12,9 @@ This section describes how the gig plug-in works.
 
 ## Precautions
 
--   The gig plug-in is available for Alibaba Cloud Elasticsearch V6.7.0 clusters that have a kernel version of 1.3.0. Before you use this plug-in, make sure that the kernel version of your Elasticsearch cluster is 1.3.0. Otherwise, upgrade the kernel. You can upgrade only the kernels of Standard Edition clusters whose kernel versions are V0.3.0, V1.0.2, or V1.2.0.
--   The gig plug-in is integrated into kernel V1.3.0. After you upgrade the kernel of your cluster, the plug-in is automatically installed. After the plug-in is installed, the throttling feature of the plug-in is disabled by default. If you want to use the feature, you must enable it.
+-   The gig plug-in is available for Alibaba Cloud Elasticsearch V6.7.0 or V7.10.0 clusters whose kernel versions are V1.3.0. If you use a V6.7.0 cluster, make sure that the kernel version of the cluster is V1.3.0 before you use the gig plug-in. Otherwise, upgrade the kernel. You can upgrade only the kernels of Standard Edition clusters whose kernel versions are V0.3.0, V1.0.2, or V1.2.0.
+-   The gig plug-in is integrated into the kernel V1.3.0. After you upgrade the kernel of your V6.7.0 cluster to V1.3.0, the plug-in is automatically installed. After the plug-in is installed, the throttling feature of the plug-in is disabled by default. If you want to use the feature, you must enable it.
+-   If the version of your Elasticsearch cluster is V7.10.0, the gig plug-in is integrated into the aliyun-qos plug-in by default. You do not need to manually install the gig plug-in.
 -   Before you use the gig plug-in, make sure that sufficient resources are reserved for the data nodes in the cluster. If exceptions occur on one of the data nodes, the query traffic is transmitted to other data nodes. This increases the load of these nodes. Therefore, you must reserve sufficient resources for data nodes to ensure business stability.
 -   All commands in this topic can be run in the Kibana console. For more information about how to log on to the Kibana console, see [Log on to the Kibana console](/intl.en-US/Elasticsearch Instances Management/Data visualization/Kibana/Log on to the Kibana console.md).
 
@@ -30,7 +31,7 @@ This section describes how the gig plug-in works.
 
     **Note:** If you want to disable the feature, set index.flow\_control.enabled to null or false.
 
-2.  Configure thresholds for query latency in the gig plug-in. If one of the thresholds are met, the plug-in performs throttling.
+2.  Configure thresholds for query latency in the gig plug-in. If one of the thresholds is met, the plug-in performs throttling.
 
     ```
     PUT test/_settings
@@ -47,11 +48,11 @@ This section describes how the gig plug-in works.
 
     |Parameter|Default value|Description|
     |---------|-------------|-----------|
-    |latency\_upper\_limit\_extra|10s|The threshold for the absolute value of the difference between the actual query latency and average query latency. This parameter is represented by using the following formula: \|Actual query latency - Average query latency\|. The default value is 10s. This indicates that if the average query latency of three data nodes in the cluster is 2s, when the query latency of one of the three data nodes reaches 13s, the gig plug-in performs throttling.|
-    |latency\_upper\_limit\_extra\_percent|1.0|The threshold for the proportion of the absolute value of the difference between the actual query latency and average query latency to the average query latency. This parameter is represented by using the following formula: \(\|Actual query latency - Average query latency\|\)/Average query latency. The default value is 1.0. This indicates that if the average query latency of three data nodes in the cluster is 2s, when the actual query latency of one of the three data nodes reaches 4s, the gig plug-in performs throttling.|
+    |latency\_upper\_limit\_extra|10s|The threshold for the absolute value of the difference between the actual query latency and average query latency. This parameter is represented by using the following formula: \|Actual query latency - Average query latency\|. The default value is 10s. This indicates that if the average query latency of three data nodes in the cluster is 2 seconds, when the query latency of one of the three data nodes reaches 13 seconds, the gig plug-in performs throttling.|
+    |latency\_upper\_limit\_extra\_percent|1.0|The threshold for the proportion of the absolute value of the difference between the actual query latency and average query latency to the average query latency. This parameter is represented by using the following formula: \(\|Actual query latency - Average query latency\|\)/Average query latency. The default value is 1.0. This indicates that if the average query latency of three data nodes in the cluster is 2 seconds, when the actual query latency of one of the three data nodes reaches 4 seconds, the gig plug-in performs throttling.|
     |probe\_percent|0.2|The threshold for the proportion of [detection traffic](#section_ad3_tgr_pk8) to the actual query traffic. The default value is 0.2. This indicates that if the proportion of detection traffic to the actual query traffic is greater than 0.2, the gig plug-in performs throttling.|
     |full\_degrade\_error\_percent|0.5|The threshold for the proportion of query exceptions. The default value is 0.5. This indicates that if the error rate of query responses of a data node in the cluster reaches 50%, the gig plug-in performs throttling.|
-    |full\_degrade\_latency|10s|The threshold for the query latency. The default value is 10s. This indicates that if the query latency is greater than 10s, the gig plug-in performs throttling.|
+    |full\_degrade\_latency|10s|The threshold for the query latency. The default value is 10s. This indicates that if the query latency is greater than 10 seconds, the gig plug-in performs throttling.|
 
     **Note:** You can adjust the values of these parameters based on your business requirements.
 
