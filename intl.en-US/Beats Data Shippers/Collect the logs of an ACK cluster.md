@@ -4,13 +4,13 @@ keyword: [use Filebeat to collect the logs of an ACK cluster, use Filebeat to co
 
 # Collect the logs of an ACK cluster
 
-Alibaba Cloud Filebeat can be used to collect the logs of Container Service for Kubernetes \(ACK\) clusters and send the collected logs to Alibaba Cloud Elasticsearch for analysis and presentation. This topic describes how to configure Filebeat to collect the logs of an ACK cluster.
+Alibaba Cloud Filebeat can be used to collect the logs of Container Service for Kubernetes \(ACK\) clusters and send the collected logs to Alibaba Cloud Elasticsearch for analysis and presentation. This topic describes how to configure Filebeat to collect the logs of an ACK cluster. It also provides information about the containers of Filebeat.
 
 -   An Alibaba Cloud Elasticsearch cluster is created.
 
-    For more information, see [Create a cluster](/intl.en-US/Elasticsearch Instances Management/Quick Start/Step 1: Create a cluster/Create a cluster.md).
+    For more information, see [Create a cluster](/intl.en-US/Elasticsearch Instances Management/Quick Start/Step 1: Create a cluster/Create a cluster.md) or [Create an Alibaba Cloud Elasticsearch cluster](/intl.en-US/Elasticsearch Instances Management/Manage clusters/Create an Alibaba Cloud Elasticsearch cluster.md).
 
--   A prefix is customized for the names of indexes created based on the Auto Indexing feature.
+-   A prefix is customized for the names of indexes created by using the Auto Indexing feature.
 
     To avoid a conflict between the alias of the index that is generated during a rollover and the index name, we recommend that you customize the filebeat-\* prefix for index names. You can specify **+.\*,+filebeat-\*,-\*** in the filebeat-\* field. For more information, see [Configure the YML file](/intl.en-US/Elasticsearch Instances Management/Elasticsearch cluster configuration/Configure the YML file.md).
 
@@ -29,11 +29,9 @@ Alibaba Cloud Filebeat can be used to collect the logs of Container Service for 
 
 ## Procedure
 
-1.  Log on to the [Alibaba Cloud Elasticsearch console](https://elasticsearch.console.aliyun.com/#/home).
+1.  Log on to the [Elasticsearch console](https://elasticsearch.console.aliyun.com/#/home).
 
-2.  In the top navigation bar, select the region where your cluster resides. In the left-side navigation pane, click **Beats Data Shippers**.
-
-    **Note:** If this is the first time you go to the **Beats Data Shippers** page, confirm authorization as prompted.
+2.  In the top navigation bar, select a region. In the left-side navigation pane, click **Beats Data Shippers**.
 
 3.  In the **Create Shipper** section, move the pointer over **Filebeat** and click **ACK Logs**.
 
@@ -48,16 +46,16 @@ Alibaba Cloud Filebeat can be used to collect the logs of Container Service for 
     |**Output**|The destination for the data collected by Filebeat. The destination is the Elasticsearch cluster you created. The protocol must be the same as that of the selected Elasticsearch cluster.|
     |**Username/Password**|The username and password used to access the Elasticsearch cluster. The default username is elastic. The password is specified when you create the Elasticsearch cluster. If you forget the password, you can reset it. For more information about the procedure and precautions for resetting the password, see [Reset the access password for an Elasticsearch cluster](/intl.en-US/Elasticsearch Instances Management/Security/Reset the access password for an Elasticsearch cluster.md).|
     |**Enable Kibana Monitoring**|Determine whether to monitor the metrics of Filebeat. If you select **Elasticsearch** for **Output**, the Kibana monitor uses the same Alibaba Cloud Elasticsearch cluster as **Output**.|
-    |**Enable Kibana Dashboard**|Determine whether to enable the default Kibana dashboard. Alibaba Cloud Kibana is configured in a VPC. You must enable the Private Network Access feature for Kibana on the Kibana configuration page. For more information, see [Configure an IP address whitelist for access to the Kibana console over the Internet or an internal network](/intl.en-US/Elasticsearch Instances Management/Data visualization/Kibana/Configure an IP address whitelist for access to the Kibana console over the Internet
+    |**Enable Kibana Dashboard**|Determine whether to enable the default Kibana dashboard. Alibaba Cloud Kibana is configured in a virtual private cloud \(VPC\). You must enable the Private Network Access feature for Kibana on the Kibana configuration page. For more information, see [Configure an IP address whitelist for access to the Kibana console over the Internet or an internal network](/intl.en-US/Elasticsearch Instances Management/Data visualization/Kibana/Configure an IP address whitelist for access to the Kibana console over the Internet
          or an internal network.md).|
 
 5.  In the **Configure Collection Object** step, configure the collection object.
 
-    1.  Select **Source ACK Cluster**.
+    1.  Select an option from the **Source ACK Cluster** drop-down list.
 
         **Note:** You must select a running ACK cluster that resides in the same VPC as the Elasticsearch cluster and is not a managed edge ACK cluster. For more information, see [ACK@Edge overview](/intl.en-US/User Guide for Edge Container Service/ACK@Edge overview.md).
 
-    2.  Click **Install** to install ES-operator on which Beats depends for the ACK cluster.
+    2.  Click **Install** to install ES-operator for the ACK cluster. Beats depends on ES-operator.
 
         If the **Install** button is not displayed, ES-operator has been installed. If the **Install** button disappears after you install ES-operator, the installation is successful.
 
@@ -69,14 +67,14 @@ Alibaba Cloud Filebeat can be used to collect the logs of Container Service for 
         |---------|-----------|
         |**Object Name**|The name of the collection object. You can create multiple collection objects. The names of the collection objects must be unique.|
         |**Namespace**|The namespace of the ACK cluster where the pod from which you want to collect logs is deployed. If you do not specify a namespace when you create the pod, the namespace default is used by default.|
-        |**Pod Label**|Add a label to the pod. If you add multiple labels to the pod, the labels have logical AND relations.**Note:** You can delete the labels that are added to the pod only if you add a minimum of two labels to it. |
-        |**Container Name**|The full name of the container. If this parameter is not specified, Filebeat collects logs from all containers in the namespace that comply with the labels added to the pod.|
+        |**Pod Label**|Add a label to the pod. If you add multiple labels to the pod, the labels have logical AND relations. **Note:** You can delete the labels that are added to the pod only if you add a minimum of two labels to it. |
+        |**Container Name**|The full name of the container. If this parameter is not specified, Filebeat collects logs from all the containers in the namespace that comply with the labels added to the pod.|
 
-        **Note:** For more information about how to obtain the configurations of the pod, such as the namespace, labels, and name, see [View pods in ACK clusters](/intl.en-US/User Guide for Kubernetes Clusters/Application management/Workloads/View pods in ACK clusters.md).
+        **Note:** For more information about how to obtain the configurations of the pod, such as the namespace, labels, and name, see [Manage pods](/intl.en-US/User Guide for Kubernetes Clusters/Application management/Workloads/Manage pods.md).
 
     4.  Click **Next**.
 
-6.  In the **Configure Log Collection** step, click **Add Log Collection Configuration** in the lower-left corner to configure log collection information. You can specify multiple pods from which you want to collect logs. Click **Next**.
+6.  In the **Configure Log Collection** step, click **Add Log Collection Configuration** in the lower-left corner to configure log collection information. You can specify multiple containers from which you want to collect logs. Click **Next**.
 
     ![Configure Log Collection](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/4697316161/p232001.png)
 
@@ -96,7 +94,7 @@ Alibaba Cloud Filebeat can be used to collect the logs of Container Service for 
     -   fields\_under\_root: If this parameter is set to true, the fields are stored as top-level fields in the output document. For more information, see [Docker input \(fields\_under\_root\)](https://www.elastic.co/guide/en/beats/filebeat/6.8/filebeat-input-docker.html#fields-under-root-docker).
 **Note:**
 
-    -   If a general template cannot meet your requirements, you can modify the configurations. For more information, see [Filebeat Docker input](https://www.elastic.co/guide/en/beats/filebeat/6.8/filebeat-input-docker.html#fields-under-root-docker).
+    -   If a general template does not meet your requirements, you can modify the configurations. For more information, see [Filebeat Docker input](https://www.elastic.co/guide/en/beats/filebeat/6.8/filebeat-input-docker.html#fields-under-root-docker).
     -   Only one Docker container can be configured for each shipper. If you want to configure multiple Docker containers, click **Add Log Collection Configuration** to perform the operation. |
 
 7.  In the **Manage Index Storage** step, enable and configure the Index Storage Management for Collected Data feature based on your business requirements.
@@ -107,17 +105,19 @@ Alibaba Cloud Filebeat can be used to collect the logs of Container Service for 
 
     |Parameter|Description|
     |---------|-----------|
-    |**Policy Name**|You can specify multiple containers for each pod. Each container corresponds to a log file name. A log file name can be a part of an index name and used for subsequent collection output.|
-    |**Log Name**|The name of the log file that you want to collect. You must specify a minimum of one name. You can specify multiple log files for a management policy, but you can specify each log file for only one management policy.|
-    |**Maximum Storage Space**|If the storage space consumed by the index \(including replica shards\) reaches the value of this parameter, the system deletes old data to save storage space.|
-    |**Lifecycle Management**|Specifies whether to turn on Lifecycle Management for the index. After you turn on Lifecycle Management, the system separates hot data from warm data for data nodes and automatically deletes old data. For more information, see [Use ILM to separate hot data from cold data](/intl.en-US/Best Practices/Elasticsearch applications/Index management/Use ILM to separate hot data from cold data.md) and [Managing the index lifecycle](https://www.elastic.co/guide/en/elasticsearch/reference/6.7/index-lifecycle-management.html).**Note:**
+    |**Policy Name**|You can specify multiple containers for each pod. Each container corresponds to a log file name. A log file name can be a part of an index name and can be used for subsequent collection output.|
+    |**Log Name**|The name of the log file that you want to associate with the policy. You must specify a minimum of one name. You can specify multiple log files for a management policy, but you can specify each log file for only one management policy.|
+    |**Maximum Storage Space**|If the disk space consumed by the index \(including replica shards\) reaches the value of this parameter, the system deletes old data to save disk space.|
+    |**Lifecycle Management**|Specifies whether to turn on Lifecycle Management for the index. After you turn on Lifecycle Management, the system separates hot data from cold data for data nodes and automatically deletes old data. For more information, see [Use ILM to separate hot data from cold data](/intl.en-US/Best Practices/Elasticsearch applications/Cluster management/Use ILM to separate hot data from cold data.md) and [Managing the index lifecycle](https://www.elastic.co/guide/en/elasticsearch/reference/6.7/index-lifecycle-management.html). **Note:**
 
     -   If you turn on Rolling Update, Filebeat writes data to the index named <Log name\>-<Date\>-<Number\>, such as log-web-2021.01.22-000001.
     -   If you do not turn on Rolling Update, Filebeat writes data to the index named filebeat-<Log name\>-<Date\>. |
 
 8.  Click **Enable**.
 
-    After the shipper is enabled, you can view it in the Manage Shippers section. You can also perform the following operations.
+    After the shipper is enabled, you can view the information of the shipper in the Manage Shippers section. You can also perform the following operations.
+
+    **Note:** The Filebeat resources are deployed in the logging namespace of the ACK cluster.
 
     |Operation|Description|
     |---------|-----------|
@@ -125,4 +125,23 @@ Alibaba Cloud Filebeat can be used to collect the logs of Container Service for 
     |**Modify Configuration**|Modify the collection object, log collection configuration, and index storage management policy.|
     |**More**|Enable, disable, restart, or delete the log collection task. You can also view the information related to the task in the dashboard and helm charts.|
 
+
+## View the Filebeat resources
+
+[Use kubectl to connect to the ACK cluster](https://www.alibabacloud.com/help/zh/doc-detail/86378.html?spm=a2c5t.11065259.1996646101.searchclickresult.7c71694b9cyhQH) and view the Filebeat resources in the logging namespace.
+
+```
+kubectl get pods  -n logging
+```
+
+![fig01](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/1046242261/p262295.png)
+
+**Warning:** You are not allowed to perform operations on the resources that are deployed in the logging namespace, such as resource deletions. Otherwise, the service of Filebeat is affected.
+
+|pod name|Description|Example|
+|--------|-----------|-------|
+|Cluster name-binding-Serial number|The container used to manage indexes, such as a container that is used to delete old data on a regular basis.|ct-cn-ew8qx563gu4ng4ot6-binding-7e245-1617347400-c\*\*\*\*|
+|Cluster name-policy-Serial number|The policy for rolling updates on indexes.|ct-cn-ew8qx563gu4ng4ot6-policy-696b7-hot-rollover-1g-16173v\*\*\*\*|
+|Cluster name-Serial number|The container for which Filebeat is installed.|ct-cn-ew8qx563gu4ng4ot6-q\*\*\*\*|
+|es-operator-Serial number|The container for which ES-operator is installed.|es-operator-cb63cc9a6302e4e90aeb2f79adf358b19-56fcd754db-b\*\*\*\*|
 
