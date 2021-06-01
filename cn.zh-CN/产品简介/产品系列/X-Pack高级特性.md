@@ -10,7 +10,7 @@ X-Pack高级特性，是Elasticsearch基于原X-Pack商业版插件开发的官�
 
 ## 购买指引
 
-您可以登录[阿里云Elasticsearch控制台](https://elasticsearch-cn-hangzhou.console.aliyun.com/#/home)，在Elasticsearch实例页面单击创建进行购买。当前支持X-Pack高级特性的版本有通用商业版和日志增强版，如下图所示：
+您可以登录[阿里云Elasticsearch控制台](https://elasticsearch.console.aliyun.com/#/home)，在Elasticsearch实例页面单击创建进行购买。当前支持X-Pack高级特性的版本有通用商业版和日志增强版，如下图所示：
 
 ![ES_fig_X-Pack_01](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/5847767161/p260403.png)
 
@@ -23,7 +23,7 @@ X-Pack高级特性，是Elasticsearch基于原X-Pack商业版插件开发的官�
 
 **说明：**
 
-阿里云Elasticsearch通用商业版和日志增强版实例除具备X-Pack高级特性外，还具备运维管理、安全、插件、高可用等功能，具体介绍请参见[通用商业版实例介绍](https://help.aliyun.com/document_detail/188205.html?spm=a2c4g.11186623.6.554.4e9d61135QDz1W)和[增强版实例介绍](https://help.aliyun.com/document_detail/143099.html?spm=a2c4g.11186623.6.555.7c20709eiYGvNm)。
+阿里云Elasticsearch通用商业版和日志增强版实例除具备X-Pack高级特性外，还具备运维管理、安全、插件、高可用等功能，具体介绍请参见[通用商业版实例介绍](/cn.zh-CN/产品简介/产品系列/通用商业版实例介绍.md)和[日志增强版实例介绍](/cn.zh-CN/产品简介/产品系列/日志增强版实例介绍/共享弹性存储系列介绍.md)。
 
 ## 功能说明
 
