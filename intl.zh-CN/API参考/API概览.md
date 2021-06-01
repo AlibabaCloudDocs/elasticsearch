@@ -80,6 +80,22 @@
 |[DescribeDiagnoseReport](/intl.zh-CN/API参考/Elasticsearch/智能运维/DescribeDiagnoseReport.md)|调用DescribeDiagnoseReport，查看智能运维的历史报告。|
 |[DescribeDiagnosisSettings](/intl.zh-CN/API参考/Elasticsearch/智能运维/DescribeDiagnosisSettings.md)|调用DescribeDiagnosisSettings，获取智能运维的场景设置。|
 |[UpdateDiagnosisSettings](/intl.zh-CN/API参考/Elasticsearch/智能运维/UpdateDiagnosisSettings.md)|调用UpdateDiagnosisSettings，更新实例的智能运维场景设置。|
+|[DeleteIndexTemplate]()|调用DeleteIndexTemplate，删除索引模板。|
+|[UpdateIndexTemplate]()|调用UpdateIndexTemplate，更新索引模版的组件化设置。|
+|[DescribeIndexTemplate]()|调用DescribeIndexTemplate，查看组件索引模版详情，包括索引生命周期。|
+|[ListIndexTemplates]()|调用ListIndexTemplates，查询索引模板列表。|
+|[DescribeILMPolicy]()|调用DescribeILMPolicy，查询指定索引生命周期详情。|
+|[ListILMPolicies]()|调用ListILMPolicies，查询已有的索引生命周期策略列表。|
+|[CreateILMPolicy]()|调用CreateILMPolicy，创建索引生命周期策略。|
+|[DeleteILMPolicy]()|调用DeleteILMPolicy，删除指定的生命周期策略定义。|
+|[UpdateILMPolicy]()|调用UpdateILMPolicy，修改索引生命周期策略。|
+|[CreateDataStream]()|调用CreateDataStream，创建数据流。|
+|[DeleteDataStream]()|调用DeleteDataStream，删除数据流。|
+|[RolloverDataStream]()|调用RolloverDataStream，手动滚动更新数据流下的匹配索引。进行此操作后，将为当前数据流创建一个新的索引，该索引将成为数据流的新写索引。|
+|[ListDataStreams]()|调用ListDataStreams，用于查看数据流列表。|
+|[CloseManagedIndex]()|调用CloseManagedIndex，关闭Indexing Service集群中某个索引的云端托管功能。此功能不可逆，关闭后无法再开启。|
+|[t2083839.md\#]()|调用GetEmonGrafanaAlerts，获取Grafana报警列表。|
+|[t2083841.md\#]()|调用PostEmonTryAlarmRule，发送测试的报警消息。|
 
 ## Kibana
 
@@ -95,17 +111,17 @@
 
 |类别|API|描述|
 |--|---|--|
-|实例管理|[CreateLogstash]()|调用CreateLogstash，创建一个Logstash实例。|
-|[ListLogstash]()|调用ListLogstash，在列表中展示所有或指定Logstash实例的详细信息。|
-|[DescribeLogstash]()|调用DescribeLogstash，查询指定实例的详细信息。|
-|[UpdateLogstash]()|调用UpdateLogstash，修改指定实例的部分信息，例如节点数、配额、名称、硬盘大小等。|
-|[RenewLogstash]()|调用RenewLogstash，为实例续费。|
-|[RestartLogstash]()|调用RestartLogstash，重启指定实例。重启后，实例会进入生效中（activating）状态。|
-|[UpdateLogstashDescription]()|调用UpdateLogstashDescription，修改指定Logstash实例的名称。|
-|[UpdateLogstashChargeType]()|调用UpdateLogstashChargeType，将按量付费的阿里云Logstash实例转换为包年包月实例。|
-|[EstimatedLogstashRestartTime]()|调用EstimatedLogstashRestartTime，获取Logstash实例重启的预估时间。|
-|[DeleteLogstash]()|调用DeleteLogstash，释放指定实例。|
-|[CancelLogstashDeletion]()|调用CancelLogstashDeletion，恢复释放后被冻结的Logstash实例。|
+|实例管理|[CreateLogstash](/intl.zh-CN/API参考/Logstash/实例管理/CreateLogstash.md)|调用CreateLogstash，创建一个Logstash实例。|
+|[ListLogstash](/intl.zh-CN/API参考/Logstash/实例管理/ListLogstash.md)|调用ListLogstash，在列表中展示所有或指定Logstash实例的详细信息。|
+|[DescribeLogstash](/intl.zh-CN/API参考/Logstash/实例管理/DescribeLogstash.md)|调用DescribeLogstash，查询指定实例的详细信息。|
+|[UpdateLogstash](/intl.zh-CN/API参考/Logstash/实例管理/UpdateLogstash.md)|调用UpdateLogstash，修改指定实例的部分信息，例如节点数、配额、名称、硬盘大小等。|
+|[RenewLogstash](/intl.zh-CN/API参考/Logstash/实例管理/RenewLogstash.md)|调用RenewLogstash，为实例续费。|
+|[RestartLogstash](/intl.zh-CN/API参考/Logstash/实例管理/RestartLogstash.md)|调用RestartLogstash，重启指定实例。重启后，实例会进入生效中（activating）状态。|
+|[UpdateLogstashDescription](/intl.zh-CN/API参考/Logstash/实例管理/UpdateLogstashDescription.md)|调用UpdateLogstashDescription，修改指定Logstash实例的名称。|
+|[UpdateLogstashChargeType](/intl.zh-CN/API参考/Logstash/实例管理/UpdateLogstashChargeType.md)|调用UpdateLogstashChargeType，将按量付费的阿里云Logstash实例转换为包年包月实例。|
+|[EstimatedLogstashRestartTime](/intl.zh-CN/API参考/Logstash/实例管理/EstimatedLogstashRestartTime.md)|调用EstimatedLogstashRestartTime，获取Logstash实例重启的预估时间。|
+|[DeleteLogstash](/intl.zh-CN/API参考/Logstash/实例管理/DeleteLogstash.md)|调用DeleteLogstash，释放指定实例。|
+|[CancelLogstashDeletion](/intl.zh-CN/API参考/Logstash/实例管理/CancelLogstashDeletion.md)|调用CancelLogstashDeletion，恢复释放后被冻结的Logstash实例。|
 |集群配置|[UpdateLogstashSettings](/intl.zh-CN/API参考/Logstash/集群配置/UpdateLogstashSettings.md)|调用UpdateLogstashSettings，更新指定Logstash实例的配置。|
 |[ListExtendfiles](/intl.zh-CN/API参考/Logstash/集群配置/ListExtendfiles.md)|调用ListExtendfiles，获取Logstash实例的扩展文件配置。|
 |[UpdateExtendfiles](/intl.zh-CN/API参考/Logstash/集群配置/UpdateExtendfiles.md)|调用UpdateExtendfiles，更新Logstash实例的扩展文件配置。|
@@ -133,24 +149,24 @@
 
 |API|描述|
 |---|--|
-|[CreateCollector]()|调用CreateCollector，创建采集器。|
-|[DescribeCollector]()|调用DescribeCollector，获取采集器实例的详细信息。|
-|[ReinstallCollector]()|调用ReinstallCollector，重试安装在创建时没有安装成功的采集器。|
-|[ListCollectors]()|调用ListCollectors，获取采集器列表信息。|
-|[ListDefaultCollectorConfigurations]()|调用ListDefaultCollectorConfigurations，获取采集器的默认配置文件。|
-|[UpdateCollectorName]()|调用UpdateCollectorName，修改采集器名称。|
-|[UpdateCollector]()|调用UpdateCollector，更新采集器实例信息。|
-|[StartCollector]()|调用StartCollector，启动采集器。|
-|[RestartCollector]()|调用RestartCollector，重启采集器。|
-|[StopCollector]()|调用StopCollector，停止运行中的采集器。|
-|[DeleteCollector]()|调用DeleteCollector，删除采集器。|
-|[ListEcsInstances]()|调用ListEcsInstances，获取ECS机器列表。|
-|[ModifyDeployMachine]()|调用ModifyDeployMachine，更新采集器安装的ECS机器。|
-|[ListNodes]()|调用ListNodes，查看安装采集器的ECS机器的状态。|
-|[ListAckClusters]()|调用ListAckClusters，获取容器服务Kubernetes版ACK（Container Service for Kubernetes）集群列表。|
-|[ListAckNamespaces]()|调用ListAckNamespaces，查看指定容器服务Kubernetes版ACK集群的所有命名空间。|
-|[DescribeAckOperator]()|调用DescribeAckOperator，查看指定容器服务Kubernetes版ACK集群上安装的Elasticsearch Operator信息。|
-|[InstallAckOperator]()|调用InstallAckOperator，在指定容器服务Kubernetes版ACK集群上安装Elasticsearch Operator。|
+|[CreateCollector](/intl.zh-CN/API参考/Beats/CreateCollector.md)|调用CreateCollector，创建采集器。|
+|[DescribeCollector](/intl.zh-CN/API参考/Beats/DescribeCollector.md)|调用DescribeCollector，获取采集器实例的详细信息。|
+|[ReinstallCollector](/intl.zh-CN/API参考/Beats/ReinstallCollector.md)|调用ReinstallCollector，重试安装在创建时没有安装成功的采集器。|
+|[ListCollectors](/intl.zh-CN/API参考/Beats/ListCollectors.md)|调用ListCollectors，获取采集器列表信息。|
+|[ListDefaultCollectorConfigurations](/intl.zh-CN/API参考/Beats/ListDefaultCollectorConfigurations.md)|调用ListDefaultCollectorConfigurations，获取采集器的默认配置文件。|
+|[UpdateCollectorName](/intl.zh-CN/API参考/Beats/UpdateCollectorName.md)|调用UpdateCollectorName，修改采集器名称。|
+|[UpdateCollector](/intl.zh-CN/API参考/Beats/UpdateCollector.md)|调用UpdateCollector，更新采集器实例信息。|
+|[StartCollector](/intl.zh-CN/API参考/Beats/StartCollector.md)|调用StartCollector，启动采集器。|
+|[RestartCollector](/intl.zh-CN/API参考/Beats/RestartCollector.md)|调用RestartCollector，重启采集器。|
+|[StopCollector](/intl.zh-CN/API参考/Beats/StopCollector.md)|调用StopCollector，停止运行中的采集器。|
+|[DeleteCollector](/intl.zh-CN/API参考/Beats/DeleteCollector.md)|调用DeleteCollector，删除采集器。|
+|[ListEcsInstances](/intl.zh-CN/API参考/Beats/基于ECS部署/ListEcsInstances.md)|调用ListEcsInstances，获取ECS机器列表。|
+|[ModifyDeployMachine](/intl.zh-CN/API参考/Beats/基于ECS部署/ModifyDeployMachine.md)|调用ModifyDeployMachine，更新采集器安装的ECS机器。|
+|[ListNodes](/intl.zh-CN/API参考/Beats/基于ECS部署/ListNodes.md)|调用ListNodes，查看安装采集器的ECS机器的状态。|
+|[ListAckClusters](/intl.zh-CN/API参考/Beats/基于ACK部署/ListAckClusters.md)|调用ListAckClusters，获取容器服务Kubernetes版ACK（Container Service for Kubernetes）集群列表。|
+|[ListAckNamespaces](/intl.zh-CN/API参考/Beats/基于ACK部署/ListAckNamespaces.md)|调用ListAckNamespaces，查看指定容器服务Kubernetes版ACK集群的所有命名空间。|
+|[DescribeAckOperator](/intl.zh-CN/API参考/Beats/基于ACK部署/DescribeAckOperator.md)|调用DescribeAckOperator，查看指定容器服务Kubernetes版ACK集群上安装的Elasticsearch Operator信息。|
+|[InstallAckOperator](/intl.zh-CN/API参考/Beats/基于ACK部署/InstallAckOperator.md)|调用InstallAckOperator，在指定容器服务Kubernetes版ACK集群上安装Elasticsearch Operator。|
 
 ## 访问控制
 
