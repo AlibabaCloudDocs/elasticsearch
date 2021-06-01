@@ -51,7 +51,7 @@ Sample requests
 
 Sample success responses
 
-`JSON`format
+`JSON` format
 
 ```
 
