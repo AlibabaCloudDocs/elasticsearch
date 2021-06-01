@@ -80,22 +80,6 @@
 |[DescribeDiagnoseReport](/intl.zh-CN/API参考/Elasticsearch/智能运维/DescribeDiagnoseReport.md)|调用DescribeDiagnoseReport，查看智能运维的历史报告。|
 |[DescribeDiagnosisSettings](/intl.zh-CN/API参考/Elasticsearch/智能运维/DescribeDiagnosisSettings.md)|调用DescribeDiagnosisSettings，获取智能运维的场景设置。|
 |[UpdateDiagnosisSettings](/intl.zh-CN/API参考/Elasticsearch/智能运维/UpdateDiagnosisSettings.md)|调用UpdateDiagnosisSettings，更新实例的智能运维场景设置。|
-|[DeleteIndexTemplate]()|调用DeleteIndexTemplate，删除索引模板。|
-|[UpdateIndexTemplate]()|调用UpdateIndexTemplate，更新索引模版的组件化设置。|
-|[DescribeIndexTemplate]()|调用DescribeIndexTemplate，查看组件索引模版详情，包括索引生命周期。|
-|[ListIndexTemplates]()|调用ListIndexTemplates，查询索引模板列表。|
-|[DescribeILMPolicy]()|调用DescribeILMPolicy，查询指定索引生命周期详情。|
-|[ListILMPolicies]()|调用ListILMPolicies，查询已有的索引生命周期策略列表。|
-|[CreateILMPolicy]()|调用CreateILMPolicy，创建索引生命周期策略。|
-|[DeleteILMPolicy]()|调用DeleteILMPolicy，删除指定的生命周期策略定义。|
-|[UpdateILMPolicy]()|调用UpdateILMPolicy，修改索引生命周期策略。|
-|[CreateDataStream]()|调用CreateDataStream，创建数据流。|
-|[DeleteDataStream]()|调用DeleteDataStream，删除数据流。|
-|[RolloverDataStream]()|调用RolloverDataStream，手动滚动更新数据流下的匹配索引。进行此操作后，将为当前数据流创建一个新的索引，该索引将成为数据流的新写索引。|
-|[ListDataStreams]()|调用ListDataStreams，用于查看数据流列表。|
-|[CloseManagedIndex]()|调用CloseManagedIndex，关闭Indexing Service集群中某个索引的云端托管功能。此功能不可逆，关闭后无法再开启。|
-|[t2083839.md\#]()|调用GetEmonGrafanaAlerts，获取Grafana报警列表。|
-|[t2083841.md\#]()|调用PostEmonTryAlarmRule，发送测试的报警消息。|
 
 ## Kibana
 
