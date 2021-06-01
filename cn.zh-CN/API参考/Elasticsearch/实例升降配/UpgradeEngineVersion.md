@@ -13,60 +13,18 @@
 ## 请求语法
 
 ```
-POST /openapi/instances/[InstanceId]/actions/upgrade-version HTTPS|HTTP
+POST /openapi/instances/[InstanceId]/actions/upgrade-version HTTP/1.1
 ```
 
 ## 请求参数
 
-|名称|类型|是否必选|示例值|描述|
-|--|--|----|---|--|
-|InstanceId|String|是|es-cn-n6w1o1x0w001c\*\*\*\*|实例ID。 |
-|clientToken|String|否|5A2CFF0E-5718-45B5-9D4D-70B3FF\*\*\*\*|用于保证请求的幂等性。由客户端生成该参数值，要保证在不同请求间唯一，最大不超过64个ASCII字符。 |
-|dryRun|Boolean|否|false|是否进行升级前校验。true表示校验，false表示不校验。 |
-
-## RequestBody
-
-RequestBody中还需填入以下参数。
-
-|参数
-
-|类型
-
-|是否必选
-
-|示例值
-
-|描述 |
-|----|----|------|-----|----|
-|version
-
-|String
-
-|是
-
-|6.7
-
-|升级版本，可选值：6.7、ali1.2.0。取值为6.7时，type必须为engineVersion；取值为ali1.2.0时，type必须为aliVersion。 |
-|type
-
-|String
-
-|否
-
-|engineVersion
-
-|升级类型，可选值： engineVersion（版本升级，默认）、aliVersion（补丁升级）。 |
-
-示例如下。
-
-```
-
-{
-  "version": "ali1.2.0",
-  "type": "aliVersion"
-}
-
-```
+|名称|类型|位置|是否必选|示例值|描述|
+|--|--|--|----|---|--|
+|InstanceId|String|Path|是|es-cn-n6w1o1x0w001c\*\*\*\*|实例ID。 |
+|clientToken|String|Query|否|5A2CFF0E-5718-45B5-9D4D-70B3FF\*\*\*\*|用于保证请求的幂等性。由客户端生成该参数值，要保证在不同请求间唯一，最大不超过64个ASCII字符。 |
+|dryRun|Boolean|Query|否|false|是否进行升级前校验。true表示校验，false表示不校验。 |
+|version|String|Body|否|6.7|升级版本，可选值：6.7、ali1.2.0。取值为6.7时，type必须为engineVersion；取值为ali1.2.0时，type必须为aliVersion。 |
+|type|String|Body|否|engineVersion|升级类型，可选值： engineVersion（版本升级，默认）、aliVersion（补丁升级）。 |
 
 ## 返回数据
 
@@ -107,54 +65,7 @@ POST /openapi/instances/es-cn-n6w1o1x0w001c****/actions/upgrade-version HTTP/1.1
 
 正常返回示例
 
-`XML` 格式
-
-```
-<Result>
-    <validateType>checkClusterHealth</validateType>
-    <status>failed</status>
-    <validateResult>
-        <errorType>clusterStatus</errorType>
-        <errorCode>ClusterStatusNotHealth</errorCode>
-        <errorMsg>ClusterStatusNotHealth</errorMsg>
-    </validateResult>
-</Result>
-<Result>
-    <validateType>checkConfigCompatible</validateType>
-    <status>failed</status>
-    <validateResult>
-        <errorType>clusterConfigYml</errorType>
-        <errorCode>ClusterYamlNotCompatible</errorCode>
-        <errorMsg>ClusterYamlNotCompatible</errorMsg>
-    </validateResult>
-    <validateResult>
-        <errorType>clusterConfigPlugins</errorType>
-        <errorCode>ClusterPluginsNotSupport</errorCode>
-        <errorMsg>ClusterPluginsNotSupport</errorMsg>
-    </validateResult>
-</Result>
-<Result>
-    <validateType>checkClusterResource</validateType>
-    <status>failed</status>
-    <validateResult>
-        <errorType>clusterResource</errorType>
-        <errorCode>ClusterResourceNotEnough</errorCode>
-        <errorMsg>ClusterResourceNotEnough</errorMsg>
-    </validateResult>
-</Result>
-<Result>
-    <validateType>checkClusterSnapshot</validateType>
-    <status>failed</status>
-    <validateResult>
-        <errorType>clusterSnapshot</errorType>
-        <errorCode>ClusterSnapshotNotAvaild</errorCode>
-        <errorMsg>ClusterSnapshotNotAvaild</errorMsg>
-    </validateResult>
-</Result>
-<RequestId>F99407AB-2FA9-489E-A259-40CF6DC****</RequestId>
-```
-
-`JSON` 格式
+`JSON`格式
 
 ```
 {
@@ -217,6 +128,7 @@ POST /openapi/instances/es-cn-n6w1o1x0w001c****/actions/upgrade-version HTTP/1.1
 
 |HttpCode|错误码|错误信息|描述|
 |--------|---|----|--|
+|400|InstanceActivating|Instance is activating.|实例目前处于生效中。|
 |400|InstanceNotFound|The instanceId provided does not exist.|实例找不到，请核对实例状态。|
 
 访问[错误中心](https://error-center.aliyun.com/status/product/elasticsearch)查看更多错误码。
