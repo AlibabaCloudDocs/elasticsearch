@@ -41,11 +41,11 @@ RequestBody中还可以填入以下参数，用来指定重启参数信息。
 
 |String
 
-|是
+|否
 
 |instance
 
-|重启类型，支持：instance（重启实例，默认）、nodeIp（节点重启）。 |
+|重启类型，支持：instance（重启实例）、nodeIp（节点重启）。默认值：重启实例。 |
 |nodes
 
 |List<String\\\>
@@ -63,7 +63,7 @@ RequestBody中还可以填入以下参数，用来指定重启参数信息。
 
 |false
 
-|节点重启时，是否进行蓝绿变更，默认为false。 |
+|节点重启时，是否进行蓝绿变更。默认值：false。 |
 |batch
 
 |Integer
@@ -72,7 +72,7 @@ RequestBody中还可以填入以下参数，用来指定重启参数信息。
 
 |25.0
 
-|实例强制重启的并发度。默认：1/实例总节点数。 |
+|实例强制重启的并发度。默认值：1/实例总节点数。 |
 |batchUnit
 
 |String
@@ -81,7 +81,7 @@ RequestBody中还可以填入以下参数，用来指定重启参数信息。
 
 |percent
 
-|batch单位。默认：percent。 |
+|batch单位。默认值：percent。 |
 
 -   restartType为instance时，忽略blueGreenDep参数。
     -   force为true，batch必须大于0，小于等于100，否则系统会提示RestartBatchValueError的报错。
