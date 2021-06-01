@@ -27,7 +27,7 @@ GET /openapi/tags HTTP/1.1
 |ResourceIds|String|Query|否|\["es-cn-aaa","es-cn-bbb"\]|要查询的实例ID列表。 |
 |Tags|String|Query|否|\[\{"key":"env","value","dev"\},\{"key":"dev", "value":"IT"\}\]|要查询的Tags列表，采用JSON字符串的形式，最多包含20个子项。 |
 
--   您只能在**ResourceIds**和**Tags**参数中，选择一个传入值，否则报错。
+-   您只能在**ResourceIds**和**Tags**参数中，至少选择一个传入值，否则报错。
 -   您只能查询可见标签，不能查询不可见标签。
 
 **说明：** 系统标签是指云产品（即阿里云服务）给用户实例添加的标签。系统标签分为可见标签和不可见标签。
