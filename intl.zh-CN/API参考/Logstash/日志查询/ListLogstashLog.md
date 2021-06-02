@@ -20,13 +20,13 @@ GET /openapi/logstashes/[InstanceId]/search-log HTTP/1.1
 
 |名称|类型|位置|是否必选|示例值|描述|
 |--|--|--|----|---|--|
-|beginTime|Long|Query|是|1531910852074|日志开始的时间戳。单位：毫秒。 |
-|endTime|Long|Query|是|1531910852074|日志结束的时间戳。单位：毫秒。 |
 |InstanceId|String|Path|是|ls-cn-v0h1kzca\*\*\*\*|实例ID。 |
-|page|Integer|Query|是|1|实例列表的页码。默认值：1，最小值：1，最大值：200。 |
 |query|String|Query|是|host:10.7.xx.xx AND level:info AND content:opening|要查询的关键词。 |
-|size|Integer|Query|是|20|分页查询时设置的每页条数。默认值：20，最小值：1，最大值：100。 |
 |type|String|Query|是|LOGSTASH\_INSTANCE\_LOG|日志类型。可选值：LOGSTASH\_INSTANCE\_LOG（主日志）、SEARCHSLOW（searching慢日志）、INDEXINGSLOW（indexing慢日志）、JMVLOG（GC日志）、LOGSTASH\_DEBUG\_LOG（调试日志）。 |
+|beginTime|Long|Query|否|1531910852074|日志开始的时间戳。单位：毫秒。 |
+|endTime|Long|Query|否|1531910852074|日志结束的时间戳。单位：毫秒。 |
+|page|Integer|Query|否|1|实例列表的页码。默认值：1，最小值：1，最大值：200。 |
+|size|Integer|Query|否|20|分页查询时设置的每页条数。默认值：20，最小值：1，最大值：100。 |
 
 ## 返回数据
 
@@ -116,6 +116,7 @@ GET /openapi/logstashes/ls-cn-v0h1kzca****/search-log?type=LOGSTASH_INSTANCE_LOG
 
 |HttpCode|错误码|错误信息|描述|
 |--------|---|----|--|
+|400|InstanceActivating|Instance is activating.|实例目前处于生效中。|
 |400|InstanceNotFound|The instanceId provided does not exist.|实例找不到，请核对实例状态。|
 
 访问[错误中心](https://error-center.alibabacloud.com/status/product/elasticsearch)查看更多错误码。
