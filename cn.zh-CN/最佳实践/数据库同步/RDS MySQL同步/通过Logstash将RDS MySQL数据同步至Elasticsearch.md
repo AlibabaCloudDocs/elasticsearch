@@ -27,7 +27,7 @@ keyword: [logstash数据同步, mysql数据同步到es]
 
 1.  创建阿里云Elasticsearch实例，并开启自动创建索引功能。
 
-    具体操作，请参见[t134282.md\#](/cn.zh-CN/Elasticsearch/实例管理/创建阿里云Elasticsearch实例.md)和[开启自动创建索引](/cn.zh-CN/Elasticsearch/快速访问与配置.md)。本文使用7.4.0版本的实例。
+    具体操作，请参见[创建阿里云Elasticsearch实例](/cn.zh-CN/Elasticsearch/实例管理/创建阿里云Elasticsearch实例.md)和[t1605396.md\#](/cn.zh-CN/Elasticsearch/快速访问与配置.md)。本文使用7.4.0版本的实例。
 
 2.  创建阿里云Logstash实例，并上传与RDS MySQL版本兼容的SQL JDBC驱动（本文使用mysql-connector-java-5.1.48.jar）。
 
@@ -129,7 +129,7 @@ keyword: [logstash数据同步, mysql数据同步到es]
     |statement|指定SQL语句。|
     |schedule|指定定时操作，"\* \* \* \* \*"表示每分钟定时同步数据。该参数使用的是Rufus版的Cron表达式。|
     |record\_last\_run|是否记录上次执行结果。如果为true，则会把上次执行到的tracking\_column字段的值记录下来，保存到last\_run\_metadata\_path指定的文件中。|
-    |last\_run\_metadata\_path|指定最后运行时间文件存放的地址。目前后端开放了/ssd/1/ls-cn-xxxxxxx/logstash/data/路径来保存文件。|
+    |last\_run\_metadata\_path|指定最后运行时间文件存放的地址。目前后端开放了/ssd/1/<Logstash实例ID\>/logstash/data/路径来保存文件。**说明：** 配置Logstash管道时，建议按照/ssd/1/<Logstash实例ID\>/logstash/data/路径配置此参数。如果不按照该路径配置，会导致同步的条件记录因为权限不足而无法存放在last\_run\_metadata\_path路径下的配置文件中。 |
     |clean\_run|是否清除last\_run\_metadata\_path的记录，默认为false。如果为true，那么每次都要从头开始查询所有的数据库记录。|
     |use\_column\_value|是否需要记录某个column的值。当该值设置成true时，系统会记录tracking\_column参数所指定的列的最新的值，并在下一次管道执行时通过该列的值来判断需要更新的记录。|
     |tracking\_column\_type|跟踪列的类型，默认是numeric。|
