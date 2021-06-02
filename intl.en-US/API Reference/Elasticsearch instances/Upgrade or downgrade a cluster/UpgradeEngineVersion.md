@@ -79,5 +79,5 @@ Sample success responses
 |400|InstanceActivating|Instance is activating.|The instance is currently in effect.|
 |400|InstanceNotFound|The instanceId provided does not exist.|The instance cannot be found. Please check the instance status.|
 
-Go to the [Error Center](https://error-center.alibabacloud.com/status/product/elasticsearch)View more error codes.
+For a list of error codes, visit the [API Error Center](https://error-center.alibabacloud.com/status/product/elasticsearch).
 
