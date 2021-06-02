@@ -578,7 +578,7 @@ Sample requests
 
 Sample success responses
 
-`JSON`format
+`JSON` format
 
 ```
 
@@ -588,5 +588,5 @@ Sample success responses
 
 ## Error codes
 
-Go to the [Error Center](https://error-center.alibabacloud.com/status/product/elasticsearch)View more error codes.
+For a list of error codes, visit the [API Error Center](https://error-center.alibabacloud.com/status/product/elasticsearch).
 
