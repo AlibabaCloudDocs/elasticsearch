@@ -17,7 +17,7 @@ Elasticsearch supports the following system policies:
 
 -   You can use the preceding policies to grant the permissions only on Elasticsearch or Logstash clusters to RAM users. The policies do not contain permissions on CloudMonitor and tags. If you want to grant the permissions on CloudMonitor or tags, you must create the related custom policies and attach the policies to the RAM users. For more information about how to grant the permissions on CloudMonitor or tags, see [Policy for an administrator](#section_q2g_cas_kj0).
 -   You can use policies to grant permissions only on all the resources that belong to an Alibaba Cloud account. You cannot use the policies to grant permissions on a specific resource group.
--   
+
 ## Procedure
 
 1.  On the Policies page, click **Create Policy**.
