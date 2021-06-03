@@ -104,7 +104,7 @@ GET /openapi/instances/[InstanceId] HTTPS|HTTP
 |type|String|vpc|The network type. Only Virtual Private Cloud \(VPC\) is supported. |
 |vpcId|String|vpc-abc|The ID of the VPC network. |
 |vsArea|String|cn-hangzhou-b|The zone where the instance is deployed. |
-|vswitchId|String|vsw-abc|The ID of the VSwitch associated with the specified VPC. |
+|vswitchId|String|vsw-abc|The ID of the vSwitch associated with the specified VPC. |
 |nodeAmount|Integer|2|The number of data nodes. |
 |nodeSpec|Struct| |The configuration of data nodes. |
 |disk|Integer|0|The size of the node storage space. Unit: GB. |
