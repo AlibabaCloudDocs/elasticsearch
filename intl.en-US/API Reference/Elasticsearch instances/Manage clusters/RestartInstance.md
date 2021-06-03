@@ -158,7 +158,7 @@ Example:
 |type|String|vpc|The network type. Only Virtual Private Cloud \(VPC\) is supported. |
 |vpcId|String|vpc-bp16k1dvzxtmagcva\*\*\*\*|The ID of the VPC. |
 |vsArea|String|cn-hangzhou-i|The zone where the instance is deployed. |
-|vswitchId|String|vsw-bp1k4ec6s7sjdbudw\*\*\*\*|The ID of the VSwitch associated with the specified VPC. |
+|vswitchId|String|vsw-bp1k4ec6s7sjdbudw\*\*\*\*|The ID of the vSwitch associated with the specified VPC. |
 |nodeAmount|Integer|2|The number of data nodes. |
 |nodeSpec|Struct| |The configuration of data nodes. |
 |disk|Integer|50|The storage space size per data node. Unit: GB. |
