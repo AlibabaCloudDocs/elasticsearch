@@ -20,7 +20,7 @@ GET /openapi/tags/all-tags HTTP/1.1
 
 |名称|类型|位置|是否必选|示例值|描述|
 |--|--|--|----|---|--|
-|pageSize|Integer|Query|是|20|返回结果的分页数。默认值：50。 |
+|pageSize|Integer|Query|否|20|返回结果的分页数。默认值：50。 |
 |resourceType|String|Query|否|INSTANCE|资源类型，固定为INSTANCE。 |
 
 ## 返回数据
