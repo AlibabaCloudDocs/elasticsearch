@@ -1,6 +1,6 @@
 # 通过API操作阿里云Elasticsearch
 
-开源Elasticsearch提供了一系列Restful风格的API，您可以通过curl命令使用，也可以在Kibana中使用。本文介绍如何通过curl命令，调用API与阿里云Elasticsearch实例进行交互，并完成查看集群信息、创建索引和文档、搜索文档等操作。
+开源Elasticsearch提供了一系列RESTful风格的API，您可以通过curl命令使用，也可以在Kibana中使用。本文介绍如何通过curl命令，调用API与阿里云Elasticsearch实例进行交互，并完成查看集群信息、创建索引和文档、搜索文档等操作。
 
 创建一个与阿里云Elasticsearch在同一专有网络VPC（Virtual Private Cloud）下的云服务器ECS实例。具体操作，请参见[使用向导创建实例](/intl.zh-CN/实例/创建实例/使用向导创建实例.md)。
 
