@@ -12,7 +12,7 @@ keyword: [logstash数据同步, mysql数据同步到es]
 
 -   Elasticsearch中的\_id字段必须与MySQL中的id字段相同。
 
-    该条件可以确保当您将MySQL中的记录写入Elasticsearch时，同步任务可在MySQL记录与Elasticsearch文档之间建立一个直接映射的关系。例如当您在MySQL中更新了某条记录时，同步任务会覆盖Elasticsearch中与更新记录具有相同id的文档。
+    该条件可以确保当您将MySQL中的记录写入Elasticsearch时，同步任务可在MySQL记录与Elasticsearch文档之间建立一个直接映射的关系。例如当您在MySQL中更新了某条记录时，同步任务会覆盖Elasticsearch中与更新记录具有相同ID的文档。
 
     **说明：** 根据Elasticsearch内部原理，更新操作的本质是删除旧文档然后对新文档进行索引，因此在Elasticsearch中覆盖文档的效率与[更新操作](https://www.elastic.co/guide/en/elasticsearch/reference/6.7/getting-started-update-documents.html)的效率一样高。
 
