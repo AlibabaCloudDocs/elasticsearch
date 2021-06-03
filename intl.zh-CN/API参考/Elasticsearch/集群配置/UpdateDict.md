@@ -162,7 +162,7 @@ RequestBody中还需填入以下参数。
 请求示例
 
 ```
-PUT /openapi/instances/es-cn-oew1q8bev0002****/ik-hot-dict HTTP/1.1
+PUT /openapi/instances/es-cn-oew1q8bev0002****/dict HTTP/1.1
 公共请求头
 [
     {
