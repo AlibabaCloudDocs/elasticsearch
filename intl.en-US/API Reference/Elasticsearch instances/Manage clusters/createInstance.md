@@ -500,7 +500,7 @@ The following parameters must be filled in the RequestBody to specify the inform
 
 |cn-hangzhou-i
 
-|The ID of the zone to which the VSwitch belongs. |
+|The ID of the zone to which the vSwitch belongs. |
 |└vswitchId
 
 |string
