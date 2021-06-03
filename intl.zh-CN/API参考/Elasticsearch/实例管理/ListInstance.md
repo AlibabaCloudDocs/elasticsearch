@@ -42,19 +42,28 @@ GET /openapi/instances HTTP/1.1
 |X-Total-Count|Integer|10|实例总记录数。 |
 |RequestId|String|5FFD9ED4-C2EC-4E89-B22B-1ACB6FE1\*\*\*\*|请求ID。 |
 |Result|Array of Instance| |返回结果。 |
-|advancedDedicateMaster|Boolean|false|是否包含专有主节点。 |
+|advancedDedicateMaster|Boolean|false|是否包含专有主节点。取值含义如下：
+
+ -   true：包含。
+-   flase：不包含。 |
 |clientNodeConfiguration|Struct| |协调节点配置。 |
 |amount|Integer|3|节点数量。 |
 |disk|Integer|20|节点存储空间大小，单位为GB。 |
 |diskType|String|cloud\_efficiency|节点的存储类型，只支持高效云盘（cloud\_efficiency）。 |
 |spec|String|elasticsearch.sn2ne.large|节点规格。 |
 |createdAt|String|2018-07-13T03:58:07.253Z|实例创建时间。 |
-|dedicateMaster|Boolean|false|是否包含专有主节点（旧版本）。 |
+|dedicateMaster|Boolean|false|是否包含专有主节点（旧版本），取值含义如下：
+
+ -   true：包含。
+-   flase：不包含。 |
 |description|String|es-cn-abc|实例名称。 |
 |elasticDataNodeConfiguration|Struct| |弹性数据节点配置。 |
 |amount|Integer|3|节点数量。 |
 |disk|Integer|20|节点存储空间大小，单位为GB。 |
-|diskEncryption|Boolean|true|是否为节点开启云盘加密。 |
+|diskEncryption|Boolean|true|是否为节点开启云盘加密，取值含义如下：
+
+ -   true：开启。
+-   flase：不开启。 |
 |diskType|String|cloud\_ssd|节点存储类型。支持：cloud\_ssd（SSD云盘）、cloud\_essd（ESSD云盘）、cloud\_efficiency（高效云盘）。 |
 |spec|String|elasticsearch.sn2ne.large|节点规格。 |
 |esVersion|String|5.5.3\_with\_X-Pack|实例版本。 |
@@ -87,6 +96,7 @@ GET /openapi/instances HTTP/1.1
 |paymentType|String|postpaid|实例的付费方式。
 
  支持：**prepaid**（包年包月）和**postpaid**（按量付费）。 |
+|postpaidServiceStatus|String|active|预付费实例叠加的后付费服务状态。支持：**active**（正常）、**closed**（关闭）、**indebt**（欠费冻结中）。 |
 |resourceGroupId|String|rg-aekzvowej3i\*\*\*\*|资源组ID。 |
 |status|String|active|实例的状态。
 
@@ -112,93 +122,66 @@ GET /openapi/instances?description=abc&page=1&size=10
 
 ```
 {
-	"Result": [
-		{
-			"instanceId": "es-cn-n6w1ptcb30009****",
-			"version": "5.5.3_with_X-Pack",
-			"description": "es-cn-n6w1ptcb30009****",
-			"nodeAmount": 3,
-			"paymentType": "postpaid",
-			"status": "active",
-			"privateNetworkIpWhiteList": [],
-			"enablePublic": false,
-			"nodeSpec": {
-				"spec": "elasticsearch.n4.small",
-				"disk": 20,
-				"diskType": "cloud_ssd",
-				"diskEncryption": false
-			},
-			"networkConfig": {
-				"vpcId": "vpc-bp16k1dvzxtmagcva****",
-				"vswitchId": "vsw-bp1k4ec6s7sjdbudw****",
-				"vsArea": "cn-hangzhou-i",
-				"type": "vpc"
-			},
-			"createdAt": "2020-06-28T08:25:52.895Z",
-			"updatedAt": "2020-06-28T08:25:52.895Z",
-			"commodityCode": "elasticsearch",
-			"extendConfigs": [
-				{
-					"configType": "usageScenario",
-					"value": "general"
-				},
-				{
-					"configType": "maintainTime",
-					"maintainStartTime": "02:00Z",
-					"maintainEndTime": "06:00Z"
-				}
-			],
-			"endTime": 4749033600000,
-			"clusterTasks": [],
-			"resourceGroupId": "rg-acfm2h5vbzd****",
-			"zoneCount": 1,
-			"protocol": "HTTP",
-			"zoneInfos": [
-				{
-					"zoneId": "cn-hangzhou-i",
-					"status": "NORMAL"
-				}
-			],
-			"instanceType": "elasticsearch",
-			"inited": true,
-			"tags": [],
-			"esVersion": "5.5.3_with_X-Pack",
-			"esIPWhitelist": [],
-			"esIPBlacklist": [],
-			"kibanaIPWhitelist": [],
-			"kibanaPrivateIPWhitelist": [],
-			"publicIpWhitelist": [],
-			"haveKibana": true,
-			"instanceCategory": "x-pack",
-			"dedicateMaster": false,
-			"advancedDedicateMaster": false,
-			"masterConfiguration": {},
-			"haveClientNode": false,
-			"warmNode": false,
-			"warmNodeConfiguration": {},
-			"clientNodeConfiguration": {},
-			"kibanaConfiguration": {
-				"spec": "elasticsearch.n4.small",
-				"amount": 1,
-				"disk": 0
-			},
-			"dictList": [],
-			"synonymsDicts": [],
-			"ikHotDicts": [],
-			"aliwsDicts": [],
-			"haveGrafana": false,
-			"haveCerebro": false,
-			"enableKibanaPublicNetwork": false,
-			"enableKibanaPrivateNetwork": false,
-			"advancedSetting": {
-				"gcName": "CMS"
-			}
-		}
-	],
-	"RequestId": "83EC620F-70A2-4497-A6A3-B1DF359D****",
-	"Headers": {
-		"X-Total-Count": 1
-	}
+    "RequestId": "5FFD9ED4-C2EC-4E89-B22B-1ACB6FE1****",
+    "Headers": {
+        "X-Total-Count": 10
+    },
+    "Result": {
+        "createdAt": "2018-07-13T03:58:07.253Z",
+        "instanceId": "es-cn-abc",
+        "description": "es-cn-abc",
+        "resourceGroupId": "rg-aekzvowej3i****",
+        "dedicateMaster": false,
+        "nodeAmount": 2,
+        "esVersion": "5.5.3_with_X-Pack",
+        "advancedDedicateMaster": false,
+        "postpaidServiceStatus": "active",
+        "updatedAt": "2018-07-18T10:10:04.484Z",
+        "status": "active",
+        "paymentType": "postpaid",
+        "tags": {
+            "tagValue": "dev",
+            "tagKey": "env"
+        },
+        "extendConfigs": "[{ \"configType\": \"aliVersion\",\t\"aliVersion\": \"ali1.3.0\" }]",
+        "clientNodeConfiguration": {
+            "disk": 20,
+            "amount": 3,
+            "diskType": "cloud_efficiency",
+            "spec": "elasticsearch.sn2ne.large"
+        },
+        "elasticDataNodeConfiguration": {
+            "disk": 20,
+            "amount": 3,
+            "diskType": "cloud_ssd",
+            "diskEncryption": true,
+            "spec": "elasticsearch.sn2ne.large"
+        },
+        "kibanaConfiguration": {
+            "disk": 20,
+            "amount": 1,
+            "diskType": "cloud_ssd",
+            "spec": "elasticsearch.n4.small"
+        },
+        "masterConfiguration": {
+            "disk": 20,
+            "amount": 3,
+            "diskType": "cloud_ssd",
+            "spec": "elasticsearch.sn2ne.large"
+        },
+        "networkConfig": {
+            "vswitchId": "vsw-def",
+            "vsArea": "cn-hangzhou-e",
+            "vpcId": "vpc-abc",
+            "type": "vpc"
+        },
+        "nodeSpec": {
+            "disk": 50,
+            "diskType": "cloud_ssd",
+            "diskEncryption": false,
+            "spec": "elasticsearch.n4.small"
+        }
+    }
 }
 ```
 
