@@ -65,7 +65,7 @@ output {
 }
 ```
 
-**说明：** MNS Endpoint不能以http为前缀，并且需要internal域名，否则会报错。
+**说明：** MNS Endpoint不能以HTTP为前缀，并且需要internal域名，否则会报错。
 
 ## 参数说明
 
