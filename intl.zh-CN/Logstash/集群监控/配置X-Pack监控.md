@@ -35,7 +35,7 @@
 
     |参数|说明|
     |--|--|
-    |**Elasticsearch实例**|选择需要关联的阿里云Elasticsearch实例，要求与Logstash实例在同一专有网络下，且版本相同（如果版本不相同，请务必保证版本间的兼容性）。|
+    |**Elasticsearch实例**|选择需要关联的阿里云Elasticsearch实例，要求与Logstash实例在同一专有网络下，且大版本相同（如果版本不相同，请务必保证版本间的兼容性）。|
     |**用户名**|访问阿里云Elasticsearch实例的用户名。|
     |**密码**|访问阿里云Elasticsearch实例的密码。|
 
