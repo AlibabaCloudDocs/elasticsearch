@@ -85,7 +85,7 @@ POST /openapi/emon/projects/[ProjectId]/metrics/query HTTP/1.1
 
 |sum
 
-|指标纵向聚合方式。即对指标进行sum、avg、max、min等聚合运算。 |
+|指标按tags维度聚合方式。即对指标按给定的tags group by，进行sum、avg、max、min等聚合运算。 |
 |└downsample
 
 |String
@@ -94,7 +94,7 @@ POST /openapi/emon/projects/[ProjectId]/metrics/query HTTP/1.1
 
 |avg
 
-|指标横向方式。即对指标在\[start,end\]窗口内的时间线，在时间维度降精度，例如把20s精度聚合为1min精度。 |
+|指标按时间精度聚合方式。即对指标在\[start,end\]窗口内的时间线，在时间维度降精度，例如把20s精度聚合为1min、10min、1hour精度，根据时间窗口的大小会自动降精度。 |
 |└tags
 
 |Map
@@ -119,7 +119,7 @@ POST /openapi/emon/projects/[ProjectId]/metrics/query HTTP/1.1
 
 |是
 
-|" "
+|"100 "
 
 |限定返回结果集的大小。为空则不限制，返回所有查询数据。一般用于tags里value使用通配符，返回结果集非常大的情况。 |
 |end
@@ -170,7 +170,7 @@ POST /openapi/emon/projects/[ProjectId]/metrics/query HTTP/1.1
 |integrity|Float|1.0|指标查询返回的结果里，时序曲线数据点的完整度。1.0表示100%完整。 |
 |messageWatermark|Long|1522127381471|请求到达服务端的时间戳，用于排查问题。 |
 |metric|String|elasticbuild.elasticsearch.source.total\_doc\_count|指标名称。 |
-|summary|Float|10|queries里如果有通配符，result会包含多条匹配到的时间序列数据，summary是在每个时间点上对这些时间线的value集合，按照query里提供的aggregator类型来聚合。目前聚合方式仅支持avg，后续会逐步支持sum、max、min、median、分位数等。 |
+|summary|Float|10|queries里如果有通配符，result会包含多条匹配到的时间序列数据，summary是在每个时间点上对这些时间线的value集合，按照query里提供的aggregator类型来聚合。目前聚合方式仅支持avg。 |
 |tags|Map|\{"taskName":"et-xxx","userId":"123456"\}|查询标签。 |
 |Success|Boolean|true|请求是否成功：
 
@@ -237,6 +237,7 @@ POST /openapi/emon/projects/es-185320276651****/metrics/query HTTP/1.1
 
 |HttpCode|错误码|错误信息|描述|
 |--------|---|----|--|
+|400|InstanceActivating|Instance is activating.|实例目前处于生效中。|
 |400|InstanceNotFound|The instanceId provided does not exist.|实例找不到，请核对实例状态。|
 
 访问[错误中心](https://error-center.aliyun.com/status/product/elasticsearch)查看更多错误码。
