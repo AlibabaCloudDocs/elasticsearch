@@ -1,6 +1,6 @@
 # Enable the X-Pack Monitoring feature
 
-This topic describes how to enable the X-Pack Monitoring feature to monitor your Alibaba Cloud Logstash cluster. After you enable it for your Logstash cluster and associate the cluster with an Elasticsearch cluster, you can monitor the Logstash cluster in the Kibana console of the Elasticsearch cluster.
+This topic describes how to enable the X-Pack Monitoring feature to monitor your Alibaba Cloud Logstash cluster. After you enable the feature for your Logstash cluster and associate the cluster with an Elasticsearch cluster, you can monitor the Logstash cluster in the Kibana console of the Elasticsearch cluster.
 
 -   An Alibaba Cloud Logstash cluster is created.
 
@@ -8,18 +8,18 @@ This topic describes how to enable the X-Pack Monitoring feature to monitor your
 
 -   An Alibaba Cloud Elasticsearch cluster is created. Make sure that the Elasticsearch and Logstash clusters reside in the same virtual private cloud \(VPC\) and use the same version.
 
-    For more information, see [Create an Alibaba Cloud Elasticsearch cluster](/intl.en-US/Elasticsearch Instances Management/Quick Start/Step 1: Create a cluster/Create an Alibaba Cloud Elasticsearch cluster.md).
+    For more information, see [Create an Alibaba Cloud Elasticsearch cluster](/intl.en-US/Elasticsearch Instances Management/Manage clusters/Create an Alibaba Cloud Elasticsearch cluster.md).
 
 
-1.  Log on to the [Alibaba Cloud Elasticsearch console](https://elasticsearch.console.aliyun.com/#/home).
+1.  Log on to the [Elasticsearch console](https://elasticsearch.console.aliyun.com/#/home).
 
-2.  In the top navigation bar, select the region where your cluster resides.
+2.  In the top navigation bar, select a region.
 
-3.  In the left-side navigation pane, click **Logstash Clusters**. On the page that appears, find the target cluster and click its ID in the **Cluster ID/Name** column.
+3.  In the left-side navigation pane, click **Logstash Clusters**. On the **Logstash Clusters** page, find the desired cluster and click its ID.
 
-4.  In the left-side navigation pane, click **Cluster Monitoring**.
+4.  In the left-side navigation pane of the page that appears, click **Cluster Monitoring**.
 
-5.  In the **Monitoring and Alerting** section, click **Edit** next to **X-Pack Monitoring**.
+5.  In the **Monitoring and Alerting** section, click **Edit** on the right side of **X-Pack Monitoring**.
 
     ![Enable X-Pack Monitoring](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/7848986061/p67546.png)
 
@@ -29,9 +29,9 @@ This topic describes how to enable the X-Pack Monitoring feature to monitor your
 
     |Parameter|Description|
     |---------|-----------|
-    |**Elasticsearch Cluster**|Select the Elasticsearch cluster that you use to associate with the Logstash cluster. You can select only an Elasticsearch cluster in the same VPC and of the same version as the Logstash cluster.|
+    |**Elasticsearch Cluster**|Select the Elasticsearch cluster with which you want to associate the Logstash cluster. We recommend that you select an Elasticsearch cluster that is in the same VPC and of the same version as the Logstash cluster. If the Elasticsearch and Logstash clusters are of different versions, make sure that the versions of the clusters are compatible with each other.|
     |**Username**|Enter the username of the Elasticsearch cluster.|
-    |**Password**|Enter the password of the username for the Elasticsearch cluster.|
+    |**Password**|Enter the password of the Elasticsearch cluster.|
 
 7.  Click **Test Connectivity**.
 
@@ -41,11 +41,11 @@ This topic describes how to enable the X-Pack Monitoring feature to monitor your
 
 8.  Click **OK**.
 
-    The system returns to the **Cluster Monitoring** page and restarts the cluster.
+    The system returns to the **Cluster Monitoring** page and restarts the Logstash cluster.
 
-9.  After the cluster is restarted, view the monitoring data of the cluster.
+9.  After the Logstash cluster is restarted, view the monitoring data of the cluster.
 
-    After the cluster is restarted, the value of **X-Pack Monitoring** changes to **Enable**, and the associated Elasticsearch cluster appears.
+    After the Logstash cluster is restarted, the value of **X-Pack Monitoring** changes to **Enable**, and the associated Elasticsearch cluster appears.
 
     **Note:** You can view the monitoring data of the Logstash cluster in the Kibana console only after the cluster is restarted.
 
