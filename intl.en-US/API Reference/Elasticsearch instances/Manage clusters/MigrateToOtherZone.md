@@ -74,7 +74,7 @@ The following parameters must be specified in RequestBody to specify the zone in
 
 |vsw-bp1f7r0ma00pf9h2l\*\*\*\*
 
-|The ID of the VSwitch. |
+|The ID of the vSwitch. |
 
 Example:
 
