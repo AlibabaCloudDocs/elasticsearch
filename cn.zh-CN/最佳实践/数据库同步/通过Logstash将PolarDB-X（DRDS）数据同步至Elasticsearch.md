@@ -14,7 +14,7 @@ PolarDB-X是由阿里巴巴自主研发的云原生分布式数据库，融合�
 
 -   Elasticsearch中的\_id字段必须与数据库中的id字段相同。
 
-    该条件可以确保当您将数据库中的记录写入Elasticsearch时，同步任务可在数据库记录与Elasticsearch文档之间建立一个直接映射的关系。例如当您在数据库中更新了某条记录时，同步任务会覆盖Elasticsearch中与更新记录具有相同id的文档。
+    该条件可以确保当您将数据库中的记录写入Elasticsearch时，同步任务可在数据库记录与Elasticsearch文档之间建立一个直接映射的关系。例如当您在数据库中更新了某条记录时，同步任务会覆盖Elasticsearch中与更新记录具有相同ID的文档。
 
     **说明：** 根据Elasticsearch内部原理，更新操作的本质是删除旧文档然后对新文档进行索引，因此在Elasticsearch中覆盖文档的效率与[更新操作](https://www.elastic.co/guide/en/elasticsearch/reference/6.7/getting-started-update-documents.html)的效率一样高。
 
@@ -68,9 +68,9 @@ PolarDB-X是由阿里巴巴自主研发的云原生分布式数据库，融合�
 
 1.  登录[阿里云Elasticsearch控制台](https://elasticsearch.console.aliyun.com/#/home)。
 
-2.  在左侧导航栏，单击**Logstash实例**。
+2.  在顶部菜单栏处，选择地域。
 
-3.  在顶部菜单栏处，选择地域，然后在**Logstash实例**中单击目标实例ID。
+3.  在左侧导航栏，单击**Logstash实例**，然后在**Logstash实例**中单击目标实例ID。
 
 4.  单击左侧导航栏的**管道管理**。
 
