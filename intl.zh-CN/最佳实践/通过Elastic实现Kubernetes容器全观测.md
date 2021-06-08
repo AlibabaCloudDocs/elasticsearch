@@ -560,7 +560,7 @@ Elastic APM是基于Elastic Stack构建的应用程序性能监控系统。它�
         ENTRYPOINT ["java","-javaagent:/elastic-apm-agent-1.21.0.jar","-Delastic.apm.service_name=my-application","-Delastic.apm.server_url=http://apmserver:8200","-Delastic.apm.application_packages=com.example","-jar","/spring-boot-0.0.1-SNAPSHOT.jar"]
         ```
 
-        ENTRYPOINT定义容器启动时运行的java命令及参数如下：
+        ENTRYPOINT定义容器启动时运行的Java命令及参数如下：
 
         |参数|说明|
         |--|--|
