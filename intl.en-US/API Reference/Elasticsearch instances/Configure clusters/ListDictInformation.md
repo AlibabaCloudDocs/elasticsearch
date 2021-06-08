@@ -36,7 +36,7 @@ This operation uses only the common request header. For more information, see Co
 |fileSize|Long|2202301|The dictionary file size, unit: Byte. |
 |ossObject|Struct| |OSS Open Storage file details. |
 |bucketName|String|es-osstest\*|The name of the bucket where the OSS storage file is located. |
-|etag|String|2ABAB5E70BBF631145647F6BE533\*\*\*\*|The MD5 check code Etag \(uppercase\) of the OSS storage file. |
+|etag|String|2ABAB5E70BBF631145647F6BE533\*\*\*\*|The MD5 check code ETag \(uppercase\) of the OSS storage file. |
 |key|String|oss/dict\_0\*.dic|The path where the dictionary file is stored in OSS Bucket. |
 |type|String|STOP|Thesaurus type, which supports the following two types:
 
