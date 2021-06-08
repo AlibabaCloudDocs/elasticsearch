@@ -87,7 +87,7 @@ output {
 |`exclude_pattern`|string|否|要从Bucket中排除的key的ruby正则表达式。|
 |`mns_settings`|hash|是|消息服务（MNS）配置。 可选值及说明如下：
 
--   `endpoint`：MNS端口链接。不能以http为前缀，并且需要internal域名，否则会报错。
+-   `endpoint`：MNS端口链接。不能以HTTP为前缀，并且需要internal域名，否则会报错。
 -   `queue`：队列名。
 -   `poll_interval_seconds`：当队列中没有消息时，针对该队列的ReceiveMessage请求最长的等待时间，默认为10秒。
 -   `wait_seconds`：本次ReceiveMessage请求最长的Polling等待时间，单位为秒。
