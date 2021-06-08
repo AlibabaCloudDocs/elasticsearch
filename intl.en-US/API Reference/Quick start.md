@@ -118,7 +118,7 @@ Before you call an API operation, you must understand related instructions in [A
 
     |Parameter|Description|
     |---------|-----------|
-    |<RegionId\>|The ID of the region where the cluster resides. For more information about how to obtain the ID, see [Supported regions](/intl.en-US/RAM/Types of resources that can be authorized.md).|
+    |<RegionId\>|The ID of the region where the cluster resides. For more information about how to obtain the ID, see [t134305.md\#section\_ydy\_ply\_zgb](/intl.en-US/RAM/Types of resources that can be authorized.md).|
     |<accessKeyId\>|The AccessKey ID of your Alibaba Cloud account. For more information about how to obtain the AccessKey ID, see [Create an AccessKey pair]().|
     |<accessSecret\>|The AccessKey secret of your Alibaba Cloud account. For more information about how to obtain the AccessKey secret, see [Create an AccessKey pair]().|
     |<instanceId\>|The ID of the cluster. For more information about how to obtain the ID, see [View the basic information of a cluster](/intl.en-US/Elasticsearch Instances Management/Manage clusters/View the basic information of a cluster.md) and [ListInstance](/intl.en-US/API Reference/Elasticsearch instances/Manage clusters/ListInstance.md).|
