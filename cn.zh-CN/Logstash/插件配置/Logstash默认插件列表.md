@@ -13,7 +13,7 @@
 |beats|从Elastic Beats框架中接收事件。|[Beats input plugin](https://www.elastic.co/guide/en/logstash/6.7/plugins-inputs-beats.html)|
 |dead\_letter\_queue|从Logstash的死信队列中读取事件。|[Dead\_letter\_queue input plugin](https://www.elastic.co/guide/en/logstash/6.7/plugins-inputs-dead_letter_queue.html)|
 |elasticsearch|从Elasticsearch集群中读取数据。|[Elasticsearch input plugin](https://www.elastic.co/guide/en/logstash/6.7/plugins-inputs-elasticsearch.html)|
-|exec|定期运行Shell命令，将shell命令的全部输出作为事件捕获。|[Exec input plugin](https://www.elastic.co/guide/en/logstash/6.7/plugins-inputs-exec.html)|
+|exec|定期运行Shell命令，将Shell命令的全部输出作为事件捕获。|[Exec input plugin](https://www.elastic.co/guide/en/logstash/6.7/plugins-inputs-exec.html)|
 |ganglia|通过用户数据协议UDP（User Datagram Protocol）从网络读取Ganglia包。|[Ganglia input plugin](https://www.elastic.co/guide/en/logstash/6.7/plugins-inputs-ganglia.html)|
 |gelf|在网络上将GELF格式信息作为事件读取。|[Gelf input plugin](https://www.elastic.co/guide/en/logstash/6.7/plugins-inputs-gelf.html)|
 |generator|生成随机日志事件。|[Generator input plugin](https://www.elastic.co/guide/en/logstash/6.7/plugins-inputs-generator.html)|
