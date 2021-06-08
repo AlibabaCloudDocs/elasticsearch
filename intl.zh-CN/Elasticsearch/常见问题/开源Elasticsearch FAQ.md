@@ -2,6 +2,22 @@
 
 本文汇总了开源Elasticsearch相关的常见问题。
 
+-   [如何配置索引线程池大小？](#section_prp_6bi_our)
+-   [出现内存溢出OOM（OutOfMemory）的错误，如何处理？](#section_1de_dy5_3j7)
+-   [如何手动对shard进行操作？](#section_yfz_s3l_4qh)
+-   [Elasticsearch的缓存清除策略有哪些？](#section_88t_fp8_8pd)
+-   [如何重新分配索引分片（reroute）？](#section_2w1_cfv_mfd)
+-   [索引查询时，提示statusCode: 500的错误，如何处理？](#section_hbj_bpj_x88)
+-   [如何修改自动创建索引auto\_create\_index参数？](#section_l2r_3gz_gjs)
+-   [OSS快照大概需要多久？](#section_bqp_vk8_i7d)
+-   [创建索引时，如何设置分片数？](#section_a71_gt4_1lr)
+-   [自建Elasticsearch迁移数据，使用elasticsearch-repository-oss插件遇到如下问题，如何解决？](#section_shq_6ns_3tl)
+-   [Elasticsearch服务器的时间不准，如何调整？](#section_dg3_ci7_hms)
+-   [Elasticsearch的Term查询适用于哪种类型的数据？](#section_361_lot_89b)
+-   [使用Elasticsearch的别名（aliases）功能需要注意哪些问题？](#section_vpf_hzi_6r6)
+-   [在进行查询过程中，出现以下报错，如何处理？](#section_544_f4t_phn)
+-   [如何批量删除索引？](#section_cmt_se0_1v6)
+
 ## 如何配置索引线程池大小？
 
 在YML参数配置中，指定thread\_pool.write.queue\_size参数的大小即可。具体操作步骤，请参见[配置YML参数](/intl.zh-CN/Elasticsearch/ES集群配置/配置YML参数.md)。
@@ -15,8 +31,13 @@
 通过以下命令清理缓存，然后观察具体原因，根据原因[升配集群](/intl.zh-CN/Elasticsearch/升降配实例/升配集群.md)或调整业务。
 
 ```
-curl -u elastic:passwd -XPOST "localhost:9200/<index-name>/_cache/clear?pretty"
+curl -u elastic:<password> -XPOST "localhost:9200/<index_name>/_cache/clear?pretty"
 ```
+
+|变量名|说明|
+|---|--|
+|`<password>`|阿里云Elasticsearch实例的密码，为您在创建Elasticsearch实例时设置的密码，或初始化Kibana时指定的密码。|
+|`<index_name>`|索引名称。|
 
 ## 如何手动对shard进行操作？
 
@@ -89,15 +110,15 @@ PUT /_cluster/settings
 }
 ```
 
-**说明：** `auto_create_index`参数的默认值为false，表示不允许自动创建索引。一般建议您不要调整该值，会引起索引太多、索引Mapping和Setting不符合预期等问题。
+**说明：** `auto_create_index`参数的默认值为false，表示不允许自动创建索引。一般建议您不要调整该值，否则会引起索引太多、索引Mapping和Setting不符合预期等问题。
 
 ## OSS快照大概需要多久？
 
-在集群的分片数、内存、磁盘和CPU等正常的情况下，80GB的索引数据进行OSS快照，大约需要30分钟。
+在集群的分片数、内存、磁盘和CPU等正常的情况下，80 GB的索引数据进行OSS快照，大约需要30分钟。
 
 ## 创建索引时，如何设置分片数？
 
-建议您将单个分片存储索引数据的大小控制在30GB以内，不要超过50GB，否则会极大降低查询性能。建议：最终分片数量 = 数据总量/30GB。
+建议您将单个分片存储索引数据的大小控制在30 GB以内，不要超过50 GB，否则会极大降低查询性能。根据上述建议，最终分片数量 = 数据总量/30 GB。
 
 适当提升分片数量可以提升建立索引的速度。分片数过多或过少，都会降低查询速度，具体说明如下：
 
@@ -115,6 +136,8 @@ PUT /_cluster/settings
 您可以在Kibana中，通过转换时区来调整服务器时间，如下图（以6.7.0版本为例）。
 
 ![调整服务器时间1](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/5850005061/p180469.png)
+
+选择时区如下图所示。
 
 ![选择时区](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/5850005061/p180471.png)
 
