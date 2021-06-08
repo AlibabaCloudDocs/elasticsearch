@@ -120,7 +120,7 @@ keyword: beats采集日志
         |参数|说明|
         |--|--|
         |`input`|接收Beats采集的数据。|
-        |`filter`|过滤采集的数据。通过`json`插件进行message数据解码，使用`remove_field`删除指定字段。 **说明：** 本文中的`filter`配置只适用于当前测试场景，不适用于所有的业务场景。请根据自身业务场景修改`filter`配置，关于`filter`支持的插件及每个插件的使用说明，请参见[filter plugin](https://www.elastic.co/guide/en/logstash/6.7/filter-plugins.html#filter-plugins)。 |
+        |`filter`|过滤采集的数据。通过`JSON`插件进行message数据解码，使用`remove_field`删除指定字段。 **说明：** 本文中的`filter`配置只适用于当前测试场景，不适用于所有的业务场景。请根据自身业务场景修改`filter`配置，关于`filter`支持的插件及每个插件的使用说明，请参见[filter plugin](https://www.elastic.co/guide/en/logstash/6.7/filter-plugins.html#filter-plugins)。 |
         |`output`|将数据传输至阿里云ES实例中。 `<your_password>`需要替换为您阿里云ES实例的访问密码；`<your_index>`需要替换为您定义的索引名称。 |
 
 
