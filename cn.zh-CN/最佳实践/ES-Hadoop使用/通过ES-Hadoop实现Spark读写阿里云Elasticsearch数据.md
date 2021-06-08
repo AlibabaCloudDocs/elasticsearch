@@ -6,7 +6,7 @@ Spark是一种通用的大数据计算框架，拥有Hadoop MapReduce所具有�
 
 1.  创建阿里云Elasticsearch实例，并开启自动创建索引功能。
 
-    具体操作步骤请参见[创建阿里云Elasticsearch实例](/cn.zh-CN/快速入门/步骤一：创建实例/创建阿里云Elasticsearch实例.md)和[开启自动创建索引](/cn.zh-CN/快速入门/步骤二：配置实例（可选）.md)。本文以6.7.0版本的实例为例。
+    具体操作步骤请参见[t134282.md\#](/cn.zh-CN/Elasticsearch/实例管理/创建阿里云Elasticsearch实例.md)和[开启自动创建索引](/cn.zh-CN/Elasticsearch/快速访问与配置.md)。本文以6.7.0版本的实例为例。
 
     **说明：** 在生产环境中，建议关闭自动创建索引功能，提前创建好索引和Mapping。由于本文仅用于测试，因此开启了自动创建索引功能。
 
@@ -21,7 +21,7 @@ Spark是一种通用的大数据计算框架，拥有Hadoop MapReduce所具有�
     **说明：** Elasticsearch实例的私网访问白名单默认为0.0.0.0/0，您可在安全配置页面查看，如果未使用默认配置，您还需要在白名单中加入EMR集群的内网IP地址：
 
     -   请参见[查看集群列表与详情](/cn.zh-CN/集群管理/集群配置/查看集群列表与详情.md)，获取EMR集群的内网IP地址。
-    -   请参见[配置ES公网或私网访问白名单](/cn.zh-CN/ES实例/安全配置/配置ES公网或私网访问白名单.md)，配置Elasticsearch实例的VPC私网访问白名单。
+    -   请参见[配置Elasticsearch公网或私网访问白名单](/cn.zh-CN/Elasticsearch/安全配置/配置Elasticsearch公网或私网访问白名单.md)，配置Elasticsearch实例的VPC私网访问白名单。
 3.  准备Java环境，要求JDK版本为8.0及以上。
 
 
@@ -31,7 +31,7 @@ Spark是一种通用的大数据计算框架，拥有Hadoop MapReduce所具有�
 
     1.  登录[E-MapReduce控制台](https://emr.console.aliyun.com/)，获取Master节点的IP地址，并通过SSH登录对应的ECS机器。
 
-        具体操作步骤，请参见[使用SSH连接主节点](/cn.zh-CN/集群管理/集群配置/连接集群/使用SSH连接主节点.md)。
+        具体操作步骤，请参见[登录集群](/cn.zh-CN/集群管理/集群运维/登录集群.md)。
 
     2.  将测试数据写入文件中。
 
@@ -155,10 +155,10 @@ Spark是一种通用的大数据计算框架，拥有Hadoop MapReduce所具有�
 
     |参数|默认值|说明|
     |--|---|--|
-    |es.nodes|localhost|指定阿里云Elasticsearch实例的访问地址，建议使用内网地址，可在实例的基本信息页面查看。更多信息，请参见[查看实例的基本信息](/cn.zh-CN/ES实例/实例管理/查看实例的基本信息.md)。|
+    |es.nodes|localhost|指定阿里云Elasticsearch实例的访问地址，建议使用内网地址，可在实例的基本信息页面查看。更多信息，请参见[查看实例的基本信息](/cn.zh-CN/Elasticsearch/实例管理/查看实例的基本信息.md)。|
     |es.port|9200|Elasticsearch实例的访问端口号。|
-    |es.net.http.auth.user|elastic|Elasticsearch实例的访问用户名。**说明：** 如果程序中指定elastic账号访问Elasticsearch服务，后续在修改elastic账号对应密码后需要一些时间来生效，在密码生效期间会影响服务访问，因此不建议通过elastic来访问。建议在Kibana控制台中创建一个符合预期的Role角色用户进行访问，详情请参见[创建角色](/cn.zh-CN/ES访问控制/Kibana角色管理/创建角色.md)和[创建用户](/cn.zh-CN/ES访问控制/Kibana角色管理/创建用户.md)。 |
-    |es.net.http.auth.pass|/|对应用户的密码，在创建实例时指定。如果忘记可进行重置，具体操作步骤，请参见[重置实例访问密码](/cn.zh-CN/ES实例/安全配置/重置实例访问密码.md)。|
+    |es.net.http.auth.user|elastic|Elasticsearch实例的访问用户名。**说明：** 如果程序中指定elastic账号访问Elasticsearch服务，后续在修改elastic账号对应密码后需要一些时间来生效，在密码生效期间会影响服务访问，因此不建议通过elastic来访问。建议在Kibana控制台中创建一个符合预期的Role角色用户进行访问，详情请参见[创建角色](/cn.zh-CN/访问控制/Kibana角色管理/创建角色.md)和[创建用户](/cn.zh-CN/访问控制/Kibana角色管理/创建用户.md)。 |
+    |es.net.http.auth.pass|/|对应用户的密码，在创建实例时指定。如果忘记可进行重置，具体操作步骤，请参见[重置实例访问密码](/cn.zh-CN/Elasticsearch/安全配置/重置实例访问密码.md)。|
     |es.nodes.wan.only|false|开启Elasticsearch集群在云上使用虚拟IP进行连接，是否进行节点嗅探：    -   true：设置
     -   false：不设置 |
     |es.nodes.discovery|true|是否禁用节点发现：    -   true：禁用
@@ -175,7 +175,7 @@ Spark是一种通用的大数据计算框架，拥有Hadoop MapReduce所具有�
 
 4.  将代码打成Jar包，上传至EMR客户端机器（例如Gateway或EMR集群主节点）。
 
-5.  在EMR客户端机器上，运行如下命令执行Spark程序。
+5.  在EMR客户端机器上，运行如下命令执行Spark程序：
 
     -   写数据
 
@@ -202,7 +202,7 @@ Spark是一种通用的大数据计算框架，拥有Hadoop MapReduce所具有�
 
 1.  登录对应阿里云Elasticsearch实例的Kibana控制台。
 
-    具体操作步骤请参见[登录Kibana控制台](/cn.zh-CN/ES实例/可视化控制/Kibana/登录Kibana控制台.md)。
+    具体操作步骤请参见[登录Kibana控制台](/cn.zh-CN/Elasticsearch/可视化控制/Kibana/登录Kibana控制台.md)。
 
 2.  在左侧导航栏，单击**Dev Tools**。
 
