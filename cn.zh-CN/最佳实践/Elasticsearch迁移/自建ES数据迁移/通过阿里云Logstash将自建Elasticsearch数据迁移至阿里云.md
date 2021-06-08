@@ -84,7 +84,7 @@ keyword: [自建es数据迁移, 阿里云logstash数据迁移]
     |index|指定同步索引名。input中设置为\*,-.monitoring\*,-.security\*,-.kibana\*，表示同步除过`.`开头的系统索引；output中设置为%\{\[@metadata\]\[\_index\]\}，表示匹配元数据中的index，即阿里云Elasticsearch生成的索引和自建Elasticsearch的索引相同。|
     |docinfo|设置为true，阿里云Elasticsearch会提取自建Elasticsearch文档的元数据信息，例如index、type和id。|
     |document\_type|设置为%\{\[@metadata\]\[\_type\]\}，表示匹配元数据中索引的type，即阿里云Elasticsearch生成的索引的类型和自建Elasticsearch的索引类型相同。|
-    |document\_id|设置为%\{\[@metadata\]\[\_id\]\}，表示匹配元数据中文档的id，即阿里云Elasticsearch生成的文档ID和自建Elasticsearch的文档id相同。|
+    |document\_id|设置为%\{\[@metadata\]\[\_id\]\}，表示匹配元数据中文档的id，即阿里云Elasticsearch生成的文档ID和自建Elasticsearch的文档ID相同。|
 
     更多Config配置说明，请参见[Logstash配置文件说明](/cn.zh-CN/Logstash/管道任务管理/Logstash配置文件说明.md)。
 
