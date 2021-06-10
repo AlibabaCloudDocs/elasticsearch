@@ -1,0 +1,45 @@
+# 包年包月
+
+阿里云LogstashService以实例规格和单节点存储空间为单位，对实例进行计费。 同时提供包年包月和按量付费两种计费模式供您选择。本文介绍包年包月的计费详情。
+
+中国内地区域包括：华东 1（杭州）、华东 2 （上海）、 华北 1（青岛）、华北 2（北京）、华北 3（张家口）和华南 1（深圳）。全国统一价，各资源使用单价详情如下。
+
+|实例规格族|实例规格|CPU|内存（GB）|价格（元/月）|
+|-----|----|---|------|-------|
+|1:1规格族|logstash.ic5.xlarge|4|4|374|
+|logstash.ic5.2xlarge|8|8|748|
+|logstash.ic5.3xlarge|12|12|1122|
+|logstash.ic5.4xlarge|16|16|1496|
+|1:2规格族|logstash.sn1ne.large|2|4|216.7|
+|logstash.sn1ne.4xlarge|16|32|1733.6|
+|logstash.sn1ne.8xlarge|32|64|3467.2|
+|1:4规格族|logstash.sn2ne.large|2|8|298.87|
+|logstash.sn2ne.xlarge|4|16|597.74|
+|logstash.sn2ne.2xlarge|8|32|1195.48|
+|logstash.sn2ne.4xlarge|16|64|2390.96|
+|1:8规格族|logstash.r5.large|2|16|340.67|
+|logstash.r5.xlarge|4|32|681.34|
+|logstash.r5.2xlarge|8|64|1362.68|
+
+|实例规格族|实例规格|CPU|内存（GB）|价格（元/月）|
+|-----|----|---|------|-------|
+|1:1规格族|logstash.ic5.xlarge|4|4|280.5|
+|logstash.ic5.2xlarge|8|8|561|
+|logstash.ic5.3xlarge|12|12|841.5|
+|logstash.ic5.4xlarge|16|16|1122|
+|1:2规格族|logstash.sn1ne.large|2|4|162.8|
+|logstash.sn1ne.4xlarge|16|32|1300.2|
+|logstash.sn1ne.8xlarge|32|64|2600.4|
+|1:4规格族|logstash.sn2ne.large|2|8|224.675|
+|logstash.sn2ne.xlarge|4|16|448.305|
+|logstash.sn2ne.2xlarge|8|32|896.61|
+|logstash.sn2ne.4xlarge|16|64|1793.22|
+|1:8规格族|logstash.r5.large|2|16|256.025|
+|logstash.r5.xlarge|4|32|511.005|
+|logstash.r5.2xlarge|8|64|1022.01|
+
+|存储类型|华东 1（杭州）|华东 2（上海）|华南 1（深圳）|华北 2（北京）|华北 1（青岛）|华北 3（张家口）|
+|----|--------|--------|--------|--------|--------|---------|
+|高效云盘|0.35|0.35|0.35|0.35|0.35|0.28|
+|SSD云盘|1|1|1|1|1|0.8|
+
