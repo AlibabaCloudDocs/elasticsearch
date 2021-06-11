@@ -47,7 +47,7 @@
 |s3|向亚马逊简单存储服务（Amazon Simple Storage Service, Amazon S3）批量上传Logstash事件。|[S3 output plugin](https://www.elastic.co/guide/en/logstash/6.7/plugins-outputs-s3.html)|
 |sns|向采用托管pub/sub框架的亚马逊简单通知服务（Amazon Simple Notification Service）发送事件。|[Sns output plugin](https://www.elastic.co/guide/en/logstash/6.7/plugins-outputs-sns.html)|
 |sqs|将事件推送到Amazon Web Services（AWS）SQS队列。|[Sqs output plugin](https://www.elastic.co/guide/en/logstash/6.7/plugins-outputs-sqs.html)|
-|stdout|将事件打印到运行shell命令的Logstash标准输出。|[Stdout output plugin](https://www.elastic.co/guide/en/logstash/6.7/plugins-outputs-stdout.html)|
+|stdout|将事件打印到运行Shell命令的Logstash标准输出。|[Stdout output plugin](https://www.elastic.co/guide/en/logstash/6.7/plugins-outputs-stdout.html)|
 |tcp|通过TCP套接字写入事件。|[Tcp output plugin](https://www.elastic.co/guide/en/logstash/6.7/plugins-outputs-tcp.html)|
 |udp|通过UDP发送事件。|[Udp output plugin](https://www.elastic.co/guide/en/logstash/6.7/plugins-outputs-udp.html)|
 |webhdfs|通过webhdfs REST API向HDFS中的文件发送Logstash事件。|[Webhdfs output plugin](https://www.elastic.co/guide/en/logstash/6.7/plugins-outputs-webhdfs.html)|
