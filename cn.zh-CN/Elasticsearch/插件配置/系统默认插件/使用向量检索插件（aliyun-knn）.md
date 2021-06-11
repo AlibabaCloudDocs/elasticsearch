@@ -184,7 +184,9 @@ keyword: [aliyun-knn, 向量检索插件]
     |--|--|
     |hnsw|向量查询算法，与创建索引时指定的`algorithm`一致。|
     |vector|查询的向量数据，数组长度必须与创建索引时，`mapping`指定的`dim`保持一致。|
-    |size|指定召回的文档数。|
+    |size|指定召回的文档数。**说明：** 向量检索中的size参数与Elasticsearch自带的size参数存在区别，前者控制向量检索插件knn召回的文档数，后者控制整个查询的召回文档数。使用时，系统会先通过向量检索中的size参数召回topN的文档，然后再由Elasticsearch自带的size参数召回整个查询的文档，最终返回结果。
+
+建议将向量检索中的size参数值和Elasticsearch自带的size参数值（默认值为10）保持一致。 |
 
     **说明：** knn向量检索还提供高级查询参数，可参考[高阶参数](#section_76w_ddt_s0c)。
 
