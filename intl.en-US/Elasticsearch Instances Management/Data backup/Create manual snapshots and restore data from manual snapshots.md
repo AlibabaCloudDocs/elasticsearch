@@ -61,7 +61,7 @@ PUT _snapshot/my_backup/
     GET _snapshot
     ```
 
--   Query the information of a specified repository
+-   Query the information of a specific repository
 
     ```
     GET _snapshot/my_backup
@@ -84,11 +84,11 @@ PUT _snapshot/my_backup/
 
     **Note:**
 
-    -   A repository stores multiple snapshots. Each snapshot is a copy of all indexes, specified indexes, or a single index in a cluster.
+    -   A repository stores multiple snapshots. Each snapshot is a copy of all indexes, specific indexes, or a single index in a cluster.
     -   The first snapshot is a full copy of the data in a cluster. Subsequent snapshots store only incremental data. If you create a subsequent snapshot, the system only adds data to or removes data from the previous snapshot. Therefore, less time is required to create a subsequent snapshot than the first snapshot.
--   Create a snapshot for specified indexes
+-   Create a snapshot for specific indexes
 
-    By default, a snapshot contains all the enabled indexes. If Kibana is used when you create a snapshot, you may want to ignore all diagnostic indexes \(the `.kibana` indexes\) because of limited disk space. In this case, you can run the following command to create a snapshot only for specified indexes:
+    By default, a snapshot contains all the enabled indexes. If Kibana is used when you create a snapshot, you may want to ignore all diagnostic indexes \(the `.kibana` indexes\) because of limited disk space. In this case, you can run the following command to create a snapshot only for specific indexes:
 
     ```
     PUT _snapshot/my_backup/snapshot_2
@@ -108,7 +108,7 @@ PUT _snapshot/my_backup/
     GET _snapshot/my_backup/_all
     ```
 
-    If the running of the command is successful, the following result is returned:
+    If the command is successfully run, the following result is returned:
 
     ```
     {
@@ -159,13 +159,13 @@ PUT _snapshot/my_backup/
     }
     ```
 
--   Query the information of a specified snapshot based on the snapshot name
+-   Query the information of a specific snapshot based on the snapshot name
 
     ```
     GET _snapshot/my_backup/snapshot_3
     ```
 
-    If the running of the command is successful, the following result is returned:
+    If the command is successfully run, the following result is returned:
 
     ```
     {
@@ -195,13 +195,13 @@ PUT _snapshot/my_backup/
     }
     ```
 
--   Call the \_status API to query the information of a specified snapshot
+-   Call the \_status API to query the information of a specific snapshot
 
     ```
     GET _snapshot/my_backup/snapshot_3/_status
     ```
 
-    The \_status API allows you to query the detailed information of a snapshot. The information includes both the status of the snapshot and the statistics about each index and shard. If the running of the command is successful, the following result is returned:
+    The \_status API allows you to query the detailed information of a snapshot. The information includes both the status of the snapshot and the statistics about each index and shard. If the command is successfully run, the following result is returned:
 
     ```
     {
@@ -282,27 +282,27 @@ DELETE _snapshot/my_backup/snapshot_3
 
 **Note:** We recommend that you do not restore system indexes whose names start with a period \(`.`\). If you restore these indexes, you may fail to access the Kibana console.
 
--   Restore all the indexes in a specified snapshot to your Elasticsearch cluster
+-   Restore all the indexes in a specific snapshot to your Elasticsearch cluster
 
     ```
     POST _snapshot/my_backup/snapshot_1/_restore
     ```
 
-    -   For example, the snapshot\_1 snapshot contains five indexes. In this case, the preceding command restores all these indexes to the Elasticsearch cluster.
+    -   For example, if the snapshot\_1 snapshot contains five indexes, the preceding command restores all these indexes to the Elasticsearch cluster.
     -   After you call the \_restore API, the system immediately returns a response and restores the indexes. If you want to block all API calls until the restoration is complete, you can specify the wait\_for\_completion parameter in the command.
 
         ```
         POST _snapshot/my_backup/snapshot_1/_restore?wait_for_completion=true
         ```
 
--   Restore all the indexes in a specified snapshot, excluding system indexes whose names start with a period \(`.`\)
+-   Restore all the indexes in a specific snapshot, excluding system indexes whose names start with a period \(`.`\)
 
     ```
     POST _snapshot/my_backup/snapshot_1/_restore 
     {"indices":"*,-.monitoring*,-.security*,-.kibana*","ignore_unavailable":"true"}
     ```
 
--   Restore a specific index in a specified snapshot to your Elasticsearch cluster and rename the index
+-   Restore a specific index in a snapshot to your Elasticsearch cluster and rename the index
 
     If you only want to verify or process the data in the index and do not want to overwrite the data in the cluster, use this method to restore the index.
 
@@ -326,7 +326,7 @@ DELETE _snapshot/my_backup/snapshot_3
 
 You can call the \_recovery API to query the information of an index restoration task, such as the status and progress of the task.
 
--   Query the restoration information of a specified index
+-   Query the restoration information of a specific index
 
     ```
     GET restored_index_3/_recovery
