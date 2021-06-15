@@ -6,9 +6,14 @@ This topic describes how to enable the X-Pack Monitoring feature to monitor your
 
     For more information, see [Create an Alibaba Cloud Logstash cluster](/intl.en-US/Logstash/Quick Start/Step 1: Create a Logstash cluster/Create an Alibaba Cloud Logstash cluster.md).
 
--   An Alibaba Cloud Elasticsearch cluster is created. Make sure that the Elasticsearch and Logstash clusters reside in the same virtual private cloud \(VPC\) and use the same version.
+-   An Alibaba Cloud Elasticsearch cluster is created. Make sure that the Elasticsearch and Logstash clusters reside in the same virtual private cloud \(VPC\) and use the same major version.
 
     For more information, see [Create an Alibaba Cloud Elasticsearch cluster](/intl.en-US/Elasticsearch Instances Management/Manage clusters/Create an Alibaba Cloud Elasticsearch cluster.md).
+
+-   The Public Network Access feature is enabled on the Kibana Configuration page of the Elasticsearch cluster.
+
+    For more information, see [Configure an IP address whitelist for access to the Kibana console over the Internet or an internal network](/intl.en-US/Elasticsearch Instances Management/Data visualization/Kibana/Configure an IP address whitelist for access to the Kibana console over the Internet
+         or an internal network.md).
 
 
 1.  Log on to the [Elasticsearch console](https://elasticsearch.console.aliyun.com/#/home).
@@ -29,7 +34,7 @@ This topic describes how to enable the X-Pack Monitoring feature to monitor your
 
     |Parameter|Description|
     |---------|-----------|
-    |**Elasticsearch Cluster**|Select the Elasticsearch cluster with which you want to associate the Logstash cluster. We recommend that you select an Elasticsearch cluster that is in the same VPC and of the same version as the Logstash cluster. If the Elasticsearch and Logstash clusters are of different versions, make sure that the versions of the clusters are compatible with each other.|
+    |**Elasticsearch Cluster**|Select the Elasticsearch cluster with which you want to associate the Logstash cluster. We recommend that you select an Elasticsearch cluster that is in the same VPC and of the same major version as the Logstash cluster. If the Elasticsearch and Logstash clusters are of different versions, make sure that the versions of the clusters are compatible with each other.|
     |**Username**|Enter the username of the Elasticsearch cluster.|
     |**Password**|Enter the password of the Elasticsearch cluster.|
 
@@ -37,7 +42,7 @@ This topic describes how to enable the X-Pack Monitoring feature to monitor your
 
     If no error is reported, the Elasticsearch cluster is connected.
 
-    **Warning:** Enabling or disabling X-Pack Monitoring triggers a restart of the Logstash cluster. This may affect your services. Proceed with caution.
+    **Warning:** Enabling or disabling X-Pack Monitoring triggers the Logstash cluster to restart. This may affect your services. Proceed with caution.
 
 8.  Click **OK**.
 
