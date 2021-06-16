@@ -6,9 +6,9 @@
 
 -   创建阿里云Elasticsearch实例，版本要求大于等于Java High Level REST Client的版本。
 
-    本文创建一个7.4.0版本的实例，创建方法请参见[创建阿里云Elasticsearch实例](/cn.zh-CN/Elasticsearch/实例管理/创建阿里云Elasticsearch实例.md)。
+    本文创建一个7.x版本的实例，创建方法请参见[创建阿里云Elasticsearch实例](/cn.zh-CN/Elasticsearch/实例管理/创建阿里云Elasticsearch实例.md)。
 
-    **说明：** High Level Client能够向上兼容，例如7.4.0版本的Java High Level REST Client能确保与大于等于7.4.0版本的Elasticsearch集群通信。为了保证最大程度地使用最新版客户端的特性，推荐High Level Client版本与集群版本一致。
+    **说明：** High Level Client能够向上兼容，例如7.10版本的Java High Level REST Client能确保与大于等于7.10版本的Elasticsearch集群通信。为了保证最大程度地使用最新版客户端的特性，推荐High Level Client版本与集群版本一致。
 
 -   开启阿里云Elasticsearch实例的自动创建索引功能。
 
@@ -23,7 +23,7 @@
 
         **说明：**
 
-        -   如果您使用的是WIFI、宽带等网络，需要将公网出口的跳板机IP地址配置进去。建议您通过[淘宝IP地址库](http://myip.ipip.net/)查询。
+        -   如果您的客户端处在家庭网络或公司局域网中，您需要将局域网的公网出口IP地址添加到白名单中，而非客户端机器的内网机制。建议您通过[淘宝IP地址库](http://myip.ipip.net/)查看您当前使用的公网IP。
         -   您也可以将白名单配置为0.0.0.0/0，允许所有IPv4地址访问阿里云Elasticsearch实例。此配置会导致实例完全暴露在公网中，增加安全风险，配置前请确认您是否可以接受这个风险。
     -   如果运行Java代码的服务器与阿里云Elasticsearch实例在同一专有网络VPC（Virtual Private Cloud）中，可通过阿里云Elasticsearch实例的内网地址进行连通。连通前，需要确保VPC私网访问白名单（默认为0.0.0.0/0）中已添加了服务器的内网IP地址。
 -   安装Java，要求JDK版本为1.8及以上。
@@ -31,11 +31,13 @@
 
 ## pom依赖
 
+使用时，您需要将pom依赖中的7.x版本号替换为具体的版本号。
+
 ```
 <dependency>
     <groupId>org.elasticsearch.client</groupId>
     <artifactId>elasticsearch-rest-high-level-client</artifactId>
-    <version>7.4.0</version>
+    <version>7.x</version>
 </dependency>
 <dependency>
     <groupId>org.apache.logging.log4j</groupId>
