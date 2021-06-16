@@ -8,7 +8,7 @@
 
     本文创建一个7.x版本的实例，创建方法请参见[创建阿里云Elasticsearch实例](/intl.zh-CN/Elasticsearch/管理实例/创建阿里云Elasticsearch实例.md)。
 
-    **说明：** High Level Client能够向上兼容，例如7.x版本的Java High Level REST Client能确保与大于等于7.x版本的Elasticsearch集群通信。为了保证最大程度地使用最新版客户端的特性，推荐High Level Client版本与集群版本一致。
+    **说明：** High Level Client能够向上兼容，例如7.10版本的Java High Level REST Client能确保与大于等于7.10版本的Elasticsearch集群通信。为了保证最大程度地使用最新版客户端的特性，推荐High Level Client版本与集群版本一致。
 
 -   开启阿里云Elasticsearch实例的自动创建索引功能。
 
