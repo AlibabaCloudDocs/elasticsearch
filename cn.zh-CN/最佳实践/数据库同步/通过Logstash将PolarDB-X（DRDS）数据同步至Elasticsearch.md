@@ -142,7 +142,7 @@ PolarDB-X是由阿里巴巴自主研发的云原生分布式数据库，融合�
     |user|访问阿里云Elasticsearch实例的用户名，默认为elastic。|
     |password|对应用户的密码。elastic用户的密码在创建实例时设定，如果忘记可重置。重置密码的注意事项和操作，请参见[重置实例访问密码](/cn.zh-CN/Elasticsearch/安全配置/重置实例访问密码.md)。|
     |index|索引名称。|
-    |document\_id|文档ID。设置为%\{id\}，表示与源数据库中的id字段保持一致。|
+    |document\_id|文档ID。设置为%\{id\}，表示与源数据库中的ID字段保持一致。|
 
     **说明：**
 
