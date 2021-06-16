@@ -58,12 +58,25 @@
     |----|-----|-------|--|
     |**Index privileges**|**indices**|kibana\_sample\_data\_logs|指定索引名称，支持索引全名、别名、通配符及正则表达式。详细信息，请参见[Indices Privileges](https://www.elastic.co/guide/en/elasticsearch/reference/6.7/defining-roles.html#roles-indices-priv)。|
     |**privileges**|read|设置索引只读权限。只读权限包括count、explain、get、mget、scripts、search、scroll等操作权限。详细信息，请参见[privileges-list-indices](https://www.elastic.co/guide/en/elasticsearch/reference/6.7/security-privileges.html#privileges-list-indices)。|
-    |**fileds**|\*|索引字段。\*表示索引的所有字段。|
+    |**Granted fields \(optional\)**|\*|索引字段。\*表示索引的所有字段。|
     |**Kibana privileges**|**privileges**|read|为所有空间授予Kibana只读权限。默认为none，表示所有空间无权限访问Kibana。**说明：** Kibana 7.0以下版本仅支持[Base privileges](https://www.elastic.co/guide/en/kibana/6.7/kibana-privileges.html#kibana-privileges)，默认为所有空间授权；7.0及以上版本在Base privileges的基础上，还支持[Feature privileges](https://www.elastic.co/guide/en/kibana/7.10/kibana-privileges.html#kibana-feature-privileges)。即对Kibana特定功能授权，需要指定Kibana空间。 |
 
 -   验证
 
     通过普通用户登录Kibana控制台，执行读索引命令，返回结果正常。执行写索引命令，返回未授权的错误信息。
+
+    ```
+    GET /kibana_sample_data_logs/_search
+    ```
+
+    ```
+    POST /kibana_sample_data_logs/_doc/1
+    {
+        "productName": "testpro",
+        "annual_rate": "3.22%",
+        "describe": "testpro"
+    }
+    ```
 
     ![验证只读权限](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/8858997061/p200448.png)
 
@@ -121,6 +134,44 @@
 -   验证
 
     通过普通用户登录Kibana控制台，执行如下命令均正常。
+
+    ```
+    GET /_cat/indices?v
+    ```
+
+    ```
+    GET /_cluster/stats
+    ```
+
+    ```
+    GET /product_info/_search
+    ```
+
+    ```
+    GET /product_info1/_search
+    ```
+
+    ```
+    POST /kibana_sample_data_logs/_doc/2
+    {
+        "productName": "testpro",
+        "annual_rate": "3.22%",
+        "describe": "testpro"
+    }
+    ```
+
+    ```
+    PUT /product_info2/_doc/1
+    {
+        "productName": "testpro",
+        "annual_rate": "3.22%",
+        "describe": "testpro"
+    }
+    ```
+
+    ```
+    DELETE product_info
+    ```
 
     ![验证](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/8858997061/p200462.png)
 
