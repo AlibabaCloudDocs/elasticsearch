@@ -8,7 +8,7 @@ This topic describes how to create an Alibaba Cloud Elasticsearch cluster.
 
 -   A virtual private cloud \(VPC\) and a vSwitch are created.
 
-    For more information, see [Create a VPC and a VSwitch](/intl.en-US/Elasticsearch Instances Management/Quick Start/Preparations/Create a VPC and a VSwitch.md).
+    For more information, see [Create a VPC and a vSwitch](/intl.en-US/Elasticsearch Instances Management/Quick Start/Preparations/Create a VPC and a vSwitch.md).
 
 -   The specifications and storage capacity of your cluster are evaluated.
 
