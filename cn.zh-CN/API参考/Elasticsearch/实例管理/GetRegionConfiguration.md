@@ -1,6 +1,6 @@
 # GetRegionConfiguration
 
-获取当前区域的开放配置信息。接口返回值供参考，以控制台和售卖页实际展示值为准。
+获取当前区域的开放配置信息。接口返回值为全量数据供参考，以控制台和售卖页实际展示值为准。
 
 ## 调试
 
@@ -20,7 +20,7 @@ GET /openapi/region HTTP/1.1
 
 |名称|类型|位置|是否必选|示例值|描述|
 |--|--|--|----|---|--|
-|zoneId|String|Query|否|cn-hangzhou|当前区域ID。 |
+|zoneId|String|Query|否|cn-hangzhou-f|当前可用区ID。 |
 
 ## 返回数据
 
