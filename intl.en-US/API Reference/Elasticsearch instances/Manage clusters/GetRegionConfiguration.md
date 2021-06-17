@@ -1,6 +1,6 @@
 # GetRegionConfiguration
 
-Obtains the open configuration information of the current region. The return value of the interface is for reference. The actual value displayed on the console and sales page shall prevail.
+Obtains the open configuration information of the current region. The return value of the interface is full data for reference, and the actual value displayed on the console and sales page shall prevail.
 
 ## Debugging
 
@@ -8,7 +8,7 @@ Obtains the open configuration information of the current region. The return val
 
 ## Request headers
 
-This operation uses only the common request header. For more information, see Common request parameters.
+This operation uses only common request headers. For more information, see Common request parameters.
 
 ## Request syntax
 
@@ -22,7 +22,7 @@ This operation uses only the common request header. For more information, see Co
 
 |Parameter|Type|Position|Required|Example|Description|
 |---------|----|--------|--------|-------|-----------|
-|zoneId|String|Query|No|cn-hangzhou|The current region ID. |
+|zoneId|String|Query|No|cn-hangzhou-f|The current available zone ID. |
 
 ## Response parameters
 
@@ -35,7 +35,7 @@ This operation uses only the common request header. For more information, see Co
 |minAmount|Integer|2|The minimum number of coordination node nodes. |
 |clientNodeDiskList|Array of disk| |Coordinate node disk allowable values. |
 |diskType|String|cloud\_efficiency|The storage type of the disk. |
-|maxSize|Integer|20|The maximum value allowed for a disk. |
+|maxSize|Integer|20|disk, allowing the maximum value |
 |minSize|Integer|20|The minimum value allowed for a disk. |
 |scaleLimit|Integer|18|The disk allows setting the maximum value of consecutive values. |
 |clientNodeSpec|List|\["elasticsearch.sn2ne.large","elasticsearch.sn2ne.xlarge","elasticsearch.sn2ne.2xlarge","elasticsearch.sn2ne.4xlarge","elasticsearch.sn1ne.4xlarge","elasticsearch.ic5.xlarge","elasticsearch.ic5.2xlarge","elasticsearch.ic5.3xlarge","elasticsearch.ic5.4xlarge","elasticsearch.r5.large","elasticsearch.r5.xlarge","elasticsearch.r5.2xlarge"\]|Coordination node specifications. |
@@ -72,8 +72,8 @@ This operation uses only the common request header. For more information, see Co
 |supportEsVersions|List|\["6.7.0\_with\_X-Pack","6.7.0\_with\_A-Pack","7.4.0\_with\_X-Pack"\]|Enable the ES version information supported by Jvm recycling. |
 |supportGcs|List|\["CMS","G1"\]|The list of Jvm recyclers that are allowed to be set. |
 |kibanaNodeProperties|Struct| |The configuration of Kibana nodes. |
-|amountRange|Struct| |The allowable value range for the number of nodes. |
-|maxAmount|Integer|20|The maximum number of nodes. |
+|amountRange|Struct| |the number of data nodes to be allowable range. |
+|maxAmount|Integer|20|the number of data nodes to be the maximum value |
 |minAmount|Integer|1|The minimum number of nodes. |
 |spec|List|\["elasticsearch.n4.small","elasticsearch.sn2ne.large","elasticsearch.sn2ne.xlarge","elasticsearch.sn2ne.2xlarge","elasticsearch.sn1ne.large"\]|The list of specifications that are allowed to be set. |
 |masterDiskList|Array of disk| |Exclusive master node disk allowable value. |
@@ -87,10 +87,10 @@ This operation uses only the common request header. For more information, see Co
 |minAmount|Integer|2|The minimum number of nodes allowed for a data node. |
 |nodeSpecList|Array of nodeSpecList| |The list of data node specifications. |
 |cpuCount|Integer|16|The number of CPU cores corresponding to this specification. |
-|disk|Integer|44000|The size of the disk corresponding to the specification. |
+|disk|Integer|44000|the corresponding specification of the size of the disk. |
 |diskType|String|local\_efficiency|The storage type of the disk. |
-|enable|Boolean|true|Whether it can be purchased: true \(can be purchased\), flase \(cannot be purchased\). |
-|memorySize|Integer|64|The node memory size. |
+|enable|Boolean|true|can i purchase: true \(available for purchase\), flase \(not available for purchase\). |
+|memorySize|Integer|64|node memory size. |
 |spec|String|elasticsearch.sn2ne.large|The name of the specification. |
 |specGroupType|String|local\_efficiency|The storage type, which supports the following three types:
 
