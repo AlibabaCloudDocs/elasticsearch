@@ -12,7 +12,7 @@ You can use Beats to collect the data of an Elastic Compute Service \(ECS\) inst
 
 -   The Auto Indexing feature is enabled for the Elasticsearch cluster.
 
-    For security purposes, Alibaba Cloud Elasticsearch disables the **Auto Indexing** feature by default. However, Beats depends on this feature when it collects the logs of ECS instances. If you select **Elasticsearch** for **Output**, you must enable the **Auto Indexing** feature for the Elasticsearch cluster. For more information, see [Enable the Auto Indexing feature](/intl.en-US/Elasticsearch Instances Management/Step 2: (Optional) Configure a cluster.md).
+    For security purposes, Alibaba Cloud Elasticsearch disables the **Auto Indexing** feature by default. However, Beats depends on this feature when it collects the logs of ECS instances. If you select **Elasticsearch** for **Output**, you must enable the **Auto Indexing** feature for the Elasticsearch cluster. For more information, see [t1605396.md\#section\_pcn\_1xy\_1l2](/intl.en-US/Elasticsearch Instances Management/Access and configure an Elasticsearch cluster.md).
 
 -   An ECS instance is created in the same virtual private cloud \(VPC\) as the Elasticsearch or Logstash cluster.
 
@@ -27,13 +27,17 @@ You can use Beats to collect the data of an Elastic Compute Service \(ECS\) inst
 
 ## Procedure
 
-1.  Log on to the [Alibaba Cloud Elasticsearch console](https://elasticsearch.console.aliyun.com/#/home).
+1.  Log on to the [Elasticsearch console](https://elasticsearch.console.aliyun.com/#/home).
 
-2.  In the top navigation bar, select the region where your cluster resides. In the left-side navigation pane, click **Beats Data Shippers**.
+2.  In the top navigation bar, select a region. In the left-side navigation pane, click **Beats Data Shippers**.
 
-    **Note:** If this is the first time you go to the **Beats Data Shippers** page, confirm authorization as prompted.
+3.  If this is the first time you go to the **Beats Data Shippers** page, click **Confirm** in the Confirm Service Authorization message to authorize the system to create a service-linked role for your account.
 
-3.  Configure and enable Filebeat to collect the logs of the ECS instance.
+    ![Confirm Service Authorization](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/8144790261/p268158.png)
+
+    **Note:** When Beats collects data from various data sources, it depends on the service-linked role and the rules specified for the role. Do not delete the service-linked role. Otherwise, the use of Beats is affected. For more information, see [Overview of the Elasticsearch service-linked role](/intl.en-US/RAM/Overview of the Elasticsearch service-linked role.md).
+
+4.  Configure and enable Filebeat to collect the logs of the ECS instance.
 
     1.  In the **Create Shipper** section, move the pointer over **Filebeat** and click **ECS Logs**.
 
@@ -73,7 +77,7 @@ You can use Beats to collect the data of an Elastic Compute Service \(ECS\) inst
 
         ![Status of the effective shipper](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/7592640951/p76692.png)
 
-4.  View the running ECS instance.
+5.  View the running ECS instance.
 
     After the shipper is created, you can view the running ECS instance to check whether the shipper installation succeeds and handle exceptions as prompted.
 
@@ -87,7 +91,7 @@ You can use Beats to collect the data of an Elastic Compute Service \(ECS\) inst
 
     3.  Click **Add Instance** to add the ECS instances on which you want to install a shipper with the same configuration and type as the created shipper.
 
-5.  View monitoring and dashboard information.
+6.  View monitoring and dashboard information.
 
     If you select **Enable Kibana Monitoring** or **Enable Kibana Dashboard** in the Configure Shipper step, you can view the monitoring information or dashboard graphs in the Kibana console of your Elasticsearch cluster after Beats is started.
 
