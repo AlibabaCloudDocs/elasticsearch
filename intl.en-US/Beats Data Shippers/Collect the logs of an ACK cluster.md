@@ -33,9 +33,15 @@ Alibaba Cloud Filebeat can be used to collect the logs of Container Service for 
 
 2.  In the top navigation bar, select a region. In the left-side navigation pane, click **Beats Data Shippers**.
 
-3.  In the **Create Shipper** section, move the pointer over **Filebeat** and click **ACK Logs**.
+3.  If this is the first time you go to the **Beats Data Shippers** page, click **Confirm** in the Confirm Service Authorization message to authorize the system to create a service-linked role for your account.
 
-4.  In the **Select Destination Elasticsearch Cluster** step, configure the following parameters. Then, click **Next**.
+    ![Confirm Service Authorization](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/8144790261/p268158.png)
+
+    **Note:** When Beats collects data from various data sources, it depends on the service-linked role and the rules specified for the role. Do not delete the service-linked role. Otherwise, the use of Beats is affected. For more information, see [Overview of the Elasticsearch service-linked role](/intl.en-US/RAM/Overview of the Elasticsearch service-linked role.md).
+
+4.  In the **Create Shipper** section, move the pointer over **Filebeat** and click **ACK Logs**.
+
+5.  In the **Select Destination Elasticsearch Cluster** step, configure the following parameters. Then, click **Next**.
 
     ![Select Destination Elasticsearch Cluster](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/4697316161/p231821.png)
 
@@ -49,7 +55,7 @@ Alibaba Cloud Filebeat can be used to collect the logs of Container Service for 
     |**Enable Kibana Dashboard**|Determine whether to enable the default Kibana dashboard. Alibaba Cloud Kibana is configured in a virtual private cloud \(VPC\). You must enable the Private Network Access feature for Kibana on the Kibana configuration page. For more information, see [Configure an IP address whitelist for access to the Kibana console over the Internet or an internal network](/intl.en-US/Elasticsearch Instances Management/Data visualization/Kibana/Configure an IP address whitelist for access to the Kibana console over the Internet
          or an internal network.md).|
 
-5.  In the **Configure Collection Object** step, configure the collection object.
+6.  In the **Configure Collection Object** step, configure the collection object.
 
     1.  Select an option from the **Source ACK Cluster** drop-down list.
 
@@ -74,7 +80,7 @@ Alibaba Cloud Filebeat can be used to collect the logs of Container Service for 
 
     4.  Click **Next**.
 
-6.  In the **Configure Log Collection** step, click **Add Log Collection Configuration** in the lower-left corner to configure log collection information. You can specify multiple containers from which you want to collect logs. Click **Next**.
+7.  In the **Configure Log Collection** step, click **Add Log Collection Configuration** in the lower-left corner to configure log collection information. You can specify multiple containers from which you want to collect logs. Click **Next**.
 
     ![Configure Log Collection](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/4697316161/p232001.png)
 
@@ -97,7 +103,7 @@ Alibaba Cloud Filebeat can be used to collect the logs of Container Service for 
     -   If a general template does not meet your requirements, you can modify the configurations. For more information, see [Filebeat Docker input](https://www.elastic.co/guide/en/beats/filebeat/6.8/filebeat-input-docker.html#fields-under-root-docker).
     -   Only one Docker container can be configured for each shipper. If you want to configure multiple Docker containers, click **Add Log Collection Configuration** to perform the operation. |
 
-7.  In the **Manage Index Storage** step, enable and configure the Index Storage Management for Collected Data feature based on your business requirements.
+8.  In the **Manage Index Storage** step, enable and configure the Index Storage Management for Collected Data feature based on your business requirements.
 
     After you enable the Index Storage Management for Collected Data feature, click **Add Management Policy** to create and configure the index management policy based on the following parameters. You can configure multiple index management policies.
 
@@ -113,7 +119,7 @@ Alibaba Cloud Filebeat can be used to collect the logs of Container Service for 
     -   If you turn on Rolling Update, Filebeat writes data to the index named <Log name\>-<Date\>-<Number\>, such as log-web-2021.01.22-000001.
     -   If you do not turn on Rolling Update, Filebeat writes data to the index named filebeat-<Log name\>-<Date\>. |
 
-8.  Click **Enable**.
+9.  Click **Enable**.
 
     After the shipper is enabled, you can view the information of the shipper in the Manage Shippers section. You can also perform the following operations.
 
