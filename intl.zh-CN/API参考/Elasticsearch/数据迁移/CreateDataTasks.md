@@ -230,7 +230,7 @@ RequestBody中还需填入以下参数，用来指定迁移信息。
 **说明：** └表示子参数。
 
 -   集群开启公网：填写endpoint参数进行连接。
--   集群未开启公网（或使用vpc信息连接集群）：填写参数vpcInstancePort、vpcId、vpcInstanceId或vpcInstancePort、vpcId、vpcIp进行连接。
+-   集群未开启公网（或使用VPC信息连接集群）：填写参数vpcInstancePort、vpcId、vpcInstanceId或vpcInstancePort、vpcId、vpcIp进行连接。
 
 示例如下：
 
