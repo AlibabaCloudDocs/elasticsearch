@@ -227,7 +227,9 @@ keyword: [aliyun-knn, 向量检索插件]
     |--|--|
     |l2Squared\(float\[\] queryVector, DocValues docValues\)|欧式算法函数。|
     |hamming\(float\[\] queryVector, DocValues docValues\)|汉明距离函数。|
-    |cosineSimilarity\(float\[\] queryVector, DocValues docValues\)|余弦相似度函数。|
+    |    -   cosineSimilarity\(float\[\] queryVector, DocValues docValues\)
+    -   cosine\(float\[\] queryVector, DocValues docValues\)
+|余弦相似度函数。**说明：** 阿里云Elasticsearch 6.7版本请使用`cosineSimilarity(float[] queryVector, DocValues docValues)`函数，7.10版本请使用`cosine(float[] queryVector, DocValues docValues)`函数。 |
 
     **说明：**
 
