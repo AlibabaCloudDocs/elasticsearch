@@ -119,7 +119,7 @@ GET /openapi/emon/projects/es-133071096032****/grafana/proxy/api/search HTTP/1.1
       {
         "id": 10372,
         "uid": "log-alarm-template",
-        "title": "日志报警模板(左侧\"+\"号import此大盘json可复制默认报警规则)",
+        "title": "日志报警模板(左侧\"+\"号import此大盘JSON可复制默认报警规则)",
         "uri": "db/ri-zhi-bao-jing-mo-ban-zuo-ce-hao-importci-da-pan-jsonke-fu-zhi-mo-ren-bao-jing-gui-ze",
         "url": "/d/log-alarm-template/ri-zhi-bao-jing-mo-ban-zuo-ce-hao-importci-da-pan-jsonke-fu-zhi-mo-ren-bao-jing-gui-ze",
         "slug": "",
