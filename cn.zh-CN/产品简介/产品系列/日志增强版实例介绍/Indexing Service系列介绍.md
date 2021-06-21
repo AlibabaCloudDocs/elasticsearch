@@ -31,15 +31,15 @@
 |分类|限制项|限制说明|备注|
 |--|---|----|--|
 |实例维度|写入流量保护|写入流量最大为200 MB/s|如果超过最大限制，返回状态码429，提示Inflow Quota Exceed。如果您有更大的使用需求，请[提交工单](https://selfservice.console.aliyun.com/ticket/createIndex?accounttraceid=f7b76db740fa486baa4b63bd5848fbc1idrb)申请。|
-|写入次数保护|写入次数最大为600000次/秒|如果超过最大限制，返回状态码429，提示Write QPS Exceed。如果您有更大的使用需求，请[提交工单](https://selfservice.console.aliyun.com/ticket/createIndex?accounttraceid=f7b76db740fa486baa4b63bd5848fbc1idrb)申请。|
+|写入文档数保护|写入文档保护数最大为200000 个/秒|如果超过最大限制，返回状态码429，提示Write QPS Exceed。如果您有更大的使用需求，请[提交工单](https://selfservice.console.aliyun.com/ticket/createIndex?accounttraceid=f7b76db740fa486baa4b63bd5848fbc1idrb)申请。|
 |Shard维度|写入流量|写入流量最大为5 MB/s|非硬性限制，如果超过最大限制，系统会尽可能服务，但不能保证服务质量。|
-|写入次数|写入次数最大为1000次/秒|非硬性限制，如果超过最大限制，系统会尽可能服务，但不能保证服务质量。|
+|写入文档数|写入文档数最大为5000 个/秒|非硬性限制，如果超过最大限制，系统会尽可能服务，但不能保证服务质量。|
 |Shard数|单个索引最多可创建的Shard数|最多可创建300个Shard。|无。|
 |配置|index.refresh\_interval|云端托管集群中默认配置此参数，用户侧配置不生效。|无。|
 |index.translog.durability|translog在云端托管集群中默认配置为异步写入模式（index.translog.durability=async），用户侧配置不生效。|无。|
-|Ingest NodIe|-   概念
+|Ingest Node|-   概念
 
-预处理操作允许在索引文档之前，即写入数据之前，通过事先定义好的一系列的processors（处理器）和pipeline（管道），对数据进行某种转化和富化。详情请参见[Ingest NodIe](https://www.elastic.co/guide/en/elasticsearch/reference/6.8/ingest.html)。
+预处理操作允许在索引文档之前，即写入数据之前，通过事先定义好的一系列的processors（处理器）和pipeline（管道），对数据进行某种转化和富化。详情请参见[Ingest Node](https://www.elastic.co/guide/en/elasticsearch/reference/6.8/ingest.html)。
 
 -   使用建议
 
