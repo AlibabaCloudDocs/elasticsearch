@@ -106,7 +106,7 @@ keyword: [Filebeat采集ACK服务日志, Filebeat采集K8S日志]
 
     开启索引存储管理后，单击**+添加索引管理策略**，按照以下说明配置策略（支持多个）。
 
-    ![索引存储管理](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/4241651161/p231865.png)
+    ![索引存储管理](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/4619004261/p231865.png)
 
     |参数|说明|
     |--|--|
