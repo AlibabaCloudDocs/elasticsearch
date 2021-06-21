@@ -37,6 +37,8 @@ keyword: [Filebeat采集ACK服务日志, Filebeat采集K8S日志]
 
     ![Beats授权服务关联角色](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/1292959161/p268158.png)
 
+    **说明：** Beats采集不同数据源数据时，依赖于服务关联角色以及角色规则。使用过程中请勿删除服务关联角色，否则使用会受到影响。详情参考[Elasticsearch服务关联角色](/intl.zh-CN/访问控制/Elasticsearch服务关联角色.md)。
+
 4.  在**创建采集器**区域，将鼠标移至**Filebeat**上，单击**ACK日志**。
 
 5.  在**选择目标ES集群**配置向导中，配置采集器信息。完成后，单击**下一步**。
@@ -104,14 +106,14 @@ keyword: [Filebeat采集ACK服务日志, Filebeat采集K8S日志]
 
     开启索引存储管理后，单击**+添加索引管理策略**，按照以下说明配置策略（支持多个）。
 
-    ![索引存储管理](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/4241651161/p231865.png)
+    ![索引存储管理](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/4619004261/p231865.png)
 
     |参数|说明|
     |--|--|
     |**策略名称**|每个采集目标支持定义多个采集配置，每个采集配置对应一个日志名称，日志名称可作为索引名用于后续输出使用。|
     |**选择目标日志**|选择待关联的目标日志，至少选择一个。一个策略可选择多个目标日志，每个日志仅可被一个日志管理策略选择。|
     |**资源大小限制**|索引实际占用磁盘空间达到资源限制时（包括副本），将删除过旧数据，以保证不超过该资源大小限制。|
-    |**生命周期管理**|是否开启索引生命周期管理。生命周期管理可以实现数据节点冷热分离、过期自动删除数据等。详细信息，请参见[冷热分离与索引生命周期管理](/intl.zh-CN/最佳实践/Elasticsearch应用/索引管理/冷热分离与索引生命周期管理.md)和[Managing the index lifecycle](https://www.elastic.co/guide/en/elasticsearch/reference/6.7/index-lifecycle-management.html)。**说明：**
+    |**生命周期管理**|是否开启索引生命周期管理。生命周期管理可以实现数据节点冷热分离、过期自动删除数据等。详细信息，请参见[冷热分离与索引生命周期管理](/intl.zh-CN/最佳实践/Elasticsearch应用/集群管理/冷热分离与索引生命周期管理.md)和[Managing the index lifecycle](https://www.elastic.co/guide/en/elasticsearch/reference/6.7/index-lifecycle-management.html)。**说明：**
 
     -   开启滚动更新，Filebeat会将数据写入名称为<日志名称\>-<日期\>-<序号\>的索引下，例如log-web-2021.01.22-000001。
     -   不开启滚动更新，Filebeat会将数据写入名称为filebeat-<日志名称\>-<日期\>的索引下。 |
