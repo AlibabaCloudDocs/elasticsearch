@@ -1,42 +1,67 @@
 # ListInstanceIndices
 
-Call ListInstanceIndices to get the index list of the cluster, this can filter system indexes.
+Queries the indexes stored on an Elasticsearch cluster. Only independent indexes are displayed.
 
 ## Debugging
 
 [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=elasticsearch&api=ListInstanceIndices&type=ROA&version=2017-06-13)
 
-## Request header
+## Request headers
 
-This operation uses only common request headers. For more information, see the Common request parameters topic.
+This operation uses only common request parameters. For more information, see the Common request parameters topic.
 
 ## Request syntax
 
 ```
-GET /openapi/diagnosis/instances/[InstanceId]/indices HTTPS|HTTP
+
+     GET /openapi/instances/[InstanceId]/indices HTTP/1.1 
+   
 ```
 
 ## Request parameters
 
-|Parameter|Type|Required|Example|Description|
-|---------|----|--------|-------|-----------|
-|InstanceId|String|Yes|es-cn-n6w1o1x0w001c\*\*\*\*|The ID of the instance. |
-|lang|String|No|en|The configuration language. Multiple languages are supported. |
+|Parameter|Type|Location|Required|Example|Description|
+|---------|----|--------|--------|-------|-----------|
+|InstanceId|String|Path|Yes|es-cn-n6w24n9u900am\*\*\*\*|The IDs of the added ECS instances. |
+|lang|String|Query|No|en|The configuration language, which supports multiple languages. |
+|name|String|Query|No|log-0001|The name of the index. |
+|isManaged|Boolean|Query|No|true|Whether to display only the managed index, the value meaning is as follows:
+
+-   true: only indexes in the hosting are displayed.
+-   false \(default\): displays all indexes. |
 
 ## Response parameters
 
 |Parameter|Type|Example|Description|
 |---------|----|-------|-----------|
-|RequestId|String|5FFD9ED4-C2EC-4E89-B22B-1ACB6FE1\*\*\*\*|The ID of the request. |
-|Result|List|\["index1","index2","index3"\]|The returned result, that is the index list. |
+|Headers|Struct| |The header of the response. |
+|X-Managed-Count|Integer|15|The total number of indexes in cloud hosting. |
+|X-Managed-StorageSize|Long|18093942932|The total size of indexes in cloud hosting. Unit: bytes. |
+|RequestId|String|F99407AB-2FA9-489E-A259-40CF6DCC\*\*\*\*|The ID of the request. |
+|Result|Array of Result| |Index list details. |
+|createTime|String|String|The time when the index list was queried. |
+|health|String|Green|The running status of the index, which supports the following three states:
+
+-   Green: Health.
+-   Yellow: alarms.
+-   Red: abnormal. |
+|isManaged|String|true|This parameter is deprecated. |
+|managedStatus|String|following|The index managed state supports the following three states:
+
+-   following: in hosting.
+-   closing: unmanaged.
+-   closed: unmanaged. |
+|name|String|test1|The name of the index. |
+|size|Long|4929858933232|The total storage space occupied by the current index. Unit: bytes. |
 
 ## Examples
 
 Sample requests
 
 ```
-GET /openapi/diagnosis/instances/es-cn-n6w1o1x0w001c****/indices HTTP/1.1
-Common request header
+
+     GET /openapi/instances/es-cn-n6w24n9u900am****/indices?name=log1&isManaged=true HTTP/1.1 
+   
 ```
 
 Sample success responses
@@ -44,20 +69,12 @@ Sample success responses
 `JSON` format
 
 ```
-{
-    "Result": [
-        "filebeat-6.7.0-2020.09.12",
-        "filebeat-6.7.0-2020.07.30",
-        "test",
-        "filebeat-6.7.0-2020.09.11",
-        "filebeat-6.7.0-2020.08.16",
-        "my_index_aliws"
-    ],
-    "RequestId": "5BF8C741-26F8-4F67-B399-E49E1A05****"
-}
+
+     { "RequestId": "F99407AB-2FA9-489E-A259-40CF6DCC****", "Result": [ { "name": "test1", "health": "green", "size": 4929858933232, "createTime": "2021-01-11T05:49:41.114Z", "managedStatus": "following" }, { "name": "test2", "health": "yellow", "size": 49298589, "createTime": "2021-01-11T05:49:41.114Z", "managedStatus": "closing" } ], "Headers": { "X-Managed-Count": 15, "X-Managed-StorageSize": 18093942932 } } 
+   
 ```
 
-## Error code
+## Error codes
 
 For a list of error codes, visit the [API Error Center](https://error-center.alibabacloud.com/status/product/elasticsearch).
 
