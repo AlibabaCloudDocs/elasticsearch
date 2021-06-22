@@ -23,11 +23,14 @@
 |[InterruptElasticsearchTask](/cn.zh-CN/API参考/Elasticsearch/实例管理/InterruptElasticsearchTask.md)|调用InterruptElasticsearchTask，中断变更中的阿里云Elasticsearch实例。仅对状态为生效中的实例有效，中断后，实例进入变更中断（suspended）状态。|
 |[ResumeElasticsearchTask](/cn.zh-CN/API参考/Elasticsearch/实例管理/ResumeElasticsearchTask.md)|调用ResumeElasticsearchTask，恢复中断变更的阿里云Elasticsearch实例。|
 |[ListAllNode](/cn.zh-CN/API参考/Elasticsearch/实例管理/ListAllNode.md)|调用ListAllNode，获取集群下的所有节点信息。|
+|[DescribeElasticsearchHealth](/cn.zh-CN/API参考/Elasticsearch/实例管理/DescribeElasticsearchHealth.md)|调用DescribeElasticsearchHealth，获取指定Elasticsearch实例的健康情况。|
 |[GetElastictask](/cn.zh-CN/API参考/Elasticsearch/实例管理/GetElastictask.md)|调用GetElastictask，获取集群的弹性扩缩容规则。必须在创建实例时购买弹性节点，才可调用此接口。|
 |[ModifyElastictask](/cn.zh-CN/API参考/Elasticsearch/实例管理/ModifyElastictask.md)|调用ModifyElastictask，更新集群弹性扩缩容规则。|
 |[ListInstanceIndices](/cn.zh-CN/API参考/Elasticsearch/实例管理/ListInstanceIndices.md)|调用ListInstanceIndices，获取集群的索引列表。|
 |[MigrateToOtherZone](/cn.zh-CN/API参考/Elasticsearch/实例管理/MigrateToOtherZone.md)|调用MigrateToOtherZone，迁移对应可用区下的节点到目标可用区。|
+|[MoveResourceGroup](/cn.zh-CN/API参考/Elasticsearch/实例管理/MoveResourceGroup.md)|调用MoveResourceGroup，迁移实例到指定资源组。|
 |[ModifyInstanceMaintainTime](/cn.zh-CN/API参考/Elasticsearch/实例管理/ModifyInstanceMaintainTime.md)|调用ModifyInstanceMaintainTime，更改并开启实例的可维护时间。|
+|[GetRegionConfiguration](/cn.zh-CN/API参考/Elasticsearch/实例管理/GetRegionConfiguration.md)|获取当前区域的开放配置信息。接口返回值为全量数据供参考，以控制台和售卖页实际展示值为准。|
 |标签管理|[ListTags](/cn.zh-CN/API参考/Elasticsearch/标签管理/ListTags.md)|调用ListTags，查询所有可见的用户标签。|
 |[ListTagResources](/cn.zh-CN/API参考/Elasticsearch/标签管理/ListTagResources.md)|调用ListTagResources，查询可见的资源标签关系。|
 |[TagResources](/cn.zh-CN/API参考/Elasticsearch/标签管理/TagResources.md)|调用TagResources，创建标签资源关系。|
@@ -36,6 +39,7 @@
 |[ValidateTransferableNodes](/cn.zh-CN/API参考/Elasticsearch/数据迁移/ValidateTransferableNodes.md)|调用ValidateTransferableNodes，校验是否可以迁移指定实例中某些节点上的数据。|
 |[TransferNode](/cn.zh-CN/API参考/Elasticsearch/数据迁移/TransferNode.md)|调用TransferNode，执行数据迁移任务。|
 |[ListDataTasks](/cn.zh-CN/API参考/Elasticsearch/数据迁移/ListDataTasks.md)|调用ListDataTasks，获取数据迁移任务信息。|
+|[CreateDataTasks](/cn.zh-CN/API参考/Elasticsearch/数据迁移/CreateDataTasks.md)|调用CreateDataTasks，创建索引迁移任务，将所选集群中的数据迁移到当前集群。|
 |[GetClusterDataInformation](/cn.zh-CN/API参考/Elasticsearch/数据迁移/GetClusterDataInformation.md)|调用GetClusterDataInformation，获取集群的数据信息。|
 |[DeleteDataTask](/cn.zh-CN/API参考/Elasticsearch/数据迁移/DeleteDataTask.md)|调用DeleteDataTask，删除索引迁移任务。|
 |[CancelTask](/cn.zh-CN/API参考/Elasticsearch/数据迁移/CancelTask.md)|调用CancelTask，取消数据迁移任务。|
@@ -49,6 +53,7 @@
 |[UpdateSynonymsDicts](/cn.zh-CN/API参考/Elasticsearch/集群配置/UpdateSynonymsDicts.md)|调用UpdateSynonymsDicts，更新阿里云Elasticsearch实例的同义词词典。|
 |[UpdateDict](/cn.zh-CN/API参考/Elasticsearch/集群配置/UpdateDict.md)|调用UpdateDict，更新Elasticsearch实例的用户词典。|
 |[UpdateAliwsDict](/cn.zh-CN/API参考/Elasticsearch/集群配置/UpdateAliwsDict.md)|调用UpdateAliwsDict，更新AliNLP分词插件（analysis-aliws）的词典文件。支持自定义词库配置。|
+|[ListDictInformation](/cn.zh-CN/API参考/Elasticsearch/集群配置/ListDictInformation.md)|调用ListDictInformation，在添加用户OSS存储的词典文件时，获取和校验用户OSS词典文件的详情。|
 |[UpdateAdvancedSetting](/cn.zh-CN/API参考/Elasticsearch/集群配置/UpdateAdvancedSetting.md)|调用UpdateAdvancedSetting，更改指定实例的垃圾回收器配置。|
 |[DescribeTemplates](/cn.zh-CN/API参考/Elasticsearch/集群配置/DescribeTemplates.md)|调用DescribeTemplates，获取实例的场景模板配置。|
 |[UpdateExtendConfig](/cn.zh-CN/API参考/Elasticsearch/集群配置/UpdateExtendConfig.md)|调用UpdateExtendConfig，修改集群的场景化配置模板。|
@@ -57,7 +62,11 @@
 |插件管理|[ListPlugins](/cn.zh-CN/API参考/Elasticsearch/插件管理/ListPlugins.md)|调用ListPlugins，获取指定阿里云Elasticsearch实例的插件列表。|
 |[InstallSystemPlugin](/cn.zh-CN/API参考/Elasticsearch/插件管理/InstallSystemPlugin.md)|调用InstallSystemPlugin，安装系统预置插件。|
 |[UninstallPlugin](/cn.zh-CN/API参考/Elasticsearch/插件管理/UninstallPlugin.md)|调用UninstallPlugin，卸载已安装的预置插件。|
+|[InstallUserPlugins](/cn.zh-CN/API参考/Elasticsearch/插件管理/InstallUserPlugins.md)|调用InstallUserPlugins，安装用户自定义的已经上传至Elasticsearch控制台的插件。|
 |集群监控|[GetEmonMonitorData](/cn.zh-CN/API参考/Elasticsearch/集群监控/GetEmonMonitorData.md)|调用GetEmonMonitorData，查询Elasticsearch实例的Grafana指标监控数据。|
+|[GetEmonGrafanaDashboards](/cn.zh-CN/API参考/Elasticsearch/集群监控/GetEmonGrafanaDashboards.md)|调用GetEmonGrafanaDashboards，获取Grafana大盘列表。|
+|[GetEmonGrafanaAlerts](/cn.zh-CN/API参考/Elasticsearch/集群监控/GetEmonGrafanaAlerts.md)|调用GetEmonGrafanaAlerts，获取Grafana报警列表。|
+|[PostEmonTryAlarmRule](/cn.zh-CN/API参考/Elasticsearch/集群监控/PostEmonTryAlarmRule.md)|调用PostEmonTryAlarmRule，发送测试的报警消息。|
 |日志查询|[ListSearchLog](/cn.zh-CN/API参考/Elasticsearch/日志查询/ListSearchLog.md)|调用ListSearchLog，查看实例日志。|
 |安全配置|[TriggerNetwork](/cn.zh-CN/API参考/Elasticsearch/安全配置/TriggerNetwork.md)|调用TriggerNetwork，开启或关闭Elasticsearch、Kibana的公网或私网访问。|
 |[UpdatePrivateNetworkWhiteIps](/cn.zh-CN/API参考/Elasticsearch/安全配置/UpdatePrivateNetworkWhiteIps.md)|调用UpdatePrivateNetworkWhiteIps，更新指定实例的VPC私网访问白名单。|
@@ -103,9 +112,6 @@
 |[RolloverDataStream](/cn.zh-CN/API参考/Elasticsearch/索引管理/RolloverDataStream.md)|调用RolloverDataStream，手动滚动更新数据流下的匹配索引。进行此操作后，将为当前数据流创建一个新的索引，该索引将成为数据流的新写索引。|
 |[ListDataStreams](/cn.zh-CN/API参考/Elasticsearch/索引管理/ListDataStreams.md)|调用ListDataStreams，用于查看数据流列表。|
 |[CloseManagedIndex](/cn.zh-CN/API参考/Elasticsearch/索引管理/CloseManagedIndex.md)|调用CloseManagedIndex，关闭Indexing Service集群中某个索引的云端托管功能。此功能不可逆，关闭后无法再开启。|
-|高级监控报警|[t2083849.md\#]()|调用GetEmonGrafanaDashboards，获取Grafana大盘列表。|
-|[t2083839.md\#]()|调用GetEmonGrafanaAlerts，获取Grafana报警列表。|
-|[t2083841.md\#]()|调用PostEmonTryAlarmRule，发送测试的报警消息。|
 
 ## Kibana
 
@@ -116,6 +122,7 @@
 |[ListKibanaPlugins](/cn.zh-CN/API参考/Kibana/ListKibanaPlugins.md)|调用ListKibanaPlugins，获取Kibana插件列表。|
 |[InstallKibanaSystemPlugin](/cn.zh-CN/API参考/Kibana/InstallKibanaSystemPlugin.md)|调用InstallKibanaSystemPlugin，安装Kibana预置插件。要求Kibana的规格为2核4G及以上。|
 |[UninstallKibanaPlugin](/cn.zh-CN/API参考/Kibana/UninstallKibanaPlugin.md)|调用UninstallKibanaPlugin，卸载Kibana插件。|
+|[UpdateKibanaWhiteIps](/cn.zh-CN/API参考/Kibana/UpdateKibanaWhiteIps.md)|调用UpdateKibanaWhiteIps，更新指定阿里云Elasticsearch实例的Kibana访问白名单。|
 
 ## Logstash
 
