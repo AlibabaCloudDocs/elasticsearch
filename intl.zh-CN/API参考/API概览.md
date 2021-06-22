@@ -22,9 +22,12 @@
 |[InterruptElasticsearchTask](/intl.zh-CN/API参考/Elasticsearch/实例管理/InterruptElasticsearchTask.md)|调用InterruptElasticsearchTask，中断变更中的阿里云Elasticsearch实例。仅对状态为生效中的实例有效，中断后，实例进入变更中断（suspended）状态。|
 |[ResumeElasticsearchTask](/intl.zh-CN/API参考/Elasticsearch/实例管理/ResumeElasticsearchTask.md)|调用ResumeElasticsearchTask，恢复中断变更的阿里云Elasticsearch实例。|
 |[ListAllNode](/intl.zh-CN/API参考/Elasticsearch/实例管理/ListAllNode.md)|调用ListAllNode，获取集群下的所有节点信息。|
+|[DescribeElasticsearchHealth](/intl.zh-CN/API参考/Elasticsearch/实例管理/DescribeElasticsearchHealth.md)|调用DescribeElasticsearchHealth，获取指定Elasticsearch实例的健康情况。|
 |[ListInstanceIndices](/intl.zh-CN/API参考/Elasticsearch/实例管理/ListInstanceIndices.md)|调用ListInstanceIndices，获取集群的索引列表。|
 |[MigrateToOtherZone](/intl.zh-CN/API参考/Elasticsearch/实例管理/MigrateToOtherZone.md)|调用MigrateToOtherZone，迁移对应可用区下的节点到目标可用区。|
+|[MoveResourceGroup](/intl.zh-CN/API参考/Elasticsearch/实例管理/MoveResourceGroup.md)|调用MoveResourceGroup，迁移实例到指定资源组。|
 |[ModifyInstanceMaintainTime](/intl.zh-CN/API参考/Elasticsearch/实例管理/ModifyInstanceMaintainTime.md)|调用ModifyInstanceMaintainTime，更改并开启实例的可维护时间。|
+|[GetRegionConfiguration](/intl.zh-CN/API参考/Elasticsearch/实例管理/GetRegionConfiguration.md)|获取当前区域的开放配置信息。接口返回值为全量数据供参考，以控制台和售卖页实际展示值为准。|
 |标签管理|[ListTags](/intl.zh-CN/API参考/Elasticsearch/标签管理/ListTags.md)|调用ListTags，查询所有可见的用户标签。|
 |[ListTagResources](/intl.zh-CN/API参考/Elasticsearch/标签管理/ListTagResources.md)|调用ListTagResources，查询可见的资源标签关系。|
 |[TagResources](/intl.zh-CN/API参考/Elasticsearch/标签管理/TagResources.md)|调用TagResources，创建标签资源关系。|
@@ -33,6 +36,7 @@
 |[ValidateTransferableNodes](/intl.zh-CN/API参考/Elasticsearch/数据迁移/ValidateTransferableNodes.md)|调用ValidateTransferableNodes，校验是否可以迁移指定实例中某些节点上的数据。|
 |[TransferNode](/intl.zh-CN/API参考/Elasticsearch/数据迁移/TransferNode.md)|调用TransferNode，执行数据迁移任务。|
 |[ListDataTasks](/intl.zh-CN/API参考/Elasticsearch/数据迁移/ListDataTasks.md)|调用ListDataTasks，获取数据迁移任务信息。|
+|[CreateDataTasks](/intl.zh-CN/API参考/Elasticsearch/数据迁移/CreateDataTasks.md)|调用CreateDataTasks，创建索引迁移任务，将所选集群中的数据迁移到当前集群。|
 |[GetClusterDataInformation](/intl.zh-CN/API参考/Elasticsearch/数据迁移/GetClusterDataInformation.md)|调用GetClusterDataInformation，获取集群的数据信息。|
 |[DeleteDataTask](/intl.zh-CN/API参考/Elasticsearch/数据迁移/DeleteDataTask.md)|调用DeleteDataTask，删除索引迁移任务。|
 |[CancelTask](/intl.zh-CN/API参考/Elasticsearch/数据迁移/CancelTask.md)|调用CancelTask，取消数据迁移任务。|
@@ -46,10 +50,12 @@
 |[UpdateSynonymsDicts](/intl.zh-CN/API参考/Elasticsearch/集群配置/UpdateSynonymsDicts.md)|调用UpdateSynonymsDicts，更新阿里云Elasticsearch实例的同义词词典。|
 |[UpdateDict](/intl.zh-CN/API参考/Elasticsearch/集群配置/UpdateDict.md)|调用UpdateDict，更新Elasticsearch实例的用户词典。|
 |[UpdateAliwsDict](/intl.zh-CN/API参考/Elasticsearch/集群配置/UpdateAliwsDict.md)|调用UpdateAliwsDict，更新AliNLP分词插件（analysis-aliws）的词典文件。支持自定义词库配置。|
+|[ListDictInformation](/intl.zh-CN/API参考/Elasticsearch/集群配置/ListDictInformation.md)|调用ListDictInformation，在添加用户OSS存储的词典文件时，获取和校验用户OSS词典文件的详情。|
 |[UpdateAdvancedSetting](/intl.zh-CN/API参考/Elasticsearch/集群配置/UpdateAdvancedSetting.md)|调用UpdateAdvancedSetting，更改指定实例的垃圾回收器配置。|
 |插件管理|[ListPlugins](/intl.zh-CN/API参考/Elasticsearch/插件管理/ListPlugins.md)|调用ListPlugins，获取指定阿里云Elasticsearch实例的插件列表。|
 |[InstallSystemPlugin](/intl.zh-CN/API参考/Elasticsearch/插件管理/InstallSystemPlugin.md)|调用InstallSystemPlugin，安装系统预置插件。|
 |[UninstallPlugin](/intl.zh-CN/API参考/Elasticsearch/插件管理/UninstallPlugin.md)|调用UninstallPlugin，卸载已安装的预置插件。|
+|[InstallUserPlugins](/intl.zh-CN/API参考/Elasticsearch/插件管理/InstallUserPlugins.md)|调用InstallUserPlugins，安装用户自定义的已经上传至Elasticsearch控制台的插件。|
 |日志查询|[ListSearchLog](/intl.zh-CN/API参考/Elasticsearch/日志查询/ListSearchLog.md)|调用ListSearchLog，查看实例日志。|
 |安全配置|[TriggerNetwork](/intl.zh-CN/API参考/Elasticsearch/安全配置/TriggerNetwork.md)|调用TriggerNetwork，开启或关闭Elasticsearch、Kibana的公网或私网访问。|
 |[UpdatePrivateNetworkWhiteIps](/intl.zh-CN/API参考/Elasticsearch/安全配置/UpdatePrivateNetworkWhiteIps.md)|调用UpdatePrivateNetworkWhiteIps，更新指定实例的VPC私网访问白名单。|
@@ -90,6 +96,7 @@
 |[ListKibanaPlugins](/intl.zh-CN/API参考/Kibana/ListKibanaPlugins.md)|调用ListKibanaPlugins，获取Kibana插件列表。|
 |[InstallKibanaSystemPlugin](/intl.zh-CN/API参考/Kibana/InstallKibanaSystemPlugin.md)|调用InstallKibanaSystemPlugin，安装Kibana预置插件。要求Kibana的规格为2核4G及以上。|
 |[UninstallKibanaPlugin](/intl.zh-CN/API参考/Kibana/UninstallKibanaPlugin.md)|调用UninstallKibanaPlugin，卸载Kibana插件。|
+|[UpdateKibanaWhiteIps](/intl.zh-CN/API参考/Kibana/UpdateKibanaWhiteIps.md)|调用UpdateKibanaWhiteIps，更新指定阿里云Elasticsearch实例的Kibana访问白名单。|
 
 ## Logstash
 
