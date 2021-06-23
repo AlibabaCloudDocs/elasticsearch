@@ -134,7 +134,7 @@ RequestBody中还需要填入以下参数，用来指定待创建的实例信息
 
 |5.5.3\_with\_X-Pack
 
-|实例版本。可选值：7.10\_with\_X-Pack、6.7\_with\_X-Pack、6.7\_with\_A-Pack、7.7\_with\_X-Pack、6.8\_with\_X-Pack、6.3\_with\_X-Pack、5.6\_with\_X-Pack、5.5.3\_with\_X-Pack、7.10\_with\_A-Pack。 |
+|实例版本。可选值：7.10\_with\_X-Pack、6.7\_with\_X-Pack、6.7\_with\_A-Pack、7.7\_with\_X-Pack、6.8\_with\_X-Pack、6.3\_with\_X-Pack、5.6\_with\_X-Pack、5.5.3\_with\_X-Pack。 |
 |nodeSpec
 
 |Map
@@ -376,7 +376,7 @@ RequestBody中还需要填入以下参数，用来指定待创建的实例信息
 
 |elasticsearch.ic5.large
 
-|规格名称。 |
+|节点规格。 |
 |└amount
 
 |Integer
