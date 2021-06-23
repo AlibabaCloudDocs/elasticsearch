@@ -136,7 +136,7 @@ RequestBody中还需要填入以下参数，用来指定待创建的实例信息
 
 |5.5.3\_with\_X-Pack
 
-|实例版本。可选值：7.10\_with\_X-Pack、6.7\_with\_X-Pack、6.7\_with\_A-Pack、7.7\_with\_X-Pack、6.8\_with\_X-Pack、6.3\_with\_X-Pack、5.6\_with\_X-Pack、5.5.3\_with\_X-Pack、7.10\_with\_A-Pack。 |
+|实例版本。可选值：7.10\_with\_X-Pack、6.7\_with\_X-Pack、6.7\_with\_A-Pack、7.7\_with\_X-Pack、6.8\_with\_X-Pack、6.3\_with\_X-Pack、5.6\_with\_X-Pack、5.5.3\_with\_X-Pack。 |
 |nodeSpec
 
 |Map
@@ -152,7 +152,7 @@ RequestBody中还需要填入以下参数，用来指定待创建的实例信息
 
 |elasticsearch.sn2ne.xlarge
 
-|节点规格。 |
+|节点规格，规格信息可通过[包年包月](~~132255~~)或[按量付费](~~132256~~)查看。 |
 |└disk
 
 |String
@@ -213,7 +213,7 @@ RequestBody中还需要填入以下参数，用来指定待创建的实例信息
 
 |elasticsearch.sn2ne.xlarge
 
-|节点规格。 |
+|节点规格，规格信息可通过[包年包月](~~132255~~)或[按量付费](~~132256~~)查看。 |
 |└amount
 
 |int
@@ -265,7 +265,7 @@ RequestBody中还需要填入以下参数，用来指定待创建的实例信息
 
 |elasticsearch.ic5.large
 
-|节点规格。 |
+|节点规格，规格信息可通过[包年包月](~~132255~~)或[按量付费](~~132256~~)查看。 |
 |└amount
 
 |Integer
@@ -326,7 +326,7 @@ RequestBody中还需要填入以下参数，用来指定待创建的实例信息
 
 |elasticsearch.ic5.large
 
-|节点规格。 |
+|节点规格，规格信息可通过[包年包月](~~132255~~)或[按量付费](~~132256~~)查看。 |
 |└amount
 
 |Integer
@@ -378,7 +378,7 @@ RequestBody中还需要填入以下参数，用来指定待创建的实例信息
 
 |elasticsearch.ic5.large
 
-|规格名称。 |
+|节点规格，规格信息可通过[包年包月](~~132255~~)或[按量付费](~~132256~~)查看。 |
 |└amount
 
 |Integer
@@ -448,7 +448,7 @@ RequestBody中还需要填入以下参数，用来指定待创建的实例信息
 
 |elasticsearch.n4.small
 
-|节点规格。 |
+|节点规格，规格信息可通过[包年包月](~~132255~~)或[按量付费](~~132256~~)查看。 |
 |└amount
 
 |Integer
@@ -548,7 +548,7 @@ RequestBody中还需要填入以下参数，用来指定待创建的实例信息
 **说明：**
 
 -   └表示子参数。
--   支持的节点规格列表，请参见[阿里云Elasticsearch定价信息](https://www.aliyun.com/price/product?spm=a2c4g.11186623.2.10.653c6c88NcQPZY#/elasticsearch/detail)。
+-   支持的节点规格列表，请参见[阿里云Elasticsearch定价信息](https://www.aliyun.com/price/product?spm=a2c4g.11186623.2.10.653c6c88NcQPZY#/elasticsearch/detail)、[包年包月](~~132255~~)或[按量付费](~~132256~~)。
 
 示例如下。
 
