@@ -6,7 +6,7 @@ Before calling the interface, note:
 
 -   Make sure that you have read and understand the billing and pricing standards of Alibaba Cloud Elasticsearch.
 
-    For details, see [Alibaba Cloud Elasticsearch pricing](https://www.aliyun.com/price/product?spm=a2c4g.11186623.2.7.657d2cbeRoSPCd#/elasticsearch/detail) .
+    For more information, see [Alibaba Cloud Elasticsearch pricing](https://www.aliyun.com/price/product?spm=a2c4g.11186623.2.7.657d2cbeRoSPCd#/elasticsearch/detail).
 
 -   Before you create an instance, you must complete real-name verification.
 
@@ -17,7 +17,7 @@ Before calling the interface, note:
 
 ## Request headers
 
-This operation uses only the common request header. For more information, see Common request parameters.
+This operation uses only common request parameters. For more information, see the Common request parameters topic.
 
 ## Request syntax
 
@@ -29,7 +29,7 @@ This operation uses only the common request header. For more information, see Co
 
 ## Request parameters
 
-|Parameter|Type|Position|Required|Example|Description|
+|Parameter|Type|Location|Required|Example|Description|
 |---------|----|--------|--------|-------|-----------|
 |clientToken|String|Query|No|5A2CFF0E-5718-45B5-9D4D-70B3FF\*\*\*\*|This parameter is used to ensure the idempotence of the request. You can use the client to generate the value, but you must ensure that it is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. |
 
@@ -55,7 +55,7 @@ The following parameters must be filled in the RequestBody to specify the inform
 
 |postpaid
 
-|The billing unit of the subscription instance. Optional values: postpaid \(billed by volume\) and prepaid \(package year and month\). |
+|The billing method of the cluster. Optional values: postpaid \(billed by volume\) and prepaid \(package year and month\). |
 |paymentInfo
 
 |Map
@@ -118,7 +118,7 @@ The following parameters must be filled in the RequestBody to specify the inform
 
 |advanced
 
-|Version type. supports advanced \(enhanced\), x-pack \(business\) set advanced, have to buy Master node and CPFS shared storage. |
+|Version type. Support advanced \(enhanced version\) and x-pack \(commercial version\). When set to advanced, you must purchase Master nodes and CPFS shared storage. |
 |esAdminPassword
 
 |String
@@ -127,7 +127,7 @@ The following parameters must be filled in the RequestBody to specify the inform
 
 |es\_password
 
-|The access password of the ES instance. requirements include the following characters in three types: uppercase letters, lowercase letters, lowercase letters, numbers, and special characters:!@\#$%^& author \(s\):\_+-=length of from 8 to 32-bit. |
+|The access password of the ES instance. Three of the following characters are required: uppercase letters, lowercase letters, numbers, and special characters:!@\#$%^& \*\(\)\_+-=, 8 to 32 bits in length. |
 |esVersion
 
 |String
@@ -136,7 +136,7 @@ The following parameters must be filled in the RequestBody to specify the inform
 
 |5.5.3\_with\_X-Pack
 
-|The version of the instance. Optional values: 7.10\_with\_X-Pack, 6.7\_with\_X-Pack, 6.7\_with\_A-Pack, 7.7\_with\_X-Pack, 6.8\_with\_X-Pack, 6.3\_with\_X-Pack, 5.6\_with\_X-Pack, 5.5.3\_with\_X-Pack, 7.10\_with\_A-Pack. |
+|The version of the instance. Optional values: 7.10\_with\_X-Pack, 6.7\_with\_X-Pack, 6.7\_with\_A-Pack, 7.7\_with\_X-Pack, 6.8\_with\_X-Pack, 6.3\_with\_X-Pack, 5.6\_with\_X-Pack, 5.5.3\_with\_X-Pack. |
 |nodeSpec
 
 |Map
@@ -152,7 +152,7 @@ The following parameters must be filled in the RequestBody to specify the inform
 
 |elasticsearch.sn2ne.xlarge
 
-|The node specifications of the cluster. |
+|Node type . |
 |└disk
 
 |String
@@ -213,7 +213,7 @@ The following parameters must be filled in the RequestBody to specify the inform
 
 |elasticsearch.sn2ne.xlarge
 
-|The node specifications of the cluster. |
+|Node type . |
 |└amount
 
 |int
@@ -236,7 +236,7 @@ The following parameters must be filled in the RequestBody to specify the inform
 
 |string
 
-|Yse
+|Yes
 
 |cloud\_ssd
 
@@ -261,11 +261,11 @@ The following parameters must be filled in the RequestBody to specify the inform
 
 |string
 
-|Yse
+|Yes
 
 |elasticsearch.ic5.large
 
-|The node specifications of the cluster. |
+|Node type . |
 |└amount
 
 |Integer
@@ -279,7 +279,7 @@ The following parameters must be filled in the RequestBody to specify the inform
 
 |string
 
-|Yse
+|Yes
 
 |cloud\_efficiency
 
@@ -322,11 +322,11 @@ The following parameters must be filled in the RequestBody to specify the inform
 
 |string
 
-|Yse
+|Yes
 
 |elasticsearch.ic5.large
 
-|The node specifications of the cluster. |
+|Node type . |
 |└amount
 
 |Integer
@@ -340,7 +340,7 @@ The following parameters must be filled in the RequestBody to specify the inform
 
 |string
 
-|Yse
+|Yes
 
 |cloud\_efficiency
 
@@ -374,11 +374,11 @@ The following parameters must be filled in the RequestBody to specify the inform
 
 |string
 
-|Yse
+|Yes
 
 |elasticsearch.ic5.large
 
-|The name of the specification. |
+|Node type . |
 |└amount
 
 |Integer
@@ -392,7 +392,7 @@ The following parameters must be filled in the RequestBody to specify the inform
 
 |string
 
-|Yse
+|Yes
 
 |cloud\_efficiency
 
@@ -448,7 +448,7 @@ The following parameters must be filled in the RequestBody to specify the inform
 
 |elasticsearch.n4.small
 
-|The specification of data nodes. |
+|Node type . |
 |└amount
 
 |Integer
@@ -487,29 +487,29 @@ The following parameters must be filled in the RequestBody to specify the inform
 
 |string
 
-|Yse
+|Yes
 
 |vpc-bp16k1dvzxtmagcva\*\*\*\*
 
-|The ID of the VPC. |
+|The ID of the virtual private cloud \(VPC\) to which the cluster belongs. |
 |└vsArea
 
 |string
 
-|Yse
+|Yes
 
 |cn-hangzhou-i
 
-|The ID of the zone to which the vSwitch belongs. |
+|The ID of the zone to which the VSwitch belongs. |
 |└vswitchId
 
 |string
 
-|Yse
+|Yes
 
 |vsw-bp1k4ec6s7sjdbudw\*\*\*\*
 
-|The ID of the vSwitch to which the instance is connected. |
+|The vSwitch ID of the cluster. |
 |extendConfigs
 
 |list
@@ -521,7 +521,7 @@ The following parameters must be filled in the RequestBody to specify the inform
 
 |string
 
-|Yse
+|Yes
 
 |sharedDisk
 
@@ -548,9 +548,9 @@ The following parameters must be filled in the RequestBody to specify the inform
 **Note:**
 
 -   └ indicates a child parameter.
--   For a list of supported node specifications, see [Alibaba Cloud Elasticsearch pricing information](https://www.aliyun.com/price/product?spm=a2c4g.11186623.2.10.653c6c88NcQPZY#/elasticsearch/detail) .
+-   For a list of supported node specifications, see [Alibaba Cloud Elasticsearch pricing information](https://www.aliyun.com/price/product?spm=a2c4g.11186623.2.10.653c6c88NcQPZY#/elasticsearch/detail).
 
-Sample template:
+The following code provides an example:
 
 ```
 
