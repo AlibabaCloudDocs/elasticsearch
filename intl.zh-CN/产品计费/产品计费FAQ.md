@@ -20,15 +20,15 @@ Elasticsearch计费问题
 
 ## 包年包月的阿里云ES实例到期后会自动释放吗？
 
-如果您没有[开通自动续费](/intl.zh-CN/产品计费/续费/Elasticsearch续费.mdsection_3d0_hpw_ut8)，那么包年包月实例到期后会自动释放。
+如果您没有[开通自动续费](/intl.zh-CN/产品计费/续费/Elasticsearch续费.md)，那么包年包月实例到期后会自动释放。
 
 ## 如何设置阿里云ES的续费方式为手动续费？
 
-手动续费只适用于包年包月实例，具体操作步骤请参见[Elasticsearch续费](/intl.zh-CN/产品计费/续费/Elasticsearch续费.md)。
+手动续费只适用于包年包月实例，具体操作步骤请参见[手动续费实例](/intl.zh-CN/产品计费/续费/Elasticsearch续费.md)。
 
 ## 如何设置阿里云ES实例到期自动续费？
 
-自动续费只适用于包年包月实例，具体操作步骤请参见[开通自动续费](/intl.zh-CN/产品计费/续费/Elasticsearch续费.mdsection_3d0_hpw_ut8)。
+自动续费只适用于包年包月实例，具体操作步骤请参见[开通自动续费](/intl.zh-CN/产品计费/续费/Elasticsearch续费.md)。
 
 ## 阿里云ES提供的X-Pack插件收费吗？
 
