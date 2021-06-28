@@ -4,7 +4,12 @@ This topic describes how to use the cross-cluster replication \(CCR\) feature to
 
 ## Precautions
 
-Due to the adjustment made to the Alibaba Cloud Elasticsearch network architecture, clusters created after October 2020 do not support the X-Pack Watcher and LDAP authentication features. You cannot reindex, search for, and replicate data between a cluster created before October 2020 and a cluster created after October 2020. You can perform the operations only between clusters created before October 2020 or between clusters created after October 2020. The features will be available soon.
+The adjustment made to the Alibaba Cloud Elasticsearch network architecture has the following impacts on clusters:
+
+-   Clusters created after October 2020 do not support the X-Pack Watcher and Lightweight Directory Access Protocol \(LDAP\) authentication features.
+-   You cannot reindex, search for, and replicate data between a cluster created before October 2020 and a cluster created after October 2020. If you want to perform these operations between them, make sure that the clusters are under the same network architecture.
+
+**Note:** The network architecture in the China \(Zhangjiakou\) region and the regions outside China was adjusted before October 2020. If you want to perform the preceding operations between a cluster created before October 2020 and that created after October 2020 in such a region, [submit a ticket](https://workorder-intl.console.aliyun.com/console.htm) to contact technical support personnel to check whether the network architecture supports the operations.
 
 ## Background information
 
@@ -52,14 +57,14 @@ To use CCR, you must prepare two types of clusters: local clusters and remote cl
 
 1.  Create a local cluster and a remote cluster.
 
-    For more information, see [Create an Alibaba Cloud Elasticsearch cluster](/intl.en-US/Elasticsearch Instances Management/Manage clusters/Create an Alibaba Cloud Elasticsearch cluster.md). The two clusters must be single-zone clusters and belong to both the same virtual private cloud \(VPC\) and vSwitch. The versions of the two clusters must be the same \(V6.7.0 or later\).
+    For more information, see [Create an Alibaba Cloud Elasticsearch cluster](/intl.en-US/Elasticsearch Instances Management/Manage clusters/Create an Alibaba Cloud Elasticsearch cluster.md). The two clusters must be single-zone clusters, reside in the same virtual private cloud \(VPC\) and vSwitch, and be of the same version \(V6.7.0 or later\).
 
 2.  [Log on to the Kibana console](/intl.en-US/Elasticsearch Instances Management/Data visualization/Kibana/Log on to the Kibana console.md) of the remote cluster and create a leader index.
 
     **Note:**
 
     -   If you create an index in an Elasticsearch cluster of V7.0 or earlier, you must enable the soft\_deletes attribute. Otherwise, an error is reported.
-    -   If you want to migrate data in an existing index, you can call the reindex operation to enable the soft\_deletes attribute.
+    -   If you want to migrate data in an existing index, you can call the reindex API to enable the soft\_deletes attribute.
     ```
     PUT myindex
     {
@@ -119,7 +124,7 @@ Configure the remote cluster to connect it to the local cluster. For more inform
     ![Add remote cluster](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/9201852061/p133844.png)
 
     -   **Name**: the name of the remote cluster. The name must be unique.
-    -   **Seed nodes**: the nodes in the remote cluster. Specify each node in the format of Node IP address:9300. To obtain the IP addresses of nodes, log on to the Kibana console of the remote cluster and run the `GET /_cat/nodes? v` command on the Console tab of the Dev Tools page. The nodes you specify must include a dedicated master node of the remote cluster. We recommend that you specify multiple nodes. This way, if the dedicated master node fails, you can still use CCR.
+    -   **Seed nodes**: the nodes in the remote cluster. Specify each node in the format of Node IP address:9300. To obtain the IP addresses of nodes, log on to the Kibana console of the remote cluster and run the `GET /_cat/nodes?v` command on the Console tab of the Dev Tools page. The nodes you specify must include a dedicated master node of the remote cluster. We recommend that you specify multiple nodes. This ensures that you can still use CCR when the specified dedicated master node fails.
 
         ![Obtain the IP address of a node](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/9201852061/p133849.png)
 
@@ -173,7 +178,7 @@ Configure the remote cluster to connect it to the local cluster. For more inform
     GET myindex_follow/_search
     ```
 
-    If the running of the command is successful, the result shown in the following figure is returned.
+    If the command is successfully run, the result shown in the following figure is returned.
 
     ![Data migration results](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/9201852061/p134056.png)
 
@@ -191,13 +196,13 @@ Configure the remote cluster to connect it to the local cluster. For more inform
     }
     ```
 
-    Query the inserted data record in the local cluster immediately. The following figure shows the data record.
+    Query the inserted data record in the local cluster. The following figure shows the data record.
 
     ![Verify real-time data migration](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/0301852061/p135046.png)
 
     The preceding figure shows that the CCR feature can implement real-time migration of incremental data.
 
-    **Note:** You can also call the API operations of the CCR feature to perform cross-cluster replication operations. For more information, see [Cross-cluster replication APIs](https://www.elastic.co/guide/en/elasticsearch/reference/master/ccr-apis.html#ccr-apis).
+    **Note:** You can also call the APIs for the CCR feature to perform cross-cluster replication operations. For more information, see [Cross-cluster replication APIs](https://www.elastic.co/guide/en/elasticsearch/reference/master/ccr-apis.html#ccr-apis).
 
 
 ## FAQ
