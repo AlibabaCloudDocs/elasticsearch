@@ -1,11 +1,9 @@
 # Select a synchronization method
 
-If you encounter slow queries when you use an ApsaraDB RDS database, you can synchronize data from the database to an Alibaba Cloud Elasticsearch cluster for data queries and analytics. Alibaba Cloud Elasticsearch is a Lucene-based, distributed, real-time search and analytics engine. It allows you to store, query, and analyze large amounts of datasets in near real time. You can use Data Transmission Service \(DTS\), Logstash, DataWorks, or Canal to synchronize data from an ApsaraDB RDS database to an Alibaba Cloud Elasticsearch cluster. This topic describes the use scenarios of each method. You can select an appropriate method based on your business requirements.
+If you encounter slow queries when you use an ApsaraDB RDS database, you can synchronize data from the database to an Alibaba Cloud Elasticsearch cluster for data queries and analytics. Alibaba Cloud Elasticsearch is a Lucene-based, distributed search and analytics engine. It allows you to store, query, and analyze large amounts of datasets in near real time. You can use Data Transmission Service \(DTS\), Logstash, DataWorks, or Canal to synchronize data from an ApsaraDB RDS database to an Alibaba Cloud Elasticsearch cluster. This topic describes the use scenarios of each method. You can select an appropriate method based on your business requirements.
 
-**Note:** We recommend that you do not synchronize the data stored in system indexes whose names start with a period \(`.`\), such as .monitoring, .Kibana, and .security. Otherwise, an error may occur in Kibana.
-
-|Method|Description|Use scenario|Limit|Reference|
-|------|-----------|------------|-----|---------|
+|Method|Description|Use scenario|Usage note|References|
+|------|-----------|------------|----------|----------|
 |Use DTS to synchronize data in real time|DTS uses binary logs to synchronize data. You can use DTS to synchronize data within milliseconds, without affecting the source database.|You require a high real-time performance for data synchronization.|-   DTS uses the read and write resources of the source database and destination cluster during data initialization. This may increase the loads of the database and cluster.
 -   You can customize mappings for indexes. However, you must make sure that the fields defined in the mappings are the same as those in the source database.
 -   You must purchase a data synchronization instance in the DTS console. For more information about how to purchase such an instance, see [Purchase a DTS instance](). For more information about the pricing of DTS, see [Pricing]().
@@ -30,7 +28,7 @@ If you encounter slow queries when you use an ApsaraDB RDS database, you can syn
 
 |[Use DataWorks to synchronize MySQL data to Elasticsearch](/intl.en-US/Best Practices/Migrate and synchronize MySQL data/RDS synchronization/Use DataWorks to synchronize MySQL data to Elasticsearch.md)|
 |Use Canal to synchronize MySQL data|You can use binary logs to synchronize and subscribe to data in real time.|You require a high real-time performance for data synchronization.|-   You must build a Canal environment on an Elastic Compute Service \(ECS\) instance. However, this increases the costs of data synchronization.
--   Canal V1.1.4 cannot be used to synchronize data to Elasticsearch V7.4 clusters.
+-   Canal V1.1.4 cannot be used to synchronize data to an Elasticsearch V7.X cluster. We recommend that you use Logstash or DTS to synchronize MySQL data to an Elasticsearch V7.X cluster.
 -   You can customize mappings for indexes. However, you must make sure that the fields defined in the mappings are the same as those in the source database.
 
 |[Use Canal to synchronize MySQL data to Alibaba Cloud Elasticsearch](/intl.en-US/Best Practices/Migrate and synchronize MySQL data/RDS synchronization/Use Canal to synchronize MySQL data to Alibaba Cloud Elasticsearch.md)|
