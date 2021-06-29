@@ -48,8 +48,8 @@ PUT _snapshot/my_backup/
 |access\_key\_id|The AccessKey ID of your account. For more information about how to obtain the AccessKey ID, see [Obtain an AccessKey pair]().|
 |secret\_access\_key|The AccessKey secret of your account. For more information about how to obtain the AccessKey secret, see [Obtain an AccessKey pair]().|
 |bucket|The name of the OSS bucket. For more information about how to obtain the name, see [Create buckets](/intl.en-US/Quick Start/OSS console/Create buckets.md).|
-|compress|Specifies whether to compress the metadata of indexes when snapshots are created for them. Valid values:-   true: indicates that the system compresses the metadata of indexes when snapshots are created for them.
--   false: indicates that the system does not compress the metadata of indexes when snapshots are created for them. |
+|compress|Specifies whether the data compression feature is enabled for snapshots. Valid values: -   true: indicates that the data compression feature is enabled for snapshots. This feature applies only to index metadata, including the mappings and settings of indexes.
+-   false: indicates that the data compression feature is disabled for snapshots. The default value is false. |
 |chunk\_size|If you want to upload large volumes of data to the OSS bucket, you can upload the data in multiple parts. In this case, you can use this parameter to set the size of each part. If the size of a part reaches the value of this parameter, the excess data is distributed to another part.|
 |base\_path|The start location of the repository. The default value is the root directory.|
 
@@ -275,7 +275,7 @@ DELETE _snapshot/my_backup/snapshot_3
 
 **Note:**
 
--   You can delete snapshots only by calling the DELETE API. A snapshot may be associated with the data in other snapshots. If some data in the snapshot that you want to delete is associated with other snapshots, the DELETE API filters the data and deletes only the data that is not associated with other snapshots.
+-   You can delete snapshots only by calling the DELETE API. A snapshot may be associated with the data in other snapshots. If some data in the snapshot that you want to delete is associated with other snapshots, the DELETE API finds the data and deletes only the data that is not associated with other snapshots.
 -   If you choose to manually delete a snapshot, you may delete the data that is being used by other snapshots. This can cause data loss.
 
 ## Restore indexes from a snapshot
