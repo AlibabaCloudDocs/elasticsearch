@@ -27,7 +27,7 @@ The aliyun-knn plug-in is a vector search engine developed by the Alibaba Cloud 
     -   Before you install the aliyun-knn plug-in, make sure that the data node specifications of your cluster are 2 vCPUs and 8 GiB of memory or higher. The specifications of 2 vCPUs and 8 GiB of memory are used only for functional tests. In a production environment, the data node specifications of your cluster must be 4 vCPUs and 16 GiB of memory or higher. If the data node specifications of your cluster do not meet these requirements, upgrade the data nodes in your cluster. For more information, see [Upgrade the configuration of a cluster](/intl.en-US/Elasticsearch Instances Management/Upgrade or downgrade a cluster/Upgrade the configuration of a cluster.md).
 -   Your cluster and the indexes that you want to store on the cluster are planned. For more information, see [Index planning](#section_x17_tbz_22y) and [Cluster planning](#section_ae0_2bt_ki4).
 
--   Scenarios
+-   Use scenario
 
     The vector search engine of Alibaba Cloud Elasticsearch is used in numerous production scenarios inside Alibaba Group, such as Pailitao, Image Search, Youku video fingerprinting, Qutoutiao video fingerprinting, Taobao commodity recommendation, customized searches, and Crossmedia searches.
 
@@ -110,7 +110,7 @@ The aliyun-knn plug-in is a vector search engine developed by the Alibaba Cloud 
     |Category|Parameter|Default value|Description|
     |--------|---------|-------------|-----------|
     |setting|index.codec|proxima|Specifies whether to create the `proxima` vector index. Valid values:    -   proxima: The system creates the `proxima` vector index. This index supports vector searches. We recommend that you set this parameter to proxima.
-    -   null: The system does not create the `proxima` vector index but creates only forward indexes. In this case, fields of the `proxima_vector` type support only script queries and do not support HNSW- or Linear Search-based queries.
+    -   null: The system does not create the `proxima` vector index but creates only forward indexes. In this case, fields of the `proxima_vector` type do not support HNSW- or Linear Search-based queries. These fields support only script queries.
 **Note:** If your cluster stores large volumes of data and you do not have high requirements on the latency of queries, you can remove the parameter or set the parameter to null. In this case, you can use the script query feature to search for the k-nearest neighbors \(k-NN\) of a vector. This feature is available only for V6.7.0 clusters whose apack plug-in is of V1.2.1 or later and V7.10.0 clusters whose apack plug-in is of V1.4.0 or later. |
     |index.vector.algorithm|HNSW|The algorithm that is used to search for vectors. Valid values:    -   hnsw: HNSW
     -   linear: Linear Search |
@@ -182,7 +182,9 @@ For example, if you want to write the 64-bit binary business data 0001 0010 0100
     |---------|-----------|
     |hnsw|The algorithm that is used to search for the vector. The value must be the same as that of the `algorithm` parameter specified when you create the index.|
     |vector|The vector for which you want to search. The length of the array for the vector must be the same as the value of the `dim` parameter specified in `mapping`.|
-    |size|The number of recalled documents.|
+    |size|The number of recalled documents. **Note:** The size parameter in a vector search command is different from the size parameter provided by Elasticsearch. The former controls the number of documents recalled by the aliyun-knn plug-in, whereas the latter controls the number of documents recalled for a search. When you perform a vector search, the system recalls the top N documents based on the value of the size parameter in the related vector search command and recalls all the matching documents based on the value of the size parameter provided by Elasticsearch. Then, the system returns results based on the top N documents and all the matching documents.
+
+We recommend that you set the two size parameters to the same value. The default value of the size parameter provided by Elasticsearch is 10. |
 
     **Note:** The aliyun-knn plug-in also supports some advanced search parameters. For more information, see [Advanced parameters](#section_76w_ddt_s0c).
 
@@ -227,7 +229,7 @@ For example, if you want to write the 64-bit binary business data 0001 0010 0100
 
     **Note:**
 
-    -   You can perform script queries only in V6.7.0 clusters whose apack plug-in is of V1.2.1 or later and V7.10.0 clusters whose apack plug-in is of V1.4.0 or later. You can run the GET \_cat/plugins?v command to obtain the version of the apack plug-in. If the version of the apack plug-in does not meet the requirements, you can [submit a ticket](https://account.alibabacloud.com/login/login.htm?oauth_callback=https%3A//ticket-intl.console.aliyun.com/%23) to ask Alibaba Cloud engineers to update the apack plug-in.
+    -   You can perform script queries only in V6.7.0 clusters whose apack plug-in is of V1.2.1 or later and V7.10.0 clusters whose apack plug-in is of V1.4.0 or later. You can run the GET \_cat/plugins?v command to obtain the version of the apack plug-in. If the version of the apack plug-in does not meet the requirements, you can [submit a ticket](https://account.alibabacloud.com/login/login.htm?oauth_callback=https%3A//ticket-intl.console.aliyun.com/%23) to ask Alibaba Cloud engineers to update your apack plug-in.
     -   Parameters in the preceding functions:
         -   float\[\] queryVector: the query vector. You can set this parameter to a formal or actual parameter.
         -   DocValues docValues: the document vectors.
@@ -250,7 +252,7 @@ For example, if you want to write the 64-bit binary business data 0001 0010 0100
 
     **Note:**
 
-    -   The index warm-up feature is available only for V6.7.0 clusters whose apack plug-in is of V1.2.1 or later and V7.10.0 clusters whose apack plug-in is of V1.4.0 or later. You can run the GET \_cat/plugins?v command to obtain the version of the apack plug-in. If the version of the apack plug-in does not meet the requirements, you can [submit a ticket](https://account.alibabacloud.com/login/login.htm?oauth_callback=https%3A//ticket-intl.console.aliyun.com/%23) to ask Alibaba Cloud engineers to update the apack plug-in.
+    -   The index warm-up feature is available only for V6.7.0 clusters whose apack plug-in is of V1.2.1 or later and V7.10.0 clusters whose apack plug-in is of V1.4.0 or later. You can run the GET \_cat/plugins?v command to obtain the version of the apack plug-in. If the version of the apack plug-in does not meet the requirements, you can [submit a ticket](https://account.alibabacloud.com/login/login.htm?oauth_callback=https%3A//ticket-intl.console.aliyun.com/%23) to ask Alibaba Cloud engineers to update your apack plug-in.
     -   If your cluster stores a large number of vector indexes, the indexes store large volumes of data, and vector searches are required only for a specific vector index, we recommend that you warm up only the specific vector index to improve the search performance.
 
 ## Vector scoring
@@ -283,10 +285,8 @@ Different distance measurement functions correspond to different scoring mechani
 -   Score = 1/\(Cosine similarity + 1\)
 
 |A cosine similarity reflects the differences between vectors from orientations. Cosine similarities are used to score content to obtain the similarities or differences between user interests. In addition, cosine similarities are subject to the orientations of vectors rather than the numbers in them. Therefore, the cosine similarities can address the issue that users may use different measurement standards.|For example, two two-dimensional vectors \[1,1\] and \[1, 0\] exist. The cosine similarity between the vectors is 0.707.|
-|InnerProduct|This function is used to calculate the inner product between vectors. An inner product is also called a [dot product](https://baike.baidu.com/item/%E7%82%B9%E7%A7%AF/9648528?fromtitle=%E5%86%85%E7%A7%AF&fromid=422863). A dot product is a dyadic operation that takes two [vectors](https://baike.baidu.com/item/%E5%90%91%E9%87%8F/1396519) of the [real number](https://baike.baidu.com/item/%E5%AE%9E%E6%95%B0/296419) R and returns a scalar for the real number.|For example, two n-dimensional vectors \[A1, A2, ..., An\] and \[B1, B2, ..., Bn\] exist.-   Inner product between the vectors = A1B1 + A2B2 + ...+ AnBn
+|InnerProduct|This function is used to calculate the inner product between vectors. An inner product is also called a [dot product](https://baike.baidu.com/item/%E7%82%B9%E7%A7%AF/9648528?fromtitle=%E5%86%85%E7%A7%AF&fromid=422863). A dot product is a dyadic operation that takes two [vectors](https://baike.baidu.com/item/%E5%90%91%E9%87%8F/1396519) of the [real number](https://baike.baidu.com/item/%E5%AE%9E%E6%95%B0/296419) R and returns a scalar for the real number.|For example, two n-dimensional vectors \[A1, A2, ..., An\] and \[B1, B2, ..., Bn\] exist.-   Inner product between the vectors = A1B1 + A2B2 + ... + AnBn
 -   Score = 1/\(Inner product + 1\)
-
-
 
 |The inner product takes both the angle and absolute length between the vectors into consideration. After vectors are normalized, the formula for inner products is equivalent to that for cosine similarities.|For example, two two-dimensional vectors \[1,1\] and \[1,5\] exist. The inner product between the vectors is 6.|
 |Hamming \(available only for vectors of the BINARY data type\)|In information theory, the [Hamming distance](https://baike.baidu.com/item/%E6%B1%89%E6%98%8E%E8%B7%9D%E7%A6%BB/475174?fr=aladdin) between strings of the same length equals the number of positions at which symbols differ. d\(x, y\) is used to represent the Hamming distance between the strings x and y. In other words, a Hamming distance measures the minimum number of substitutions that are required to change the string x into the string y.|For example, two n-bit binary strings x and y exist.-   d\(x,y\) = ∑x\[i\]⊕y\[i\]
@@ -356,7 +356,7 @@ GET test/_search
 
     **Note:** Divide the number of document IDs returned by both indexes by the total number of returned document IDs to calculate the recall ratio of the documents.
 
--   Q: When I write data to my cluster, the system displays the "circuitBreakingException" error. What do I do?
+-   Q: When I write data to my cluster, the system returns the "circuitBreakingException" error. What do I do?
 
     A: This error indicates that the off-heap memory usage exceeds the proportion specified by the `indices.breaker.vector.native.indexing.limit` parameter and that the write operation is suspended. The default proportion is 70%. In most cases, the write operation is automatically resumed after the system creates indexes and releases memory. We recommend that you add a retry mechanism to the data write script on your client.
 
