@@ -1,6 +1,6 @@
 # UpgradeEngineVersion
 
-Upgrades the version or kernel of an Elasticsearch cluster. You can upgrade the version of an Elasticsearch cluster only from V6.3 to V6.7.
+Upgrades the version or kernel of an Elasticsearch cluster. You can upgrade Elasticsearch clusters from V5.5.3 to V5.6.16, from V5.6.16 to V6.3.2, or from V6.3.2 to V6.7.0.
 
 ## Debugging
 
