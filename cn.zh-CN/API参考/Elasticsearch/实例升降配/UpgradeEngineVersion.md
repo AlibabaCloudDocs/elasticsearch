@@ -1,6 +1,6 @@
 # UpgradeEngineVersion
 
-调用UpgradeEngineVersion，升级Elasticsearch的实例版本或内核补丁版本。升级实例版本功能仅支持将6.3版本的实例升级至6.7版本。
+调用UpgradeEngineVersion，升级Elasticsearch的实例版本或内核补丁版本。升级实例版本功能目前只支持5.5.3版本升级到5.6.16版本、5.6.16版本升级到6.3.2版本、6.3.2版本升级到6.7.0版本，暂不支持其他版本间的升级。详情请参见[升级版本](~~148786~~)。
 
 ## 调试
 
