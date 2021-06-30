@@ -225,7 +225,9 @@ We recommend that you set the two size parameters to the same value. The default
     |--------|-----------|
     |l2Squared\(float\[\] queryVector, DocValues docValues\)|The function that is used to search for a vector based on a Euclidean distance.|
     |hamming\(float\[\] queryVector, DocValues docValues\)|The function that is used to search for a vector based on a Hamming distance.|
-    |cosineSimilarity\(float\[\] queryVector, DocValues docValues\)|The function that is used to search for a vector based on a cosine similarity.|
+    |    -   cosineSimilarity\(float\[\] queryVector, DocValues docValues\)
+    -   cosine\(float\[\] queryVector, DocValues docValues\)
+|The function that is used to search for a vector based on a cosine similarity. **Note:** We recommend that you use the `cosineSimilarity(float[] queryVector, DocValues docValues)` function for V6.7 clusters and use the `cosine(float[] queryVector, DocValues docValues)` function for V7.10 clusters. |
 
     **Note:**
 
@@ -270,7 +272,7 @@ Score = 1/\(Vector distance + 1\)
 
 ## Distance measurement functions
 
-Different distance measurement functions correspond to different scoring mechanisms. The following table describes the distance measurement functions supported by the aliyun-knn plug-in.
+The scoring mechanism varies based on the distance measurement function. The following table describes the distance measurement functions supported by the aliyun-knn plug-in.
 
 |Distance measurement function|Description|Scoring formula|Use scenario|Example|
 |-----------------------------|-----------|---------------|------------|-------|
@@ -287,6 +289,8 @@ Different distance measurement functions correspond to different scoring mechani
 |A cosine similarity reflects the differences between vectors from orientations. Cosine similarities are used to score content to obtain the similarities or differences between user interests. In addition, cosine similarities are subject to the orientations of vectors rather than the numbers in them. Therefore, the cosine similarities can address the issue that users may use different measurement standards.|For example, two two-dimensional vectors \[1,1\] and \[1, 0\] exist. The cosine similarity between the vectors is 0.707.|
 |InnerProduct|This function is used to calculate the inner product between vectors. An inner product is also called a [dot product](https://baike.baidu.com/item/%E7%82%B9%E7%A7%AF/9648528?fromtitle=%E5%86%85%E7%A7%AF&fromid=422863). A dot product is a dyadic operation that takes two [vectors](https://baike.baidu.com/item/%E5%90%91%E9%87%8F/1396519) of the [real number](https://baike.baidu.com/item/%E5%AE%9E%E6%95%B0/296419) R and returns a scalar for the real number.|For example, two n-dimensional vectors \[A1, A2, ..., An\] and \[B1, B2, ..., Bn\] exist.-   Inner product between the vectors = A1B1 + A2B2 + ... + AnBn
 -   Score = 1/\(Inner product + 1\)
+
+
 
 |The inner product takes both the angle and absolute length between the vectors into consideration. After vectors are normalized, the formula for inner products is equivalent to that for cosine similarities.|For example, two two-dimensional vectors \[1,1\] and \[1,5\] exist. The inner product between the vectors is 6.|
 |Hamming \(available only for vectors of the BINARY data type\)|In information theory, the [Hamming distance](https://baike.baidu.com/item/%E6%B1%89%E6%98%8E%E8%B7%9D%E7%A6%BB/475174?fr=aladdin) between strings of the same length equals the number of positions at which symbols differ. d\(x, y\) is used to represent the Hamming distance between the strings x and y. In other words, a Hamming distance measures the minimum number of substitutions that are required to change the string x into the string y.|For example, two n-bit binary strings x and y exist.-   d\(x,y\) = ∑x\[i\]⊕y\[i\]
@@ -323,7 +327,7 @@ In this formula, i is 0,1,..n-1, and ⊕ indicates exclusive or \(XOR\).
 |`index.vector.hnsw.builder.max_level`|The total number of layers, which includes layer 0. For example, if you have 10 million documents and the `scaling_factor` parameter is set to 30, use 30 as the base number and round the logarithm of 10,000,000 up to the nearest integer. The result is 5. This parameter does not have a significant impact on vector searches. We recommend that you set this parameter to 6.
 
 |6|
-|`index.vector.hnsw.builder.scaling_factor`|A scaling factor. The volume of data at a layer equals the volume of data at its upper layer multiplied by the scaling factor. Valid values: 10 to 100. The number of layers decreases with the value of `scaling_factor`. We recommend that you set this parameter to 50.|50|
+|`index.vector.hnsw.builder.scaling_factor`|The scaling factor. The volume of data at a layer equals the volume of data at its upper layer multiplied by the scaling factor. Valid values: 10 to 100. The number of layers decreases with the value of `scaling_factor`. We recommend that you set this parameter to 50.|50|
 
 **Note:** You can set the preceding parameters in the `setting` configuration only after you set the index.vector.algorithm parameter to hnsw.
 
