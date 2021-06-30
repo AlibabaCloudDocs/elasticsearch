@@ -24,7 +24,7 @@ If you do not enable auto-renewal for your subscription Elasticsearch cluster, t
 
 ## How do I enable manual renewal for an Elasticsearch cluster?
 
-Manual renewal applies only to subscription Elasticsearch clusters. For more information about how to enable manual renewal, see [t1880497.md\#](/intl.en-US/Pricing/Renewal/Manually renew an Elasticsearch cluster.md).
+Manual renewal applies only to subscription Elasticsearch clusters. For more information about how to enable manual renewal, see [Renew an Elasticsearch cluster](/intl.en-US/Pricing/Renewal/Manually renew an Elasticsearch cluster.md).
 
 ## How do I enable auto-renewal for an Elasticsearch cluster?
 
