@@ -46,7 +46,7 @@
 |实例升降配|[GetSuggestShrinkableNodes](/cn.zh-CN/API参考/Elasticsearch/实例升降配/GetSuggestShrinkableNodes.md)|调用GetSuggestShrinkableNodes，指定节点类型和数量，获取可缩容的节点。|
 |[ValidateShrinkNodes](/cn.zh-CN/API参考/Elasticsearch/实例升降配/ValidateShrinkNodes.md)|调用ValidateShrinkNodes，校验指定实例中的某些节点是否可以缩容。|
 |[ShrinkNode](/cn.zh-CN/API参考/Elasticsearch/实例升降配/ShrinkNode.md)|调用ShrinkNode，执行集群节点缩容操作。|
-|[UpgradeEngineVersion](/cn.zh-CN/API参考/Elasticsearch/实例升降配/UpgradeEngineVersion.md)|调用UpgradeEngineVersion，升级Elasticsearch的实例版本或内核补丁版本。升级实例版本功能仅支持将6.3版本的实例升级至6.7版本。|
+|[UpgradeEngineVersion](/cn.zh-CN/API参考/Elasticsearch/实例升降配/UpgradeEngineVersion.md)|调用UpgradeEngineVersion，升级Elasticsearch的实例版本或内核补丁版本。升级实例版本功能目前只支持5.5.3版本升级到5.6.16版本、5.6.16版本升级到6.3.2版本、6.3.2版本升级到6.7.0版本，暂不支持其他版本间的升级。详情请参见[升级版本](/cn.zh-CN/Elasticsearch/版本升级/升级版本.md)。|
 |[UpdateInstance](/cn.zh-CN/API参考/Elasticsearch/实例升降配/UpdateInstance.md)|调用UpdateInstance，变更集群配置（升配或降配）。|
 |集群配置|[UpdateInstanceSettings](/cn.zh-CN/API参考/Elasticsearch/集群配置/UpdateInstanceSettings.md)|调用UpdateInstanceSettings，更新指定实例的YML参数配置。|
 |[UpdateHotIkDicts](/cn.zh-CN/API参考/Elasticsearch/集群配置/UpdateHotIkDicts.md)|调用UpdateHotIkDicts，更新阿里云Elasticsearch实例的IK热词词典。|
