@@ -149,7 +149,7 @@ By default, Alibaba Cloud Elasticsearch clusters are created in the default reso
 
     4.  In the **Grant Permission** panel, set the parameters.
 
-        ![Grant Permission panel](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/9219305261/p274758.png)
+        ![Grant Permission panel](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/1683405261/p274758.png)
 
     5.  Click **OK**.
 
