@@ -20,6 +20,8 @@ By default, Alibaba Cloud Elasticsearch clusters are created in the default reso
 
     4.  Set **Configuration Mode** to **Script**.
 
+        ![Create a custom policy](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/9219305261/p273771.png)
+
     5.  Set **Policy Document**. For more information, see the following example. Replace the Alibaba Cloud account ID and Elasticsearch cluster ID in the example with the ID of your Alibaba Cloud account and the ID of the desired Elasticsearch cluster.
 
         ```
@@ -86,7 +88,11 @@ By default, Alibaba Cloud Elasticsearch clusters are created in the default reso
 
     3.  On the **Create User** page, set the **Logon Name** and **Display Name** parameters.
 
+        ![Create a RAM user](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/9219305261/p274500.png)
+
     4.  Click **OK**. The created RAM user appears on the Users page.
+
+        ![Created RAM user](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/9219305261/p274245.png)
 
 4.  Attach the created custom policy whose effective scope is the entire Alibaba Cloud account to the RAM user.
 
@@ -96,9 +102,13 @@ By default, Alibaba Cloud Elasticsearch clusters are created in the default reso
 
     3.  In the **Add Permissions** panel, click **Custom Policy** in the Select Policy section and click the name of the newly created custom policy in the Authorization Policy Name column.
 
+        ![Attach the custom policy to the RAM user](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/9219305261/p275907.png)
+
     4.  Click **OK**.
 
     5.  Click **Complete**.
+
+        ![View the authorization result](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/9219305261/p276380.png)
 
 
 ## Step 2: Create a resource group and attach a policy to the resource group
@@ -110,6 +120,8 @@ By default, Alibaba Cloud Elasticsearch clusters are created in the default reso
     1.  In the left-side navigation pane, click **Resource Group**.
 
     2.  On the Resource Group page, click **Create Resource Group**.
+
+        ![Create a resource group](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/9219305261/p274517.png)
 
     3.  In the **Create Resource Group** panel, set the **Resource Group Name** and **Display Name** parameters.
 
@@ -137,6 +149,8 @@ By default, Alibaba Cloud Elasticsearch clusters are created in the default reso
 
     4.  In the **Grant Permission** panel, set the parameters.
 
+        ![Grant Permission panel](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/9219305261/p274758.png)
+
     5.  Click **OK**.
 
     6.  Click **Complete**.
@@ -147,7 +161,11 @@ By default, Alibaba Cloud Elasticsearch clusters are created in the default reso
 
     2.  Click the name of the RAM user in the **Principal** column.
 
+        ![Principal](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/9219305261/p274774.png)
+
     3.  On the page that appears, click the **Permissions** tab and view the authorization information of the RAM user.
+
+        ![Basic user information](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/0319305261/p275237.png)
 
 
 ## Step 3: Log on to the Elasticsearch console by using the RAM user
