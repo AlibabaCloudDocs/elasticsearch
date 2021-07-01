@@ -229,9 +229,9 @@
 
 ## 步骤四：账号登录
 
-1.  登录Kibana控制台。
+1.  通过访问实例域名，登录Kibana控制台。
 
-    登录控制台的具体步骤请参见[登录Kibana控制台](/intl.zh-CN/Elasticsearch/可视化控制/Kibana/登录Kibana控制台.md)。
+    本文以`https://{instanceId}.kibana.elasticsearch.aliyuncs.com:5601/`为例登录。
 
 2.  单击**Log in with saml/saml1**。
 
