@@ -4,7 +4,7 @@
 
 ## 注意事项
 
-本文中涉及的价格仅为示例，实际计算时请以购买页的价格为准。
+本文中涉及的价格仅为示例，实际计算时请以购买页的价格为准，或者参见[阿里云Logstash定价](https://www.aliyun.com/price/product?spm=a2c0j.9528745.1335467..4bf85a36XRcEa5#/elasticsearch/detail)。
 
 ## 计费项和计费方式
 
