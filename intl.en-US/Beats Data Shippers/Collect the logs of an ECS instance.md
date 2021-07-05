@@ -12,7 +12,7 @@ You can use Beats to collect the data of an Elastic Compute Service \(ECS\) inst
 
 -   The Auto Indexing feature is enabled for the Elasticsearch cluster.
 
-    For security purposes, Alibaba Cloud Elasticsearch disables the **Auto Indexing** feature by default. However, Beats depends on this feature when it collects the logs of ECS instances. If you select **Elasticsearch** for **Output**, you must enable the **Auto Indexing** feature for the Elasticsearch cluster. For more information, see [Access and configure an Elasticsearch cluster](/intl.en-US/Elasticsearch Instances Management/Access and configure an Elasticsearch cluster.md).
+    For security purposes, Alibaba Cloud Elasticsearch disables the **Auto Indexing** feature by default. However, Beats depends on this feature when it collects the logs of ECS instances. If you select **Elasticsearch** for **Output**, you must enable the **Auto Indexing** feature for the Elasticsearch cluster. For more information, see [Configure the YML file](/intl.en-US/Elasticsearch Instances Management/Elasticsearch cluster configuration/Configure the YML file.md).
 
 -   An ECS instance is created in the same virtual private cloud \(VPC\) as the Elasticsearch or Logstash cluster.
 
