@@ -14,7 +14,7 @@ keyword: 安装采集器
 
 -   开启Elasticsearch实例的自动创建索引功能。
 
-    出于安全考虑，阿里云Elasticsearch默认不允许**自动创建索引**。但Beats采集ECS服务日志时，需要依赖该功能，因此如果**采集器Output**选择为**Elasticsearch**，需要开启**自动创建索引**功能。具体操作，请参见[t1605396.md\#](/cn.zh-CN/Elasticsearch/快速访问与配置.md)。
+    出于安全考虑，阿里云Elasticsearch默认不允许**自动创建索引**。但Beats采集ECS服务日志时，需要依赖该功能，因此如果**采集器Output**选择为**Elasticsearch**，需要开启**自动创建索引**功能。具体操作，请参见[配置YML参数](/cn.zh-CN/Elasticsearch/集群配置/配置YML参数.md)。
 
 -   创建ECS实例，且该ECS实例与Elasticsearch实例或Logstash实例处于同一专有网络下。
 
