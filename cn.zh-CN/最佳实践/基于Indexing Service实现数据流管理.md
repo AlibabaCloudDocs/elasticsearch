@@ -54,7 +54,7 @@ Elasticsearch集群中既可以存在数据流（[Data Stream](https://www.elast
 
     **说明：** 如果您是首次购买阿里云Elasticsearch集群，请单击**0元开通ELK**。
 
-    ![ES购买页](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/7143730261/p271460.png)
+    ![ES购买页](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/6962545261/p291202.png)
 
     |选项|默认值|说明|
     |--|---|--|
@@ -68,7 +68,7 @@ Elasticsearch集群中既可以存在数据流（[Data Stream](https://www.elast
 
 4.  单击**下一步：集群配置**，配置**地域和可用区**、**可用区数量**和**实例规格**等信息。
 
-    ![基础配置](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/7143730261/p271465.png)
+    ![基础配置](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/6962545261/p291204.png)
 
     |资源|说明|
     |--|--|
@@ -82,7 +82,7 @@ Elasticsearch集群中既可以存在数据流（[Data Stream](https://www.elast
 
 5.  单击**下一步：网络与配置**，配置**专有网络**、**实例名称**和**登录密码**等信息。
 
-    ![网络系统配置](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/9783421261/p274563.png)
+    ![网络系统配置](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/6962545261/p291205.png)
 
     **说明：** 购买前，需提前在待购买的可用区下配置好VPC网络环境，建议和业务所在环境处于同一网络下。
 
@@ -117,7 +117,7 @@ Elasticsearch集群中既可以存在数据流（[Data Stream](https://www.elast
 
     2.  输入**策略名称**，单击**保存并下一步**。
 
-        ![创建索引模板](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/9729360261/p272143.png)
+        ![创建索引模板](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/6962545261/p291207.png)
 
         |选项|说明|
         |--|--|
@@ -159,7 +159,7 @@ Elasticsearch集群中既可以存在数据流（[Data Stream](https://www.elast
 
 7.  输入**模板名称**和**索引模式**，配置索引模版信息。`*`表示必填项。
 
-    ![索引模板配置](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/9729360261/p272141.png)
+    ![索引模板配置](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/7962545261/p291208.png)
 
     |名称|说明|
     |--|--|
@@ -199,7 +199,7 @@ Elasticsearch集群中既可以存在数据流（[Data Stream](https://www.elast
     -   云端托管集群上`index.refresh_interval`参数已默认配置最优，手动配置不生效。如果需要通过手动配置`index.refresh_interval`生效，需要先取消云托管功能。
 8.  单击**确定**，索引模板管理页签下将显示对应的模板。
 
-    ![显示对应的模板](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/0659590261/p273700.png)
+    ![显示对应的模板](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/7962545261/p291209.png)
 
 
 ## 步骤三：创建数据流
@@ -214,7 +214,7 @@ Elasticsearch集群中既可以存在数据流（[Data Stream](https://www.elast
 
 4.  在**创建数据流**面板，单击**预览已有索引模板**，根据对应的索引模板，输入可匹配索引模板的数据流名称。
 
-    ![创建数据流](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/9729360261/p272160.png)
+    ![创建数据流](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/7962545261/p291210.png)
 
     本步骤使用的命令示例值如下：
 
@@ -228,7 +228,7 @@ Elasticsearch集群中既可以存在数据流（[Data Stream](https://www.elast
     -   数据流命名不支持匹配符星号（\*），支持短划线（-）结尾。
 5.  单击**确定**，自动生成数据流及后备索引。
 
-    ![查看生成的数据流](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/9729360261/p272161.png)
+    ![查看生成的数据流](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/7962545261/p291211.png)
 
     每个数据流创建成功后，都会自动生成一个统一格式的后备索引，格式如下：
 
@@ -245,7 +245,7 @@ Elasticsearch集群中既可以存在数据流（[Data Stream](https://www.elast
 
 6.  写入数据。详细指导请参见[最佳实践](/cn.zh-CN/最佳实践/Elasticsearch应用/日志同步分析/使用Filebeat+Kafka+Logstash+Elasticsearch构建日志分析系统.md)。
 
-    数据写入过程中，必须带`@timestamp`字段，否则写入失败。本场景采用filebeat+kafaka+logstash架构将日志采集写入到Elasticsearch实例中，采集过程中会自动生成`@timestamp`字段。命令示例如下：
+    数据写入过程中，必须带`@timestamp`字段，否则写入失败。本场景采用filebeat+kafka+logstash架构将日志采集写入到Elasticsearch实例中，采集过程中会自动生成`@timestamp`字段。命令示例如下：
 
     ```
     POST /nginx-log/_doc/
@@ -309,7 +309,7 @@ Elasticsearch集群中既可以存在数据流（[Data Stream](https://www.elast
 
 2.  在**Indexing Service**页面，单击**当天写入总流量**，即可查看**每小时平均写入吞吐量**的曲线图。
 
-    ![每小时平均写入吞吐量](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/9729360261/p272275.png)
+    ![每小时写入平均吞吐量](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/8882545261/p291217.png)
 
     **说明：** Indexing Service写入总流量监控为非实时整点展示的静态趋势监控图，监控数据展示延时最长为1小时，例如在14:00~14:59间写入的总流量，需要等到15:10分后，在监控页面14:00可以获取到。
 
@@ -319,7 +319,7 @@ Elasticsearch集群中既可以存在数据流（[Data Stream](https://www.elast
 
 4.  在**Indexing Service**页面，单击**写入托管总数据量**，即可查看**当天写入托管总数据量**。
 
-    ![当天写入托管总数据量](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/9729360261/p272277.png)
+    ![当天写入托管总数据量](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/8882545261/p291219.png)
 
     **说明：** Indexing Service写入总流量监控为非实时整点展示的静态趋势监控图，监控数据展示延时最长为1小时，例如在14:00~14:59间写入的总流量，需要等到15:10分后，在监控页面14:00可以获取到。
 
