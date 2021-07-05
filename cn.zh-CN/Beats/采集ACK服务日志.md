@@ -133,7 +133,7 @@ keyword: [Filebeat采集ACK服务日志, Filebeat采集K8S日志]
 
 ## 采集器容器
 
-[通过kubectl 访问ACK集群](https://help.aliyun.com/document_detail/86494.htm?spm=a2c4g.11186623.2.12.6f0c245ctuVj4Z#task-ubf-lhg-vdb)，查看logging空间下采集器资源。
+[通过kubectl访问ACK集群](https://help.aliyun.com/document_detail/86494.htm?spm=a2c4g.11186623.2.12.6f0c245ctuVj4Z#task-ubf-lhg-vdb)，查看logging空间下采集器资源。
 
 ```
 kubectl get pods  -n logging
