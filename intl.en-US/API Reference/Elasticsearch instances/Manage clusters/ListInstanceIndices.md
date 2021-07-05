@@ -39,12 +39,12 @@ This operation uses only common request parameters. For more information, see th
 |X-Managed-StorageSize|Long|18093942932|The total size of indexes in cloud hosting. Unit: bytes. |
 |RequestId|String|F99407AB-2FA9-489E-A259-40CF6DCC\*\*\*\*|The ID of the request. |
 |Result|Array of Result| |Index list details. |
-|createTime|String|String|The time when the index list was queried. |
-|health|String|Green|The running status of the index, which supports the following three states:
+|createTime|String|2021-01-11T05:49:41.114Z|The time when the index list was queried. |
+|health|String|green|The running status of the index, which supports the following three states:
 
--   Green: Health.
--   Yellow: alarms.
--   Red: abnormal. |
+-   green: Health.
+-   yellow: alarms.
+-   red: abnormal. |
 |isManaged|String|true|This parameter is deprecated. |
 |managedStatus|String|following|The index managed state supports the following three states:
 
@@ -69,9 +69,29 @@ Sample success responses
 `JSON` format
 
 ```
-
-     { "RequestId": "F99407AB-2FA9-489E-A259-40CF6DCC****", "Result": [ { "name": "test1", "health": "green", "size": 4929858933232, "createTime": "2021-01-11T05:49:41.114Z", "managedStatus": "following" }, { "name": "test2", "health": "yellow", "size": 49298589, "createTime": "2021-01-11T05:49:41.114Z", "managedStatus": "closing" } ], "Headers": { "X-Managed-Count": 15, "X-Managed-StorageSize": 18093942932 } } 
-   
+{
+    "RequestId": "F99407AB-2FA9-489E-A259-40CF6DCC****",
+    "Result": [
+        {
+            "name": "test1",
+            "health": "green",
+            "size": 4929858933232,
+            "createTime": "2021-01-11T05:49:41.114Z",
+            "managedStatus": "following"
+        },
+        {
+            "name": "test2",
+            "health": "yellow",
+            "size": 49298589,
+            "createTime": "2021-01-11T05:49:41.114Z",
+            "managedStatus": "closing"
+        }
+    ],
+    "Headers": {
+        "X-Managed-Count": 15,
+        "X-Managed-StorageSize": 18093942932
+    }
+}
 ```
 
 ## Error codes
