@@ -37,12 +37,12 @@ GET /openapi/instances/[InstanceId]/indices HTTP/1.1
 |X-Managed-StorageSize|Long|18093942932|云端托管中的索引总大小。单位：Byte。 |
 |RequestId|String|F99407AB-2FA9-489E-A259-40CF6DCC\*\*\*\*|请求ID。 |
 |Result|Array of Result| |索引列表详情。 |
-|createTime|String|String|查询索引列表的时间。 |
-|health|String|Green|索引的运行状态，支持以下三种状态：
+|createTime|String|2021-01-11T05:49:41.114Z|查询索引列表的时间。 |
+|health|String|green|索引的运行状态，支持以下三种状态：
 
- -   Green：健康。
--   Yellow：报警。
--   Red：异常。 |
+ -   green：健康。
+-   yellow：报警。
+-   red：异常。 |
 |isManaged|String|true|该参数已废弃，无需关注。 |
 |managedStatus|String|following|索引托管状态，支持以下三种状态：
 
