@@ -14,7 +14,7 @@ keyword: 安装采集器
 
 -   开启Elasticsearch实例的自动创建索引功能。
 
-    出于安全考虑，阿里云Elasticsearch默认不允许**自动创建索引**。但Beats采集ECS服务日志时，需要依赖该功能，因此如果**采集器Output**选择为**Elasticsearch**，需要开启**自动创建索引**功能。具体操作，请参见[t1605396.md\#](/intl.zh-CN/Elasticsearch/快速访问与配置.md)。
+    出于安全考虑，阿里云Elasticsearch默认不允许**自动创建索引**。但Beats采集ECS服务日志时，需要依赖该功能，因此如果**采集器Output**选择为**Elasticsearch**，需要开启**自动创建索引**功能。具体操作，请参见[配置YML参数](/intl.zh-CN/Elasticsearch/ES集群配置/配置YML参数.md)。
 
 -   创建ECS实例，且该ECS实例与Elasticsearch实例或Logstash实例处于同一专有网络下。
 
@@ -36,6 +36,8 @@ keyword: 安装采集器
 3.  首次进入**Beats数据采集中心**页面，单击**确认**，授权创建服务关联角色。
 
     ![Beats授权服务关联角色](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/1292959161/p268158.png)
+
+    **说明：** Beats采集不同数据源数据时，依赖于服务关联角色以及角色规则。使用过程中请勿删除服务关联角色，否则使用会受到影响。详情参考[Elasticsearch服务关联角色](/intl.zh-CN/访问控制/Elasticsearch服务关联角色.md)。
 
 4.  配置并启动ECS服务日志采集。
 
