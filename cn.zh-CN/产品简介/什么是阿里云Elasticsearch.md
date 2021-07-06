@@ -58,7 +58,7 @@
     -   [高安全性](/cn.zh-CN/产品简介/产品优势/高安全性.md)
     -   [高性能](/cn.zh-CN/产品简介/产品优势/高性能.md)
 -   购买
-    -   [购买阿里云Elasticsearch实例]()
+    -   [购买阿里云Elasticsearch实例](/cn.zh-CN/Elasticsearch/实例管理/创建阿里云Elasticsearch实例.md)
     -   [购买阿里云Logstash实例]()
 -   快速入门
     -   [Elasticsearch快速入门](/cn.zh-CN/Elasticsearch/快速入门.md)
