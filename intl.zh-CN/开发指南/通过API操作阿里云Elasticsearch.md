@@ -4,7 +4,7 @@
 
 创建一个与阿里云Elasticsearch在同一专有网络VPC（Virtual Private Cloud）下的云服务器ECS实例。具体操作，请参见[使用向导创建实例](/intl.zh-CN/实例/创建实例/使用向导创建实例.md)。
 
-**说明：** 您也可以使用已创建的ECS实例，但需确保与Elasticsearch实例在相同VPC下。如果ECS处于经典网络下，期望访问VPC内的Elasticsearch，需要先参考[通过经典网络访问ES常见问题](/intl.zh-CN/Elasticsearch/常见问题/通过经典网络访问ES常见问题.md)进行相关配置。
+**说明：** 您也可以使用已创建的ECS实例，但需确保与Elasticsearch实例在相同VPC下。
 
 本文介绍通过curl命令使用API的方法，Kibana方式请参见[登录Kibana控制台](/intl.zh-CN/Elasticsearch/可视化控制/Kibana/登录Kibana控制台.md)。
 
