@@ -4,7 +4,7 @@ Open source Elasticsearch provides a series of RESTful API operations that you c
 
 An Elastic Compute Service \(ECS\) instance is created in the virtual private cloud \(VPC\) where your Alibaba Cloud Elasticsearch cluster resides. For more information, see [Create an instance by using the wizard](/intl.en-US/Instance/Create an instance/Create an instance by using the wizard.md).
 
-**Note:** You can also use an existing ECS instance that resides in the same VPC as your Elasticsearch cluster. For more information about how to use an ECS instance that resides in the classic network to access an Elasticsearch cluster that resides in a VPC, see [Access to an Alibaba Cloud Elasticsearch cluster from the classic network]().
+**Note:** You can also use an existing ECS instance that resides in the same VPC as your Elasticsearch cluster.
 
 You can refer to this topic to call API operations by running curl commands. For more information about how to call the API operations by using the Kibana console, see [Log on to the Kibana console](/intl.en-US/Elasticsearch Instances Management/Data visualization/Kibana/Log on to the Kibana console.md).
 
