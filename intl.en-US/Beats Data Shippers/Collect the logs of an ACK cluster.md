@@ -8,7 +8,7 @@ Alibaba Cloud Filebeat can be used to collect the logs of Container Service for 
 
 -   An Alibaba Cloud Elasticsearch cluster is created.
 
-    For more information, see [Create a cluster](/intl.en-US/Elasticsearch Instances Management/Quick Start/Step 1: Create a cluster/Create a cluster.md) or [Create an Alibaba Cloud Elasticsearch cluster](/intl.en-US/Elasticsearch Instances Management/Manage clusters/Create an Alibaba Cloud Elasticsearch cluster.md).
+    For more information, see [Create an Alibaba Cloud Elasticsearch cluster](/intl.en-US/Elasticsearch Instances Management/Manage clusters/Create an Alibaba Cloud Elasticsearch cluster.md).
 
 -   A prefix is customized for the names of indexes created by using the Auto Indexing feature.
 
