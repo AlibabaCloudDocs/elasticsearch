@@ -8,7 +8,7 @@ keyword: [Filebeat采集ACK服务日志, Filebeat采集K8S日志]
 
 -   创建阿里云Elasticsearch实例。
 
-    具体操作，请参见[创建实例]()或者[创建阿里云Elasticsearch实例](/cn.zh-CN/Elasticsearch/实例管理/创建阿里云Elasticsearch实例.md)。
+    具体操作，请参见[创建阿里云Elasticsearch实例](/cn.zh-CN/Elasticsearch/实例管理/创建阿里云Elasticsearch实例.md)。
 
 -   自定义自动创建索引。
 
