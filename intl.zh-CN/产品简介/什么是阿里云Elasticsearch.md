@@ -57,7 +57,7 @@
     -   [购买阿里云Elasticsearch实例](/intl.zh-CN/Elasticsearch/快速入门/步骤一：创建实例/创建实例.md)
     -   [购买阿里云Logstash实例](/intl.zh-CN/Logstash/快速入门/步骤一：创建实例/创建阿里云Logstash实例.md)
 -   快速入门
-    -   [Elasticsearch快速入门](/intl.zh-CN/Elasticsearch/快速开始.md)
+    -   [Elasticsearch快速入门](/intl.zh-CN/Elasticsearch/快速入门.md)
     -   [Logstash快速入门](/intl.zh-CN/Logstash/快速入门/入门概述.md)
     -   [Beats采集器快速入门](/intl.zh-CN/Beats/采集ECS服务日志.md)
 
