@@ -8,7 +8,6 @@ This topic provides answers to some frequently asked questions about Alibaba Clo
     -   [When I purchase an Elasticsearch cluster, no VPCs are available. What do I do?](#section_8k3_wpr_32f)
     -   [When I purchase an Elasticsearch cluster, I select a VPC, but no vSwitches are available. What do I do?](#section_3ua_8iw_s0v)
     -   [After I cancel the subscription of or release an Elasticsearch cluster, I purchase another cluster. Does the endpoint of the new cluster remain the same as that of the original cluster?](#section_3el_7d8_y1n)
-    -   [How do I access an Elasticsearch cluster over the classic network?](#buya)
     -   [How do I release an Elasticsearch cluster?](#section_p92_cav_ju9)
     -   [When does the system release an Elasticsearch cluster after the cluster is suspended?](#buyb)
     -   [Can I purchase an Elasticsearch cluster that has only one node?](#buyc)
@@ -84,7 +83,7 @@ If you find that the configurations of your cluster do not meet your expectation
 
 |Configuration item|Modification method|
 |------------------|-------------------|
-|Billing method|If you purchased a pay-as-you-go cluster, you can switch the billing method of the cluster to subscription. For more information, see [Switch the billing method of a cluster from pay-as-you-go to subscription](/intl.en-US/Pricing/Change billing methods/Switch the billing method of a cluster from pay-as-you-go to subscription.md). |
+|Billing method|If you purchased a pay-as-you-go cluster, you can switch the billing method of the cluster to subscription. For more information, see [t1882924.md\#](/intl.en-US/Pricing/Change billing methods/Switch the billing method of a cluster from pay-as-you-go to subscription.md). |
 |Version|This configuration item can be modified if one of the following conditions is met:-   The version of the cluster that you purchased is V5.5.3, and you want to upgrade the version to V5.6.16.
 -   The version of the cluster that you purchased is V5.6.16, and you want to upgrade the version to V6.3.2.
 -   The version of the cluster that you purchased is V6.3.2, and you want to upgrade the version to V6.7.0.
@@ -131,10 +130,6 @@ You must check whether vSwitches are created in the selected region. If no vSwit
 
 No, the endpoints are different. After you purchase the new cluster, we recommend that you modify the client code and cancel the subscription of or release the original cluster to avoid service interruptions.
 
-## How do I access an Elasticsearch cluster over the classic network?
-
-You can use the ClassicLink feature to access an Elasticsearch cluster over the classic network. For more information, see [Access to an Alibaba Cloud Elasticsearch cluster from the classic network](/intl.en-US/Elasticsearch Instances Management/FAQ/Access to an Alibaba Cloud Elasticsearch cluster from the classic network.md).
-
 ## How do I release an Elasticsearch cluster?
 
 On the Elasticsearch Clusters page, find the cluster that you want to release and choose **More** \> **Release** in the Actions column. For more information, see [Release a cluster](/intl.en-US/Elasticsearch Instances Management/Manage clusters/Release a cluster.md).
@@ -169,7 +164,7 @@ No, for security purposes, you are not allowed to log on to your Elasticsearch c
 
 ## Is Logstash V6.7 compatible with Elasticsearch V6.3?
 
-Yes, for more information, see [Compatibility matrixes](/intl.en-US/Product Introduction/Product edition/Compatibility matrixes.md).
+Yes, for more information, see [Compatibility matrixes](/intl.en-US/Product Introduction/Compatibility matrixes.md).
 
 ## Can Elasticsearch be used as a data source of Quick BI?
 
