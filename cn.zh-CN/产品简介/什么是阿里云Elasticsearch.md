@@ -59,9 +59,9 @@
     -   [高性能](/cn.zh-CN/产品简介/产品优势/高性能.md)
 -   购买
     -   [购买阿里云Elasticsearch实例]()
-    -   [购买阿里云Logstash实例](/cn.zh-CN/Logstash/快速入门/步骤一：创建实例/创建阿里云Logstash实例.md)
+    -   [购买阿里云Logstash实例]()
 -   快速入门
-    -   [Elasticsearch快速入门](/cn.zh-CN/Elasticsearch/快速开始.md)
-    -   [Logstash快速入门](/cn.zh-CN/Logstash/快速入门/入门概述.md)
-    -   [Beats采集器快速入门](/cn.zh-CN/Beats/采集ECS服务日志.md)
+    -   [Elasticsearch快速入门](/cn.zh-CN/Elasticsearch/快速入门.md)
+    -   [Logstash快速入门](/cn.zh-CN/Logstash/快速入门.md)
+    -   [Beats采集器快速入门](/cn.zh-CN/Beats/快速入门/入门概述.md)
 
