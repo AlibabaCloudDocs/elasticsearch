@@ -4,11 +4,15 @@ You can obtain the basic information, such as the internal or public endpoint, p
 
 ## Procedure
 
-1.  Log on to the [Alibaba Cloud Elasticsearch console](https://elasticsearch.console.aliyun.com/#/home).
+1.  Log on to the [Elasticsearch console](https://elasticsearch.console.aliyun.com/#/home).
 
 2.  In the left-side navigation pane, click **Elasticsearch Clusters**.
 
-3.  In the top navigation bar, select a resource group and a region. On the **Clusters** page, click the ID of the desired cluster.
+3.  Navigate to the desired cluster.
+
+    1.  In the top navigation bar, select a resource group and a region.
+
+    2.  In the left-side navigation pane, click **Elasticsearch Clusters**. On the **Elasticsearch Clusters** page, find the desired cluster and click its ID.
 
 4.  On the **Basic Information** page, view the basic information and statistics of the cluster.
 
@@ -28,12 +32,12 @@ You can obtain the basic information, such as the internal or public endpoint, p
     |**Internal Port**|Elasticsearch supports the following ports:     -   Port **9200** for HTTP and HTTPS.
     -   Port **9300** for TCP. Only Elasticsearch V5.X clusters support this port.
 
-**Note:** You cannot use Transport Client to access Elasticsearch clusters of V6.X or later over port 9300. If you want to use port 9300, purchase a V5.X cluster. For more information about how to access a cluster, see [Step 3: Access a cluster](/intl.en-US/Elasticsearch Instances Management/Quick Start/Step 3: Access a cluster.md). |
+**Note:** You cannot use Transport Client to access Elasticsearch clusters of V6.X or later over port 9300. If you want to use port 9300, purchase a V5.X cluster. For more information about how to access a cluster, see [Access and configure an Elasticsearch cluster](/intl.en-US/Elasticsearch Instances Management/Access and configure an Elasticsearch cluster.md). |
     |**Public Network Access**|The public endpoint of the cluster. You can use this endpoint to access the cluster over the Internet. Before you use this endpoint, you must turn on Public Network Access on the Security page. For more information, see [Configure a whitelist to access an Elasticsearch cluster over the Internet or a VPC](/intl.en-US/Elasticsearch Instances Management/Security/Configure a whitelist to access an Elasticsearch cluster over the Internet or a VPC.md).**Note:** If you use the public endpoint to access the Elasticsearch cluster, you must configure a whitelist to access the cluster over the Internet. By default, all IP addresses cannot be used to access the cluster over the Internet. For more information about how to configure the whitelist, see [Configure a whitelist to access an Elasticsearch cluster over the Internet](/intl.en-US/Elasticsearch Instances Management/Security/Configure a whitelist to access an Elasticsearch cluster over the Internet or a VPC.md). |
     |**Public Network Port**|The port used to connect to the cluster over the Internet. This parameter is displayed only after you turn on **Public Network Access**. Elasticsearch supports the following ports:     -   Port **9200** for HTTP and HTTPS.
     -   Port **9300** for TCP. Only Elasticsearch V5.X clusters support this port.
 
-**Note:** You cannot use Transport Client to access Elasticsearch clusters of V6.X or later over port 9300. If you want to use port 9300, purchase a V5.X cluster. For more information about how to access a cluster, see [Step 3: Access a cluster](/intl.en-US/Elasticsearch Instances Management/Quick Start/Step 3: Access a cluster.md). |
+**Note:** You cannot use Transport Client to access Elasticsearch clusters of V6.X or later over port 9300. If you want to use port 9300, purchase a V5.X cluster. For more information about how to access a cluster, see [Access and configure an Elasticsearch cluster](/intl.en-US/Elasticsearch Instances Management/Access and configure an Elasticsearch cluster.md). |
     |**Protocol**|The protocol used by the cluster. Default value: **HTTP**. Valid values: **HTTP** and **HTTPS**.|
     |**Tag**|The tag added to the cluster. You can use tags to classify and manage Elasticsearch clusters. For more information, see [Manage cluster tags](/intl.en-US/Elasticsearch Instances Management/Manage clusters/Manage cluster tags.md).|
     |**Cluster Statistics**|**Status**|The status of the cluster. An Elasticsearch cluster has the following states: **Active** \(indicated by the color green\), **Initializing** \(indicated by the color yellow\), **Paused** \(indicated by the color red\), and **Expired** \(indicated by the color gray\).|
@@ -43,8 +47,8 @@ You can obtain the basic information, such as the internal or public endpoint, p
 
     **Note:**
 
-    -   If you want to renew a subscription cluster, click **Renew** on the right side of the **Basic Information** page to perform the operation. The minimum renewal period of a cluster is one month. For more information, see [Manually renew an Elasticsearch cluster](/intl.en-US/Pricing/Manually renew an Elasticsearch cluster.md).
-    -   If you want to change the billing method of a cluster from pay-as-you-go to subscription, click **Switch to Subscription** on the right side of the **Basic Information** page to perform the operation. The **Switch to Subscription** feature allows you to change the billing method of an Elasticsearch cluster from **Pay-As-You-Go** to **Subscription**. However, no discount is offered when you change the billing method. For more information, see [Switch the billing method from pay-as-you-go to subscription](/intl.en-US/Pricing/Change billing methods/Switch the billing method from pay-as-you-go to subscription.md).
+    -   If you want to renew a subscription cluster, click **Renew** on the right side of the **Basic Information** page to perform the operation. The minimum renewal period of a cluster is one month. For more information, see [t1880497.md\#](/intl.en-US/Pricing/Renewal/Manually renew an Elasticsearch cluster.md).
+    -   If you want to change the billing method of a cluster from pay-as-you-go to subscription, click **Switch to Subscription** on the right side of the **Basic Information** page to perform the operation. The **Switch to Subscription** feature allows you to change the billing method of an Elasticsearch cluster from **Pay-As-You-Go** to **Subscription**. However, no discount is offered when you change the billing method. For more information, see [t1882924.md\#](/intl.en-US/Pricing/Change billing methods/Switch the billing method of a cluster from pay-as-you-go to subscription.md).
 
 ## References
 
