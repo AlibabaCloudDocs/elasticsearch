@@ -54,10 +54,10 @@ The Alibaba Cloud Elastic Stack ecosystem contains the following components: Ela
     -   [High security](/intl.en-US/Product Introduction/Benefits/High security.md)
     -   [High performance](/intl.en-US/Product Introduction/Benefits/High performance.md)
 -   Cluster purchase
-    -   [Purchase an Alibaba Cloud Elasticsearch cluster](/intl.en-US/Elasticsearch Instances Management/Quick Start/Step 1: Create a cluster/Create a cluster.md)
+    -   [Purchase an Alibaba Cloud Elasticsearch cluster](/intl.en-US/Elasticsearch Instances Management/Manage clusters/Create an Alibaba Cloud Elasticsearch cluster.md)
     -   [Purchase an Alibaba Cloud Logstash cluster](/intl.en-US/Logstash/Quick Start/Step 1: Create a Logstash cluster/Create an Alibaba Cloud Logstash cluster.md)
 -   Quick start
-    -   [Quick start of Elasticsearch](/intl.en-US/Elasticsearch Instances Management/Overview.md)
+    -   [Quick start of Elasticsearch](/intl.en-US/Elasticsearch Instances Management/Quick start.md)
     -   [Quick start of Logstash](/intl.en-US/Logstash/Quick Start/Overview.md)
     -   [Quick start of Beats](/intl.en-US/Beats Data Shippers/Collect the logs of an ECS instance.md)
 
