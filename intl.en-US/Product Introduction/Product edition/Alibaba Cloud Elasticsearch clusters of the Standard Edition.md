@@ -173,9 +173,9 @@ Alibaba Cloud Elasticsearch clusters of the Standard Edition support the followi
 
 ## Create an Elasticsearch cluster
 
--   [Create a cluster](/intl.en-US/Elasticsearch Instances Management/Quick Start/Step 1: Create a cluster/Create a cluster.md)
+-   [Create an Alibaba Cloud Elasticsearch cluster](/intl.en-US/Elasticsearch Instances Management/Manage clusters/Create an Alibaba Cloud Elasticsearch cluster.md)
 
 ## Get started with the Standard Edition
 
-[Quick start](/intl.en-US/Elasticsearch Instances Management/Overview.md)
+[Quick start](/intl.en-US/Elasticsearch Instances Management/Quick start.md)
 
