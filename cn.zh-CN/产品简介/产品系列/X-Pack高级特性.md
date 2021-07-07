@@ -12,7 +12,7 @@ X-Pack高级特性，是Elasticsearch基于原X-Pack商业版插件开发的官�
 
 您可以登录[阿里云Elasticsearch控制台](https://elasticsearch.console.aliyun.com/#/home)，在Elasticsearch实例页面单击创建进行购买。当前支持X-Pack高级特性的版本有通用商业版和日志增强版，如下图所示：
 
-![ES_fig_X-Pack_01](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/5847767161/p260403.png)
+![ES_fig_X-Pack_01](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/0963465261/p260403.png)
 
 对应版本的信息如下表所示：
 
