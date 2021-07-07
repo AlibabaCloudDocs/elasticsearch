@@ -8,7 +8,7 @@ This topic describes how to create an Alibaba Cloud Elasticsearch cluster.
 
 -   A virtual private cloud \(VPC\) and a vSwitch are created.
 
-    For more information, see [Create a VPC and a vSwitch](/intl.en-US/Elasticsearch Instances Management/Quick Start/Preparations/Create a VPC and a vSwitch.md).
+    For more information, see [Create a VPC and a vSwitch]().
 
 -   The specifications and storage capacity of your cluster are evaluated.
 
@@ -19,7 +19,7 @@ This topic describes how to create an Alibaba Cloud Elasticsearch cluster.
 
 2.  On the buy page, configure cluster launch settings.
 
-    In this topic, 6.7 is selected as the cluster version. For more information about other parameters, see [Parameters on the buy page](/intl.en-US/Elasticsearch Instances Management/Quick Start/Step 1: Create a cluster/Parameters on the buy page.md).
+    In this topic, 6.7 is selected as the cluster version. For more information about other parameters, see [Parameters on the buy page](/intl.en-US/Elasticsearch Instances Management/Parameters on the buy page.md).
 
 3.  Click **Buy Now**. The **Confirm Order** page appears. Confirm the order, read and select the terms of service, and click **Pay**. The Purchase page appears.
 
@@ -28,5 +28,5 @@ This topic describes how to create an Alibaba Cloud Elasticsearch cluster.
 5.  In the left-side navigation pane, click **Elasticsearch Clusters**. In the top navigation bar, select a resource group and a region. On the **Elasticsearch Clusters** page, view the newly created Elasticsearch cluster.
 
 
-After the state of the cluster changes from **Initializing** to **Active**, you can configure or access the cluster. For more information, see [Access and configure an Elasticsearch cluster](/intl.en-US/Elasticsearch Instances Management/Access and configure an Elasticsearch cluster.md) or [Step 3: Step Access and configure an Elasticsearch cluster](/intl.en-US/Elasticsearch Instances Management/Quick Start/Step 3: Step Access and configure an Elasticsearch cluster.md).
+After the state of the cluster changes from **Initializing** to **Active**, you can configure or access the cluster. For more information, see [Access and configure an Elasticsearch cluster](/intl.en-US/Elasticsearch Instances Management/Access and configure an Elasticsearch cluster.md).
 
