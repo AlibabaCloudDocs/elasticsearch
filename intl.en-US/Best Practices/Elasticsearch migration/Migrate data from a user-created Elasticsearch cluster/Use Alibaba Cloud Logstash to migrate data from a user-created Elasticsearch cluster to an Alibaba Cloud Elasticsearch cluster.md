@@ -26,7 +26,7 @@ You can use an Alibaba Cloud Logstash pipeline to migrate data from a user-creat
 
 -   The **Auto Indexing** feature is enabled for the Alibaba Cloud Elasticsearch cluster.
 
-    For more information, see [t1605396.md\#section\_pcn\_1xy\_1l2](/intl.en-US/Elasticsearch Instances Management/Access and configure an Elasticsearch cluster.md).
+    For more information, see [Access and configure an Elasticsearch cluster](/intl.en-US/Elasticsearch Instances Management/Access and configure an Elasticsearch cluster.md).
 
 
 ## Configure a Logstash pipeline
@@ -79,7 +79,7 @@ You can use an Alibaba Cloud Logstash pipeline to migrate data from a user-creat
     |`index`|The names of the indexes whose data you want to migrate.|
     |`docinfo`|Set this parameter to `true` to extract the metadata of documents in the user-created Elasticsearch cluster, such as the index, type, and ID.|
 
-    **Note:** In this topic, the default account elastic is used to access the Alibaba Cloud Elasticsearch cluster. If you want to use a custom account, you must first create a role for the account and grant the required permissions to the role. For more information, see [Create a role](/intl.en-US/Best Practices/Elasticsearch applications/Collect data/Use a user-created Logstash instance to synchronize data to Alibaba Cloud Elasticsearch.md) and [Create a user](/intl.en-US/Best Practices/Elasticsearch applications/Collect data/Use a user-created Logstash instance to synchronize data to Alibaba Cloud Elasticsearch.md).
+    **Note:** In this topic, the default account elastic is used to access the Alibaba Cloud Elasticsearch cluster. If you want to use a custom account, you must first create a role for the account and grant the required permissions to the role. For more information, see [Create a role](/intl.en-US/RAM/Manage Kibana role/Create a role.md) and [Create a user](/intl.en-US/RAM/Manage Kibana role/Create a user.md).
 
     Parameters in the `output` part are similar to those in the `input` part. If you set the `index` parameter to `%{[@metadata][_index]}` in the output part, the system matches the `index` parameter in the metadata. This indicates that the generated index on the Alibaba Cloud Elasticsearch cluster is the same as the index on the user-created Elasticsearch cluster.
 
@@ -116,6 +116,6 @@ You can use an Alibaba Cloud Logstash pipeline to migrate data from a user-creat
 
 3.  On the **Console** tab of the page that appears, run the `GET /_cat/indices?v` command to view the index that stores migrated data.
 
-    ![Index that stores migrated data](../images/p95323.png)
+    ![Index that stores migrated data](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/9485265261/p95323.png)
 
 
