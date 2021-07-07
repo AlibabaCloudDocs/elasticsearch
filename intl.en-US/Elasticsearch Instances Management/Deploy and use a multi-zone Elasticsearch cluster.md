@@ -14,7 +14,7 @@ You can deploy an Alibaba Cloud Elasticsearch cluster by using one of the follow
 
 -   Operations
 
-    When you purchase an Alibaba Cloud Elasticsearch cluster, you can select the number of zones for the cluster. If you select two or three zones, the system deploys the cluster across these zones. During the deployment, you do not need to select each zone. The system automatically selects the zones. For more information, see [Create a cluster](/intl.en-US/Elasticsearch Instances Management/Quick Start/Step 1: Create a cluster/Create a cluster.md) and [Parameters on the buy page](/intl.en-US/Elasticsearch Instances Management/Quick Start/Step 1: Create a cluster/Parameters on the buy page.md).
+    When you purchase an Alibaba Cloud Elasticsearch cluster, you can select the number of zones for the cluster. If you select two or three zones, the system deploys the cluster across these zones. During the deployment, you do not need to select each zone. The system automatically selects the zones. For more information, see [Create an Alibaba Cloud Elasticsearch cluster](/intl.en-US/Elasticsearch Instances Management/Manage clusters/Create an Alibaba Cloud Elasticsearch cluster.md) and [Parameters on the buy page](/intl.en-US/Elasticsearch Instances Management/Parameters on the buy page.md).
 
     **Note:** If you choose to deploy a cluster across zones, the console displays only the zones where nodes that receive network traffic from clients are deployed, such as Hangzhou Zone J. The system actually deploys the cluster to the zones that have sufficient ECS instances, such as Beijing Zone H and Beijing Zone J.
 
@@ -23,7 +23,7 @@ You can deploy an Alibaba Cloud Elasticsearch cluster by using one of the follow
     |Category|Precaution|
     |--------|----------|
     |Nodes|    -   You must purchase three dedicated master nodes.
-    -   The number of data nodes, warm nodes, and client nodes must be a multiple of the number of zones. For more information about zones, see [Regions and zones](/intl.en-US/Elasticsearch Instances Management/Quick Start/Step 1: Create a cluster/Parameters on the buy page.md).
+    -   The number of data nodes, warm nodes, and client nodes must be a multiple of the number of zones. For more information about zones, see [Regions and zones](/intl.en-US/Elasticsearch Instances Management/Parameters on the buy page.md).
     -   If you choose to deploy your cluster across two zones, Alibaba Cloud Elasticsearch uses one of the following methods to deploy your cluster:
         -   If the current region has at least three zones, and all these zones have sufficient ECS instances, the dedicated master nodes of the cluster are deployed in these zones. In this case, if nodes in one zone fail, your Elasticsearch cluster can still select a dedicated master node.
         -   If the current region has only two zones or only two zones in the region have sufficient ECS instances, the dedicated master nodes are deployed in the two zones. If nodes in the zone that contains only one dedicated master node fail, your Elasticsearch cluster can still select a dedicated master node. If nodes in the zone that contains two dedicated master nodes fail, you must perform a switchover in the Elasticsearch console. |
@@ -67,11 +67,15 @@ If your Elasticsearch cluster is deployed across zones and the nodes in one zone
 
 **Note:** Before the switchover, you must make sure that the indexes in the cluster have replica shards. This ensures normal read and write operations on the cluster after the switchover.
 
-1.  Log on to the [Alibaba Cloud Elasticsearch console](https://elasticsearch.console.aliyun.com/#/home).
+1.  Log on to the [Elasticsearch console](https://elasticsearch.console.aliyun.com/#/home).
 
 2.  In the left-side navigation pane, click **Elasticsearch Clusters**.
 
-3.  In the top navigation bar, select a resource group and a region. On the **Clusters** page, click the ID of the desired cluster.
+3.  Navigate to the desired cluster.
+
+    1.  In the top navigation bar, select a resource group and a region.
+
+    2.  In the left-side navigation pane, click **Elasticsearch Clusters**. On the **Elasticsearch Clusters** page, find the desired cluster and click its ID.
 
 4.  On the **Node Visualization** tab of the **Basic Information** page of the cluster, perform a switchover.
 
