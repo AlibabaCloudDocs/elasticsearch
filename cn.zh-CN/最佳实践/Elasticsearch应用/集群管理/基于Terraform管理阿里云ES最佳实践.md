@@ -90,6 +90,10 @@
 
 8.  在当前目录下创建plugh目录，下载[provider插件](https://releases.hashicorp.com/terraform-provider-alicloud/1.64.0/)并解压到plugh目录下。
 
+    ```
+    mkdir -p
+    ```
+
 9.  初始化工作目录，使用`-plugin-dir`指定provider所在的路径，完成配置。
 
     ```
@@ -136,7 +140,7 @@
     -   `cloud_efficiency`：高效云盘，支持最大5T的存储空间，提供较为低廉的存储能力，适合大规模数据量的日志及分析场景。高效云盘超过2048GiB时，只能取：2560、3072、3584、4096、4608、5120。 |
     |`data_node_disk_type`|是|存储类型。可选值：`cloud_ssd`、`cloud_efficiency`。|
     |`vswitch_id`|是|虚拟交换机的实例ID。|
-    |`password`|否|实例密码，支持大小写、数字、特殊字符，长度为8~32位字符。特殊字符包括`!@#$%^&*()_+-=`。|
+    |`password`|否|实例密码，支持大小写字母、数字、特殊字符，长度为8~32位字符。特殊字符包括`!@#$%^&*()_+-=`。|
     |`kms_encrypted_password`|否|KMS加密密码。如果配置了`password`，该字段将被忽略。`password`和`kms_encrypted_password`必须配置一个。|
     |`kms_encryption_context`|否|KMS加密上下文。只有设置了`kms_encrypted_password`时才有效。用于对使用`kms_encrypted_password`加密创建或更新的实例进行解密，详情请参见[encryption context](https://www.alibabacloud.com/help/zh/doc-detail/42975.htm)。|
     |`version`|是|ES版本。可选值：`5.5.3_with_X-Pack`、`6.3_with_X-Pack`、`6.7_with_X-Pack`。|
@@ -158,7 +162,6 @@
     执行成功后，返回如下结果。
 
     ```
-    # terraform plan
     Refreshing Terraform state in-memory prior to plan...
     The refreshed state will be used to calculate this plan, but will not be
     persisted to local or remote state storage.
@@ -204,7 +207,6 @@
     执行成功后，返回如下结果。
 
     ```
-    # terraform apply
     Plan: 1 to add, 0 to change, 0 to destroy.
     Do you want to perform these actions?
       Terraform will perform the actions described above.
@@ -219,7 +221,7 @@
 
 5.  登录[阿里云ES控制台](https://elasticsearch.console.aliyun.com/)，查看创建成功的ES集群。
 
-    ![创建成功的ES集群](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/8212659951/p72229.png)
+    ![创建成功的ES集群](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/8331565261/p72229.png)
 
 
 ## 更新资源
@@ -259,7 +261,7 @@
 1.  在测试目录下，创建一个main.tf文件。
 
     ```
-    # vim main.tf
+    vim main.tf
     ```
 
 2.  进行资源声明，指定所要导入的资源在state中的存放路径。
@@ -271,7 +273,12 @@
 3.  开始资源导入操作。
 
     ```
-    # terraform import alicloud_elasticsearch_instance.test  es-cn-0pp1f1y5g000h****
+    terraform import alicloud_elasticsearch_instance.test  es-cn-0pp1f1y5g000h****
+    ```
+
+    执行成功后，返回如下结果。
+
+    ```
     alicloud_elasticsearch_instance.test: Importing from ID "es-cn-0pp1f1y5g000h****"...
     alicloud_elasticsearch_instance.test: Import prepared!
       Prepared alicloud_elasticsearch_instance for import
@@ -291,7 +298,6 @@
 使用`terraform show`命令，查看当前state中所有被管理的资源及其所有属性值。
 
 ```
-# terraform show
 # alicloud_elasticsearch_instance.instance:
 resource "alicloud_elasticsearch_instance" "instance" {
     data_node_amount     = 2
