@@ -76,7 +76,7 @@
         |----|--|
         |应用名称|所添加应用的名称，可以为任意值，但最好和应用相关。|
         |IDP IdentityId|IdP使用的身份标识，和Entity ID元数据文件中的属性相匹配。本文示例为：https://es-cn-n6w24ma4v009j\*\*\*\*.elasticsearch.aliyuncs.com/。|
-        |SP Entity ID|Kibana实例的唯一标识符，如果将Kibana添加为身份提供者 \(IdP\)的服务提供商时，需要设置此值，建议您使用Kibana实例的基本URL作为实体ID。本文示例为：https://es-cn-n6w24ma4v009j\*\*\*\*.kibana.elasticsearch.aliyuncs.com:5601/。|
+        |SP Entity ID|Kibana实例的唯一标识符，如果将Kibana添加为身份提供者 （IdP）的服务提供商时，需要设置此值，建议您使用Kibana实例的基本URL作为实体ID。本文示例为：https://es-cn-n6w24ma4v009j\*\*\*\*.kibana.elasticsearch.aliyuncs.com:5601/。|
         |SP ACS URL（SSO Location）|单点登录地址。本文示例为：https://es-cn-n6w24ma4v009j\*\*\*\*.kibana.elasticsearch.aliyuncs.com:5601/api/security/saml/callback。|
         |NameldFormat|名称标识格式类型。本文示例：urn:oasis:names:tc:SAML:2.0:nameid-format:persistent。|
         |Binding|系统默认使用POST方式。|
@@ -194,7 +194,7 @@
         |order|领域优先级。数值越低，优先级越高。|
         |idp.metadata.path|IdP保存的元数据文件的路径。|
         |idp.entity\_id|IdP使用的身份标识符，和元数据文件中的entity\_id属性相匹配。|
-        |sp.entity\_id|Kibana实例唯一标识符，如果将Kibana添加为身份提供者 \(IdP\)的服务提供商时，需要设置此值，建议您使用Kibana的基本URL作为实体ID。|
+        |sp.entity\_id|Kibana实例唯一标识符，如果将Kibana添加为身份提供者 （IdP）的服务提供商时，需要设置此值，建议您使用Kibana的基本URL作为实体ID。|
         |sp.acs|断言消费服务（ACS）端点，一般是Kibana中的URL，用来接受来自IdP的身份验证消息，此ACS端点仅支持SAML HTTP-POST绑定，通常配置为`${kibana-url}/api/security/v1/saml`，其中`${kibana-url}`为Kibana基础URL。**说明：** 在Elasticsearch 7.10版本中使用`/api/security/v1/saml`时，Kibana日志中会产生warn日志：**The "/api/security/v1/saml" URL is deprecated and will stop working in the next major version, please use "/api/security/saml/callback" URL instead.**，说明低版本在陆续弃用`/api/security/v1/saml`，[8.0版本将彻底不支持](https://www.elastic.co/guide/en/kibana/master/breaking-changes-8.0.html)，建议使用`/api/security/saml/callback`代替。 |
         |sp.logout|Kibana接收来自IdP的注销信息的URL。类似`sp.acs`，需设置为：`${kibana-url}/logout`，其中`${kibana-url}`为Kibana的基础URL。|
         |attributes.principal|属性主体，包含用户主体（用户名）的SAML属性的名称。详细信息请参见[SAML realm settings](https://www.elastic.co/guide/en/elasticsearch/reference/7.13/security-settings.html#ref-saml-settings)。|
