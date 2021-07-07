@@ -247,7 +247,7 @@ Elasticsearch需要ADFS在SAML断言中提供**NameId**、**grouprole**、**name
     |idp.entity\_id|IdP使用的身份标识符，和元数据文件中的entity\_id属性相匹配。获取方法如下：在浏览器地址栏中，输入`https://<ADFS-server>/federationmetadata/2007-06/federationmetadata.xml`，即可下载ADFS的元数据文件，从而获取对应的信息。其中，<ADFS-server\>是您的ADFS服务器域名或IP地址。
 
 ![ADFS元数据文件](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/9864125261/p291060.png) |
-    |sp.entity\_id|Kibana实例唯一标识符，如果将Kibana添加为身份提供者 \(IdP\)的服务提供商时，需要设置此值，建议您使用Kibana的基本URL作为实体ID。|
+    |sp.entity\_id|Kibana实例唯一标识符，如果将Kibana添加为身份提供者 （IdP）的服务提供商时，需要设置此值，建议您使用Kibana的基本URL作为实体ID。|
     |sp.acs|断言消费服务（ACS）端点，一般是Kibana中的URL，用来接受来自IdP的身份验证消息，此ACS端点仅支持SAML HTTP-POST绑定，通常配置为`<yourKibana-url>/api/security/v1/saml`，其中`<yourKibana-url>`为Kibana基础URL。**说明：** 在Elasticsearch 7.10版本中使用`/api/security/v1/saml`时，Kibana日志中会产生warn日志：**The "/api/security/v1/saml" URL is deprecated and will stop working in the next major version, please use "/api/security/saml/callback" URL instead.**，说明低版本在陆续弃用`/api/security/v1/saml`，[8.0版本将彻底不支持](https://www.elastic.co/guide/en/kibana/master/breaking-changes-8.0.html)，建议使用`/api/security/saml/callback`代替。 |
     |sp.logout|Kibana接收来自IdP的注销信息的URL。类似`sp.acs`，需设置为：`<yourKibana-url>/logout`，其中`<yourKibana-url>`为Kibana的基础URL。|
     |attributes.principal|属性主体，包含用户主体（用户名）的SAML属性的名称。详细信息请参见[SAML realm settings](https://www.elastic.co/guide/en/elasticsearch/reference/7.13/security-settings.html#ref-saml-settings)。|
