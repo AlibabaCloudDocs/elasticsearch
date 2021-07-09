@@ -64,4 +64,5 @@
     -   [Elasticsearch快速入门](/cn.zh-CN/Elasticsearch/快速入门.md)
     -   [Logstash快速入门](/cn.zh-CN/Logstash/快速入门.md)
     -   [Beats采集器快速入门](/cn.zh-CN/Beats/快速入门/入门概述.md)
+    -   [高级监控报警快速入门](/cn.zh-CN/高级监控报警/快速入门.md)
 
