@@ -2,13 +2,15 @@
 
 You can call this operation to create an Elasticsearch instance.
 
-Before calling the interface, note:
+Before you call the API operation, note that:
 
 -   Make sure that you have read and understand the billing and pricing standards of Alibaba Cloud Elasticsearch.
 
     For more information, see [Alibaba Cloud Elasticsearch pricing](https://www.aliyun.com/price/product?spm=a2c4g.11186623.2.7.657d2cbeRoSPCd#/elasticsearch/detail).
 
 -   Before you create an instance, you must complete real-name verification.
+
+    .
 
 
 ## Debugging
@@ -17,7 +19,7 @@ Before calling the interface, note:
 
 ## Request headers
 
-This operation uses only common request parameters. For more information, see the Common request parameters topic.
+This operation uses only common request headers. For more information, see Common request parameters.
 
 ## Request syntax
 
@@ -29,15 +31,15 @@ This operation uses only common request parameters. For more information, see th
 
 ## Request parameters
 
-|Parameter|Type|Location|Required|Example|Description|
+|Parameter|Type|Position|Required|Example|Description|
 |---------|----|--------|--------|-------|-----------|
 |clientToken|String|Query|No|5A2CFF0E-5718-45B5-9D4D-70B3FF\*\*\*\*|This parameter is used to ensure the idempotence of the request. You can use the client to generate the value, but you must ensure that it is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. |
 
 ## RequestBody
 
-The following parameters must be filled in the RequestBody to specify the information of the instance to be created.
+You also need to specify the following parameters in RequestBody to specify the information of the instance to be created.
 
-|Parameter
+|Field
 
 |Type
 
@@ -46,7 +48,7 @@ The following parameters must be filled in the RequestBody to specify the inform
 |Example
 
 |Description |
-|-----------|------|----------|---------|-------------|
+|-------|------|----------|---------|-------------|
 |paymentType
 
 |String
@@ -55,7 +57,7 @@ The following parameters must be filled in the RequestBody to specify the inform
 
 |postpaid
 
-|The billing method of the cluster. Optional values: postpaid \(billed by volume\) and prepaid \(package year and month\). |
+|The billing method of the cluster. Valid values: postpaid \(pay-as-you-go\) and prepaid \(subscription\). |
 |paymentInfo
 
 |Map
@@ -64,7 +66,7 @@ The following parameters must be filled in the RequestBody to specify the inform
 
 |postpaid
 
-|The payment details of the subscription instance. |
+|The payment details of a subscription instance. |
 |└duration
 
 |Integer
@@ -73,7 +75,7 @@ The following parameters must be filled in the RequestBody to specify the inform
 
 |1
 
-|The purchase time. Subscriptions can be purchased on a monthly or yearly basis. |
+|The time of purchase. Subscriptions can be purchased on a monthly or yearly basis. |
 |└pricingCycle
 
 |String
@@ -82,7 +84,7 @@ The following parameters must be filled in the RequestBody to specify the inform
 
 |Month
 
-|Package year and month unit, support: Year \(year\), Month \(month\). |
+|The subscription unit. Valid values: Year and Month. |
 |└isAutoRenew
 
 |Boolean
@@ -91,7 +93,7 @@ The following parameters must be filled in the RequestBody to specify the inform
 
 |true
 
-|Whether to turn on the auto-renewal setting, support: true \(on\), false \(not on\). |
+|Specifies whether to enable the auto-renewal setting. Valid values: true \(enabled\) and false \(disabled\). |
 |└autoRenewDuration
 
 |Integer
@@ -100,7 +102,7 @@ The following parameters must be filled in the RequestBody to specify the inform
 
 |3
 
-|auto-renewal cycle, unit: month. |
+|The auto-renewal period. Unit: month. |
 |nodeAmount
 
 |int
@@ -118,7 +120,7 @@ The following parameters must be filled in the RequestBody to specify the inform
 
 |advanced
 
-|Version type. Support advanced \(enhanced version\) and x-pack \(commercial version\). When set to advanced, you must purchase Master nodes and CPFS shared storage. |
+|Version type. Supported advanced \(enhanced edition\) and x-pack \(commercial edition\). If you set this parameter to advanced, you must purchase Master nodes and CPFS shared storage. |
 |esAdminPassword
 
 |String
@@ -127,7 +129,7 @@ The following parameters must be filled in the RequestBody to specify the inform
 
 |es\_password
 
-|The access password of the ES instance. Three of the following characters are required: uppercase letters, lowercase letters, numbers, and special characters:!@\#$%^& \*\(\)\_+-=, 8 to 32 bits in length. |
+|The access password of the Elasticsearch instance. It is required to contain three of the following characters: uppercase letters, lowercase letters, digits, and special characters:!@\#$%^&\*\(\)\_+-=, 8 to 32 bits in length. |
 |esVersion
 
 |String
@@ -136,7 +138,7 @@ The following parameters must be filled in the RequestBody to specify the inform
 
 |5.5.3\_with\_X-Pack
 
-|The version of the instance. Optional values: 7.10\_with\_X-Pack, 6.7\_with\_X-Pack, 6.7\_with\_A-Pack, 7.7\_with\_X-Pack, 6.8\_with\_X-Pack, 6.3\_with\_X-Pack, 5.6\_with\_X-Pack, 5.5.3\_with\_X-Pack. |
+|The version of the instance. Valid values: 7.10\_with\_X-Pack, 6.7\_with\_X-Pack, 6.7\_with\_A-Pack, 7.7\_with\_X-Pack, 6.8\_with\_X-Pack, 6.3\_with\_X-Pack, 5.6\_with\_X-Pack, and 5.5.3\_with\_X-Pack. |
 |nodeSpec
 
 |Map
@@ -161,7 +163,7 @@ The following parameters must be filled in the RequestBody to specify the inform
 
 |20
 
-|Single-node storage space, unit: GB. |
+|The storage space of a single node. Unit: GB. |
 |└diskType
 
 |String
@@ -170,7 +172,7 @@ The following parameters must be filled in the RequestBody to specify the inform
 
 |cloud\_ssd
 
-|The type of the disk. Optional values: cloud\_ssd\(SSD cloud disk\), cloud\_essd \(Enhanced SSD\), cloud\_efficiency \(efficient cloud disk\). |
+|The type of the disk. Valid values: cloud\_ssd\(SSD\), cloud\_essd \(Enhanced SSD\), and cloud\_efficiency \(ultra disk\). |
 |└performanceLevel
 
 |String
@@ -179,7 +181,7 @@ The following parameters must be filled in the RequestBody to specify the inform
 
 |PL1
 
-|The performance level of the ESSD. When the storage type is cloud\_essd, this parameter is required and supports PL1, PL2, and PL3. |
+|The performance level of the ESSD. This parameter is required when the storage type is cloud\_essd. Valid values: PL1, PL2, and PL3. |
 |└diskEncryption
 
 |Boolean
@@ -188,7 +190,7 @@ The following parameters must be filled in the RequestBody to specify the inform
 
 |true
 
-|Whether to enable cloud disk encryption, support: true \(on\), false \(not on\). |
+|Specifies whether to enable disk encryption. Valid values: true \(enabled\) and false \(disabled\). |
 |advancedDedicateMaster
 
 |boolean
@@ -197,14 +199,14 @@ The following parameters must be filled in the RequestBody to specify the inform
 
 |false
 
-|whether to create a dedicated master node. if it is deployed in multiple zones, you must select. |
+|Specifies whether to create a dedicated master node. This parameter is required if it is deployed in multiple zones. |
 |masterConfiguration
 
 |Map
 
 |No
 
-| |The exclusive master node configuration. Required when the advancedDedicateMaster is true. |
+| |The configuration of the dedicated master node. This parameter is required if the advancedDedicateMaster is set to true. |
 |└spec
 
 |String
@@ -222,7 +224,7 @@ The following parameters must be filled in the RequestBody to specify the inform
 
 |3
 
-|The number of nodes, currently fixed at 3. |
+|The number of nodes. Currently, the value is fixed to 3. |
 |└disk
 
 |int
@@ -231,7 +233,7 @@ The following parameters must be filled in the RequestBody to specify the inform
 
 |20
 
-|The size of the single-node storage space. Currently, only 20GB is supported. |
+|The size of the storage space per node. Currently, only 20GB is supported. |
 |└diskType
 
 |string
@@ -240,7 +242,7 @@ The following parameters must be filled in the RequestBody to specify the inform
 
 |cloud\_ssd
 
-|The node storage type. Optional values: cloud\_ssd\(SSD cloud disk\) and cloud\_essd \(Enhanced SSD\). |
+|The storage type of the node. Valid values: cloud\_ssd\(SSD\) and cloud\_essd \(Enhanced SSD\). |
 |warmNode
 
 |boolean
@@ -249,14 +251,14 @@ The following parameters must be filled in the RequestBody to specify the inform
 
 |false
 
-|Whether to purchase cold data nodes. |
+|Specifies whether to purchase cold data nodes. |
 |warmNodeConfiguration
 
 |Map
 
 |No
 
-| |Cold data node configurations. Required when warmNode is true. |
+| |Cold data node configurations. This parameter is required if the warmNode parameter is set to true. |
 |└spec
 
 |string
@@ -283,7 +285,7 @@ The following parameters must be filled in the RequestBody to specify the inform
 
 |cloud\_efficiency
 
-|The node storage type. Optional value: cloud\_efficiency \(efficient cloud disk\). |
+|The storage type of the node. Optional value: cloud\_efficiency \(Ultra Disk\). |
 |└disk
 
 |Integer
@@ -292,7 +294,7 @@ The following parameters must be filled in the RequestBody to specify the inform
 
 |500
 
-|Single-node storage space. |
+|Single-point storage space. |
 |└diskEncryption
 
 |Boolean
@@ -301,7 +303,7 @@ The following parameters must be filled in the RequestBody to specify the inform
 
 |true
 
-|Whether to enable cloud disk encryption, support: true \(on\), false \(not on\). |
+|Specifies whether to enable disk encryption. Valid values: true \(enabled\) and false \(disabled\). |
 |haveClientNode
 
 |boolean
@@ -310,14 +312,14 @@ The following parameters must be filled in the RequestBody to specify the inform
 
 |false
 
-|Whether to purchase the coordination node. |
+|Specifies whether to purchase a coordination node. |
 |clientNodeConfiguration
 
 |Map
 
 |No
 
-| |Coordinate node configurations. Required when haveClientNode is true. |
+| |Coordinate node configurations. This parameter is required when the haveClientNode parameter is set to true. |
 |└spec
 
 |string
@@ -344,7 +346,7 @@ The following parameters must be filled in the RequestBody to specify the inform
 
 |cloud\_efficiency
 
-|The node storage type. Optional value: cloud\_efficiency \(efficient cloud disk\). |
+|The storage type of the node. Optional value: cloud\_efficiency \(Ultra Disk\). |
 |└disk
 
 |Integer
@@ -353,7 +355,7 @@ The following parameters must be filled in the RequestBody to specify the inform
 
 |20
 
-|The size of the single-node storage space. |
+|The size of the storage space per node. |
 |haveElasticDataNode
 
 |boolean
@@ -362,14 +364,14 @@ The following parameters must be filled in the RequestBody to specify the inform
 
 |false
 
-|Whether to purchase elastic nodes. Before you purchase an elastic node, you need to purchase an exclusive master node. |
+|Specifies whether to purchase elastic nodes. Before you purchase elastic nodes, you need to purchase dedicated master nodes. |
 |elasticDataNodeConfiguration
 
 |Map
 
 |No
 
-| |Elastic node configurations. Required when the haveElasticDataNode is true. |
+| |The configuration of the elastic node. This parameter is required if the haveElasticDataNode is set to true. |
 |└spec
 
 |string
@@ -396,7 +398,7 @@ The following parameters must be filled in the RequestBody to specify the inform
 
 |cloud\_efficiency
 
-|The node storage type. Optional values: cloud\_ssd\(SSD cloud disk\), cloud\_essd \(Enhanced SSD\), cloud\_efficiency \(efficient cloud disk\). |
+|The storage type of the node. Valid values: cloud\_ssd\(SSD\), cloud\_essd \(Enhanced SSD\), and cloud\_efficiency \(ultra disk\). |
 |└disk
 
 |Integer
@@ -405,7 +407,7 @@ The following parameters must be filled in the RequestBody to specify the inform
 
 |20
 
-|The size of the single-node storage space. |
+|The size of the storage space per node. |
 |└performanceLevel
 
 |String
@@ -414,7 +416,7 @@ The following parameters must be filled in the RequestBody to specify the inform
 
 |PL1
 
-|The performance level of the ESSD. When the storage type is cloud\_essd, this parameter is required and supports PL1, PL2, and PL3. |
+|The performance level of the ESSD. This parameter is required when the storage type is cloud\_essd. Valid values: PL1, PL2, and PL3. |
 |└diskEncryption
 
 |Boolean
@@ -423,7 +425,7 @@ The following parameters must be filled in the RequestBody to specify the inform
 
 |true
 
-|Whether to enable cloud disk encryption, support: true \(on\), false \(not on\). |
+|Specifies whether to enable disk encryption. Valid values: true \(enabled\) and false \(disabled\). |
 |haveKibana
 
 |boolean
@@ -432,14 +434,14 @@ The following parameters must be filled in the RequestBody to specify the inform
 
 |true
 
-|Whether to purchase kibana nodes. |
+|Specifies whether to purchase kibana nodes. |
 |kibanaConfiguration
 
 |Map
 
 |No
 
-| |Kibana node configurations. Required when haveKibana is true. |
+| |The configuration of the kibana node. This parameter is required when the haveKibana parameter is set to true. |
 |└spec
 
 |String
@@ -457,7 +459,7 @@ The following parameters must be filled in the RequestBody to specify the inform
 
 |1
 
-|The number of nodes, currently fixed at 1. |
+|The number of nodes. Currently, the value is fixed to 1. |
 |└disk
 
 |Integer
@@ -466,7 +468,7 @@ The following parameters must be filled in the RequestBody to specify the inform
 
 |0
 
-|The storage size, currently fixed at 0. |
+|The storage size. Currently, the value is fixed to 0. |
 |networkConfig
 
 |Map
@@ -482,7 +484,7 @@ The following parameters must be filled in the RequestBody to specify the inform
 
 |VPC
 
-|The type of network. Only VPC is supported. |
+|The type of the network. Only VPC is supported. |
 |└vpcId
 
 |string
@@ -491,7 +493,7 @@ The following parameters must be filled in the RequestBody to specify the inform
 
 |vpc-bp16k1dvzxtmagcva\*\*\*\*
 
-|The ID of the virtual private cloud \(VPC\) to which the cluster belongs. |
+|The ID of the VPC. |
 |└vsArea
 
 |string
@@ -509,14 +511,14 @@ The following parameters must be filled in the RequestBody to specify the inform
 
 |vsw-bp1k4ec6s7sjdbudw\*\*\*\*
 
-|The vSwitch ID of the cluster. |
+|The IDs of vSwitches. |
 |extendConfigs
 
 |list
 
 |No
 
-| |The instance scaling configuration. |
+| |The extended configurations of the instance. |
 |└configType
 
 |string
@@ -525,7 +527,7 @@ The following parameters must be filled in the RequestBody to specify the inform
 
 |sharedDisk
 
-|The configuration type, fixed to sharedDisk \(shared storage\), is applicable only to enhanced instances. |
+|The type of the configuration. Set this parameter to sharedDisk \(shared storage\). This parameter is applicable only to instances of the Enhanced Edition. |
 |└disk
 
 |Integer
@@ -534,7 +536,7 @@ The following parameters must be filled in the RequestBody to specify the inform
 
 |5120
 
-|shared storage the disk size. |
+|The size of the shared storage disk. |
 |dryRun
 
 |boolean
@@ -543,14 +545,14 @@ The following parameters must be filled in the RequestBody to specify the inform
 
 |true
 
-|Whether to verify the configuration when creating an instance. Optional values: true \(check only, not created\) and false \(check and create\). |
+|Specifies whether to verify the configuration when the instance is created. Valid values: true \(verify only, not create\) and false \(verify and create\). |
 
 **Note:**
 
 -   └ indicates a child parameter.
 -   For a list of supported node specifications, see [Alibaba Cloud Elasticsearch pricing information](https://www.aliyun.com/price/product?spm=a2c4g.11186623.2.10.653c6c88NcQPZY#/elasticsearch/detail).
 
-The following code provides an example:
+Example:
 
 ```
 
@@ -572,7 +574,7 @@ Sample requests
 
 ```
 
-     POST /openapi/instances HTTP/1.1 public request header 
+     POST /openapi/instances HTTP/1.1 public request headers 
    
 ```
 
@@ -586,7 +588,7 @@ Sample success responses
    
 ```
 
-## Error codes
+## Error code
 
 For a list of error codes, visit the [API Error Center](https://error-center.alibabacloud.com/status/product/elasticsearch).
 
