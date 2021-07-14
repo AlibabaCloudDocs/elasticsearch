@@ -10,13 +10,13 @@
 
 -   创建阿里云Elasticsearch实例，版本要求大于等于Java High Level REST Client的版本。
 
-    本文创建一个6.7.0版本的实例，创建方法请参见[t134282.md\#](/intl.zh-CN/Elasticsearch/管理实例/创建阿里云Elasticsearch实例.md)。
+    本文创建一个6.7.0版本的实例，创建方法请参见[创建阿里云Elasticsearch实例](/intl.zh-CN/Elasticsearch/管理实例/创建阿里云Elasticsearch实例.md)。
 
     **说明：** High Level Client能够向上兼容，例如6.7.0版本的Java High Level REST Client能确保与大于等于6.7.0版本的Elasticsearch集群通信。为了保证最大程度地使用最新版客户端的特性，推荐High Level Client版本与集群版本一致。
 
 -   开启阿里云Elasticsearch实例的自动创建索引功能。
 
-    具体操作步骤请参见[开启自动创建索引](/intl.zh-CN/Elasticsearch/快速访问与配置.md)。
+    具体操作步骤请参见[配置YML参数](/intl.zh-CN/Elasticsearch/ES集群配置/配置YML参数.md)。
 
     如果未开启会提示如下报错。
 
