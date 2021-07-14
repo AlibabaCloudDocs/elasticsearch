@@ -20,32 +20,30 @@ keyword: [自建es数据迁移, 阿里云logstash数据迁移]
     -   本文以自建Elasticsearch 5.6.16 -\> 阿里云Logstash 6.7.0 -\> 阿里云Elasticsearch 6.7.0为例，提供的脚本仅适用于该数据迁移方案，其他方案不保证兼容。
 -   创建阿里云Logstash实例。
 
-    具体操作，请参见[创建阿里云Logstash实例](/cn.zh-CN/Logstash/快速入门/步骤一：创建实例/创建阿里云Logstash实例.md)。
+    具体操作，请参见[创建阿里云Logstash实例]()。
 
 -   创建目标阿里云Elasticsearch实例，需要与Logstash实例在同一专有网络下，且版本相同。
 
-    具体操作，请参见[t134282.md\#](/cn.zh-CN/Elasticsearch/实例管理/创建阿里云Elasticsearch实例.md)。
+    具体操作，请参见[创建阿里云Elasticsearch实例](/cn.zh-CN/Elasticsearch/实例管理/创建阿里云Elasticsearch实例.md)。
 
 -   开启Elasticsearch实例的自动创建索引功能。
 
-    具体操作，请参见[开启自动创建索引](/cn.zh-CN/Elasticsearch/快速访问与配置.md)。
+    具体操作，请参见[配置YML参数](/cn.zh-CN/Elasticsearch/集群配置/配置YML参数.md)。
 
 
 ## 配置并运行Logstash管道
 
 1.  登录[阿里云Elasticsearch控制台](https://elasticsearch.console.aliyun.com/#/home)。
 
-2.  在左侧导航栏，单击**Elasticsearch实例**。
+2.  在左侧导航栏，单击**Logstash实例**，然后在**Logstash实例**中单击目标实例ID。
 
-3.  在左侧导航栏，单击**Logstash实例**，然后在**Logstash实例**中单击目标实例ID。
+3.  在左侧导航栏，单击**管道管理**。
 
-4.  在左侧导航栏，单击**管道管理**。
-
-5.  在**管道列表**区域，单击**创建管道**。
+4.  在**管道列表**区域，单击**创建管道**。
 
     ![创建管道](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/2312659951/p95025.png)
 
-6.  在**创建管道任务**页面，输入管道ID并配置管道。
+5.  在**创建管道任务**页面，输入管道ID并配置管道。
 
     本文使用的管道配置如下。
 
@@ -88,7 +86,7 @@ keyword: [自建es数据迁移, 阿里云logstash数据迁移]
 
     更多Config配置说明，请参见[Logstash配置文件说明](/cn.zh-CN/Logstash/管道任务管理/Logstash配置文件说明.md)。
 
-7.  单击**下一步**，配置管道参数。
+6.  单击**下一步**，配置管道参数。
 
     ![管道参数配置](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/2312659951/p67293.png)
 
@@ -104,7 +102,7 @@ keyword: [自建es数据迁移, 阿里云logstash数据迁移]
 
     **警告：** 配置完成后，需要**保存并部署**才能生效。**保存并部署**操作会触发实例重启，请在不影响业务的前提下，继续执行以下步骤。
 
-8.  单击**保存**或者**保存并部署**。
+7.  单击**保存**或者**保存并部署**。
 
     -   **保存**：将管道信息保存在Logstash里并触发实例变更，配置不会生效。保存后，系统会返回**管道管理**页面。可在**管道列表**区域，单击**操作**列下的**立即部署**，触发实例重启，使配置生效。
     -   **保存并部署**：保存并且部署后，会触发实例重启，使配置生效。
