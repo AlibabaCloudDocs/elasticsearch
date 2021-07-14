@@ -26,7 +26,7 @@ You can use an Alibaba Cloud Logstash pipeline to migrate data from a user-creat
 
 -   The **Auto Indexing** feature is enabled for the Alibaba Cloud Elasticsearch cluster.
 
-    For more information, see [Access and configure an Elasticsearch cluster](/intl.en-US/Elasticsearch Instances Management/Access and configure an Elasticsearch cluster.md).
+    For more information, see [Configure the YML file](/intl.en-US/Elasticsearch Instances Management/Elasticsearch cluster configuration/Configure the YML file.md).
 
 
 ## Configure a Logstash pipeline
