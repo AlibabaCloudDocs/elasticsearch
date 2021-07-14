@@ -12,11 +12,11 @@
 
 -   创建阿里云Elasticsearch实例。
 
-    具体操作步骤请参见[t134282.md\#](/intl.zh-CN/Elasticsearch/管理实例/创建阿里云Elasticsearch实例.md)。
+    具体操作步骤请参见[创建阿里云Elasticsearch实例](/intl.zh-CN/Elasticsearch/管理实例/创建阿里云Elasticsearch实例.md)。
 
 -   开启阿里云Elasticsearch实例的自动创建索引功能。
 
-    具体操作步骤请参见[开启自动创建索引](/intl.zh-CN/Elasticsearch/快速访问与配置.md)。
+    具体操作步骤请参见[配置YML参数](/intl.zh-CN/Elasticsearch/ES集群配置/配置YML参数.md)。
 
 -   配置阿里云Elasticsearch实例的白名单，确保网络互通。
     -   如果运行代码的服务器在公网环境下，可通过阿里云Elasticsearch实例的公网地址进行连通。连通前，需要开启阿里云Elasticsearch实例的公网地址，并修改公网地址访问白名单，将服务器的公网IP地址加入白名单中。具体操作步骤请参见[配置Elasticsearch公网或私网访问白名单](/intl.zh-CN/Elasticsearch/安全配置/配置ES公网或私网访问白名单.md)。
