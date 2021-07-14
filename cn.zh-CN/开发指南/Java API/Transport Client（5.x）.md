@@ -23,7 +23,7 @@ keyword: Transport Client访问es
 
 -   开启阿里云Elasticsearch实例的自动创建索引功能。
 
-    具体操作步骤请参见[开启自动创建索引](/cn.zh-CN/Elasticsearch/快速访问与配置.md)。
+    具体操作步骤请参见[配置YML参数](/cn.zh-CN/Elasticsearch/集群配置/配置YML参数.md)。
 
     如果未开启会提示如下报错。
 
@@ -34,7 +34,7 @@ keyword: Transport Client访问es
 
         **说明：**
 
-        -   如果您使用的是WIFI、宽带等网络，需要将公网出口的跳板机IP地址配置进去。建议您通过[淘宝IP地址库](http://myip.ipip.net/)查询。
+        -   如果您的客户端处在家庭网络或公司局域网中，您需要将局域网的公网出口IP地址添加到白名单中，而非客户端机器的内网机制。建议您通过[淘宝IP地址库](http://myip.ipip.net/)查看您当前使用的公网IP。
         -   您也可以将白名单配置为0.0.0.0/0，允许所有IPv4地址访问阿里云Elasticsearch实例。此配置会导致实例完全暴露在公网中，增加安全风险，配置前请确认您是否可以接受这个风险。
     -   如果运行Java代码的服务器与阿里云Elasticsearch实例在同一专有网络VPC（Virtual Private Cloud）中，可通过阿里云Elasticsearch实例的内网地址进行连通。连通前，需要确保VPC私网访问白名单（默认为0.0.0.0/0）中已添加了服务器的内网IP地址。
 -   创建Java Maven工程，并将下文的[pom依赖](#section_53p_is5_80a)添加到Java工程的pom.xml文件中。
