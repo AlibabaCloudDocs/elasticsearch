@@ -32,7 +32,7 @@ Elastic可观测性是通过Kibana可视化能力，将日志、指标及APM数�
 
 **说明：**
 
--   本文以同时使用DaemonSet和Deployment的部署方式为例介绍如何部署Metricbeat容器，您也可以仅使用DaemonSet方式进行部署。
+-   本文以同时使用DaemonSet和Deployment的部署方式为例介绍如何部署Metricbeat容器，您也可以仅使用DaemonSet方式或Deployment方式进行部署。
 -   Metricbeat依赖kube-state-metrics监控，部署前需要确保已完成kube-state-metrics的部署。阿里云ACK容器默认在arms-prom命名空间下部署了kube-state-metrics监控。
 
 1.  通过kubectl访问云容器，下载Metricbeat配置文件。
@@ -253,7 +253,7 @@ Elastic可观测性是通过Kibana可视化能力，将日志、指标及APM数�
         ---
         ```
 
-3.  创建资源对象，查看资源状态。
+3.  部署Metricbeat，并查看资源状态。
 
     通过kubectl执行以下命令：
 
