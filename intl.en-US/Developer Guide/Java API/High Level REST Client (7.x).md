@@ -12,7 +12,7 @@ This topic describes how to use Java High Level REST Client 7.x to call Elastics
 
 -   Enable the Auto Indexing feature for the cluster.
 
-    For more information, see [Access and configure an Elasticsearch cluster](/intl.en-US/Elasticsearch Instances Management/Access and configure an Elasticsearch cluster.md).
+    For more information, see [Configure the YML file](/intl.en-US/Elasticsearch Instances Management/Elasticsearch cluster configuration/Configure the YML file.md).
 
     If the Auto Indexing feature is not enabled, the following error is reported.
 
