@@ -16,7 +16,7 @@
 
 -   开启阿里云Elasticsearch实例的自动创建索引功能。
 
-    具体操作步骤请参见[开启自动创建索引](/cn.zh-CN/Elasticsearch/快速访问与配置.md)。
+    具体操作步骤请参见[配置YML参数](/cn.zh-CN/Elasticsearch/集群配置/配置YML参数.md)。
 
     如果未开启会提示如下报错。
 
