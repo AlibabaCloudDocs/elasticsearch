@@ -12,6 +12,7 @@ keyword: [x-pack watcher, es监控报警服务]
 
 -   2020年10月及之后创建的实例，暂不支持Watcher报警和LDAP认证功能。
 -   2020年10月及之后创建的实例，不支持与10月之前创建的实例进行跨集群Reindex、跨集群搜索、跨集群复制等相关操作。如果需要使用跨集群操作，需要确保实例创建在同一网络架构下。
+-   2020年10月及之后为新网络架构，对用户集群没有VPC使用限制，但是新架构下创建的实例不能和老架构下创建的实例进行互通。对于海外网络架构，请[提交工单](https://workorder-intl.console.aliyun.com/console.htm)联系技术支持同学确认。
 
 **说明：** 阿里云Elasticsearch在华北3（张家口）、海外地域的网络架构调整时间在2020年10月之前，如果需要使用跨集群操作，请[提交工单](https://workorder-intl.console.aliyun.com/console.htm)联系技术支持同学校验网络架构是否可以使用。
 
@@ -19,7 +20,7 @@ keyword: [x-pack watcher, es监控报警服务]
 
 -   创建单可用区的阿里云Elasticsearch实例。
 
-    具体操作，请参见[t134282.md\#](/intl.zh-CN/Elasticsearch/管理实例/创建阿里云Elasticsearch实例.md)。
+    具体操作，请参见[创建阿里云Elasticsearch实例](/intl.zh-CN/Elasticsearch/管理实例/创建阿里云Elasticsearch实例.md)。
 
     **说明：** X-Pack Watcher功能仅支持单可用区的Elasticsearch实例，不支持多可用区实例。
 
@@ -125,7 +126,7 @@ X-Pack Watcher功能主要由Trigger、Input、Condition和Actions组成：
 
         <钉钉机器人Webhook地址\>：请替换为接收报警消息的钉钉机器人的Webhook地址。
 
-        **说明：** 获取钉钉群机器人的Webhook地址：创建一个钉钉报警接收群，在群的右上角找到群机器人，然后添加一个自定义通过Webhook接入的机器人，并获取群机器人的Webhook地址，详情请参见[获取自定义机器人Webhook](https://ding-doc.dingtalk.com/doc#/serverapi2/qf2nxq)。
+        **说明：** 获取钉钉群机器人的Webhook地址：创建一个钉钉报警接收群，在群的右上角找到群机器人，然后添加一个自定义通过Webhook接入的机器人，并获取群机器人的Webhook地址。
 
     3.  加载修改后的配置文件并重启Nginx。
 
