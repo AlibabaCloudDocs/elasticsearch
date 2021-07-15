@@ -8,7 +8,12 @@ This topic describes how to configure X-Pack Watcher for Alibaba Cloud Elasticse
 
 ## Precautions
 
-Due to the adjustment made to the Alibaba Cloud Elasticsearch network architecture, clusters created after October 2020 do not support the X-Pack Watcher and LDAP authentication features. In addition, you cannot reindex, search for, or replicate data between a cluster created before October 2020 and a cluster created after October 2020. You can perform the operations only between clusters created before October 2020 or between clusters created after October 2020. These features will be available soon.
+The adjustment made to the Alibaba Cloud Elasticsearch network architecture has the following impacts on clusters:
+
+-   Clusters created after October 2020 do not support the X-Pack Watcher and Lightweight Directory Access Protocol \(LDAP\) authentication features.
+-   You cannot reindex, search for, and replicate data between a cluster created before October 2020 and a cluster created after October 2020. If you want to perform these operations between them, make sure that the clusters are under the same network architecture.
+
+**Note:** The network architecture in the China \(Zhangjiakou\) region and the regions outside China was adjusted before October 2020. If you want to perform the preceding operations between a cluster created before October 2020 and that created after October 2020 in such a region, [submit a ticket](https://workorder-intl.console.aliyun.com/console.htm) to contact technical support personnel to check whether the network architecture supports the operations.
 
 ## Prerequisites
 
@@ -120,7 +125,7 @@ X-Pack Watcher allows you to create watches. A watch consists of a trigger, an i
 
         <Webhook address of the DingTalk chatbot\>: Replace it with the webhook address of the DingTalk chatbot that is used to receive alert notifications.
 
-        **Note:** To query the webhook address of the DingTalk chatbot, create an alert group in DingTalk. In the DingTalk group, click the Group Settings icon in the upper-right corner, Group Assistant, and then Add Robot. In the ChatBot dialog box, click Custom to add a chatbot that is accessed by using a webhook. You can then view the webhook address of the DingTalk chatbot. For more information, see [Obtain the webhook address of a DingTalk chatbot](https://ding-doc.dingtalk.com/doc#/serverapi2/qf2nxq).
+        **Note:** To query the webhook address of the DingTalk chatbot, create an alert group in DingTalk. In the DingTalk group, click the Group Settings icon in the upper-right corner, Group Assistant, and then Add Robot. In the ChatBot dialog box, click Custom to add a chatbot that is accessed by using a webhook. You can then view the webhook address of the DingTalk chatbot.
 
     3.  Reload the NGINX configuration file and restart NGINX.
 
