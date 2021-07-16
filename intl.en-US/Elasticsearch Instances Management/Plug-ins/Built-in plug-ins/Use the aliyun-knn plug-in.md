@@ -12,9 +12,9 @@ The aliyun-knn plug-in is a vector search engine developed by the Alibaba Cloud 
     |---------------|--------------|-----------|
     |V6.7.0|Earlier than V1.2.0|    -   You must manually install the aliyun-knn plug-in on the Plug-ins page of the Elasticsearch console based on the instructions provided in [Install and remove a built-in plug-in](/intl.en-US/Elasticsearch Instances Management/Plug-ins/Install and remove a built-in plug-in.md).
     -   You are not allowed to use the script query and index warm-up features of the aliyun-knn plug-in. |
-    |V6.8|None|
-    |V7.4|None|
-    |V7.7|None|
+    |V6.8.0|None|
+    |V7.4.0|None|
+    |V7.7.0|None|
     |V6.7.0|V1.2.0 or later|    -   The aliyun-knn plug-in is integrated into the apack plug-in, which is installed by default. If you want to remove or reinstall the aliyun-knn plug-in, you must perform operations on the apack plug-in. For more information, see [Use the physical replication feature of the apack plug-in](/intl.en-US/Elasticsearch Instances Management/Plug-ins/Built-in plug-ins/Use the physical replication feature of the apack plug-in.md).
     -   You can use the script query and index warm-up features of the aliyun-knn plug-in. Before you use the features, make sure that the version of the apack plug-in installed on your cluster is V1.2.1 or later. You can run the GET \_cat/plugins?v command to obtain the version of the apack plug-in. If the version of the apack plug-in is earlier than V1.2.1, you can [submit a ticket](https://account.alibabacloud.com/login/login.htm?oauth_callback=https%3A//ticket-intl.console.aliyun.com/%23) to ask Alibaba Cloud engineers to update the plug-in. |
     |V7.10.0|V1.4.0 or later|    -   The aliyun-knn plug-in is integrated into the apack plug-in, which is installed by default. If you want to remove or reinstall the aliyun-knn plug-in, you must perform operations on the apack plug-in. For more information, see [Use the physical replication feature of the apack plug-in](/intl.en-US/Elasticsearch Instances Management/Plug-ins/Built-in plug-ins/Use the physical replication feature of the apack plug-in.md).
@@ -23,7 +23,7 @@ The aliyun-knn plug-in is a vector search engine developed by the Alibaba Cloud 
 
     **Note:**
 
-    -   The [kernel version](/intl.en-US/AliES Kernel/AliES release notes.md) is different from the version of the apack plug-in. You can run the GET\_cat /plugins?v command to obtain the version of the apack plug-in.
+    -   The [kernel version](/intl.en-US/AliES Kernel/AliES release notes.md) is different from the version of the apack plug-in. You can run the GET \_cat/plugins?v command to obtain the version of the apack plug-in.
     -   Before you install the aliyun-knn plug-in, make sure that the data node specifications of your cluster are 2 vCPUs and 8 GiB of memory or higher. The specifications of 2 vCPUs and 8 GiB of memory are used only for functional tests. In a production environment, the data node specifications of your cluster must be 4 vCPUs and 16 GiB of memory or higher. If the data node specifications of your cluster do not meet these requirements, upgrade the data nodes in your cluster. For more information, see [Upgrade the configuration of a cluster](/intl.en-US/Elasticsearch Instances Management/Upgrade or downgrade a cluster/Upgrade the configuration of a cluster.md).
 -   Your cluster and the indexes that you want to store on the cluster are planned. For more information, see [Index planning](#section_x17_tbz_22y) and [Cluster planning](#section_ae0_2bt_ki4).
 
@@ -112,7 +112,7 @@ The aliyun-knn plug-in is a vector search engine developed by the Alibaba Cloud 
     |setting|index.codec|proxima|Specifies whether to create the `proxima` vector index. Valid values:    -   proxima: The system creates the `proxima` vector index. This index supports vector searches. We recommend that you set this parameter to proxima.
     -   null: The system does not create the `proxima` vector index but creates only forward indexes. In this case, fields of the `proxima_vector` type do not support HNSW- or Linear Search-based queries. These fields support only script queries.
 **Note:** If your cluster stores large volumes of data and you do not have high requirements on the latency of queries, you can remove the parameter or set the parameter to null. In this case, you can use the script query feature to search for the k-nearest neighbors \(k-NN\) of a vector. This feature is available only for V6.7.0 clusters whose apack plug-in is of V1.2.1 or later and V7.10.0 clusters whose apack plug-in is of V1.4.0 or later. |
-    |index.vector.algorithm|HNSW|The algorithm that is used to search for vectors. Valid values:    -   hnsw: HNSW
+    |index.vector.algorithm|hnsw|The algorithm that is used to search for vectors. Valid values:    -   hnsw: HNSW
     -   linear: Linear Search |
     |index.vector.general.builder.offline\_mode|false|Specifies whether to use the offline optimization mode to create the vector index. Valid values:    -   false: The offline optimization mode is not used.
     -   true: The offline optimization mode is used. In this case, the number of segments that are written to the vector index is significantly reduced. This improves write throughput.
@@ -121,13 +121,13 @@ The aliyun-knn plug-in is a vector search engine developed by the Alibaba Cloud 
     -   The offline optimization mode is available only for V6.7.0 clusters whose apack plug-in is of V1.2.1 or later and V7.10.0 clusters whose apack plug-in is of V1.4.0 or later. You are not allowed to perform script queries on the indexes for which the offline optimization mode is used.
     -   If you want to write all of your data to your cluster at a time, we recommend that you use the offline optimization mode. |
     |mapping|type|proxima\_vector|The field type. For example, if you set the type parameter to `proxima_vector` for the `feature` field, the `feature` field is a vector-type field.|
-    |dim|2|The number of vector dimensions. Valid values: 1 to 2048.|
+    |dim|2|The number of vector dimensions. This parameter is required. Valid values: 1 to 2048.|
     |vector\_type|float|The data type of vectors. Valid values:    -   float
     -   short
     -   binary
 If you set this parameter to binary, the vector data that you want to write to the vector index must be of the uint32 data type. This indicates that the vector data must be represented by an unsigned 32-bit decimal array. In addition, the value of the `dim` parameter must be a multiple of 32.
 
-For example, if you want to write the 64-bit binary business data 0001 0010 0100 1001 0011 0101 1001 0111 1001 0010 0100 1001 0011 0101 1001 0110 to the `vector` field in your vector index, specify `"vector": [-1994006369, 1128900228]` in the command that is used to add documents.
+For example, if you want to write the 64-bit binary business data 1000100100100101111000001001111101000011010010011010011010000100 to your vector index, set the `vector` parameter to `[-1994006369, 1128900228]` when you run the related command to add a document.
 
 **Note:** Only V6.7.0 clusters whose apack plug-in is of V1.2.1 or later and V7.10.0 clusters whose apack plug-in is of V1.4.0 or later support all the preceding three data types. Other clusters support only the float data type. |
     |distance\_method|SquaredEuclidean|The function that is used to calculate the distance between vectors. Valid values:    -   SquaredEuclidean: calculates the Euclidean distance without square root extraction.
@@ -196,7 +196,7 @@ We recommend that you set the two size parameters to the same value. The default
     GET test/_search
     {
       "query": {
-        "match_all": {}
+        "match_all": null
       },
       "rescore": {
         "query": {
@@ -287,7 +287,7 @@ The scoring mechanism varies based on the distance measurement function. The fol
 -   Score = 1/\(Cosine similarity + 1\)
 
 |A cosine similarity reflects the differences between vectors from orientations. Cosine similarities are used to score content to obtain the similarities or differences between user interests. In addition, cosine similarities are subject to the orientations of vectors rather than the numbers in them. Therefore, the cosine similarities can address the issue that users may use different measurement standards.|For example, two two-dimensional vectors \[1,1\] and \[1, 0\] exist. The cosine similarity between the vectors is 0.707.|
-|InnerProduct|This function is used to calculate the inner product between vectors. An inner product is also called a [dot product](https://baike.baidu.com/item/%E7%82%B9%E7%A7%AF/9648528?fromtitle=%E5%86%85%E7%A7%AF&fromid=422863). A dot product is a dyadic operation that takes two [vectors](https://baike.baidu.com/item/%E5%90%91%E9%87%8F/1396519) of the [real number](https://baike.baidu.com/item/%E5%AE%9E%E6%95%B0/296419) R and returns a scalar for the real number.|For example, two n-dimensional vectors \[A1, A2, ..., An\] and \[B1, B2, ..., Bn\] exist.-   Inner product between the vectors = A1B1 + A2B2 + ... + AnBn
+|InnerProduct|This function is used to calculate the inner product between vectors. An inner product is also called a [dot product](https://baike.baidu.com/item/%E7%82%B9%E7%A7%AF/9648528?fromtitle=%E5%86%85%E7%A7%AF&fromid=422863). A dot product is a dyadic operation that takes two [vectors](https://baike.baidu.com/item/%E5%90%91%E9%87%8F/1396519) of the [real number](https://baike.baidu.com/item/%E5%AE%9E%E6%95%B0/296419) R and returns a scalar for the real number.|For example, two n-dimensional vectors \[A1, A2, ..., An\] and \[B1, B2, ..., Bn\] exist.-   Inner product between the vectors = A1B1 + A2B2 + ...+ AnBn
 -   Score = 1/\(Inner product + 1\)
 
 
@@ -358,7 +358,7 @@ GET test/_search
 
     A: You can create two indexes. One uses the HNSW algorithm and the other uses the Linear Search algorithm. Keep the other index settings consistent for the two indexes. Use a client to add the same vector data to the indexes, and refresh the indexes. Compare the document IDs returned by the HNSW index and the Linear Search index after the same query vector is used. Then, find out the same document IDs that are returned by both indexes.
 
-    **Note:** Divide the number of document IDs returned by both indexes by the total number of returned document IDs to calculate the recall ratio of the documents.
+    **Note:** Divide the number of document IDs that both indexes return by the total number of returned document IDs to calculate the recall ratio of the documents.
 
 -   Q: When I write data to my cluster, the system returns the "circuitBreakingException" error. What do I do?
 
