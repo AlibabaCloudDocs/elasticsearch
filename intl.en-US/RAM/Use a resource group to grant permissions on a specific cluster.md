@@ -22,7 +22,7 @@ By default, Alibaba Cloud Elasticsearch clusters are created in the default reso
 
         ![Create a custom policy](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/9219305261/p273771.png)
 
-    5.  Set **Policy Document**. For more information, see the following example. Replace the Alibaba Cloud account ID and Elasticsearch cluster ID in the example with the ID of your Alibaba Cloud account and the ID of the desired Elasticsearch cluster.
+    5.  Set **Policy Document**. The following code provides an example. You must replace the Alibaba Cloud account ID and Elasticsearch cluster ID in the example with the ID of your Alibaba Cloud account and the ID of the desired Elasticsearch cluster.
 
         ```
         {
@@ -30,54 +30,66 @@ By default, Alibaba Cloud Elasticsearch clusters are created in the default reso
                 {
                     "Action": [
                         "elasticsearch:*"
-                    ],
-                    "Effect": "Allow",
+                    ], 
+                    "Effect": "Allow", 
                     "Resource": "acs:elasticsearch:*:133071096032****:instances/es-cn-tl325goel000j****"
-                },
-                
+                }, 
+                {
                     "Action": [
                         "elasticsearch:ListCollectors"
-                    ],
-                    "Effect": "Allow",
+                    ], 
+                    "Effect": "Allow", 
                     "Resource": "acs:elasticsearch:*:133071096032****:collectors/*"
-                },
+                }, 
                 {
-                    "Effect": "Allow",
                     "Action": [
-                        "cms:ListAlarm",
-                        "cms:DescribeActiveMetricRuleList",
+                        "elasticsearch:ListInstance", 
+                        "elasticsearch:ListSnapshotReposByInstanceId"
+                    ], 
+                    "Effect": "Allow", 
+                    "Resource": "acs:elasticsearch:*:<UID>:instances/*"
+                }, 
+                {
+                    "Effect": "Allow", 
+                    "Action": [
+                        "cms:ListAlarm", 
+                        "cms:DescribeActiveMetricRuleList", 
                         "cms:QueryMetricList"
-                    ],
+                    ], 
                     "Resource": "*"
-                },
+                }, 
                 {
                     "Action": [
                         "elasticsearch:ListTags"
-                    ],
-                    "Effect": "Allow",
+                    ], 
+                    "Effect": "Allow", 
                     "Resource": "acs:elasticsearch:*:*:tags/*"
-                },
+                }, 
                 {
                     "Action": [
                         "elasticsearch:GetEmonProjectList"
-                    ],
-                    "Effect": "Allow",
+                    ], 
+                    "Effect": "Allow", 
                     "Resource": "acs:elasticsearch:*:*:emonProjects/*"
-                },
+                }, 
                 {
                     "Action": [
                         "elasticsearch:getEmonUserConfig"
-                    ],
-                    "Effect": "Allow",
+                    ], 
+                    "Effect": "Allow", 
                     "Resource": "acs:elasticsearch:*:*:emonUserConfig/*"
                 }
-            ],
+            ], 
             "Version": "1"
         }
         ```
 
         External interfaces that are used to call some services, such as Beats, Advanced Monitoring and Alerting, and Tag, are integrated into the cluster management page of the Elasticsearch console. Therefore, if you want to manage only the clusters in a specific resource group in the console, you must configure a custom policy whose effective scope is the entire Alibaba Cloud account and attach the policy to the RAM user. This way, the RAM user can pass permission verification on the cluster management page.
 
+        **Note:** After the policy for a specific Elasticsearch or Logstash cluster is created and attached to a RAM user, the RAM user can use one of the following URLs to directly access the Elasticsearch or Logstash cluster:
+
+        -   https://elasticsearch.console.aliyun.com/\{regionId\}/instances/\{instanceId\}/base
+        -   https://elasticsearch.console.aliyun.com/\{regionId\}/logstashes/\{instanceId\}/base
     6.  Click **OK**.
 
 3.  Create a RAM user.
@@ -90,17 +102,17 @@ By default, Alibaba Cloud Elasticsearch clusters are created in the default reso
 
         ![Create a RAM user](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/9219305261/p274500.png)
 
-    4.  Click **OK**. The created RAM user appears on the Users page.
+    4.  Click **OK**. The newly created RAM user appears on the Users page.
 
-        ![Created RAM user](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/9219305261/p274245.png)
+        ![Newly created RAM user](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/9219305261/p274245.png)
 
-4.  Attach the created custom policy whose effective scope is the entire Alibaba Cloud account to the RAM user.
+4.  Attach the newly created custom policy whose effective scope is the entire Alibaba Cloud account to the RAM user.
 
     1.  Find the RAM user on the **Users** page.
 
     2.  Click **Add Permissions** in the **Actions** column that corresponds to the RAM user.
 
-    3.  In the **Add Permissions** panel, click **Custom Policy** in the Select Policy section and click the name of the newly created custom policy in the Authorization Policy Name column.
+    3.  In the **Add Permissions** panel, click **Custom Policy** in the Select Policy section and click the name of the newly created custom policy in the Authorization Policy Name column.[2](/intl.en-US/RAM/Use a resource group to grant permissions on a specific cluster.md)
 
         ![Attach the custom policy to the RAM user](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/9219305261/p275907.png)
 
@@ -127,7 +139,7 @@ By default, Alibaba Cloud Elasticsearch clusters are created in the default reso
 
     4.  Click **OK**.
 
-3.  Move the desired cluster in the default resource group to the newly created resource group.
+3.  Move the desired cluster from the default resource group to the newly created resource group.
 
     1.  On the Resource Group page, click **Default Resource Group** in the Display Name column.
 
@@ -177,5 +189,7 @@ By default, Alibaba Cloud Elasticsearch clusters are created in the default reso
 3.  In the left-side navigation pane, click **Elasticsearch Clusters**.
 
 4.  In the top navigation bar, select the newly created resource group and view the information of the cluster.
+
+    ![Desired cluster](../images/p274793.png)
 
 
