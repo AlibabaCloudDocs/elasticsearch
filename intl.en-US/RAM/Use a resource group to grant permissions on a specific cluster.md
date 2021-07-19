@@ -114,7 +114,7 @@ By default, Alibaba Cloud Elasticsearch clusters are created in the default reso
 
     3.  In the **Add Permissions** panel, click **Custom Policy** in the Select Policy section and click the name of the newly created custom policy in the Authorization Policy Name column.[2](/intl.en-US/RAM/Use a resource group to grant permissions on a specific cluster.md)
 
-        ![Attach the custom policy to the RAM user](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/9219305261/p275907.png)
+        ![Attach the custom policy to the RAM user](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/4758566261/p275907.png)
 
     4.  Click **OK**.
 
