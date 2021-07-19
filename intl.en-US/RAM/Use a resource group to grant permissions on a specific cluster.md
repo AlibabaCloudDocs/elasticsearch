@@ -190,6 +190,4 @@ By default, Alibaba Cloud Elasticsearch clusters are created in the default reso
 
 4.  In the top navigation bar, select the newly created resource group and view the information of the cluster.
 
-    ![Desired cluster](../images/p274793.png)
-
 
