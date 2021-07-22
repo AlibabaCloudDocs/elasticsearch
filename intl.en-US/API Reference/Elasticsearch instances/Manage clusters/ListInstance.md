@@ -91,8 +91,8 @@ Start value: **1** , Default value: **1** . |
 |disk|Integer|50|The size of the storage space of the node, in GB. |
 |diskEncryption|Boolean|false|Whether to use disk encryption:
 
--   true
--   false |
+-   true: use disk encryption.
+-   false: not use disk encryption. |
 |diskType|String|cloud\_ssd|The storage type of the node. Support: cloud\_ssd\(SSD cloud disk\) and cloud\_efficiency \(efficient cloud disk\). |
 |spec|String|elasticsearch.n4.small|The specification of data nodes. |
 |paymentType|String|postpaid|The billing method of the ECS instance.
@@ -132,5 +132,5 @@ Sample success responses
 
 ## Error code
 
-For a list of error codes, visit the [Error Center](https://error-center.alibabacloud.com/status/product/elasticsearch).
+For a list of error codes, visit the [API Error Center](https://error-center.alibabacloud.com/status/product/elasticsearch).
 
