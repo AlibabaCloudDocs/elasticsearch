@@ -53,7 +53,7 @@ This operation uses only common request headers. For more information, see Commo
 |amount|Integer|3|The number of nodes. |
 |disk|Integer|40|The storage space of the node. Unit: GB. |
 |diskType|String|cloud\_efficiency|The storage type of the node. Only ultra disks \(cloud\_efficiency\) are supported. |
-|spec|String|elasticsearch.n4.small|The specification of data nodes. Specification information is available through [Product Specifications](~~271718~~)View. |
+|spec|String|elasticsearch.n4.small|The specification of data nodes. Specification information is available through [Product Specifications](~~271718~~) View. |
 |createdAt|String|2018-07-13T03:58:07.253Z|The time when the instance was created. |
 |dedicateMaster|Boolean|false|Dedicated master node \(obsolete\). |
 |description|String|es-cn-abc|The name of the instance. |
@@ -84,7 +84,7 @@ This operation uses only common request headers. For more information, see Commo
 -   cloud\_ssd: standard SSD.
 -   cloud\_essd: enhanced SSD
 -   cloud\_efficiency: ultra disk |
-|spec|String|elasticsearch.sn2ne.large|The node specification. Specification information is available through [Product Specifications](~~271718~~)View. |
+|spec|String|elasticsearch.sn2ne.large|The node specification. Specification information is available through [Product Specifications](~~271718~~) View. |
 |enableKibanaPrivateNetwork|Boolean|false|Specifies whether to enable Kibana private network access. The values are as follows:
 
 -   true: BFD is enabled.
@@ -114,7 +114,7 @@ This operation uses only common request headers. For more information, see Commo
 |isNewDeployment|Boolean|true|Specifies whether to deploy the new architecture. |
 |kibanaConfiguration|Struct| |The configuration of Kibana nodes. |
 |amount|Integer|1|The number of DRDS server nodes. |
-|spec|String|elasticsearch.n4.small|The specification of data nodes. Specification information is available through [Product Specifications](~~271718~~)View. |
+|spec|String|elasticsearch.n4.small|The specification of data nodes. Specification information is available through [Product Specifications](~~271718~~) View. |
 |kibanaDomain|String|es-cn-3h4k3axh33th9\*\*\*\*.kibana.elasticsearch.aliyuncs.com|The endpoint of Kibana. |
 |kibanaIPWhitelist|List|\[ "0.0.0.0/0" \]|The list of Kibana public endpoint access whitelists. |
 |kibanaPort|Integer|5601|The access port of Kibana. |
@@ -123,7 +123,7 @@ This operation uses only common request headers. For more information, see Commo
 |amount|Integer|3|The number of nodes. |
 |disk|Integer|40|The storage space of the node. Unit: GB. |
 |diskType|String|cloud\_ssd|The storage type of the node. Only cloud\_ssd\(SSD\) is supported. |
-|spec|String|elasticsearch.n4.small|The specification of data nodes. Specification information is available through [Product Specifications](~~271718~~)View. |
+|spec|String|elasticsearch.n4.small|The specification of data nodes. Specification information is available through [Product Specifications](~~271718~~) View. |
 |networkConfig|Struct| |The network configuration. |
 |type|String|vpc|The network type. Only Virtual Private Cloud \(VPC\) is supported. |
 |vpcId|String|vpc-abc|The ID of the VPC network. |
@@ -146,7 +146,7 @@ This operation uses only common request headers. For more information, see Commo
 -   true: BFD is enabled.
 -   false: BFD is disabled. |
 |diskType|String|cloud\_ssd|The disk type of the node. Supported: cloud\_ssd\(SSD\) and cloud\_efficiency \(ultra disk\). |
-|spec|String|elasticsearch.n4.small|The specification of data nodes. Specification information is available through [Product Specifications](~~271718~~)View. |
+|spec|String|elasticsearch.n4.small|The specification of data nodes. Specification information is available through [Product Specifications](~~271718~~) View. |
 |paymentType|String|postpaid|The billing method of the instance. Valid values:
 
 -   prepaid: subscription.
@@ -197,7 +197,7 @@ This operation uses only common request headers. For more information, see Commo
 -   true: BFD is enabled.
 -   false: BFD is disabled. |
 |diskType|String|cloud\_efficiency|The storage type of the node. Only cloud\_efficiency \(ultra disks\) are supported. |
-|spec|String|elasticsearch.n4.small|The specification of data nodes. Specification information is available through [Product Specifications](~~271718~~)View. |
+|spec|String|elasticsearch.n4.small|The specification of data nodes. Specification information is available through [Product Specifications](~~271718~~) View. |
 |zoneCount|Integer|2|The number of zones. |
 |zoneInfos|Array of ZoneInfo| |Zone information. |
 |status|String|NORMAL|The status of the zone. Supported: ISOLATION and NORMAL. |
