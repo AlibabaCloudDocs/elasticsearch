@@ -20,8 +20,8 @@ DELETE /openapi/instances/[InstanceId]/vpc-endpoints/[EndpointId] HTTP/1.1
 
 |名称|类型|位置|是否必选|示例值|描述|
 |--|--|--|----|---|--|
-|EndpointId|String|Path|是|ep-hp33b2e43fays7s8\*\*\*\*|要删除的终端节点ID。 |
-|InstanceId|String|Path|是|es-cn-7mz293m9a003j\*\*\*\*|实例ID。 |
+|EndpointId|String|Path|是|ep-bp18s6wy9420wdi4\*\*\*\*|要删除的终端节点ID。 |
+|InstanceId|String|Path|是|es-cn-2r429tctl000d\*\*\*\*|实例ID。 |
 |ClientToken|String|Query|否|5FFD9ED4-C2EC-4E89-B22B-1ACB6FE1D\*\*\*|用于保证请求的幂等性。由客户端生成该参数值，要保证在不同请求间唯一，最大不值过64个ASCII字符。 |
 
 ## 返回数据
@@ -39,7 +39,7 @@ DELETE /openapi/instances/[InstanceId]/vpc-endpoints/[EndpointId] HTTP/1.1
 请求示例
 
 ```
-DELETE /openapi/instances/es-cn-7mz293m9a003j****/vpc-endpoints/ep-hp33b2e43fays7s8**** HTTP/1.1
+DELETE /openapi/instances/es-cn-2r429tctl000d****/vpc-endpoints/ep-bp18s6wy9420wdi4**** HTTP/1.1
 ```
 
 正常返回示例
