@@ -20,7 +20,7 @@ GET /openapi/instances/[InstanceId]/vpc-endpoints HTTP/1.1
 
 |名称|类型|位置|是否必选|示例值|描述|
 |--|--|--|----|---|--|
-|InstanceId|String|Path|是|es-cn-7mz293m9a003j\*\*\*\*|实例ID。 |
+|InstanceId|String|Path|是|es-cn-2r429tctl000d\*\*\*\*|实例ID。 |
 |size|Integer|Query|否|10|分页查询时设置的每页条数。默认值：20。 |
 |page|Integer|Query|否|1|列表的页码。
 
@@ -41,13 +41,13 @@ GET /openapi/instances/[InstanceId]/vpc-endpoints HTTP/1.1
 -   Disconnected：未连接。
 -   Deleting：删除中。
 -   ServiceDeleted：终端节点对应的服务已删除。 |
-|createTime|String|2020-01-02T19:11:12Z|终端节点的创建时间。 |
+|createTime|String|2021-07-22T01:19:24Z|终端节点的创建时间。 |
 |endpointBusinessStatus|String|Normal|终端节点的业务状态，取值含义如下：
 
  -   Normal：正常。
 -   FinacialLocked：欠费锁定。 |
-|endpointDomain|String|ep-hp33b2e43fays7s8\*\*\*\*.epsrv-hp3xdsq46ael67lo\*\*\*\*.cn-beijing.privatelink.aliyuncs.com|终端节点域名，用于连接配置。 |
-|endpointId|String|ep-hp33b2e43fays7s8\*\*\*\*|终端节点ID。 |
+|endpointDomain|String|ep-bp18s6wy9420wdi4\*\*\*\*.epsrv-bp1bz3efowa4kc0\*\*\*\*.cn-hangzhou.privatelink.aliyuncs.com|终端节点域名，用于连接配置。 |
+|endpointId|String|ep-bp1tah7zbrwmkjef\*\*\*\*|终端节点ID。 |
 |endpointName|String|test|终端节点名称。 |
 |endpointStatus|String|Active|终端节点状态，取值含义如下：
 
@@ -55,15 +55,15 @@ GET /openapi/instances/[InstanceId]/vpc-endpoints HTTP/1.1
 -   Active：可用。
 -   Pending：修改中。
 -   Deleting：删除中。 |
-|serviceId|String|epsrv-hp3vpx8yqxblby3i\*\*\*\*|终端节点关联的终端节点服务的ID。 |
-|serviceName|String|com.aliyuncs.privatelink.cn-beijing.epsrv-hp3xdsq46ael67lo\*\*\*\*|终端节点关联的终端节点服务的名称。 |
+|serviceId|String|epsrv-bp1w0p3jdirbfmt6\*\*\*\*|终端节点关联的终端节点服务的ID。 |
+|serviceName|String|com.aliyuncs.privatelink.cn-hangzhou.epsrv-bp1w0p3jdirbfmt6\*\*\*\*|终端节点关联的终端节点服务的名称。 |
 
 ## 示例
 
 请求示例
 
 ```
-GET /openapi/instances/es-cn-7mz293m9a003j****/vpc-endpoints HTTP/1.1
+GET /openapi/instances/es-cn-2r429tctl000d****/vpc-endpoints HTTP/1.1
 ```
 
 正常返回示例
@@ -72,29 +72,33 @@ GET /openapi/instances/es-cn-7mz293m9a003j****/vpc-endpoints HTTP/1.1
 
 ```
 {
-    "RequestId": "F99407AB-2FA9-489E-A259-40CF6DCC47D9", 
     "Result": [
         {
-            "createTime": "2020-01-02T19:11:12Z", 
-            "endpointBusinessStatus": "Normal", 
-            "serviceId": "epsrv-hp3vpx8yqxblby3i****", 
-            "endpointStatus": "Active", 
-            "endpointName": "test", 
-            "serviceName": "com.aliyuncs.privatelink.cn-beijing.epsrv-hp3xdsq46ael67lo****", 
-            "endpointId": "ep-hp33b2e43fays7s8****", 
-            "connectionStatus": "Disconnected"
-        }, 
+            "endpointId": "ep-bp18s6wy9420wdi4****",
+            "serviceId": "epsrv-bp1bz3efowa4kc03****",
+            "zoneId": "cn-hangzhou-i",
+            "securityGroupId": "sg-bp1emvef6hl69pqs****",
+            "createTime": "2021-07-22T01:19:24Z",
+            "endpointStatus": "Active",
+            "endpointBusinessStatus": "Normal",
+            "endpointDomain": "ep-bp18s6wy9420wdi4****.epsrv-bp1bz3efowa4kc0****.cn-hangzhou.privatelink.aliyuncs.com",
+            "connectionStatus": "Disconnected",
+            "serviceName": "com.aliyuncs.privatelink.cn-hangzhou.epsrv-bp1bz3efowa4kc03****"
+        },
         {
-            "createTime": "2020-01-01T19:11:12Z", 
-            "endpointBusinessStatus": "Normal", 
-            "serviceId": "epsrv-hp3vpx8yqxbl223i****", 
-            "endpointStatus": "Active", 
-            "endpointName": "test2", 
-            "serviceName": "com.aliyuncs.privatelink.cn-beijing.epsrv-hp3xdsq46a227lo****", 
-            "endpointId": "ep-hp33b2e23fays7s8****", 
-            "connectionStatus": "Connected"
+            "endpointId": "ep-bp1tah7zbrwmkjef****",
+            "serviceId": "epsrv-bp1w0p3jdirbfmt6****",
+            "zoneId": "cn-hangzhou-i",
+            "securityGroupId": "sg-bp1emvef6hl69pqs****",
+            "createTime": "2021-07-22T01:12:28Z",
+            "endpointStatus": "Active",
+            "endpointBusinessStatus": "Normal",
+            "endpointDomain": "ep-bp1tah7zbrwmkjef****.epsrv-bp1w0p3jdirbfmt6****.cn-hangzhou.privatelink.aliyuncs.com",
+            "connectionStatus": "Connected",
+            "serviceName": "com.aliyuncs.privatelink.cn-hangzhou.epsrv-bp1w0p3jdirbfmt6****"
         }
-    ]
+    ],
+    "RequestId": "AD080217-B2C1-4F36-904F-BE4E4A0B4536"
 }
 ```
 
