@@ -22,10 +22,15 @@ PATCH|POST /openapi/instances/[InstanceId]/kibana-white-ips HTTP/1.1
 
 |名称|类型|位置|是否必选|示例值|描述|
 |--|--|--|----|---|--|
-|InstanceId|String|Path|是|es-cn-i7m26sknb000k\*\*\*\*|实例ID。 |
+|InstanceId|String|Path|是|es-cn-tl329rbpc0001\*\*\*\*|实例ID。 |
 |clientToken|String|Query|否|5A2CFF0E-5718-45B5-9D4D-70B3FF\*\*\*\*|用于保证请求的幂等性。由客户端生成该参数值，要保证在不同请求间唯一，最大不值过64个ASCII字符。 |
+|modifyMode|String|Query|否|Cover|修改方式，取值含义如下：
 
-RequestBody中还需填入以下参数，用来指定迁移信息。
+ -   Cover（默认值）：使用ips参数的值覆盖原IP白名单。
+-   Append：在原IP白名单中增加ips参数中输入的IP地址。
+-   Delete：在原IP白名单中删除ips参数中输入的IP地址，至少需要保留一个IP地址。 |
+
+RequestBody中还需填入以下参数，用来指定待更新的访问白名单。
 
 |名称
 
@@ -43,26 +48,82 @@ RequestBody中还需填入以下参数，用来指定迁移信息。
 
 |是
 
-|\["0.0.0.0/0", "1.1.XX.XX"\]
+|\["110.0.XX.XX/8"\]
 
 |待更新的Kibana访问白名单。 |
+|whiteIpGroup
+
+|Struct
+
+|否
+
+|\{"groupName": "test\_group\_name", "ips": \["0.0.0.0", "10.2.XX.XX"\]\}
+
+|以白名单组whiteIpGroup传参方式，更新实例白名单安全配置。仅支持更新一个白名单组。 |
+|└ groupName
+
+|String
+
+|whiteIpGroup中必填
+
+|test\_group\_name
+
+|白名单组的组名。 |
+|└ ips
+
+|List<String\>
+
+|whiteIpGroup中必填
+
+|\["0.0.0.0", "10.2.XX.XX"\]
+
+|白名单组中的IP列表。 |
+
+**说明：**
+
+modifyMode为Cover时，如果ips为空，则删除该白名单组。
+
+modifyMode为Cover时，如果groupName不在已有白名单组组名的列表中，则会新建一个白名单组。
+
+modifyMode为Delete时，删除后的ips至少需要保留一个IP地址。
+
+modifyMode为Append时，需要保证白名单组组名为已创建的，否则会报NotFound。
+
+白名单组的增加、删除，是由modifyMode为Cover的调用来实现的，Delete和Append无法实现白名单组粒度的增删，只能修改白名单组中的IP列表。
 
 ## 返回数据
 
 |名称|类型|示例值|描述|
 |--|--|---|--|
-|RequestId|String|E5EF11F1-DBAE-4020-AC24-DFA6C434\*\*\*\*|请求ID。 |
+|RequestId|String|E5EF11F1-DBAE-4020-AC24-DFA6C4345CAE|请求ID。 |
 |Result|Struct| |返回结果。 |
-|kibanaIPWhitelist|List|\["0.0.0.0/0", "1.1.XX.XX"\]|Kibana访问白名单列表。 |
+|kibanaIPWhitelist|List|\[ "0.0.XX.XX", "10.2.XX.XX", "110.0.XX.XX/9" \]|Kibana访问白名单列表。 |
+|kibanaPrivateIPWhitelist|List|\[ "192.168.XX.XX/24" \]|Kibana私网访问白名单列表。 |
+
+以下返回的参数信息中我们只保证包含上面返回参数表格中提到的这些参数信息，而未提到的这些参数信息仅供参考，程序中不能强制依赖获取这些参数。
 
 ## 示例
 
 请求示例
 
 ```
-POST /openapi/instances/es-cn-i7m26sknb000k****/kibana-white-ips HTTP/1.1
-公共请求头
-{"kibanaIPWhitelist": ["0.0.0.0/0", "1.1.XX.XX"]}
+POST /openapi/instances/es-cn-tl329rbpc0001****/kibana-white-ips HTTP/1.1
+
+{
+    "kibanaIPWhitelist": [
+        "110.0.XX.XX/8"
+    ]
+}
+或
+{
+    "whiteIpGroup": {
+        "groupName": "test_group_name", 
+        "ips": [
+            "0.0.0.0", 
+            "10.2.XX.XX"
+        ]
+    }
+}
 ```
 
 正常返回示例
@@ -71,136 +132,177 @@ POST /openapi/instances/es-cn-i7m26sknb000k****/kibana-white-ips HTTP/1.1
 
 ```
 {
-  "Result": {
-    "instanceId": "es-cn-i7m27ausp001l****",
-    "version": "7.10.0_with_X-Pack",
-    "description": "lrr",
-    "nodeAmount": 3,
-    "paymentType": "postpaid",
-    "status": "active",
-    "privateNetworkIpWhiteList": [
-      "0.0.0.0/0"
-    ],
-    "enablePublic": false,
-    "nodeSpec": {
-      "spec": "elasticsearch.sn1ne.large",
-      "disk": 20,
-      "diskType": "cloud_essd",
-      "diskEncryption": false,
-      "performanceLevel": "PL1"
+    "Result": {
+        "instanceId": "es-cn-tl329rbpc0001****",
+        "version": "7.10.0_with_X-Pack",
+        "description": "lrr",
+        "nodeAmount": 0,
+        "paymentType": "postpaid",
+        "status": "active",
+        "privateNetworkIpWhiteList": [
+            "11.22.XX.XX",
+            "0.0.XX.XX/0"
+        ],
+        "enablePublic": false,
+        "nodeSpec": {},
+        "dataNode": false,
+        "networkConfig": {
+            "vpcId": "vpc-bp1jy348ibzulk6hn65xf",
+            "vswitchId": "vsw-bp1a0mifpletdd1dakx5j",
+            "vsArea": "cn-hangzhou-h",
+            "whiteIpGroupList": [
+                {
+                    "groupName": "default",
+                    "ips": [
+                        "0.0.XX.XX/0",
+                        "11.22.XX.XX"
+                    ],
+                    "whiteIpType": "PRIVATE_ES"
+                },
+                {
+                    "groupName": "default",
+                    "ips": [
+                        "110.0.XX.XX/9"
+                    ],
+                    "whiteIpType": "PUBLIC_KIBANA"
+                },
+                {
+                    "groupName": "default",
+                    "ips": [
+                        "192.168.XX.XX/24"
+                    ],
+                    "whiteIpType": "PRIVATE_KIBANA"
+                },
+                {
+                    "groupName": "test_group_name",
+                    "ips": [
+                        "0.0.XX.XX",
+                        "10.2.XX.XX"
+                    ],
+                    "whiteIpType": "PUBLIC_KIBANA"
+                }
+            ],
+            "type": "vpc"
+        },
+        "createdAt": "2021-07-21T01:29:38.510Z",
+        "updatedAt": "2021-07-21T06:12:12.370Z",
+        "commodityCode": "elasticsearch",
+        "extendConfigs": [
+            {
+                "configType": "usageScenario",
+                "value": "log"
+            },
+            {
+                "configType": "maintainTime",
+                "maintainStartTime": "02:00Z",
+                "maintainEndTime": "06:00Z"
+            },
+            {
+                "configType": "aliVersion",
+                "aliVersion": "ali1.4.0"
+            },
+            {
+                "configType": "followCube",
+                "followClusterEnabled": true
+            }
+        ],
+        "endTime": 4782556800000,
+        "clusterTasks": [],
+        "vpcInstanceId": "es-cn-tl329rbpc0001****-worker",
+        "resourceGroupId": "rg-acfmxxkk2p7****",
+        "zoneCount": 1,
+        "protocol": "HTTP",
+        "zoneInfos": [
+            {
+                "zoneId": "cn-hangzhou-h",
+                "status": "NORMAL"
+            }
+        ],
+        "instanceType": "elasticsearch",
+        "inited": true,
+        "tags": [
+            {
+                "tagKey": "acs:rm:rgId",
+                "tagValue": "rg-acfmxxkk2p7****"
+            }
+        ],
+        "serviceVpc": true,
+        "domain": "es-cn-tl329rbpc0001****.elasticsearch.aliyuncs.com",
+        "port": 9200,
+        "esVersion": "7.10.0_with_X-Pack",
+        "esConfig": {
+            "action.destructive_requires_name": "true",
+            "xpack.watcher.enabled": "false",
+            "action.auto_create_index": "+.*,-*"
+        },
+        "esIPWhitelist": [
+            "11.22.XX.XX",
+            "0.0.XX.XX/0"
+        ],
+        "esIPBlacklist": [],
+        "kibanaProtocol": "HTTPS",
+        "kibanaIPWhitelist": [
+            "0.0.0.0",
+            "10.2.XX.XX",
+            "110.0.XX.XX/9"
+        ],
+        "kibanaPrivateIPWhitelist": [
+            "192.168.XX.XX/24"
+        ],
+        "publicIpWhitelist": [],
+        "kibanaDomain": "es-cn-tl329rbpc0001****.kibana.elasticsearch.aliyuncs.com",
+        "kibanaPort": 5601,
+        "kibanaPrivateDomain": "es-cn-tl329rbpc0001****-kibana.internal.elasticsearch.aliyuncs.com",
+        "kibanaPrivatePort": 5601,
+        "haveKibana": true,
+        "instanceCategory": "IS",
+        "dedicateMaster": false,
+        "advancedDedicateMaster": false,
+        "masterConfiguration": {},
+        "haveClientNode": false,
+        "warmNode": true,
+        "warmNodeConfiguration": {
+            "spec": "elasticsearch.d1.2xlarge",
+            "amount": 3
+        },
+        "clientNodeConfiguration": {},
+        "kibanaConfiguration": {
+            "spec": "elasticsearch.n4.small",
+            "amount": 1,
+            "disk": 0
+        },
+        "elasticDataNodeConfiguration": {},
+        "haveElasticDataNode": false,
+        "dictList": [
+            {
+                "name": "SYSTEM_MAIN.dic",
+                "fileSize": 2782602,
+                "sourceType": "ORIGIN",
+                "type": "MAIN"
+            },
+            {
+                "name": "SYSTEM_STOPWORD.dic",
+                "fileSize": 132,
+                "sourceType": "ORIGIN",
+                "type": "STOP"
+            }
+        ],
+        "synonymsDicts": [],
+        "ikHotDicts": [],
+        "aliwsDicts": [],
+        "haveGrafana": false,
+        "haveCerebro": false,
+        "enableKibanaPublicNetwork": true,
+        "enableKibanaPrivateNetwork": true,
+        "advancedSetting": {
+            "gcName": "CMS"
+        },
+        "enableMetrics": true,
+        "readWritePolicy": {
+            "writeHa": false
+        }
     },
-    "dataNode": true,
-    "networkConfig": {
-      "vpcId": "vpc-bp1jy348ibzulk6hn****",
-      "vswitchId": "vsw-bp1a0mifpletdd1da****",
-      "vsArea": "cn-hangzhou-h",
-      "type": "vpc"
-    },
-    "createdAt": "2021-06-03T06:55:39.836Z",
-    "updatedAt": "2021-06-03T06:55:39.836Z",
-    "commodityCode": "elasticsearch",
-    "extendConfigs": [
-      {
-        "configType": "usageScenario",
-        "value": "general"
-      },
-      {
-        "configType": "maintainTime",
-        "maintainStartTime": "02:00Z",
-        "maintainEndTime": "06:00Z"
-      },
-      {
-        "configType": "aliVersion",
-        "aliVersion": "ali1.4.0"
-      }
-    ],
-    "endTime": 4778409600000,
-    "clusterTasks": [],
-    "vpcInstanceId": "es-cn-i7m27ausp001l****-worker",
-    "resourceGroupId": "rg-acfmxxkk2p7****",
-    "zoneCount": 1,
-    "protocol": "HTTP",
-    "zoneInfos": [
-      {
-        "zoneId": "cn-hangzhou-h",
-        "status": "NORMAL"
-      }
-    ],
-    "instanceType": "elasticsearch",
-    "inited": true,
-    "tags": [
-      {
-        "tagKey": "acs:rm:rgId",
-        "tagValue": "rg-acfmxxkk2p7mxky"
-      }
-    ],
-    "domain": "es-cn-i7m27ausp001l****.elasticsearch.aliyuncs.com",
-    "port": 9200,
-    "esVersion": "7.10.0_with_X-Pack",
-    "esConfig": {
-      "action.destructive_requires_name": "true",
-      "xpack.watcher.enabled": "false",
-      "action.auto_create_index": "+.*,-*"
-    },
-    "esIPWhitelist": [
-      "0.0.0.0/0"
-    ],
-    "esIPBlacklist": [],
-    "kibanaProtocol": "HTTPS",
-    "kibanaIPWhitelist": [
-      "0.0.0.0/0",
-      "1.1.XX.XX"
-    ],
-    "kibanaPrivateIPWhitelist": [],
-    "publicIpWhitelist": [],
-    "kibanaDomain": "es-cn-i7m27ausp001l****.kibana.elasticsearch.aliyuncs.com",
-    "kibanaPort": 5601,
-    "haveKibana": true,
-    "instanceCategory": "x-pack",
-    "dedicateMaster": false,
-    "advancedDedicateMaster": false,
-    "masterConfiguration": {},
-    "haveClientNode": false,
-    "warmNode": false,
-    "warmNodeConfiguration": {},
-    "clientNodeConfiguration": {},
-    "kibanaConfiguration": {
-      "spec": "elasticsearch.n4.small",
-      "amount": 1,
-      "disk": 0
-    },
-    "elasticDataNodeConfiguration": {},
-    "haveElasticDataNode": false,
-    "dictList": [
-      {
-        "name": "SYSTEM_MAIN.dic",
-        "fileSize": 2782602,
-        "sourceType": "ORIGIN",
-        "type": "MAIN"
-      },
-      {
-        "name": "SYSTEM_STOPWORD.dic",
-        "fileSize": 132,
-        "sourceType": "ORIGIN",
-        "type": "STOP"
-      }
-    ],
-    "synonymsDicts": [],
-    "ikHotDicts": [],
-    "aliwsDicts": [],
-    "haveGrafana": false,
-    "haveCerebro": false,
-    "enableKibanaPublicNetwork": true,
-    "enableKibanaPrivateNetwork": false,
-    "advancedSetting": {
-      "gcName": "CMS"
-    },
-    "enableMetrics": false,
-    "readWritePolicy": {
-      "writeHa": false
-    }
-  },
-  "RequestId": "A041337B-68BE-4C10-8B81-6757D0EA8DBD"
+    "RequestId": "E815C5C9-E82D-4B10-BDE0-D25340C2ACEF"
 }
 ```
 
