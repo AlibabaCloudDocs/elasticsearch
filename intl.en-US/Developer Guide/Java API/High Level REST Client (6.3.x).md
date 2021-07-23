@@ -93,7 +93,7 @@ public class RestClientTest63 {
 
        // Create a Java REST client by using the builder and configure HttpClientConfigCallback for the HTTP client.
        // Specify the public endpoint of the Elasticsearch cluster. You can obtain the endpoint from the Basic Information page of the cluster.
-        RestClientBuilder builder = RestClient.builder(new HttpHost("{Elasticsearch cluster endpoint}", 9200))
+        RestClientBuilder builder = RestClient.builder(new HttpHost("{Elasticsearch cluster endpoint}", 9200, "http"))
                 .setHttpClientConfigCallback(new RestClientBuilder.HttpClientConfigCallback() {
                     @Override
                     public HttpAsyncClientBuilder customizeHttpClient(HttpAsyncClientBuilder httpClientBuilder) {
