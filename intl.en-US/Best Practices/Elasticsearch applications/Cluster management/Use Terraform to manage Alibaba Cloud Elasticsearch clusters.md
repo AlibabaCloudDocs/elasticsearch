@@ -11,7 +11,7 @@ You can install and configure Terraform by using the following methods:
 
 1.  Download the software package that is suitable for your OS from the [official Terraform website](https://www.terraform.io/downloads.html).
 
-    In this topic, Terraform is installed and configured in a Linux OS. If you do not have a Linux OS, you can purchase an Alibaba Cloud Elastic Compute Service \(ECS\) instance. For more information, see [Step 1: Create an ECS instance](/intl.en-US/Quick Start/Create an instance in the ECS console (detailed version)/Quick start for Linux instances.md).
+    In this example, Terraform is installed and configured in a Linux OS. If you do not have a Linux OS, you can purchase an Alibaba Cloud Elastic Compute Service \(ECS\) instance. For more information, see [Step 1: Create an ECS instance](/intl.en-US/Quick Start/Create an instance in the ECS console (detailed version)/Quick start for Linux instances.md).
 
 2.  Decompress the package to the /usr/local/bin directory.
 
@@ -90,6 +90,10 @@ You can install and configure Terraform by using the following methods:
 
 8.  Create a folder named plugh in the current directory, download a [provider package](https://releases.hashicorp.com/terraform-provider-alicloud/1.64.0/), and then decompress the package to the plugh folder.
 
+    ```
+    mkdir -p
+    ```
+
 9.  Initialize the working directory and use `-plugin-dir` to specify the path that is used to store the provider.
 
     ```
@@ -128,7 +132,7 @@ You can install and configure Terraform by using the following methods:
     |Parameter|Required|Description|
     |---------|--------|-----------|
     |`description`|No|The description of the cluster name.|
-    |`instance_charge_type`|No|The billing method. Valid values: `PrePaid` and `PostPaid`. Default value: PostPaid.|
+    |`instance_charge_type`|No|The billing method of the cluster. Valid values: `PrePaid` and `PostPaid`. Default value: PostPaid.|
     |`period`|No|The billing cycle of the cluster. Unit: months. This parameter is valid only when `instance_charge_type` is set to `PrePaid`. Valid values: 1, 2, 3, 4, 5, 6, 7, 8, 9, 12, 24, and 36. Default value: 1.|
     |`data_node_amount`|Yes|The number of data nodes in the cluster. Valid values: 2 to 50.|
     |`data_node_spec`|Yes|The specifications of each data node.|
@@ -136,15 +140,15 @@ You can install and configure Terraform by using the following methods:
     -   `cloud_efficiency`: If the disk type is the ultra disk \(cloud\_efficiency\), the maximum value of this parameter is 5120, which indicates 5 TiB of storage space. Ultra disks are cost-effective and can be used in scenarios such as logging and analyzing large amounts of data. If you want to specify a size greater than 2,048 GiB for an ultra disk, you can set the value of this parameter only to 2560, 3072, 3584, 4096, 4608, or 5120. |
     |`data_node_disk_type`|Yes|The disk type. Valid values: `cloud_ssd` and `cloud_efficiency`.|
     |`vswitch_id`|Yes|The ID of the vSwitch.|
-    |`password`|No|The password that is used to access the cluster. It must be 8 to 32 characters in length and can contain letters, digits, and special characters. The following special characters are allowed: `!@#$%^&*()_+-=`|
+    |`password`|No|The password that is used to access the cluster. It must be 8 to 32 characters in length and can contain letters, digits, and special characters. The following special characters are allowed: `! @ # $ % ^ & * ( ) _ + - =` |
     |`kms_encrypted_password`|No|The encrypted password of Key Management Service \(KMS\). You do not need to set this parameter if you set `password`. You must set either `password` or `kms_encrypted_password`.|
     |`kms_encryption_context`|No|The KMS encryption context. This parameter is valid only when `kms_encrypted_password` is specified. This parameter is used to decrypt the cluster that is created or updated with `kms_encrypted_password`. For more information, see [Encryption context](https://www.alibabacloud.com/help/zh/doc-detail/42975.htm).|
     |`version`|Yes|The version of the cluster. Valid values: `5.5.3_with_X-Pack`, `6.3_with_X-Pack`, and `6.7_with_X-Pack`.|
-    |`private_whitelist`|No|The IP address whitelist for access to the cluster over a VPC.|
+    |`private_whitelist`|No|The IP address whitelist for access to the cluster over a virtual private cloud \(VPC\).|
     |`kibana_whitelist`|No|The IP address whitelist for access to the Kibana console.|
     |`master_node_spec`|No|The specifications of each dedicated master node.|
-    |`advancedDedicateMaster`|No|Specifies whether to create dedicated master nodes. Valid values:    -   true: Create dedicated master nodes. If the cluster is deployed across zones and dedicated master nodes are enabled for the cluster, you must set this parameter to true.
-    -   false: Do not create dedicated master nodes. Default value: false. |
+    |`advancedDedicateMaster`|No|Specifies whether to create dedicated master nodes. Default value: false. Valid values:    -   true: Create dedicated master nodes. If the cluster is deployed across zones and dedicated master nodes are enabled for the cluster, you must set this parameter to true.
+    -   false: Do not create dedicated master nodes. |
     |`zone_count`|No|The number of zones. Valid values: 1 to 3. The value of `data_node_amount` must be a multiple of this value.|
 
     For more information, see [alicloud\_elasticsearch\_instance](https://www.terraform.io/docs/providers/alicloud/r/elasticsearch.html).
@@ -158,7 +162,6 @@ You can install and configure Terraform by using the following methods:
     If the command is successfully run, the following result is returned:
 
     ```
-    # terraform plan
     Refreshing Terraform state in-memory prior to plan...
     The refreshed state will be used to calculate this plan, but will not be
     persisted to local or remote state storage.
@@ -204,7 +207,6 @@ You can install and configure Terraform by using the following methods:
     If the command is successfully run, the following result is returned:
 
     ```
-    # terraform apply
     Plan: 1 to add, 0 to change, 0 to destroy.
     Do you want to perform these actions?
       Terraform will perform the actions described above.
@@ -254,12 +256,12 @@ You can install and configure Terraform by using the following methods:
 
 ## Import the Elasticsearch cluster
 
-If your Elasticsearch cluster is not created with Terraform, you can run commands to import the cluster to the state directory of Terraform.
+If your Elasticsearch cluster is not created by using Terraform, you can run commands to import the cluster to the state directory of Terraform.
 
 1.  Create a file named main.tf in the test directory.
 
     ```
-    # vim main.tf
+    vim main.tf
     ```
 
 2.  Declare the cluster and specify the storage path of the cluster that you want to import to the state directory.
@@ -271,7 +273,12 @@ If your Elasticsearch cluster is not created with Terraform, you can run command
 3.  Import the cluster.
 
     ```
-    # terraform import alicloud_elasticsearch_instance.test  es-cn-0pp1f1y5g000h****
+    terraform import alicloud_elasticsearch_instance.test  es-cn-0pp1f1y5g000h****
+    ```
+
+    If the command is successfully run, the following result is returned:
+
+    ```
     alicloud_elasticsearch_instance.test: Importing from ID "es-cn-0pp1f1y5g000h****"...
     alicloud_elasticsearch_instance.test: Import prepared!
       Prepared alicloud_elasticsearch_instance for import
@@ -291,7 +298,6 @@ If your Elasticsearch cluster is not created with Terraform, you can run command
 Run the `terraform show` command to view all the managed clusters and their attribute values in the state directory.
 
 ```
-# terraform show
 # alicloud_elasticsearch_instance.instance:
 resource "alicloud_elasticsearch_instance" "instance" {
     data_node_amount     = 2
@@ -341,7 +347,7 @@ resource "alicloud_elasticsearch_instance" "test" {
 
 ## Delete a cluster
 
-**Warning:** After a cluster is deleted, it cannot be recovered, and all data in the cluster is deleted.
+**Warning:** After a cluster is deleted, it cannot be recovered, and all the data stored on the cluster is deleted.
 
 Go to the test directory, run the `terraform destroy` command, and then enter yes to delete the cluster.
 
