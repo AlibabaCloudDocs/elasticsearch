@@ -28,7 +28,7 @@ GET /openapi/instances HTTP/1.1
 |instanceId|String|Query|否|es-cn-v641a0ta3000g\*\*\*\*|实例ID。 |
 |esVersion|String|Query|否|6.7.0\_with\_X-Pack|实例版本。 |
 |resourceGroupId|String|Query|否|rg-aekzvowej3i\*\*\*\*|实例所在的资源组ID。 |
-|tags|String|Query|否|dev-env|实例标签。 |
+|tags|String|Query|否|\[\{"tagKey":"key1","tagValue":"value1"\}\]|实例标签。 |
 |vpcId|String|Query|否|vpc-bp16k1dvzxtmagcva\*\*\*\*|实例所在的专有网络ID。 |
 |zoneId|String|Query|否|cn-hangzhou-i|实例所在的可用区ID。 |
 |paymentType|String|Query|否|postpaid|实例的付费类型。可选值：
@@ -180,8 +180,8 @@ GET /openapi/instances?description=abc&page=1&size=10
             "inited": true,
             "tags": [
                 {
-                    "tagKey": "env",
-                    "tagValue": "dev"
+                    "tagKey": "key1",
+                    "tagValue": "value1"
                 }
             ],
             "dedicateMaster": false,
